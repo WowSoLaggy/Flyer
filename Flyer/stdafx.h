@@ -5,5 +5,9 @@
 #include <vector>
 #include <memory>
 
-#include <d3d12.h>
-#include <dxgi1_4.h>
+#include <dxgi.h>
+#include <d3dcommon.h>
+#include <d3d11.h>
+#include <DirectXMath.h>
+
+using namespace DirectX;

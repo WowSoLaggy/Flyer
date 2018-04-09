@@ -15,23 +15,28 @@ private:
   HMODULE d_hInstance;
   HWND d_hWnd;
 
-  const std::string d_appName = "Flyer";
-  const int d_screenWidth = 1280;
-  const int d_screenHeight = 960;
-  const bool d_vSyncEnabled = true;
+  const std::string c_appName = "Flyer";
+  const int c_screenWidth = 1280;
+  const int c_screenHeight = 960;
+  const bool c_fullScreen = false;
+  const bool c_vSyncEnabled = true;
+  const float c_screenNear = 0.1f;
+  const float c_screenDepth = 1000.0f;
 
-  ID3D12Device* d_device;
-  ID3D12CommandQueue* d_commandQueue;
-  IDXGISwapChain3* d_swapChain;
-  ID3D12DescriptorHeap* d_renderTargetViewHeap;
-  ID3D12Resource* d_backBufferRenderTarget[2];
-  unsigned int d_bufferIndex;
-  ID3D12CommandAllocator* d_commandAllocator;
-  ID3D12GraphicsCommandList* d_commandList;
-  ID3D12PipelineState* d_pipelineState;
-  ID3D12Fence* d_fence;
-  HANDLE d_fenceEvent;
-  unsigned long long d_fenceValue;
+  int d_videoCardMemory;
+  char d_videoCardDescription[128];
+  IDXGISwapChain* d_swapChain;
+  ID3D11Device* d_device;
+  ID3D11DeviceContext* d_deviceContext;
+  ID3D11RenderTargetView* d_renderTargetView;
+  ID3D11Texture2D* d_depthStencilBuffer;
+  ID3D11DepthStencilState* d_depthStencilState;
+  ID3D11DepthStencilView* d_depthStencilView;
+  ID3D11RasterizerState* d_rasterState;
+  XMMATRIX d_projectionMatrix;
+  XMMATRIX d_worldMatrix;
+  XMMATRIX d_orthoMatrix;
+
 
   void createWindow();
   void disposeWindow();
