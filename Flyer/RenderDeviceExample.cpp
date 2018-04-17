@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "RenderDevice.h"
+#include "RenderDeviceExample.h"
 
 
 namespace
@@ -17,22 +17,90 @@ namespace
 }
 
 
-void RenderDevice::initialize()
+void RenderDeviceExample::initialize()
 {
   createWindow();
   createDevice();
+
+  // Create the camera object.
+  d_Camera = new CameraClass;
+  if (!d_Camera)
+    return;
+
+  // Set the initial position of the camera.
+  d_Camera->SetPosition(0.0f, 0.0f, -100.0f);
+
+  // Create the model object.
+  d_Model = new ModelClass;
+  if (!d_Model)
+    return;
+
+  // Initialize the model object.
+  HRESULT result = d_Model->Initialize(d_device, L"Doge.dds");
+  if (!result)
+    return;
+
+  // Create the color shader object.
+  d_LightShader = new LightShaderClass;
+  if (!d_LightShader)
+    return;
+
+  // Initialize the color shader object.
+  result = d_LightShader->Initialize(d_device, d_hWnd);
+  if (!result)
+    return;
+
+  // Create the light object.
+  d_Light = new LightClass;
+  if (!d_Light)
+    return;
+
+  // Initialize the light object.
+  d_Light->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
+  d_Light->SetDirection(0.0f, 0.0f, 1.0f);
 }
 
-void RenderDevice::dispose()
+void RenderDeviceExample::dispose()
 {
+  // Release the light object.
+  if (d_Light)
+  {
+    delete d_Light;
+    d_Light = 0;
+  }
+
+  // Release the color shader object.
+  if (d_LightShader)
+  {
+    d_LightShader->Shutdown();
+    delete d_LightShader;
+    d_LightShader = 0;
+  }
+
+  // Release the model object.
+  if (d_Model)
+  {
+    d_Model->Shutdown();
+    delete d_Model;
+    d_Model = 0;
+  }
+
+  // Release the camera object.
+  if (d_Camera)
+  {
+    delete d_Camera;
+    d_Camera = 0;
+  }
+
   disposeDevice();
   disposeWindow();
 }
 
 
-void RenderDevice::render()
+void RenderDeviceExample::render()
 {
   float color[4];
+
 
   // Setup the color to clear the buffer to.
   color[0] = 0.396f;
@@ -46,13 +114,40 @@ void RenderDevice::render()
   // Clear the depth buffer.
   d_deviceContext->ClearDepthStencilView(d_depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
 
+  XMMATRIX viewMatrix, projectionMatrix, worldMatrix;
+  bool result;
+
+  static float x = 0.0f;
+  x += 0.05f;
+  float z = std::sin(x) * 20 - 30;
+  d_Camera->SetPosition(0, 0, z);
+
+  // Generate the view matrix based on the camera's position.
+  d_Camera->Render();
+
+  // Get the world, view, and projection matrices from the camera and d3d objects.
+  d_Camera->GetViewMatrix(viewMatrix);
+  worldMatrix = d_worldMatrix;
+  projectionMatrix = d_projectionMatrix;
+
+  // Rotate the world matrix by the rotation value so that the triangle will spin.
+  worldMatrix = XMMatrixRotationY(x / 2);
+
+  // Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
+  d_Model->Render(d_deviceContext);
+
+  // Render the model using the color shader.
+  result = d_LightShader->Render(d_deviceContext, d_Model->GetIndexCount(),
+    worldMatrix, viewMatrix, projectionMatrix, d_Model->GetTexture(),
+    d_Light->GetDirection(), d_Light->GetDiffuseColor());
+
   // Present the back buffer to the screen since rendering is complete.
   unsigned int nominator = c_vSyncEnabled ? 1 : 0;
   d_swapChain->Present(nominator, 0);
 }
 
 
-void RenderDevice::createWindow()
+void RenderDeviceExample::createWindow()
 {
   // Register win class
 
@@ -82,8 +177,8 @@ void RenderDevice::createWindow()
   d_hWnd = CreateWindowEx(0, c_appName.c_str(), c_appName.c_str(), WS_POPUP,
     posX, posY, c_screenWidth, c_screenHeight, nullptr, nullptr, d_hInstance, nullptr);
 }
-  
-void RenderDevice::disposeWindow()
+
+void RenderDeviceExample::disposeWindow()
 {
   DestroyWindow(d_hWnd);
   d_hWnd = nullptr;
@@ -92,7 +187,7 @@ void RenderDevice::disposeWindow()
   d_hInstance = nullptr;
 }
 
-void RenderDevice::showWindow()
+void RenderDeviceExample::showWindow()
 {
   // Bring the window up on the screen and set it as main focus.
   ShowWindow(d_hWnd, SW_SHOW);
@@ -101,7 +196,7 @@ void RenderDevice::showWindow()
 }
 
 
-void RenderDevice::createDevice()
+void RenderDeviceExample::createDevice()
 {
   // Create a DirectX graphics interface factory.
   IDXGIFactory* factory;
@@ -370,10 +465,19 @@ void RenderDevice::createDevice()
   float fieldOfView = (float)DirectX::XM_PI / 4.0f;
   float screenAspect = (float)c_screenWidth / (float)c_screenHeight;
 
+  // Create the projection matrix for 3D rendering.
+  d_projectionMatrix = XMMatrixPerspectiveFovLH(fieldOfView, screenAspect, c_screenNear, c_screenDepth);
+
+  // Initialize the world matrix to the identity matrix.
+  d_worldMatrix = XMMatrixIdentity();
+
+  // Create an orthographic projection matrix for 2D rendering.
+  d_orthoMatrix = XMMatrixOrthographicLH((float)c_screenWidth, (float)c_screenHeight, c_screenNear, c_screenDepth);
+
   showWindow();
 }
 
-void RenderDevice::disposeDevice()
+void RenderDeviceExample::disposeDevice()
 {
   // Before shutting down set to windowed mode or when you release the swap chain it will throw an exception.
   if (d_swapChain)

@@ -1,7 +1,12 @@
 #pragma once
 
+#include "CameraClass.h"
+#include "ModelClass.h"
+#include "TextureLight.h"
+#include "LightClass.h"
 
-class RenderDevice
+
+class RenderDeviceExample
 {
 public:
 
@@ -20,6 +25,8 @@ private:
   const int c_screenHeight = 960;
   const bool c_fullScreen = false;
   const bool c_vSyncEnabled = true;
+  const float c_screenNear = 0.1f;
+  const float c_screenDepth = 1000.0f;
 
   int d_videoCardMemory;
   char d_videoCardDescription[128];
@@ -31,6 +38,14 @@ private:
   ID3D11DepthStencilState* d_depthStencilState;
   ID3D11DepthStencilView* d_depthStencilView;
   ID3D11RasterizerState* d_rasterState;
+  XMMATRIX d_projectionMatrix;
+  XMMATRIX d_worldMatrix;
+  XMMATRIX d_orthoMatrix;
+
+  CameraClass* d_Camera;
+  ModelClass* d_Model;
+  LightShaderClass* d_LightShader;
+  LightClass* d_Light;
 
 
   void createWindow();

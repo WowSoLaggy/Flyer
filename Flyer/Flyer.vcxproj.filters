@@ -72,6 +72,9 @@
     <ClCompile Include="LightClass.cpp">
       <Filter>src\Examples</Filter>
     </ClCompile>
+    <ClCompile Include="RenderDeviceExample.cpp">
+      <Filter>src\Examples</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -123,6 +126,9 @@
       <Filter>src\Examples</Filter>
     </ClInclude>
     <ClInclude Include="LightClass.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderDeviceExample.h">
       <Filter>src\Examples</Filter>
     </ClInclude>
   </ItemGroup>
