@@ -7,5 +7,6 @@
 
 void Drawer::draw(RenderDevice& i_renderDevice, const Map& i_map)
 {
-  i_renderDevice.render();
+  i_renderDevice.clearBuffers();
+  i_renderDevice.present();
 }

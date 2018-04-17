@@ -8,7 +8,8 @@ public:
   void initialize();
   void dispose();
 
-  void render();
+  void clearBuffers();
+  void present();
 
 private:
 
@@ -20,6 +21,7 @@ private:
   const int c_screenHeight = 960;
   const bool c_fullScreen = false;
   const bool c_vSyncEnabled = true;
+  const float c_clearColor[4] = { 0.396f, 0.612f, 0.937f, 1.0f };
 
   int d_videoCardMemory;
   char d_videoCardDescription[128];

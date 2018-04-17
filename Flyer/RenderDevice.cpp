@@ -30,22 +30,17 @@ void RenderDevice::dispose()
 }
 
 
-void RenderDevice::render()
+void RenderDevice::clearBuffers()
 {
-  float color[4];
-
-  // Setup the color to clear the buffer to.
-  color[0] = 0.396f;
-  color[1] = 0.612f;
-  color[2] = 0.937f;
-  color[3] = 1.0f;
-
   // Clear the back buffer.
-  d_deviceContext->ClearRenderTargetView(d_renderTargetView, color);
+  d_deviceContext->ClearRenderTargetView(d_renderTargetView, c_clearColor);
 
   // Clear the depth buffer.
   d_deviceContext->ClearDepthStencilView(d_depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
+}
 
+void RenderDevice::present()
+{
   // Present the back buffer to the screen since rendering is complete.
   unsigned int nominator = c_vSyncEnabled ? 1 : 0;
   d_swapChain->Present(nominator, 0);
@@ -82,7 +77,7 @@ void RenderDevice::createWindow()
   d_hWnd = CreateWindowEx(0, c_appName.c_str(), c_appName.c_str(), WS_POPUP,
     posX, posY, c_screenWidth, c_screenHeight, nullptr, nullptr, d_hInstance, nullptr);
 }
-  
+
 void RenderDevice::disposeWindow()
 {
   DestroyWindow(d_hWnd);
