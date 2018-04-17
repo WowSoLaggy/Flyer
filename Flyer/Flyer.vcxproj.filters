@@ -16,6 +16,12 @@
     <Filter Include="src\Controllers">
       <UniqueIdentifier>{2f795c28-c160-4326-902e-04ae89ce09b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{2a4081d1-917a-4e84-b306-cb31923523d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Examples">
+      <UniqueIdentifier>{c71f0aa3-cb5d-46ba-b37a-75abc472afda}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -44,6 +50,27 @@
     </ClCompile>
     <ClCompile Include="RenderDevice.cpp">
       <Filter>src\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelClass.cpp">
+      <Filter>src\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleColorShader.cpp">
+      <Filter>src\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraClass.cpp">
+      <Filter>src\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureClass.cpp">
+      <Filter>src\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleTextureShader.cpp">
+      <Filter>src\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLight.cpp">
+      <Filter>src\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="LightClass.cpp">
+      <Filter>src\Examples</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,5 +104,46 @@
     <ClInclude Include="RenderDevice.h">
       <Filter>src\Controllers</Filter>
     </ClInclude>
+    <ClInclude Include="ModelClass.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleColorShader.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraClass.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureClass.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleTextureShader.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLight.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="LightClass.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="SimpleColorPS.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="SimpleColorVS.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="SimpleTextureVS.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="SimpleTexturePS.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="TextureLightPS.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="TextureLightVS.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

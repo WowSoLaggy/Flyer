@@ -1,5 +1,10 @@
 #pragma once
 
+// TODO: delete
+#include "CameraClass.h"
+#include "ModelClass.h"
+#include "TextureLight.h"
+#include "LightClass.h"
 
 class RenderDevice
 {
@@ -44,5 +49,12 @@ private:
 
   void createDevice();
   void disposeDevice();
+
+  // TODO: Shitty deletty
+
+  CameraClass* d_Camera;
+  ModelClass* d_Model;
+  LightShaderClass* d_LightShader;
+  LightClass* d_Light;
 
 };
