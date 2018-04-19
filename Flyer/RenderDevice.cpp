@@ -30,7 +30,7 @@ void RenderDevice::dispose()
 }
 
 
-void RenderDevice::clearBuffers()
+void RenderDevice::beginScene()
 {
   // Clear the back buffer.
   d_deviceContext->ClearRenderTargetView(d_renderTargetView, c_clearColor);
@@ -39,7 +39,7 @@ void RenderDevice::clearBuffers()
   d_deviceContext->ClearDepthStencilView(d_depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
 }
 
-void RenderDevice::present()
+void RenderDevice::endScene()
 {
   // Present the back buffer to the screen since rendering is complete.
   unsigned int nominator = c_vSyncEnabled ? 1 : 0;

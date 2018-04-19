@@ -1,8 +1,9 @@
 #pragma once
 
+#include "Drawer.h"
 #include "Map.h"
-#include "Timer.h"
 #include "RenderDevice.h"
+#include "Timer.h"
 
 
 class Application
@@ -15,7 +16,7 @@ private:
 
   std::unique_ptr<Map> d_map;
   Timer d_timer;
-
+  Drawer d_drawer;
   RenderDevice d_renderDevice;
 
   void initialize();

@@ -22,6 +22,9 @@
     <Filter Include="src\Examples">
       <UniqueIdentifier>{c71f0aa3-cb5d-46ba-b37a-75abc472afda}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Controllers\ShaderControllers">
+      <UniqueIdentifier>{4235c7c4-003e-4a62-927a-988b0bad5b07}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -74,6 +77,15 @@
     </ClCompile>
     <ClCompile Include="RenderDeviceExample.cpp">
       <Filter>src\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLightShader.cpp">
+      <Filter>src\Controllers\ShaderControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>src\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectionalLight.cpp">
+      <Filter>src\Misc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +142,24 @@
     </ClInclude>
     <ClInclude Include="RenderDeviceExample.h">
       <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexTypes.h">
+      <Filter>src\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLightShader.h">
+      <Filter>src\Controllers\ShaderControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Buffers.h">
+      <Filter>src\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderable.h">
+      <Filter>src\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>src\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectionalLight.h">
+      <Filter>src\Misc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

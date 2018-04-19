@@ -5,11 +5,17 @@ class RenderDevice
 {
 public:
 
+  int getScreenWidth() const { return c_screenWidth; }
+  int getScreenHeight() const { return c_screenHeight; }
+
   void initialize();
   void dispose();
 
-  void clearBuffers();
-  void present();
+  void beginScene();
+  void endScene();
+
+  ID3D11Device* getDevicePtr() { return d_device; }
+  ID3D11DeviceContext* getDeviceContextPtr() { return d_deviceContext; }
 
 private:
 
