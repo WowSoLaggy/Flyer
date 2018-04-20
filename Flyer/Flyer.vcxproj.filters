@@ -98,9 +98,6 @@
     <ClInclude Include="GameObject.h">
       <Filter>src\Model</Filter>
     </ClInclude>
-    <ClInclude Include="Vector2.h">
-      <Filter>src\Misc</Filter>
-    </ClInclude>
     <ClInclude Include="Drawer.h">
       <Filter>src\Controllers</Filter>
     </ClInclude>

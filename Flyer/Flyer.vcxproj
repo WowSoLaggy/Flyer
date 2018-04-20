@@ -189,7 +189,6 @@
     <ClInclude Include="TextureLightShader.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Updater.h" />
-    <ClInclude Include="Vector2.h" />
     <ClInclude Include="VertexTypes.h" />
   </ItemGroup>
   <ItemGroup>
