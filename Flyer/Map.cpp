@@ -46,15 +46,15 @@ void Map::loadBuffers(RenderDevice& i_renderDevice)
     XMFLOAT3(0.0f, 0.0f, 1.0f) });
   vertices.push_back({
     XMFLOAT3(c_width / 2.0f, -c_height / 2.0f, c_defaultTerrainHeight),
-    XMFLOAT2(1.0f, 0.0f),
+    XMFLOAT2(c_width / 2.0f, 0.0f),
     XMFLOAT3(0.0f, 0.0f, 1.0f) });
   vertices.push_back({
     XMFLOAT3(c_width / 2.0f, c_height / 2.0f, c_defaultTerrainHeight),
-    XMFLOAT2(1.0f, 1.0f),
+    XMFLOAT2(c_width / 2.0f, c_height / 2.0f),
     XMFLOAT3(0.0f, 0.0f, 1.0f) });
   vertices.push_back({
     XMFLOAT3(-c_width / 2.0f, c_height / 2.0f, c_defaultTerrainHeight),
-    XMFLOAT2(0.0f, 1.0f),
+    XMFLOAT2(0.0f, c_height / 2.0f),
     XMFLOAT3(0.0f, 0.0f, 1.0f) });
 
   std::vector<unsigned long> indices = { 0, 1, 2, 0, 2, 3 };
