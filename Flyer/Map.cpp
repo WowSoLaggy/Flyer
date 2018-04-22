@@ -24,7 +24,15 @@ void Map::unload()
 }
 
 
-void Map::render(RenderDevice& i_renderDevice) const
+void Map::render(RenderDevice& i_renderDevice, RenderFunc i_renderFunc) const
+{
+  i_renderFunc(*this);
+
+  for (auto& object : d_objects)
+    i_renderFunc(object);
+}
+
+void Map::renderBuffers(RenderDevice& i_renderDevice) const
 {
   unsigned int stride = sizeof(VertexTypePosTexNorm);
   unsigned int offset = 0;

@@ -28,12 +28,17 @@ void Drawer::draw(RenderDevice& i_renderDevice, const Map& i_map)
 {
   i_renderDevice.beginScene();
 
-  i_map.render(i_renderDevice);
+  auto drawObject = [&](const IRenderable& i_renderable)
+  {
+    i_renderable.renderBuffers(i_renderDevice);
 
-  d_textureLightShader.setParameters(i_renderDevice,
-    d_identityMatrix, d_camera.getViewMatrix(), d_projectionMatrix,
-    i_map.getTexture(), d_light.getDirection(), d_light.getColor());
-  d_textureLightShader.render(i_renderDevice, i_map.getIndexCount());
+    d_textureLightShader.setParameters(i_renderDevice,
+      d_identityMatrix, d_camera.getViewMatrix(), d_projectionMatrix,
+      i_renderable.getTexture(), d_light.getDirection(), d_light.getColor());
+    d_textureLightShader.render(i_renderDevice, i_renderable.getIndexCount());
+  };
+
+  i_map.render(i_renderDevice, drawObject);
 
   i_renderDevice.endScene();
 }

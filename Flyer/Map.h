@@ -13,7 +13,8 @@ public:
   virtual void load(RenderDevice& i_renderDevice) override;
   virtual void unload() override;
 
-  virtual void render(RenderDevice& i_renderDevice) const override;
+  virtual void render(RenderDevice& i_renderDevice, RenderFunc i_renderFunc) const override;
+  virtual void renderBuffers(RenderDevice& i_renderDevice) const override;
   virtual ID3D11ShaderResourceView* getTexture() const override { return d_texture; }
   virtual int getIndexCount() const override { return d_indexCount; }
 
