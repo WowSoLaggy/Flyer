@@ -2,8 +2,12 @@
 
 #include <Windows.h>
 
-#include <vector>
+#include <fstream>
+#include <functional>
+#include <map>
 #include <memory>
+#include <string>
+#include <vector>
 
 #include <dxgi.h>
 #include <d3dcommon.h>

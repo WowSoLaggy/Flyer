@@ -150,6 +150,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MapCreator.cpp" />
+    <ClCompile Include="MeshLoader.cpp" />
     <ClCompile Include="ModelClass.cpp" />
     <ClCompile Include="RenderDevice.cpp" />
     <ClCompile Include="RenderDeviceExample.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="LightClass.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MapCreator.h" />
+    <ClInclude Include="MeshLoader.h" />
     <ClInclude Include="ModelClass.h" />
     <ClInclude Include="RenderDevice.h" />
     <ClInclude Include="RenderDeviceExample.h" />
@@ -189,6 +191,7 @@
     <ClInclude Include="TextureLightShader.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Updater.h" />
+    <ClInclude Include="Utils.h" />
     <ClInclude Include="VertexTypes.h" />
   </ItemGroup>
   <ItemGroup>

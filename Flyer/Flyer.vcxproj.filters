@@ -25,6 +25,9 @@
     <Filter Include="src\Controllers\ShaderControllers">
       <UniqueIdentifier>{4235c7c4-003e-4a62-927a-988b0bad5b07}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Controllers\MeshLoader">
+      <UniqueIdentifier>{657a4b9f-724d-45e6-bfe8-beb02d969b8b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -86,6 +89,9 @@
     </ClCompile>
     <ClCompile Include="DirectionalLight.cpp">
       <Filter>src\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshLoader.cpp">
+      <Filter>src\Controllers\MeshLoader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +162,12 @@
       <Filter>src\Misc</Filter>
     </ClInclude>
     <ClInclude Include="DirectionalLight.h">
+      <Filter>src\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLoader.h">
+      <Filter>src\Controllers\MeshLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
       <Filter>src\Misc</Filter>
     </ClInclude>
   </ItemGroup>
