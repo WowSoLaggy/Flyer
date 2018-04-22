@@ -15,5 +15,7 @@ public:
   virtual void renderBuffers(RenderDevice& i_renderDevice) const = 0;
   virtual ID3D11ShaderResourceView* getTexture() const = 0;
   virtual int getIndexCount() const = 0;
+  
+  virtual XMMATRIX getWorldMatrix() const = 0;
 
 };

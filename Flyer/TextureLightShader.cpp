@@ -156,6 +156,10 @@ void TextureLightShader::setParameters(RenderDevice& i_renderDevice,
   i_renderDevice.getDeviceContextPtr()->PSSetConstantBuffers(0, 1, &d_lightBuffer);
 }
 
+void TextureLightShader::setMaterial(const Material& i_material)
+{
+}
+
 
 void TextureLightShader::render(RenderDevice& i_renderDevice, int i_indicesCount)
 {

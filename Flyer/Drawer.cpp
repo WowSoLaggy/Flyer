@@ -33,7 +33,7 @@ void Drawer::draw(RenderDevice& i_renderDevice, const Map& i_map)
     i_renderable.renderBuffers(i_renderDevice);
 
     d_textureLightShader.setParameters(i_renderDevice,
-      d_identityMatrix, d_camera.getViewMatrix(), d_projectionMatrix,
+      i_renderable.getWorldMatrix(), d_camera.getViewMatrix(), d_projectionMatrix,
       i_renderable.getTexture(), d_light.getDirection(), d_light.getColor());
     d_textureLightShader.render(i_renderDevice, i_renderable.getIndexCount());
   };
@@ -46,8 +46,6 @@ void Drawer::draw(RenderDevice& i_renderDevice, const Map& i_map)
 
 void Drawer::initMatrices(RenderDevice& i_renderDevice)
 {
-  d_identityMatrix = XMMatrixIdentity();
-  
   float screenAspect = (float)i_renderDevice.getScreenWidth() / (float)i_renderDevice.getScreenHeight();
   d_projectionMatrix = XMMatrixPerspectiveFovLH(c_fovAngle, screenAspect, c_near, c_far);
 }

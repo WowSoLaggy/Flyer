@@ -8,6 +8,8 @@
 
 void GameObject::load(RenderDevice& i_renderDevice)
 {
+  updateWorldMatrix();
+
   loadBuffers(i_renderDevice);
   loadTexture(i_renderDevice);
 }
@@ -40,8 +42,9 @@ void GameObject::loadBuffers(RenderDevice& i_renderDevice)
 {
   std::vector<VertexTypePosTexNorm> vertices;
   std::vector<int> indices;
+  MaterialSequence matSequence;
 
-  MeshLoader::loadMeshInfoFromFile("Player.obj", vertices, indices);
+  MeshLoader::loadMeshInfoFromFile(c_modelName + ".obj", c_modelName + ".mtl", vertices, indices, matSequence);
 
   d_indexCount = (int)indices.size();
 
@@ -94,4 +97,16 @@ void GameObject::unloadBuffers()
 void GameObject::unloadTexture()
 {
   d_texture->Release();
+}
+
+
+void GameObject::setPosition(XMFLOAT3 i_position)
+{
+  d_position = i_position;
+  updateWorldMatrix();
+}
+
+void GameObject::updateWorldMatrix()
+{
+  d_worldMatrix = XMMatrixTranslation(d_position.x, d_position.y, d_position.z);
 }

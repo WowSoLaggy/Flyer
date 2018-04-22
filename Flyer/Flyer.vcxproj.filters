@@ -93,6 +93,9 @@
     <ClCompile Include="MeshLoader.cpp">
       <Filter>src\Controllers\MeshLoader</Filter>
     </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>src\Misc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -168,6 +171,9 @@
       <Filter>src\Controllers\MeshLoader</Filter>
     </ClInclude>
     <ClInclude Include="Utils.h">
+      <Filter>src\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
       <Filter>src\Misc</Filter>
     </ClInclude>
   </ItemGroup>

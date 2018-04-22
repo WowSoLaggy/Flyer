@@ -18,6 +18,8 @@ public:
   virtual ID3D11ShaderResourceView* getTexture() const override { return d_texture; }
   virtual int getIndexCount() const override { return d_indexCount; }
 
+  virtual XMMATRIX getWorldMatrix() const override { return d_worldMatrix; }
+
 private:
 
   const int c_width = 20;
@@ -30,6 +32,8 @@ private:
   int d_indexCount;
 
   ID3D11ShaderResourceView* d_texture;
+
+  XMMATRIX d_worldMatrix;
 
   void loadBuffers(RenderDevice& i_renderDevice);
   void loadTexture(RenderDevice& i_renderDevice);

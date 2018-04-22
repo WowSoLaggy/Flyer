@@ -7,6 +7,8 @@
 
 void Map::load(RenderDevice& i_renderDevice)
 {
+  d_worldMatrix = XMMatrixIdentity();
+
   loadBuffers(i_renderDevice);
   loadTexture(i_renderDevice);
 

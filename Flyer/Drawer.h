@@ -29,7 +29,6 @@ private:
   DirectionalLight d_light;
   TextureLightShader d_textureLightShader;
 
-  XMMATRIX d_identityMatrix;
   XMMATRIX d_projectionMatrix;
 
   void initMatrices(RenderDevice& i_renderDevice);
