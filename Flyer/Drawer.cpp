@@ -32,10 +32,26 @@ void Drawer::draw(RenderDevice& i_renderDevice, const Map& i_map)
   {
     i_renderable.renderBuffers(i_renderDevice);
 
-    d_textureLightShader.setParameters(i_renderDevice,
-      i_renderable.getWorldMatrix(), d_camera.getViewMatrix(), d_projectionMatrix,
-      i_renderable.getTexture(), d_light.getDirection(), d_light.getColor());
-    d_textureLightShader.render(i_renderDevice, i_renderable.getIndexCount());
+    int curOffset = 0;
+    int numToDraw;
+    auto matSequence = i_renderable.getMaterialSequence();
+    for (int matIndex = 0; matIndex < matSequence.frameToMaterialPairs.size(); ++matIndex)
+    {
+      Material& material = matSequence.frameToMaterialPairs[matIndex].second;
+      if (matIndex == matSequence.frameToMaterialPairs.size() - 1)
+      {
+        // Last material to render
+        numToDraw = i_renderable.getIndexCount() - curOffset;
+      }
+      else
+        numToDraw = matSequence.frameToMaterialPairs[matIndex + 1].first - curOffset;
+
+      d_textureLightShader.setParameters(i_renderDevice,
+        i_renderable.getWorldMatrix(), d_camera.getViewMatrix(), d_projectionMatrix,
+        i_renderable.getTexture(), d_light, material);
+
+      d_textureLightShader.render(i_renderDevice, curOffset, numToDraw);
+    }
   };
 
   i_map.render(i_renderDevice, drawObject);
@@ -59,6 +75,7 @@ void Drawer::initCamera()
 
 void Drawer::initLight()
 {
+  d_light.setAmbientPower(0.2f);
   d_light.setDirection({ 0.0f, 0.0f, -1.0f });
   d_light.setColor({ 1.0f, 1.0f, 1.0f, 1.0f });
 }

@@ -2,6 +2,8 @@
 #include "TextureLightShader.h"
 
 #include "Buffers.h"
+#include "DirectionalLight.h"
+#include "Material.h"
 #include "RenderDevice.h"
 
 
@@ -117,7 +119,8 @@ void TextureLightShader::unload()
 
 void TextureLightShader::setParameters(RenderDevice& i_renderDevice,
   XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix,
-  ID3D11ShaderResourceView* texture, XMFLOAT3 lightDirection, XMFLOAT4 diffuseColor)
+  ID3D11ShaderResourceView* texture, const DirectionalLight& i_directionalLight,
+  const Material& i_material)
 {
   worldMatrix = XMMatrixTranspose(worldMatrix);
   viewMatrix = XMMatrixTranspose(viewMatrix);
@@ -145,9 +148,10 @@ void TextureLightShader::setParameters(RenderDevice& i_renderDevice,
   i_renderDevice.getDeviceContextPtr()->Map(d_lightBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
 
   auto* dataPtr2 = (LightBuffer*)mappedResource.pData;
-  dataPtr2->diffuseColor = diffuseColor;
-  dataPtr2->lightDirection = lightDirection;
-  dataPtr2->padding = 0.0f;
+  dataPtr2->diffuseColor = i_material.diffuseColor;
+  dataPtr2->lightColor = i_directionalLight.getColor();
+  dataPtr2->lightDirection = i_directionalLight.getDirection();
+  dataPtr2->ambientStrength = i_directionalLight.getAmbientPower();
 
   i_renderDevice.getDeviceContextPtr()->Unmap(d_lightBuffer, 0);
 
@@ -156,12 +160,8 @@ void TextureLightShader::setParameters(RenderDevice& i_renderDevice,
   i_renderDevice.getDeviceContextPtr()->PSSetConstantBuffers(0, 1, &d_lightBuffer);
 }
 
-void TextureLightShader::setMaterial(const Material& i_material)
-{
-}
 
-
-void TextureLightShader::render(RenderDevice& i_renderDevice, int i_indicesCount)
+void TextureLightShader::render(RenderDevice& i_renderDevice, int i_offset, int i_indicesCount)
 {
   i_renderDevice.getDeviceContextPtr()->IASetInputLayout(d_layout);
 
@@ -170,5 +170,5 @@ void TextureLightShader::render(RenderDevice& i_renderDevice, int i_indicesCount
 
   i_renderDevice.getDeviceContextPtr()->PSSetSamplers(0, 1, &d_sampleState);
 
-  i_renderDevice.getDeviceContextPtr()->DrawIndexed(i_indicesCount, 0, 0);
+  i_renderDevice.getDeviceContextPtr()->DrawIndexed(i_indicesCount, i_offset, 0);
 }

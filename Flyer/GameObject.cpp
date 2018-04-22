@@ -42,9 +42,9 @@ void GameObject::loadBuffers(RenderDevice& i_renderDevice)
 {
   std::vector<VertexTypePosTexNorm> vertices;
   std::vector<int> indices;
-  MaterialSequence matSequence;
 
-  MeshLoader::loadMeshInfoFromFile(c_modelName + ".obj", c_modelName + ".mtl", vertices, indices, matSequence);
+  MeshLoader::loadMeshInfoFromFile(c_modelName + ".obj", c_modelName + ".mtl",
+    vertices, indices, d_materialSequence);
 
   d_indexCount = (int)indices.size();
 

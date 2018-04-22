@@ -8,6 +8,7 @@
 void Map::load(RenderDevice& i_renderDevice)
 {
   d_worldMatrix = XMMatrixIdentity();
+  d_materialSequence = MaterialSequence::createBlank();
 
   loadBuffers(i_renderDevice);
   loadTexture(i_renderDevice);

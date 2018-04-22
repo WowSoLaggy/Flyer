@@ -12,6 +12,7 @@ struct MatrixBuffer
 struct LightBuffer
 {
   XMFLOAT4 diffuseColor;
+  XMFLOAT4 lightColor;
   XMFLOAT3 lightDirection;
-  float padding;  // Extra padding so structure is a multiple of 16 for CreateBuffer function requirements
+  float ambientStrength;
 };

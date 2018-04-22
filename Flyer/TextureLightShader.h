@@ -1,9 +1,8 @@
 #pragma once
 
-
-class RenderDevice;
+class DirectionalLight;
 struct Material;
-
+class RenderDevice;
 
 class TextureLightShader
 {
@@ -14,11 +13,10 @@ public:
 
   void setParameters(RenderDevice& i_renderDevice,
     XMMATRIX worldMatrix, XMMATRIX viewMatrix, XMMATRIX projectionMatrix,
-    ID3D11ShaderResourceView* texture, XMFLOAT3 lightDirection, XMFLOAT4 diffuseColor);
+    ID3D11ShaderResourceView* texture, const DirectionalLight& i_directionalLight,
+    const Material& i_material);
 
-  void setMaterial(const Material& i_material);
-
-  void render(RenderDevice& i_renderDevice, int i_indicesCount);
+  void render(RenderDevice& i_renderDevice, int i_offset, int i_totalIndicesCount);
 
 private:
 

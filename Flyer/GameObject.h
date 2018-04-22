@@ -19,6 +19,8 @@ public:
 
   virtual XMMATRIX getWorldMatrix() const override { return d_worldMatrix; }
 
+  virtual MaterialSequence getMaterialSequence() const override { return d_materialSequence; }
+
 private:
 
   const std::string c_modelName = "Tree";
@@ -26,6 +28,7 @@ private:
 
   ID3D11Buffer* d_vertexBuffer;
   ID3D11Buffer* d_indexBuffer;
+  MaterialSequence d_materialSequence;
   int d_indexCount;
 
   ID3D11ShaderResourceView* d_texture;

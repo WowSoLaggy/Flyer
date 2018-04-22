@@ -90,6 +90,13 @@ void MeshLoader::loadMeshInfoFromFile(
       o_matSequence.frameToMaterialPairs.push_back({ (int)o_indices.size(), *it });
     }
   }
+
+  if (o_matSequence.frameToMaterialPairs.empty())
+  {
+    // Insert blank material
+    o_matSequence.frameToMaterialPairs.push_back({ 0,
+      { "blank",{ 1.0f, 1.0f, 1.0f, 1.0f },{ 1.0f, 1.0f, 1.0f, 1.0f } } });
+  }
 }
 
 std::vector<Material> MeshLoader::loadMaterials(const std::string& i_materialsPath)

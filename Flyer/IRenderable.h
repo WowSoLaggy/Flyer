@@ -1,7 +1,9 @@
 #pragma once
 
-class RenderDevice;
+#include "Material.h"
+
 class IRenderable;
+class RenderDevice;
 using RenderFunc = std::function<void(const IRenderable& i_renderable)>;
 
 class IRenderable
@@ -17,5 +19,7 @@ public:
   virtual int getIndexCount() const = 0;
   
   virtual XMMATRIX getWorldMatrix() const = 0;
+
+  virtual MaterialSequence getMaterialSequence() const = 0;
 
 };
