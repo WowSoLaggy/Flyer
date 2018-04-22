@@ -6,6 +6,13 @@
 #include "VertexTypes.h"
 
 
+void GameObject::setResourceNames(const std::wstring& i_modelName, const std::wstring& i_textureName)
+{
+  d_modelName = i_modelName;
+  d_textureName = i_textureName;
+}
+
+
 void GameObject::load(RenderDevice& i_renderDevice)
 {
   updateWorldMatrix();
@@ -43,7 +50,7 @@ void GameObject::loadBuffers(RenderDevice& i_renderDevice)
   std::vector<VertexTypePosTexNorm> vertices;
   std::vector<int> indices;
 
-  MeshLoader::loadMeshInfoFromFile(c_modelName + ".obj", c_modelName + ".mtl",
+  MeshLoader::loadMeshInfoFromFile(d_modelName + L".obj", d_modelName + L".mtl",
     vertices, indices, d_materialSequence);
 
   d_indexCount = (int)indices.size();
@@ -84,7 +91,7 @@ void GameObject::loadBuffers(RenderDevice& i_renderDevice)
 
 void GameObject::loadTexture(RenderDevice& i_renderDevice)
 {
-  CreateDDSTextureFromFile(i_renderDevice.getDevicePtr(), c_textureName.c_str(), nullptr, &d_texture);
+  CreateDDSTextureFromFile(i_renderDevice.getDevicePtr(), d_textureName.c_str(), nullptr, &d_texture);
 }
 
 

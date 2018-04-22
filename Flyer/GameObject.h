@@ -7,6 +7,7 @@ class GameObject : public IRenderable
 {
 public:
 
+  void setResourceNames(const std::wstring& i_modelName, const std::wstring& i_textureName);
   void setPosition(XMFLOAT3 i_position);
 
   virtual void load(RenderDevice& i_renderDevice) override;
@@ -23,8 +24,8 @@ public:
 
 private:
 
-  const std::string c_modelName = "Tree";
-  const std::wstring c_textureName = L"Tree.dds";
+  std::wstring d_modelName;
+  std::wstring d_textureName;
 
   ID3D11Buffer* d_vertexBuffer;
   ID3D11Buffer* d_indexBuffer;
