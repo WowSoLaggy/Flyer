@@ -3,6 +3,7 @@
 #include "Drawer.h"
 #include "Map.h"
 #include "RenderDevice.h"
+#include "ResourceController.h"
 #include "Timer.h"
 
 
@@ -18,6 +19,7 @@ private:
   Timer d_timer;
   Drawer d_drawer;
   RenderDevice d_renderDevice;
+  ResourceController d_resourceController;
 
   void initialize();
   void mainloop();

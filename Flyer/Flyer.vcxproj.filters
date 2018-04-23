@@ -28,6 +28,15 @@
     <Filter Include="src\Controllers\MeshLoader">
       <UniqueIdentifier>{657a4b9f-724d-45e6-bfe8-beb02d969b8b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="libs">
+      <UniqueIdentifier>{1c9b323d-2dd2-4d6a-b86e-e3b6aa31d625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Resources">
+      <UniqueIdentifier>{ff38c7ae-20da-48a5-a2ea-c63c6f3b693b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Resources\ResourceTypes">
+      <UniqueIdentifier>{610e683d-edab-4ef5-abb8-824f7db57631}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -95,6 +104,15 @@
     </ClCompile>
     <ClCompile Include="Material.cpp">
       <Filter>src\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceController.cpp">
+      <Filter>src\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureResource.cpp">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelResource.cpp">
+      <Filter>src\Resources\ResourceTypes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +193,21 @@
     </ClInclude>
     <ClInclude Include="Material.h">
       <Filter>src\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceController.h">
+      <Filter>src\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="dirent.h">
+      <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="IResource.h">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureResource.h">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelResource.h">
+      <Filter>src\Resources\ResourceTypes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

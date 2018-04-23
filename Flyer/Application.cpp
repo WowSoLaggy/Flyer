@@ -15,6 +15,8 @@ void Application::run()
 
 void Application::initialize()
 {
+  d_resourceController.indexResources();
+
   d_drawer.init();
 
   d_renderDevice.initialize();

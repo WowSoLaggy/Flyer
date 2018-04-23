@@ -153,8 +153,10 @@
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MeshLoader.cpp" />
     <ClCompile Include="ModelClass.cpp" />
+    <ClCompile Include="ModelResource.cpp" />
     <ClCompile Include="RenderDevice.cpp" />
     <ClCompile Include="RenderDeviceExample.cpp" />
+    <ClCompile Include="ResourceController.cpp" />
     <ClCompile Include="SimpleColorShader.cpp" />
     <ClCompile Include="SimpleTextureShader.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -166,6 +168,7 @@
     <ClCompile Include="TextureClass.cpp" />
     <ClCompile Include="TextureLight.cpp" />
     <ClCompile Include="TextureLightShader.cpp" />
+    <ClCompile Include="TextureResource.cpp" />
     <ClCompile Include="Updater.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -174,23 +177,28 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraClass.h" />
     <ClInclude Include="DirectionalLight.h" />
+    <ClInclude Include="dirent.h" />
     <ClInclude Include="Drawer.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="IRenderable.h" />
+    <ClInclude Include="IResource.h" />
     <ClInclude Include="LightClass.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MapCreator.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MeshLoader.h" />
     <ClInclude Include="ModelClass.h" />
+    <ClInclude Include="ModelResource.h" />
     <ClInclude Include="RenderDevice.h" />
     <ClInclude Include="RenderDeviceExample.h" />
+    <ClInclude Include="ResourceController.h" />
     <ClInclude Include="SimpleColorShader.h" />
     <ClInclude Include="SimpleTextureShader.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TextureClass.h" />
     <ClInclude Include="TextureLight.h" />
     <ClInclude Include="TextureLightShader.h" />
+    <ClInclude Include="TextureResource.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Updater.h" />
     <ClInclude Include="Utils.h" />
