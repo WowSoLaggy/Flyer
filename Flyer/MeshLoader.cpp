@@ -59,7 +59,7 @@ void MeshLoader::loadMeshInfoFromFile(
     }
     else if (tokens[0] == "f")
     {
-      for (int trioNum = 1; trioNum < 4; ++trioNum)
+      for (int trioNum : { 1, 2, 3 })
       {
         auto indicesTrio = Utils::splitString(tokens[trioNum], '/', true);
         int posIndex = std::atoi(indicesTrio[0].c_str()) - 1;
