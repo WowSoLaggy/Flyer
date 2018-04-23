@@ -2,6 +2,17 @@
 #include "Camera.h"
 
 
+void Camera::init(int i_screenWidth, int i_screenHeight)
+{
+  float screenAspect = (float)i_screenWidth / (float)i_screenHeight;
+  d_projectionMatrix = XMMatrixPerspectiveFovLH(c_fovAngle, screenAspect, c_near, c_far);
+
+  d_position = { 0.0f, 0.0f, 0.0f };
+  d_direction = { 1.0f, 0.0f, 0.0f };
+  d_up = { 0.0f, 0.0f, 1.0f };
+}
+
+
 void Camera::setPosition(XMFLOAT3 i_position)
 {
   d_position = i_position;

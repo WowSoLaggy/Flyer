@@ -7,14 +7,13 @@
 
 void Drawer::init()
 {
-  initCamera();
   initLight();
 }
 
 
 void Drawer::load(RenderDevice& i_renderDevice)
 {
-  initMatrices(i_renderDevice);
+  initCamera(i_renderDevice.getScreenWidth(), i_renderDevice.getScreenHeight());
   d_textureLightShader.load(i_renderDevice);
 }
 
@@ -47,7 +46,7 @@ void Drawer::draw(RenderDevice& i_renderDevice, const Map& i_map)
         numToDraw = matSequence.frameToMaterialPairs[matIndex + 1].first - curOffset;
 
       d_textureLightShader.setParameters(i_renderDevice,
-        i_renderable.getWorldMatrix(), d_camera.getViewMatrix(), d_projectionMatrix,
+        i_renderable.getWorldMatrix(), d_camera.getViewMatrix(), d_camera.getProjectionMatrix(),
         i_renderable.getTexture(), d_light, material);
 
       d_textureLightShader.render(i_renderDevice, curOffset, numToDraw);
@@ -60,14 +59,9 @@ void Drawer::draw(RenderDevice& i_renderDevice, const Map& i_map)
 }
 
 
-void Drawer::initMatrices(RenderDevice& i_renderDevice)
+void Drawer::initCamera(int i_screenWidth, int i_screenHeight)
 {
-  float screenAspect = (float)i_renderDevice.getScreenWidth() / (float)i_renderDevice.getScreenHeight();
-  d_projectionMatrix = XMMatrixPerspectiveFovLH(c_fovAngle, screenAspect, c_near, c_far);
-}
-
-void Drawer::initCamera()
-{
+  d_camera.init(i_screenWidth, i_screenHeight);
   d_camera.setPosition({ 0.0f, 20.0f, 20.0f });
   d_camera.setDirection({ 0.0f, -1.0f, -1.0f });
   d_camera.setUp({ 0.0f, 0.0f, 1.0f });
