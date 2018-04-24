@@ -8,7 +8,7 @@ TextureResource::TextureResource(const std::string& i_textureName)
 }
 
 
-void TextureResource::load()
+void TextureResource::load(RenderDevice& i_renderDevice)
 {
 }
 

@@ -4,6 +4,7 @@
 #include "dirent.h"
 #include "ModelResource.h"
 #include "TextureResource.h"
+#include "ShaderResource.h"
 #include "Utils.h"
 
 
@@ -52,12 +53,28 @@ void ResourceController::indexResources(const std::string& i_dirName)
       continue;
     }
 
-    std::regex texturePattern("\\w*.(dds)");
-    std::regex modelPattern("\\w*.(obj)");
+    const std::regex texturePattern("\\w*.(dds)");
+    const std::regex modelPattern("\\w*.(obj)");
+    const std::regex shaderPattern("\\w*.(cso)");
 
     if (std::regex_match(pEntity->d_name, texturePattern))
       d_resources.push_back(std::make_shared<TextureResource>(i_dirName + pEntity->d_name));
     else if (std::regex_match(pEntity->d_name, modelPattern))
       d_resources.push_back(std::make_shared<ModelResource>(i_dirName + pEntity->d_name));
+    else if (std::regex_match(pEntity->d_name, shaderPattern))
+      d_resources.push_back(std::make_shared<ShaderResource>(i_dirName + pEntity->d_name));
   }
+}
+
+
+void ResourceController::loadResources(RenderDevice& i_renderDevice)
+{
+  for (auto& resource : d_resources)
+    resource->load(i_renderDevice);
+}
+
+void ResourceController::unloadResources()
+{
+  for (auto& resource : d_resources)
+    resource->unload();
 }

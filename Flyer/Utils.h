@@ -19,54 +19,54 @@ namespace Utils
   using namespace std::experimental::filesystem;
 
 
-  // Trims the given string from the start (removes all spaces)
-  // Params:
-  // [out] std::string & pString	- string to trim
+  /// Trims the given string from the start (removes all spaces)
+  /// Params:
+  /// [out] std::string & pString	- string to trim
   static inline void trimStringLeadRef(std::string &pString)
   {
     pString.erase(pString.begin(), std::find_if(pString.begin(), pString.end(),
       std::not1(std::ptr_fun<int, int>(std::isspace))));
   }
 
-  // Trims the given string from the end (removes all spaces)
-  // Params:
-  // [out] std::string & pString	- string to trim
+  /// Trims the given string from the end (removes all spaces)
+  /// Params:
+  /// [out] std::string & pString	- string to trim
   static inline void trimStringTrailRef(std::string &pString)
   {
     pString.erase(std::find_if(pString.rbegin(), pString.rend(),
       std::not1(std::ptr_fun<int, int>(std::isspace))).base(), pString.end());
   }
 
-  // Trims the given string (removes all spaces)
-  // Params:
-  // [out] std::string & pString	- string to trim
+  /// Trims the given string (removes all spaces)
+  /// Params:
+  /// [out] std::string & pString	- string to trim
   static inline void trimStringRef(std::string &pString)
   {
     trimStringLeadRef(pString);
     trimStringTrailRef(pString);
   }
 
-  // Trims the given string from the start (removes all spaces)
-  // Params:
-  // [out] std::string pString	- string to trim
+  /// Trims the given string from the start (removes all spaces)
+  /// Params:
+  /// [out] std::string pString	- string to trim
   static inline std::string trimStringLead(std::string pString)
   {
     trimStringLeadRef(pString);
     return pString;
   }
 
-  // Trims the given string from the end (removes all spaces)
-  // Params:
-  // [out] std::string pString	- string to trim
+  /// Trims the given string from the end (removes all spaces)
+  /// Params:
+  /// [out] std::string pString	- string to trim
   static inline std::string trimStringTrail(std::string pString)
   {
     trimStringTrailRef(pString);
     return pString;
   }
 
-  // Trims the given string (removes all spaces)
-  // Params:
-  // [out] std::string pString	- string to trim
+  /// Trims the given string (removes all spaces)
+  /// Params:
+  /// [out] std::string pString	- string to trim
   static inline std::string trimString(std::string pString)
   {
     trimStringRef(pString);
@@ -74,13 +74,13 @@ namespace Utils
   }
 
 
-  // Splits the given string to tokens with a given delimiter
-  // Params:
-  // [in]  const std::string & pString		- string to split
-  // [in]  char pDelimiter					- delimiter used to split the given string
-  // [out] std::vector<std::string> & pTokens	- vector of splitted tokens
-  // Returns:
-  // std::vector<std::string>					- vector of splitted tokens (reference to pTokens)
+  /// Splits the given string to tokens with a given delimiter
+  /// Params:
+  /// [in]  const std::string & pString		- string to split
+  /// [in]  char pDelimiter					- delimiter used to split the given string
+  /// [out] std::vector<std::string> & pTokens	- vector of splitted tokens
+  /// Returns:
+  /// std::vector<std::string>					- vector of splitted tokens (reference to pTokens)
   static std::vector<std::string> & splitString(const std::string &pString, char pDelimiter, std::vector<std::string> &pTokens, bool pTrimTokens = false)
   {
     std::stringstream ss(pString);
@@ -100,12 +100,12 @@ namespace Utils
   }
 
 
-  // Splits the given string to tokens with a given delimiter
-  // Params:
-  // [in] const std::string & pString	- string to split
-  // [in] char pDelimiter				- delimiter used to split the given string
-  // Returns:
-  // std::vector<std::string>				- vector of splitted tokens
+  /// Splits the given string to tokens with a given delimiter
+  /// Params:
+  /// [in] const std::string & pString	- string to split
+  /// [in] char pDelimiter				- delimiter used to split the given string
+  /// Returns:
+  /// std::vector<std::string>				- vector of splitted tokens
   static std::vector<std::string> splitString(const std::string &pString, char pDelimiter, bool pTrimTokens = false)
   {
     std::vector<std::string> tokens;
@@ -113,9 +113,9 @@ namespace Utils
   }
 
 
-  // Converts the given string to the boolean value
-  // Params:
-  // [in] const std::string & pString	- string to convert
+  /// Converts the given string to the boolean value
+  /// Params:
+  /// [in] const std::string & pString	- string to convert
   static bool stringToBool(const std::string &pString)
   {
     std::string str = pString;
@@ -124,9 +124,9 @@ namespace Utils
   }
 
 
-  // Reads whole given file to a string
-  // Params:
-  // [in] const std::string & pFileName	- name of the file to read from
+  /// Reads the whole given file to a string
+  /// Params:
+  /// [in] const std::string & pFileName	- name of the file to read
   static std::string readFileToString(const std::string &pFileName)
   {
     std::ifstream fileStream(pFileName);
@@ -134,6 +134,9 @@ namespace Utils
   }
 
 
+  /// Reads the whole given file to the char array
+  /// Params:
+  /// [in] const std::string& i_fileName	- name of the file to read
   static std::vector<char> readFileToBytes(const std::string& i_fileName)
   {
     std::ifstream ifs(i_fileName, std::ios::binary | std::ios::ate);
@@ -147,7 +150,7 @@ namespace Utils
   }
 
 
-  // Returns current date in the Http format
+  /// Returns current date in the Http format
   static std::string getHttpDate()
   {
     std::vector<char> str(100, ' ');
@@ -159,9 +162,9 @@ namespace Utils
   }
 
 
-  // Checks whether the file with the given name exists
-  // Params:
-  // [in] const std::string & pFileName	- name of the file to check for existance
+  /// Checks whether the file with the given name exists
+  /// Params:
+  /// [in] const std::string & pFileName	- name of the file to check for existance
   static bool checkFileExists(const std::string &pFileName)
   {
     struct stat buffer;
@@ -169,9 +172,9 @@ namespace Utils
   }
 
 
-  // Check whether the input string is a number (can be parsed to)
-  // Params:
-  // [in] const std::string & pString - input string to be checked
+  /// Check whether the input string is a number (can be parsed to)
+  /// Params:
+  /// [in] const std::string & pString - input string to be checked
   static bool isNumber(const std::string &pString)
   {
     return (
@@ -182,10 +185,10 @@ namespace Utils
   }
 
 
-  // Checks whether the two given paths point to the same directory.
-  // Params:
-  // [in] std::string pDir1	- path to the directory that supposed to be the sub-directory
-  // [in] std::string pDir2	- path to the directory that supposed to be the parent directory
+  /// Checks whether the two given paths point to the same directory.
+  /// Params:
+  /// [in] std::string pDir1	- path to the directory that supposed to be the sub-directory
+  /// [in] std::string pDir2	- path to the directory that supposed to be the parent directory
   static bool isSameDir(std::string pDir1, std::string pDir2)
   {
     // This implementation is not as good as it should be,
@@ -212,20 +215,20 @@ namespace Utils
   }
 
 
-  // Checks whether the two given paths point to the same directory.
-  // Params:
-  // [in] path pDir1	- path to the directory that supposed to be the sub-directory
-  // [in] path pDir2	- path to the directory that supposed to be the parent directory
+  /// Checks whether the two given paths point to the same directory.
+  /// Params:
+  /// [in] path pDir1	- path to the directory that supposed to be the sub-directory
+  /// [in] path pDir2	- path to the directory that supposed to be the parent directory
   static bool isSameDir(path pDir1, path pDir2)
   {
     return isSameDir(pDir1.string(), pDir2.string());
   }
 
 
-  // Checks whether the given pSubDir is a sub-directory for a pParentDir
-  // Params:
-  // [in] std::string pSubDir		- path to the directory that supposed to be the sub-directory
-  // [in] std::string pParentDir	- path to the directory that supposed to be the parent directory
+  /// Checks whether the given pSubDir is a sub-directory for a pParentDir
+  /// Params:
+  /// [in] std::string pSubDir		- path to the directory that supposed to be the sub-directory
+  /// [in] std::string pParentDir	- path to the directory that supposed to be the parent directory
   static bool isSubDir(std::string pSubDir, std::string pParentDir)
   {
     // This implementation is not as good as it should be,
@@ -265,13 +268,30 @@ namespace Utils
   }
 
 
-  // Checks whether the given pSubDir is a sub-directory for a pParentDir
-  // Params:
-  // [in] path pSubDir		- path to the directory that supposed to be the sub-directory
-  // [in] path pParentDir	- path to the directory that supposed to be the parent directory
+  /// Checks whether the given pSubDir is a sub-directory for a pParentDir
+  /// Params:
+  /// [in] path pSubDir     - path to the directory that supposed to be the sub-directory
+  /// [in] path pParentDir  - path to the directory that supposed to be the parent directory
   static bool isSubDir(path pSubDir, path pParentDir)
   {
     return isSubDir(pSubDir.string(), pParentDir.string());
+  }
+
+
+  /// Converts string to wstring
+  /// Params:
+  /// [in] const std::string& i_string - string to convert
+  static std::wstring getWString(const std::string& i_string)
+  {
+    return std::wstring(i_string.begin(), i_string.end());
+  }
+
+  /// Converts wstring to string
+  /// Params:
+  /// [in] const std::wstring& i_wstring - string to convert
+  static std::string getString(const std::wstring& i_wstring)
+  {
+    return std::string(i_wstring.begin(), i_wstring.end());
   }
 
 } // NS Utils

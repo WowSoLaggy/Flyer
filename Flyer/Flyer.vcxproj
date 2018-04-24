@@ -71,19 +71,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)bin</OutDir>
+    <OutDir>$(SolutionDir)bin\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)bin</OutDir>
+    <OutDir>$(SolutionDir)bin\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)bin</OutDir>
+    <OutDir>$(SolutionDir)bin\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(IncludePath)</IncludePath>
-    <OutDir>$(SolutionDir)bin</OutDir>
+    <OutDir>$(SolutionDir)bin\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -161,6 +161,8 @@
     <ClCompile Include="RenderDevice.cpp" />
     <ClCompile Include="RenderDeviceExample.cpp" />
     <ClCompile Include="ResourceController.cpp" />
+    <ClCompile Include="ShaderLoader.cpp" />
+    <ClCompile Include="ShaderResource.cpp" />
     <ClCompile Include="SimpleColorShader.cpp" />
     <ClCompile Include="SimpleTextureShader.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -196,6 +198,8 @@
     <ClInclude Include="RenderDevice.h" />
     <ClInclude Include="RenderDeviceExample.h" />
     <ClInclude Include="ResourceController.h" />
+    <ClInclude Include="ShaderLoader.h" />
+    <ClInclude Include="ShaderResource.h" />
     <ClInclude Include="SimpleColorShader.h" />
     <ClInclude Include="SimpleTextureShader.h" />
     <ClInclude Include="stdafx.h" />

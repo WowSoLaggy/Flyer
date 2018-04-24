@@ -1,6 +1,7 @@
 #pragma once
 
 class IResource;
+class RenderDevice;
 
 
 class ResourceController
@@ -9,6 +10,9 @@ public:
 
   void indexResources();
   void clearIndices();
+
+  void loadResources(RenderDevice& i_renderDevice);
+  void unloadResources();
 
 private:
 

@@ -8,7 +8,7 @@ ModelResource::ModelResource(const std::string& i_modelName)
 }
 
 
-void ModelResource::load()
+void ModelResource::load(RenderDevice& i_renderDevice)
 {
 }
 
