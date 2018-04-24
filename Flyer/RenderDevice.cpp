@@ -17,14 +17,24 @@ namespace
 }
 
 
+RenderDevice::RenderDevice()
+  : d_isInitialized(false)
+{
+}
+
+
 void RenderDevice::initialize()
 {
   createWindow();
   createDevice();
+
+  d_isInitialized = true;
 }
 
 void RenderDevice::dispose()
 {
+  d_isInitialized = false;
+
   disposeDevice();
   disposeWindow();
 }

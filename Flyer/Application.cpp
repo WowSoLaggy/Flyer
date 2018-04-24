@@ -16,26 +16,29 @@ void Application::run()
 void Application::initialize()
 {
   d_resourceController.indexResources();
-
   d_drawer.init();
-
-  d_renderDevice.initialize();
-  d_drawer.load(d_renderDevice);
-
-  d_map = std::make_unique<Map>(MapCreator::createMap());
-  d_map->load(d_renderDevice);
 }
 
 void Application::mainloop()
 {
-  bool runGame = true;
+  double dt;
   d_timer.Start();
+  
+  bool runGame = true;
   while (runGame)
   {
     if (winPeekExit())
       break;
 
-    Updater::update(d_timer.Restart(), *d_map);
+    dt = d_timer.Restart();
+
+    if (!d_renderDevice.isInitialized())
+    {
+      createRenderDevice();
+      continue;
+    }
+
+    Updater::update(dt, *d_map);
     d_drawer.draw(d_renderDevice, *d_map);
 
     Sleep(10);
@@ -43,6 +46,23 @@ void Application::mainloop()
 }
 
 void Application::dispose()
+{
+  if (d_renderDevice.isInitialized())
+    disposeRenderDevice();
+  d_resourceController.clearIndices();
+}
+
+
+void Application::createRenderDevice()
+{
+  d_renderDevice.initialize();
+  d_drawer.load(d_renderDevice);
+
+  d_map = std::make_unique<Map>(MapCreator::createMap());
+  d_map->load(d_renderDevice);
+}
+
+void Application::disposeRenderDevice()
 {
   d_map->unload();
   d_map.reset();

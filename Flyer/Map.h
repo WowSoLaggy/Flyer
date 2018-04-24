@@ -27,7 +27,7 @@ private:
   const int c_width = 20;
   const int c_height = 20;
   const float c_defaultTerrainHeight = 0.0f;
-  const std::wstring c_textureName = L"Grass.dds";
+  const std::wstring c_textureName = L"Data\\Grass.dds";
 
   ID3D11Buffer* d_vertexBuffer;
   ID3D11Buffer* d_indexBuffer;

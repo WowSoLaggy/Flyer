@@ -21,8 +21,13 @@ namespace
 
 void ResourceController::indexResources()
 {
-  const std::string resourcesDirName = ".\\";
+  const std::string resourcesDirName = ".\\data\\";
   indexResources(resourcesDirName);
+}
+
+void ResourceController::clearIndices()
+{
+  d_resources.clear();
 }
 
 

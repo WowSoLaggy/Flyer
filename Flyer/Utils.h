@@ -134,6 +134,19 @@ namespace Utils
   }
 
 
+  static std::vector<char> readFileToBytes(const std::string& i_fileName)
+  {
+    std::ifstream ifs(i_fileName, std::ios::binary | std::ios::ate);
+    std::ifstream::pos_type pos = ifs.tellg();
+    ifs.seekg(0, std::ios::beg);
+
+    std::vector<char> result(pos);
+    ifs.read(&result[0], pos);
+
+    return result;
+  }
+
+
   // Returns current date in the Http format
   static std::string getHttpDate()
   {

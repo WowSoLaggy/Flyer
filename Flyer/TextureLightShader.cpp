@@ -5,20 +5,16 @@
 #include "DirectionalLight.h"
 #include "Material.h"
 #include "RenderDevice.h"
+#include "Utils.h"
 
 
 void TextureLightShader::load(RenderDevice& i_renderDevice)
 {
-  ID3D10Blob* errorMessage = 0;
-  ID3D10Blob* vertexShaderBuffer = 0;
-  D3DCompileFromFile(L"TextureLightVS.hlsl", NULL, NULL,
-    "main", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, NULL,
-    &vertexShaderBuffer, &errorMessage);
+  ID3D10Blob* vertexShaderBuffer = nullptr;
+  D3DReadFileToBlob(L"Data\\TextureLightVS.cso", &vertexShaderBuffer);
 
-  ID3D10Blob* pixelShaderBuffer = 0;
-  D3DCompileFromFile(L"TextureLightPS.hlsl", NULL, NULL,
-    "main", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, NULL,
-    &pixelShaderBuffer, &errorMessage);
+  ID3D10Blob* pixelShaderBuffer = nullptr;
+  D3DReadFileToBlob(L"Data\\TextureLightPS.cso", &pixelShaderBuffer);
 
   //
 

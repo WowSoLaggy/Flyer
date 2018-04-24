@@ -8,6 +8,7 @@ class ResourceController
 public:
 
   void indexResources();
+  void clearIndices();
 
 private:
 

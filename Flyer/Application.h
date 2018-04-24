@@ -25,6 +25,9 @@ private:
   void mainloop();
   void dispose();
 
+  void createRenderDevice();
+  void disposeRenderDevice();
+
   bool winPeekExit();
 
 };

@@ -5,6 +5,10 @@ class RenderDevice
 {
 public:
 
+  RenderDevice();
+
+  bool isInitialized() const { return d_isInitialized; }
+
   int getScreenWidth() const { return c_screenWidth; }
   int getScreenHeight() const { return c_screenHeight; }
 
@@ -21,6 +25,8 @@ private:
 
   HMODULE d_hInstance;
   HWND d_hWnd;
+
+  bool d_isInitialized;
 
   const std::string c_appName = "Flyer";
   const int c_screenWidth = 1280;
