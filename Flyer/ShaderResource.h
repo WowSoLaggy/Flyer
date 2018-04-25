@@ -3,11 +3,18 @@
 #include "IResource.h"
 
 
+enum class ShaderType
+{
+  Vertex,
+  Pixel,
+};
+
+
 class ShaderResource : public IResource
 {
 public:
 
-  ShaderResource(const std::string& i_fileName);
+  ShaderResource(const std::string& i_fileName, ShaderType i_shaderType);
 
   virtual ResourceType getResourceType() const override { return ResourceType::Shader; }
 
@@ -16,6 +23,7 @@ public:
 
 private:
 
-  std::string d_fileName;
+  const std::string d_fileName;
+  const ShaderType d_shaderType;
 
 };

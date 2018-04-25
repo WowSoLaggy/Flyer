@@ -11,10 +11,10 @@
 void TextureLightShader::load(RenderDevice& i_renderDevice)
 {
   ID3D10Blob* vertexShaderBuffer = nullptr;
-  D3DReadFileToBlob(L"Data\\TextureLightVS.cso", &vertexShaderBuffer);
+  D3DReadFileToBlob(L"Data\\TextureLightVS.vs", &vertexShaderBuffer);
 
   ID3D10Blob* pixelShaderBuffer = nullptr;
-  D3DReadFileToBlob(L"Data\\TextureLightPS.cso", &pixelShaderBuffer);
+  D3DReadFileToBlob(L"Data\\TextureLightPS.ps", &pixelShaderBuffer);
 
   //
 

@@ -55,14 +55,17 @@ void ResourceController::indexResources(const std::string& i_dirName)
 
     const std::regex texturePattern("\\w*.(dds)");
     const std::regex modelPattern("\\w*.(obj)");
-    const std::regex shaderPattern("\\w*.(cso)");
+    const std::regex vertexShaderPattern("\\w*.(vs)");
+    const std::regex pixelShaderPattern("\\w*.(ps)");
 
     if (std::regex_match(pEntity->d_name, texturePattern))
       d_resources.push_back(std::make_shared<TextureResource>(i_dirName + pEntity->d_name));
     else if (std::regex_match(pEntity->d_name, modelPattern))
       d_resources.push_back(std::make_shared<ModelResource>(i_dirName + pEntity->d_name));
-    else if (std::regex_match(pEntity->d_name, shaderPattern))
-      d_resources.push_back(std::make_shared<ShaderResource>(i_dirName + pEntity->d_name));
+    else if (std::regex_match(pEntity->d_name, vertexShaderPattern))
+      d_resources.push_back(std::make_shared<ShaderResource>(i_dirName + pEntity->d_name, ShaderType::Vertex));
+    else if (std::regex_match(pEntity->d_name, pixelShaderPattern))
+      d_resources.push_back(std::make_shared<ShaderResource>(i_dirName + pEntity->d_name, ShaderType::Pixel));
   }
 }
 

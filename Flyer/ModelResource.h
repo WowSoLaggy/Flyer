@@ -16,6 +16,6 @@ public:
 
 private:
 
-  std::string d_modelName;
+  const std::string d_modelName;
 
 };
