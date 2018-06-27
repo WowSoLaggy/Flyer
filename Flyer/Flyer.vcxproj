@@ -146,33 +146,25 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="CameraClass.cpp" />
     <ClCompile Include="DirectionalLight.cpp" />
     <ClCompile Include="Drawer.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="LightClass.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MapCreator.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MeshLoader.cpp" />
-    <ClCompile Include="ModelClass.cpp" />
     <ClCompile Include="ModelResource.cpp" />
     <ClCompile Include="RenderDevice.cpp" />
-    <ClCompile Include="RenderDeviceExample.cpp" />
     <ClCompile Include="ResourceController.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="ShaderResource.cpp" />
-    <ClCompile Include="SimpleColorShader.cpp" />
-    <ClCompile Include="SimpleTextureShader.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TextureClass.cpp" />
-    <ClCompile Include="TextureLight.cpp" />
     <ClCompile Include="TextureLightShader.cpp" />
     <ClCompile Include="TextureResource.cpp" />
     <ClCompile Include="Updater.cpp" />
@@ -181,30 +173,22 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Buffers.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="CameraClass.h" />
     <ClInclude Include="DirectionalLight.h" />
     <ClInclude Include="dirent.h" />
     <ClInclude Include="Drawer.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="IRenderable.h" />
     <ClInclude Include="IResource.h" />
-    <ClInclude Include="LightClass.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MapCreator.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MeshLoader.h" />
-    <ClInclude Include="ModelClass.h" />
     <ClInclude Include="ModelResource.h" />
     <ClInclude Include="RenderDevice.h" />
-    <ClInclude Include="RenderDeviceExample.h" />
     <ClInclude Include="ResourceController.h" />
     <ClInclude Include="ShaderLoader.h" />
     <ClInclude Include="ShaderResource.h" />
-    <ClInclude Include="SimpleColorShader.h" />
-    <ClInclude Include="SimpleTextureShader.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="TextureClass.h" />
-    <ClInclude Include="TextureLight.h" />
     <ClInclude Include="TextureLightShader.h" />
     <ClInclude Include="TextureResource.h" />
     <ClInclude Include="Timer.h" />
@@ -213,46 +197,6 @@
     <ClInclude Include="VertexTypes.h" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="SimpleColorPS.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)Data\%(Filename).ps</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)Data\%(Filename).ps</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)Data\%(Filename).ps</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)Data\%(Filename).ps</ObjectFileOutput>
-    </FxCompile>
-    <FxCompile Include="SimpleColorVS.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)Data\%(Filename).vs</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)Data\%(Filename).vs</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)Data\%(Filename).vs</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)Data\%(Filename).vs</ObjectFileOutput>
-    </FxCompile>
-    <FxCompile Include="SimpleTexturePS.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)Data\%(Filename).ps</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)Data\%(Filename).ps</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)Data\%(Filename).ps</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)Data\%(Filename).ps</ObjectFileOutput>
-    </FxCompile>
-    <FxCompile Include="SimpleTextureVS.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)Data\%(Filename).vs</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)Data\%(Filename).vs</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)Data\%(Filename).vs</ObjectFileOutput>
-      <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)Data\%(Filename).vs</ObjectFileOutput>
-    </FxCompile>
     <FxCompile Include="TextureLightPS.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
