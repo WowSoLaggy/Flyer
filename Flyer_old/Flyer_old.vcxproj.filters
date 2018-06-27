@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{ab5ef072-78a1-4f74-a2eb-af2941a5fdc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Application">
+      <UniqueIdentifier>{6f74cd0d-3fde-4301-b68b-37bd38b00a01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Model">
+      <UniqueIdentifier>{bea1ff5a-850a-450d-84f5-9cceccf9adad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Misc">
+      <UniqueIdentifier>{7984262a-a726-4802-ac3a-2fe0ca72d6b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Controllers">
+      <UniqueIdentifier>{2f795c28-c160-4326-902e-04ae89ce09b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{2a4081d1-917a-4e84-b306-cb31923523d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Examples">
+      <UniqueIdentifier>{c71f0aa3-cb5d-46ba-b37a-75abc472afda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Controllers\ShaderControllers">
+      <UniqueIdentifier>{4235c7c4-003e-4a62-927a-988b0bad5b07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Controllers\MeshLoader">
+      <UniqueIdentifier>{657a4b9f-724d-45e6-bfe8-beb02d969b8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs">
+      <UniqueIdentifier>{1c9b323d-2dd2-4d6a-b86e-e3b6aa31d625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Resources">
+      <UniqueIdentifier>{ff38c7ae-20da-48a5-a2ea-c63c6f3b693b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Resources\ResourceTypes">
+      <UniqueIdentifier>{610e683d-edab-4ef5-abb8-824f7db57631}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>src\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>src\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Drawer.cpp">
+      <Filter>src\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Updater.cpp">
+      <Filter>src\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>src\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="MapCreator.cpp">
+      <Filter>src\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderDevice.cpp">
+      <Filter>src\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelClass.cpp">
+      <Filter>src\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleColorShader.cpp">
+      <Filter>src\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraClass.cpp">
+      <Filter>src\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureClass.cpp">
+      <Filter>src\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleTextureShader.cpp">
+      <Filter>src\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLight.cpp">
+      <Filter>src\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="LightClass.cpp">
+      <Filter>src\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderDeviceExample.cpp">
+      <Filter>src\Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLightShader.cpp">
+      <Filter>src\Controllers\ShaderControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>src\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectionalLight.cpp">
+      <Filter>src\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshLoader.cpp">
+      <Filter>src\Controllers\MeshLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>src\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceController.cpp">
+      <Filter>src\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureResource.cpp">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelResource.cpp">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderResource.cpp">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderLoader.cpp">
+      <Filter>src\Resources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>src\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>src\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Drawer.h">
+      <Filter>src\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Updater.h">
+      <Filter>src\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>src\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="MapCreator.h">
+      <Filter>src\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>src\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderDevice.h">
+      <Filter>src\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelClass.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleColorShader.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraClass.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureClass.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleTextureShader.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLight.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="LightClass.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderDeviceExample.h">
+      <Filter>src\Examples</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexTypes.h">
+      <Filter>src\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLightShader.h">
+      <Filter>src\Controllers\ShaderControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Buffers.h">
+      <Filter>src\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderable.h">
+      <Filter>src\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>src\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectionalLight.h">
+      <Filter>src\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLoader.h">
+      <Filter>src\Controllers\MeshLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>src\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>src\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceController.h">
+      <Filter>src\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="dirent.h">
+      <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="IResource.h">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureResource.h">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelResource.h">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderResource.h">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderLoader.h">
+      <Filter>src\Resources</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="SimpleColorPS.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="SimpleColorVS.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="SimpleTextureVS.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="SimpleTexturePS.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="TextureLightPS.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="TextureLightVS.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
