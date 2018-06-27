@@ -4,8 +4,9 @@
 #include "DirectionalLight.h"
 #include "TextureLightShader.h"
 
-class RenderDevice;
 class Map;
+class RenderDevice;
+class ResourceController;
 
 
 class Drawer
@@ -17,7 +18,8 @@ public:
   void load(RenderDevice& i_renderDevice);
   void unload();
 
-  void draw(RenderDevice& i_renderDevice, const Map& i_map);
+  void draw(RenderDevice& i_renderDevice,
+    const ResourceController& i_resourceController, const Map& i_map);
 
 private:
 

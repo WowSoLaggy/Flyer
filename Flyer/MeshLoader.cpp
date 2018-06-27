@@ -3,8 +3,8 @@
 
 
 void MeshLoader::loadMeshInfoFromFile(
-  const std::wstring& i_modelPath,
-  const std::wstring& i_materialsPath,
+  const std::string& i_modelPath,
+  const std::string& i_materialsPath,
   std::vector<VertexTypePosTexNorm>& o_vertices,
   std::vector<int>& o_indices,
   MaterialSequence& o_matSequence)
@@ -99,7 +99,7 @@ void MeshLoader::loadMeshInfoFromFile(
   }
 }
 
-std::vector<Material> MeshLoader::loadMaterials(const std::wstring& i_materialsPath)
+std::vector<Material> MeshLoader::loadMaterials(const std::string& i_materialsPath)
 {
   std::vector<Material> materials;
   if (i_materialsPath.empty())

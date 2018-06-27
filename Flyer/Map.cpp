@@ -5,7 +5,7 @@
 #include "VertexTypes.h"
 
 
-void Map::load(RenderDevice& i_renderDevice)
+void Map::load(RenderDevice& i_renderDevice, const ResourceController& i_resourceController)
 {
   d_worldMatrix = XMMatrixIdentity();
   d_materialSequence = MaterialSequence::createBlank();
@@ -14,7 +14,7 @@ void Map::load(RenderDevice& i_renderDevice)
   loadTexture(i_renderDevice);
 
   for (auto& object : d_objects)
-    object.load(i_renderDevice);
+    object.load(i_renderDevice, i_resourceController);
 }
 
 void Map::unload()

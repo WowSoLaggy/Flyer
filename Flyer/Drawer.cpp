@@ -23,7 +23,8 @@ void Drawer::unload()
 }
 
 
-void Drawer::draw(RenderDevice& i_renderDevice, const Map& i_map)
+void Drawer::draw(RenderDevice& i_renderDevice,
+  const ResourceController& i_resourceController, const Map& i_map)
 {
   i_renderDevice.beginScene();
 

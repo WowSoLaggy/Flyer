@@ -39,7 +39,7 @@ void Application::mainloop()
     }
 
     Updater::update(dt, *d_map);
-    d_drawer.draw(d_renderDevice, *d_map);
+    d_drawer.draw(d_renderDevice, d_resourceController, *d_map);
 
     Sleep(10);
   } // while (runGame)
@@ -56,10 +56,11 @@ void Application::dispose()
 void Application::createRenderDevice()
 {
   d_renderDevice.initialize();
+  d_resourceController.loadResources(d_renderDevice);
   d_drawer.load(d_renderDevice);
 
   d_map = std::make_unique<Map>(MapCreator::createMap());
-  d_map->load(d_renderDevice);
+  d_map->load(d_renderDevice, d_resourceController);
 }
 
 void Application::disposeRenderDevice()
@@ -68,6 +69,7 @@ void Application::disposeRenderDevice()
   d_map.reset();
 
   d_drawer.unload();
+  d_resourceController.unloadResources();
   d_renderDevice.dispose();
 }
 

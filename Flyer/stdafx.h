@@ -9,6 +9,7 @@
 #include <regex>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 #include <dxgi.h>
 #include <d3dcommon.h>

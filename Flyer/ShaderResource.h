@@ -17,6 +17,7 @@ public:
   ShaderResource(const std::string& i_fileName, ShaderType i_shaderType);
 
   virtual ResourceType getResourceType() const override { return ResourceType::Shader; }
+  virtual const std::string& getResourceName() const override { return d_fileName; }
 
   virtual void load(RenderDevice& i_renderDevice) override;
   virtual void unload() override;

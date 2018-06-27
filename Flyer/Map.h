@@ -10,7 +10,7 @@ public:
 
   std::vector<GameObject> d_objects;
 
-  virtual void load(RenderDevice& i_renderDevice) override;
+  virtual void load(RenderDevice& i_renderDevice, const ResourceController& i_resourceController) override;
   virtual void unload() override;
 
   virtual void render(RenderDevice& i_renderDevice, RenderFunc i_renderFunc) const override;

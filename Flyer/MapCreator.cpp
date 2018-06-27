@@ -8,12 +8,12 @@ Map MapCreator::createMap()
 
   GameObject tree;
   tree.setPosition({ 5.0f, 5.0f, 0.0f });
-  tree.setResourceNames(L"Data\\Tree", L"Data\\Blank.dds");
+  tree.setResourceNames("Data\\Tree", "Data\\Blank.dds");
   map.d_objects.push_back(tree);
 
   GameObject player;
   player.setPosition({ 0.0f, 0.0f, 0.0f });
-  player.setResourceNames(L"Data\\Player", L"Data\\Blank.dds");
+  player.setResourceNames("Data\\Player", "Data\\Blank.dds");
   map.d_objects.push_back(player);
 
   return map;

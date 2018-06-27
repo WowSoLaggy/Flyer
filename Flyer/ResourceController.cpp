@@ -22,6 +22,8 @@ namespace
 
 void ResourceController::indexResources()
 {
+  clearIndices();
+
   const std::string resourcesDirName = ".\\data\\";
   indexResources(resourcesDirName);
 }
@@ -29,6 +31,13 @@ void ResourceController::indexResources()
 void ResourceController::clearIndices()
 {
   d_resources.clear();
+  d_nextResourceId = 0;
+}
+
+
+ResourceId ResourceController::getFreeResourceId()
+{
+  return d_nextResourceId++;
 }
 
 
@@ -59,25 +68,56 @@ void ResourceController::indexResources(const std::string& i_dirName)
     const std::regex pixelShaderPattern("\\w*.(ps)");
 
     if (std::regex_match(pEntity->d_name, texturePattern))
-      d_resources.push_back(std::make_shared<TextureResource>(i_dirName + pEntity->d_name));
+    {
+      d_resources.insert({ getFreeResourceId(),
+        std::make_shared<TextureResource>(i_dirName + pEntity->d_name) });
+    }
     else if (std::regex_match(pEntity->d_name, modelPattern))
-      d_resources.push_back(std::make_shared<ModelResource>(i_dirName + pEntity->d_name));
+    {
+      d_resources.insert({ getFreeResourceId(),
+        std::make_shared<ModelResource>(i_dirName + pEntity->d_name) });
+    }
     else if (std::regex_match(pEntity->d_name, vertexShaderPattern))
-      d_resources.push_back(std::make_shared<ShaderResource>(i_dirName + pEntity->d_name, ShaderType::Vertex));
+    {
+      d_resources.insert({ getFreeResourceId(),
+        std::make_shared<ShaderResource>(i_dirName + pEntity->d_name, ShaderType::Vertex) });
+    }
     else if (std::regex_match(pEntity->d_name, pixelShaderPattern))
-      d_resources.push_back(std::make_shared<ShaderResource>(i_dirName + pEntity->d_name, ShaderType::Pixel));
+    {
+      d_resources.insert({ getFreeResourceId(),
+        std::make_shared<ShaderResource>(i_dirName + pEntity->d_name, ShaderType::Pixel) });
+    }
   }
 }
 
 
 void ResourceController::loadResources(RenderDevice& i_renderDevice)
 {
-  for (auto& resource : d_resources)
-    resource->load(i_renderDevice);
+  std::for_each(d_resources.begin(), d_resources.end(),
+    [&](auto& pair) { pair.second->load(i_renderDevice); });
 }
 
 void ResourceController::unloadResources()
 {
-  for (auto& resource : d_resources)
-    resource->unload();
+  std::for_each(d_resources.begin(), d_resources.end(),
+    [&](auto& pair) { pair.second->unload(); });
+}
+
+
+ResourceId ResourceController::getResourceId(const std::string& i_resourceName) const
+{
+  auto it = std::find_if(d_resources.begin(), d_resources.end(),
+    [&](auto& pair) { return pair.second->getResourceName() == i_resourceName; });
+  if (it == d_resources.end())
+    return INVALID_RESOURCE_ID;
+
+  return it->first;
+}
+
+std::shared_ptr<IResource> ResourceController::getResource(ResourceId i_resourceId)
+{
+  auto it = d_resources.find(i_resourceId);
+  if (it == d_resources.end())
+    return nullptr;
+  return it->second;
 }
