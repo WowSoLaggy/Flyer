@@ -4,7 +4,7 @@
     <Filter Include="src">
       <UniqueIdentifier>{df975e5b-5ae6-4a80-b852-e084d8586a6f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MapController">
+    <Filter Include="WorldController">
       <UniqueIdentifier>{63f7d5a3-82ed-443c-a7ad-a403f072fe0f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -12,16 +12,16 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="MapController.cpp">
-      <Filter>MapController</Filter>
+    <ClCompile Include="WorldController.cpp">
+      <Filter>WorldController</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="MapController.h">
-      <Filter>MapController</Filter>
+    <ClInclude Include="WorldController.h">
+      <Filter>WorldController</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
