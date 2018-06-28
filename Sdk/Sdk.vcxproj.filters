@@ -7,6 +7,9 @@
     <Filter Include="src\Math">
       <UniqueIdentifier>{a1d67e7c-6c19-4f48-854d-ef380aa353d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Timer">
+      <UniqueIdentifier>{38ef2dd5-1fa9-48e8-9ab6-1aa5887bc709}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -20,6 +23,9 @@
     </ClInclude>
     <ClInclude Include="Common.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>src\Timer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

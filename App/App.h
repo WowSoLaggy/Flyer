@@ -13,4 +13,6 @@ private:
   void mainloop();
   void dispose();
 
+  bool winPeekExit();
+
 };
