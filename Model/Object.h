@@ -2,12 +2,11 @@
 
 #include <Sdk/Vector.h>
 
-class GameObject final
+class Object
 {
 public:
 
-  GameObject();
-
+  void setPosition(const Vector2& i_position) { d_position = i_position; }
   Vector2& getPosition() { return d_position; }
   const Vector2& getPosition() const { return d_position; }
 

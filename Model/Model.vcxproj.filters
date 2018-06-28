@@ -4,10 +4,13 @@
     <Filter Include="src">
       <UniqueIdentifier>{12323689-fbde-4584-ab38-913445f28d9e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Map">
+    <Filter Include="src\World">
       <UniqueIdentifier>{501f01c0-3fd7-480e-9e8d-0ccea4031a0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\GameObject">
+    <Filter Include="src\Terrain">
+      <UniqueIdentifier>{26c2a40c-31b1-41df-bf29-516c51af31bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Objects">
       <UniqueIdentifier>{b72243d8-ddd0-418a-9f09-10e116f535ed}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -15,25 +18,31 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>src\Map</Filter>
+    <ClCompile Include="World.cpp">
+      <Filter>src\World</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>src\GameObject</Filter>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>src\Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>src\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>src\World</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>src\Terrain</Filter>
+    </ClInclude>
     <ClInclude Include="ModelFwd.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>src\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>src\GameObject</Filter>
+    <ClInclude Include="Object.h">
+      <Filter>src\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

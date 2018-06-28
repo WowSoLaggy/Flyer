@@ -123,8 +123,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="World.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -133,9 +134,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="Map.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="ModelFwd.h" />
+    <ClInclude Include="Terrain.h" />
+    <ClInclude Include="World.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
