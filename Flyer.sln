@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Flyer", "Flyer\Flyer.vcxproj", "{9FF868ED-E09B-490D-A439-B6849B347BB7}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectXTK_Desktop_2017_Win10", "..\DirectXTK\DirectXTK_Desktop_2017_Win10.vcxproj", "{E0B52AE7-E160-4D32-BF3F-910B785E5A8E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Flyer_old", "Flyer_old\Flyer_old.vcxproj", "{8AFA0973-21CB-4C39-9307-270839168E12}"
@@ -23,14 +21,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9FF868ED-E09B-490D-A439-B6849B347BB7}.Debug|x64.ActiveCfg = Debug|x64
-		{9FF868ED-E09B-490D-A439-B6849B347BB7}.Debug|x64.Build.0 = Debug|x64
-		{9FF868ED-E09B-490D-A439-B6849B347BB7}.Debug|x86.ActiveCfg = Debug|Win32
-		{9FF868ED-E09B-490D-A439-B6849B347BB7}.Debug|x86.Build.0 = Debug|Win32
-		{9FF868ED-E09B-490D-A439-B6849B347BB7}.Release|x64.ActiveCfg = Release|x64
-		{9FF868ED-E09B-490D-A439-B6849B347BB7}.Release|x64.Build.0 = Release|x64
-		{9FF868ED-E09B-490D-A439-B6849B347BB7}.Release|x86.ActiveCfg = Release|Win32
-		{9FF868ED-E09B-490D-A439-B6849B347BB7}.Release|x86.Build.0 = Release|Win32
 		{E0B52AE7-E160-4D32-BF3F-910B785E5A8E}.Debug|x64.ActiveCfg = Debug|x64
 		{E0B52AE7-E160-4D32-BF3F-910B785E5A8E}.Debug|x64.Build.0 = Debug|x64
 		{E0B52AE7-E160-4D32-BF3F-910B785E5A8E}.Debug|x86.ActiveCfg = Debug|Win32
