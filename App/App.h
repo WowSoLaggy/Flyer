@@ -1,5 +1,10 @@
 #pragma once
 
+#include "SettingsController.h"
+#include "WindowCreator.h"
+
+#include <Engine/Callbacks.h>
+
 
 class App
 {
@@ -9,10 +14,14 @@ public:
 
 private:
 
+  SettingsController d_settingsController;
+  WindowCreator d_windowCreator;
+
   void initialize();
-  void mainloop();
+  void runEngine();
   void dispose();
 
-  bool winPeekExit();
+  ControlSignal controlCallback();
+  void updateCallback(double i_dt);
 
 };

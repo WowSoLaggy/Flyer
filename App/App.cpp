@@ -1,52 +1,47 @@
 #include "stdafx.h"
 #include "App.h"
 
-#include <Sdk/Timer.h>
+#include "WindowsApi.h"
+
+#include <Engine/Engine.h>
 
 
 void App::run()
 {
   initialize();
-  mainloop();
+  runEngine();
   dispose();
 }
 
 
 void App::initialize()
 {
+  d_windowCreator.createWindow(
+    d_settingsController.getWindowWidth(),
+    d_settingsController.getWindowHeight(),
+    d_settingsController.getAppName());
+  d_windowCreator.showWindow();
 }
 
-void App::mainloop()
+void App::runEngine()
 {
-  Timer timer;
-  timer.start();
-  double dt = 0;
-
-  while (true)
-  {
-    if (winPeekExit())
-      break;
-
-    dt = timer.restart();
-  }
+  Engine engine;
+  engine.run(
+    std::bind(&App::controlCallback, *this),
+    std::bind(&App::updateCallback, *this, std::placeholders::_1));
 }
 
 void App::dispose()
 {
+  d_windowCreator.disposeWindow();
 }
 
 
-bool App::winPeekExit()
+ControlSignal App::controlCallback()
 {
-  MSG msg;
-  UINT res = 0;
+  return winPeekExit() ? ControlSignal::Stop : ControlSignal::Run;
+}
 
-  if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
-  {
-    res = msg.message;
-    TranslateMessage(&msg);
-    DispatchMessage(&msg);
-  }
-
-  return (res == WM_QUIT);
+void App::updateCallback(double i_dt)
+{
 }
