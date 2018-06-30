@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Callbacks.h"
+#include "IEngine.h"
 
 #include <RenderApi/RenderDevice.h>
 
 
-class Engine
+class Engine : public IEngine
 {
 public:
 

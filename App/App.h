@@ -3,7 +3,7 @@
 #include "SettingsController.h"
 #include "WindowCreator.h"
 
-#include <Engine/Engine.h>
+#include <Engine/EngineFwd.h>
 
 
 class App
@@ -14,7 +14,7 @@ public:
 
 private:
 
-  Engine d_engine;
+  std::shared_ptr<IEngine> d_pEngine;
   SettingsController d_settingsController;
   WindowCreator d_windowCreator;
 

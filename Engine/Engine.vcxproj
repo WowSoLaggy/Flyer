@@ -125,12 +125,15 @@
   <ItemGroup>
     <ClInclude Include="Callbacks.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="EngineFwd.h" />
+    <ClInclude Include="IEngine.h" />
     <ClInclude Include="IUpdatable.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="EngineRenderer.cpp" />
+    <ClCompile Include="IEngine.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

@@ -3,7 +3,7 @@
 
 #include "WindowsApi.h"
 
-#include <Engine/Engine.h>
+#include <Engine/IEngine.h>
 
 
 void App::run()
@@ -25,14 +25,15 @@ void App::initialize()
 
 void App::runEngine()
 {
-  d_engine.run(
+  d_pEngine = IEngine::createEngine();
+  d_pEngine->run(
     std::bind(&App::controlCallback, std::ref(*this)),
     std::bind(&App::updateCallback, std::ref(*this), std::placeholders::_1));
 }
 
 void App::dispose()
 {
-  d_engine.disposeRenderer();
+  d_pEngine->disposeRenderer();
   d_windowCreator.disposeWindow();
 }
 
@@ -42,9 +43,9 @@ ControlSignal App::controlCallback()
   if (winPeekExit())
     return ControlSignal::Stop;
 
-  if (!d_engine.isRendererCreated())
+  if (!d_pEngine->isRendererCreated())
   {
-    d_engine.createRenderer(
+    d_pEngine->createRenderer(
       d_windowCreator.getHWnd(),
       d_settingsController.getWindowWidth(),
       d_settingsController.getWindowHeight());

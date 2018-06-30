@@ -24,6 +24,12 @@
     <ClInclude Include="Callbacks.h">
       <Filter>src\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="IEngine.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineFwd.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -33,6 +39,9 @@
       <Filter>src\Engine</Filter>
     </ClCompile>
     <ClCompile Include="EngineRenderer.cpp">
+      <Filter>src\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="IEngine.cpp">
       <Filter>src\Engine</Filter>
     </ClCompile>
   </ItemGroup>
