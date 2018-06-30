@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{b47b487e-8eac-4757-b17b-29008ab5a656}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\RenderDevice">
+      <UniqueIdentifier>{8cc891c0-3378-44db-a4cc-a3ce39f9bda1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderDevice.h">
+      <Filter>src\RenderDevice</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderApiFwd.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderDevice.cpp">
+      <Filter>src\RenderDevice</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
