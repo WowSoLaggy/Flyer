@@ -25,21 +25,32 @@ void App::initialize()
 
 void App::runEngine()
 {
-  Engine engine;
-  engine.run(
-    std::bind(&App::controlCallback, *this),
-    std::bind(&App::updateCallback, *this, std::placeholders::_1));
+  d_engine.run(
+    std::bind(&App::controlCallback, std::ref(*this)),
+    std::bind(&App::updateCallback, std::ref(*this), std::placeholders::_1));
 }
 
 void App::dispose()
 {
+  d_engine.disposeRenderer();
   d_windowCreator.disposeWindow();
 }
 
 
 ControlSignal App::controlCallback()
 {
-  return winPeekExit() ? ControlSignal::Stop : ControlSignal::Run;
+  if (winPeekExit())
+    return ControlSignal::Stop;
+
+  if (!d_engine.isRendererCreated())
+  {
+    d_engine.createRenderer(
+      d_windowCreator.getHWnd(),
+      d_settingsController.getWindowWidth(),
+      d_settingsController.getWindowHeight());
+  }
+  
+  return ControlSignal::Run;
 }
 
 void App::updateCallback(double i_dt)

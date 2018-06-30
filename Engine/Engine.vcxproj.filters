@@ -32,5 +32,8 @@
     <ClCompile Include="Engine.cpp">
       <Filter>src\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="EngineRenderer.cpp">
+      <Filter>src\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -3,7 +3,7 @@
 #include "SettingsController.h"
 #include "WindowCreator.h"
 
-#include <Engine/Callbacks.h>
+#include <Engine/Engine.h>
 
 
 class App
@@ -14,6 +14,7 @@ public:
 
 private:
 
+  Engine d_engine;
   SettingsController d_settingsController;
   WindowCreator d_windowCreator;
 
