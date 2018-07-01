@@ -14,9 +14,9 @@ public:
 
 private:
 
-  std::shared_ptr<IEngine> d_pEngine;
   SettingsController d_settingsController;
   WindowCreator d_windowCreator;
+  std::shared_ptr<IEngine> d_pEngine;
 
   void initialize();
   void runEngine();

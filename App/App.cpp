@@ -21,11 +21,13 @@ void App::initialize()
     d_settingsController.getWindowHeight(),
     d_settingsController.getAppName());
   d_windowCreator.showWindow();
+
+  d_pEngine = IEngine::create();
+  d_pEngine->initialize();
 }
 
 void App::runEngine()
 {
-  d_pEngine = IEngine::createEngine();
   d_pEngine->run(
     std::bind(&App::controlCallback, std::ref(*this)),
     std::bind(&App::updateCallback, std::ref(*this), std::placeholders::_1));
@@ -33,7 +35,9 @@ void App::runEngine()
 
 void App::dispose()
 {
-  d_pEngine->disposeRenderer();
+  d_pEngine->dispose();
+  d_pEngine.reset();
+
   d_windowCreator.disposeWindow();
 }
 
