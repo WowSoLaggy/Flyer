@@ -4,7 +4,7 @@
 #include <Model/World.h>
 
 
-std::shared_ptr<World> createNewWorld()
+std::shared_ptr<World> WorldController::createNewWorld()
 {
   auto* pWorld = new World();
 
@@ -17,4 +17,9 @@ std::shared_ptr<World> createNewWorld()
   pWorld->getObjects().push_back(std::move(player));
 
   return std::shared_ptr<World>(pWorld);
+}
+
+
+void WorldController::updateWorld(const World& i_world, double i_dt)
+{
 }

@@ -7,7 +7,9 @@ class WorldController
 {
 public:
 
-  std::shared_ptr<World> createNewWorld();
+  static std::shared_ptr<World> createNewWorld();
+
+  static void updateWorld(const World& i_world, double i_dt);
 
 private:
 

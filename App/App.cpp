@@ -4,6 +4,7 @@
 #include "WindowsApi.h"
 
 #include <Engine/IEngine.h>
+#include <ModelControllers/WorldController.h>
 
 
 void App::run()
@@ -54,10 +55,14 @@ ControlSignal App::controlCallback()
       d_settingsController.getWindowWidth(),
       d_settingsController.getWindowHeight());
   }
+
+  if (!d_pWorld)
+    d_pWorld = WorldController::createNewWorld();
   
   return ControlSignal::Run;
 }
 
 void App::updateCallback(double i_dt)
 {
+  WorldController::updateWorld(*d_pWorld, i_dt);
 }
