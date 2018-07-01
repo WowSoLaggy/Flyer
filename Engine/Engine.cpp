@@ -5,7 +5,10 @@
 #include <Sdk/Timer.h>
 
 
-void Engine::run(ControlCallback i_controlCallback, UpdateCallback i_updateCallback)
+void Engine::run(
+  ControlCallback i_controlCallback,
+  UpdateCallback i_updateCallback,
+  RenderCallback i_renderCallback)
 {
   Timer timer;
   timer.start();

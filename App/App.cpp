@@ -5,6 +5,7 @@
 
 #include <Engine/IEngine.h>
 #include <ModelControllers/WorldController.h>
+#include <ViewModel/WorldRenderer.h>
 
 
 void App::run()
@@ -31,7 +32,8 @@ void App::runEngine()
 {
   d_engine->run(
     std::bind(&App::controlCallback, std::ref(*this)),
-    std::bind(&App::updateCallback, std::ref(*this), std::placeholders::_1));
+    std::bind(&App::updateCallback, std::ref(*this), std::placeholders::_1),
+    std::bind(&App::renderCallback, std::ref(*this)));
 }
 
 void App::dispose()
@@ -65,4 +67,9 @@ ControlSignal App::controlCallback()
 void App::updateCallback(double i_dt)
 {
   WorldController::updateWorld(*d_world, i_dt);
+}
+
+void App::renderCallback()
+{
+  WorldRenderer::render(*d_engine->getRenderDevice(), *d_world);
 }

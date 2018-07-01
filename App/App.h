@@ -26,5 +26,6 @@ private:
 
   ControlSignal controlCallback();
   void updateCallback(double i_dt);
+  void renderCallback();
 
 };
