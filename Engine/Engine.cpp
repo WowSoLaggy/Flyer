@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Engine.h"
 
+#include <RenderApi/IRenderDevice.h>
 #include <Sdk/Timer.h>
 
 
@@ -16,15 +17,27 @@ void Engine::run(ControlCallback i_controlCallback, UpdateCallback i_updateCallb
 
     i_updateCallback(dt);
 
-    if (d_renderDevice.isCreated())
+    if (d_pRenderDevice->isInitialized())
     {
-      d_renderDevice.beginScene();
+      d_pRenderDevice->beginScene();
       // TODO: delete sleep
       std::this_thread::sleep_for(std::chrono::milliseconds(10));
-      d_renderDevice.endScene();
+      d_pRenderDevice->endScene();
     }
 
     // TODO: delete sleep
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
   }
+}
+
+
+void Engine::initialize()
+{
+  d_pRenderDevice = IRenderDevice::create();
+}
+
+void Engine::dispose()
+{
+  d_pRenderDevice->dispose();
+  d_pRenderDevice.reset();
 }

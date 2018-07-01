@@ -2,7 +2,7 @@
 
 #include "IEngine.h"
 
-#include <RenderApi/RenderDevice.h>
+#include <RenderApi/RenderApiFwd.h>
 
 
 class Engine : public IEngine
@@ -18,6 +18,6 @@ public:
 
 private:
 
-  RenderDevice d_renderDevice;
+  std::shared_ptr<IRenderDevice> d_pRenderDevice;
 
 };

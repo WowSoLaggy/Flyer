@@ -18,12 +18,18 @@
     <ClInclude Include="RenderApiFwd.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="IRenderDevice.h">
+      <Filter>src\RenderDevice</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="RenderDevice.cpp">
+      <Filter>src\RenderDevice</Filter>
+    </ClCompile>
+    <ClCompile Include="IRenderDevice.cpp">
       <Filter>src\RenderDevice</Filter>
     </ClCompile>
   </ItemGroup>

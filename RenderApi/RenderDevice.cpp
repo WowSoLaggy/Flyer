@@ -2,7 +2,7 @@
 #include "RenderDevice.h"
 
 
-void RenderDevice::create(HWND i_hWnd, int i_resolutionX, int i_resolutionY)
+void RenderDevice::initialize(HWND i_hWnd, int i_resolutionX, int i_resolutionY)
 {
   d_hWnd = i_hWnd;
 
@@ -269,12 +269,12 @@ void RenderDevice::create(HWND i_hWnd, int i_resolutionX, int i_resolutionY)
   // Create the viewport.
   d_deviceContext->RSSetViewports(1, &viewport);
 
-  d_isCreated = true;
+  d_isInitialized = true;
 }
 
 void RenderDevice::dispose()
 {
-  d_isCreated = false;
+  d_isInitialized = false;
 
   // Before shutting down set to windowed mode or when you release the swap chain it will throw an exception.
   if (d_swapChain)

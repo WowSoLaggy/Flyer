@@ -1,19 +1,29 @@
 #pragma once
 
-#include "RenderApiFwd.h"
+#include "IRenderDevice.h"
 
 
-class RenderDevice
+struct IDXGISwapChain;
+struct ID3D11Device;
+struct ID3D11DeviceContext;
+struct ID3D11RenderTargetView;
+struct ID3D11Texture2D;
+struct ID3D11DepthStencilState;
+struct ID3D11DepthStencilView;
+struct ID3D11RasterizerState;
+
+
+class RenderDevice : public IRenderDevice
 {
 public:
 
-  bool isCreated() const { return d_isCreated; }
+  bool isInitialized() const override { return d_isInitialized; }
 
-  void create(HWND i_hWnd, int i_resolutionX, int i_resolutionY);
-  void dispose();
+  void initialize(HWND i_hWnd, int i_resolutionX, int i_resolutionY) override;
+  void dispose() override;
 
-  void beginScene();
-  void endScene();
+  void beginScene() override;
+  void endScene() override;
 
 private:
 
@@ -23,7 +33,7 @@ private:
 
 private:
 
-  bool d_isCreated;
+  bool d_isInitialized;
 
   HWND d_hWnd;
 
