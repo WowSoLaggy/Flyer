@@ -23,21 +23,21 @@ void App::initialize()
     d_settingsController.getAppName());
   d_windowCreator.showWindow();
 
-  d_pEngine = IEngine::create();
-  d_pEngine->initialize();
+  d_engine = IEngine::create();
+  d_engine->initialize();
 }
 
 void App::runEngine()
 {
-  d_pEngine->run(
+  d_engine->run(
     std::bind(&App::controlCallback, std::ref(*this)),
     std::bind(&App::updateCallback, std::ref(*this), std::placeholders::_1));
 }
 
 void App::dispose()
 {
-  d_pEngine->dispose();
-  d_pEngine.reset();
+  d_engine->dispose();
+  d_engine.reset();
 
   d_windowCreator.disposeWindow();
 }
@@ -48,21 +48,21 @@ ControlSignal App::controlCallback()
   if (winPeekExit())
     return ControlSignal::Stop;
 
-  if (!d_pEngine->isRendererCreated())
+  if (!d_engine->isRendererCreated())
   {
-    d_pEngine->createRenderer(
+    d_engine->createRenderer(
       d_windowCreator.getHWnd(),
       d_settingsController.getWindowWidth(),
       d_settingsController.getWindowHeight());
   }
 
-  if (!d_pWorld)
-    d_pWorld = WorldController::createNewWorld();
+  if (!d_world)
+    d_world = WorldController::createNewWorld();
   
   return ControlSignal::Run;
 }
 
 void App::updateCallback(double i_dt)
 {
-  WorldController::updateWorld(*d_pWorld, i_dt);
+  WorldController::updateWorld(*d_world, i_dt);
 }

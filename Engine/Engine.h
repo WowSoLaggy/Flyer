@@ -20,6 +20,6 @@ public:
 
 private:
 
-  std::shared_ptr<IRenderDevice> d_pRenderDevice;
+  std::shared_ptr<IRenderDevice> d_renderDevice;
 
 };

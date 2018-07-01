@@ -17,12 +17,12 @@ void Engine::run(ControlCallback i_controlCallback, UpdateCallback i_updateCallb
 
     i_updateCallback(dt);
 
-    if (d_pRenderDevice->isInitialized())
+    if (d_renderDevice->isInitialized())
     {
-      d_pRenderDevice->beginScene();
+      d_renderDevice->beginScene();
       // TODO: delete sleep
       std::this_thread::sleep_for(std::chrono::milliseconds(10));
-      d_pRenderDevice->endScene();
+      d_renderDevice->endScene();
     }
 
     // TODO: delete sleep
@@ -33,11 +33,11 @@ void Engine::run(ControlCallback i_controlCallback, UpdateCallback i_updateCallb
 
 void Engine::initialize()
 {
-  d_pRenderDevice = IRenderDevice::create();
+  d_renderDevice = IRenderDevice::create();
 }
 
 void Engine::dispose()
 {
-  d_pRenderDevice->dispose();
-  d_pRenderDevice.reset();
+  d_renderDevice->dispose();
+  d_renderDevice.reset();
 }

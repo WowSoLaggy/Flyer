@@ -17,8 +17,8 @@ private:
 
   SettingsController d_settingsController;
   WindowCreator d_windowCreator;
-  std::shared_ptr<IEngine> d_pEngine;
-  std::shared_ptr<World> d_pWorld;
+  std::shared_ptr<IEngine> d_engine;
+  std::shared_ptr<World> d_world;
 
   void initialize();
   void runEngine();
