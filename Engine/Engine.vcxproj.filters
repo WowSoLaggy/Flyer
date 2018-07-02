@@ -7,9 +7,6 @@
     <Filter Include="src\Engine">
       <UniqueIdentifier>{038fe22d-7da6-49af-a3c7-b9ab7c9e1718}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Interfaces">
-      <UniqueIdentifier>{b6aa1c35-49ab-4da4-b4f6-8f06df8d1b90}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -17,9 +14,6 @@
     </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>src\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="IUpdatable.h">
-      <Filter>src\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="Callbacks.h">
       <Filter>src\Engine</Filter>
