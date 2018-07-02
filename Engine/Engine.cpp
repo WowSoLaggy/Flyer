@@ -23,6 +23,9 @@ void Engine::run(
     if (d_renderDevice->isInitialized())
     {
       d_renderDevice->beginScene();
+
+      i_renderCallback();
+
       // TODO: delete sleep
       std::this_thread::sleep_for(std::chrono::milliseconds(10));
       d_renderDevice->endScene();
