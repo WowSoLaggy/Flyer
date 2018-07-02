@@ -135,12 +135,16 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="ICamera.h" />
     <ClInclude Include="IRenderDevice.h" />
     <ClInclude Include="RenderApiFwd.h" />
     <ClInclude Include="RenderDevice.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ICamera.cpp" />
     <ClCompile Include="IRenderDevice.cpp" />
     <ClCompile Include="RenderDevice.cpp" />
     <ClCompile Include="stdafx.cpp">

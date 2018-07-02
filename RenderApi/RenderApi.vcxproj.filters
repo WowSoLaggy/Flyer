@@ -7,6 +7,9 @@
     <Filter Include="src\RenderDevice">
       <UniqueIdentifier>{8cc891c0-3378-44db-a4cc-a3ce39f9bda1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Camera">
+      <UniqueIdentifier>{17410187-afc1-4479-b6d6-10092edbd729}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -21,6 +24,12 @@
     <ClInclude Include="IRenderDevice.h">
       <Filter>src\RenderDevice</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>src\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="ICamera.h">
+      <Filter>src\Camera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -31,6 +40,12 @@
     </ClCompile>
     <ClCompile Include="IRenderDevice.cpp">
       <Filter>src\RenderDevice</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>src\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="ICamera.cpp">
+      <Filter>src\Camera</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
