@@ -10,6 +10,9 @@
     <Filter Include="src\Camera">
       <UniqueIdentifier>{17410187-afc1-4479-b6d6-10092edbd729}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Resources">
+      <UniqueIdentifier>{ddcb04d9-708b-4dbf-b638-236a1a041335}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -30,6 +33,12 @@
     <ClInclude Include="ICamera.h">
       <Filter>src\Camera</Filter>
     </ClInclude>
+    <ClInclude Include="ResourceController.h">
+      <Filter>src\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="IResourceController.h">
+      <Filter>src\Resources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -46,6 +55,9 @@
     </ClCompile>
     <ClCompile Include="ICamera.cpp">
       <Filter>src\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceController.cpp">
+      <Filter>src\Resources</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
