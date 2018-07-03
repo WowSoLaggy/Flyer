@@ -9,6 +9,8 @@ public:
 
 public:
 
+  virtual ~IRenderDevice() = default;
+
   virtual bool isInitialized() const = 0;
 
   virtual void initialize(HWND i_hWnd, int i_resolutionX, int i_resolutionY) = 0;

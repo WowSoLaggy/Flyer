@@ -13,6 +13,8 @@ public:
 
 public:
 
+  virtual ~IEngine() = default;
+
   virtual void run(
     ControlCallback i_controlCallback,
     UpdateCallback i_updateCallback,
