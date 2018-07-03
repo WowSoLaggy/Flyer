@@ -138,15 +138,21 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ICamera.h" />
     <ClInclude Include="IRenderDevice.h" />
+    <ClInclude Include="IResource.h" />
+    <ClInclude Include="IResourceController.h" />
+    <ClInclude Include="ModelResource.h" />
     <ClInclude Include="RenderApiFwd.h" />
     <ClInclude Include="RenderDevice.h" />
+    <ClInclude Include="ResourceController.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ICamera.cpp" />
     <ClCompile Include="IRenderDevice.cpp" />
+    <ClCompile Include="ModelResource.cpp" />
     <ClCompile Include="RenderDevice.cpp" />
+    <ClCompile Include="ResourceController.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
