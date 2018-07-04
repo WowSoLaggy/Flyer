@@ -7,3 +7,7 @@ enum class ControlSignal
 };
 
 class IEngine;
+
+using ResourceId = int;
+struct ResourceDesc;
+class IResourceController;

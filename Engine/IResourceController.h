@@ -1,6 +1,6 @@
 #pragma once
 
-#include "RenderApiFwd.h"
+#include "EngineFwd.h"
 
 
 struct ResourceDesc
@@ -14,6 +14,12 @@ class IResourceController
 {
 public:
 
+  static std::shared_ptr<IResourceController> create();
+
+public:
+
+  virtual ~IResourceController() = default;
+
   virtual ResourceDesc getResourceDesc() const = 0;
 
   virtual void initialize() = 0;
@@ -21,9 +27,5 @@ public:
 
   virtual void loadResources() = 0;
   virtual void unloadResources() = 0;
-
-private:
-
-  IResourceController() = default;
 
 };
