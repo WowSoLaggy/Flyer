@@ -57,6 +57,9 @@
     <ClInclude Include="Resource.h">
       <Filter>src\Resources\ResourceTypes</Filter>
     </ClInclude>
+    <ClInclude Include="TextureResource.h">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -87,6 +90,9 @@
       <Filter>src\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Resource.cpp">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureResource.cpp">
       <Filter>src\Resources\ResourceTypes</Filter>
     </ClCompile>
   </ItemGroup>
