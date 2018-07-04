@@ -1,19 +1,40 @@
 #include "stdafx.h"
 #include "Renderer.h"
 
+#include "IObject3D.h"
+#include "RenderDevice.h"
+#include "ResourceController.h"
 
-void Renderer::renderObject(
-  const IRenderDevice& i_renderDevice, const ICamera& i_camera, const IObject& i_object)
+
+Renderer::Renderer(
+  const IRenderDevice& i_renderDevice,
+  const IResourceController& i_resourceController,
+  const ICamera& i_camera)
+  : d_renderDevice(i_renderDevice)
+  , d_resourceController(i_resourceController)
+  , d_camera(i_camera)
 {
-  unsigned int stride = sizeof(VertexTypePosTexNorm);
+}
+
+
+void Renderer::renderObject(const IObject3D& i_object3D)
+{
+  const auto& renderDevice = dynamic_cast<const RenderDevice&>(d_renderDevice);
+  const auto& resourceController = dynamic_cast<const ResourceController&>(d_renderDevice);
+
+  const auto& modelResource = resourceController.getModelResource(i_object3D.getModelResourceId());
+  const auto& textureResource = resourceController.getTextureResource(i_object3D.getTextureResourceId());
+
+  const auto position = i_object3D.getPosition();
+  const auto& worldMatrix = XMMatrixTranslation(position.x, position.y, position.z);
+
+  /*unsigned int stride = sizeof(VertexTypePosTexNorm);
   unsigned int offset = 0;
 
-  i_renderDevice.getDeviceContextPtr()->IASetVertexBuffers(0, 1, &d_vertexBuffer, &stride, &offset);
-  i_renderDevice.getDeviceContextPtr()->IASetIndexBuffer(d_indexBuffer, DXGI_FORMAT_R32_UINT, 0);
+  renderDevice.getDeviceContextPtr()->IASetVertexBuffers(0, 1, &d_vertexBuffer, &stride, &offset);
+  renderDevice.getDeviceContextPtr()->IASetIndexBuffer(d_indexBuffer, DXGI_FORMAT_R32_UINT, 0);
 
-  i_renderDevice.getDeviceContextPtr()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-
-  //i_renderable.renderBuffers(i_renderDevice);
+  renderDevice.getDeviceContextPtr()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);*/
 
   //int curOffset = 0;
   //int numToDraw;
