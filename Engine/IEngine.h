@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Callbacks.h"
+#include "EngineFwd.h"
 
 #include <RenderApi/RenderApiFwd.h>
 
@@ -24,6 +25,8 @@ public:
   virtual void dispose() = 0;
 
   virtual std::shared_ptr<IRenderDevice> getRenderDevice() = 0;
+  virtual std::shared_ptr<IResourceController> getResourceController() = 0;
+
   virtual bool isRendererCreated() const = 0;
   virtual void createRenderer(HWND i_hWnd, int i_resolutionX, int i_resolutionY) = 0;
   virtual void disposeRenderer() = 0;
