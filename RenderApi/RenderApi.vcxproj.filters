@@ -57,6 +57,9 @@
     <ClInclude Include="Resource.h">
       <Filter>src\Resources\ResourceTypes</Filter>
     </ClInclude>
+    <ClInclude Include="IObject3D.h">
+      <Filter>src\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="TextureResource.h">
       <Filter>src\Resources\ResourceTypes</Filter>
     </ClInclude>
