@@ -80,5 +80,8 @@
     <ClCompile Include="ResourceController.cpp">
       <Filter>src\Resources</Filter>
     </ClCompile>
+    <ClCompile Include="IResourceController.cpp">
+      <Filter>src\Resources</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,9 +1,8 @@
 #include "stdafx.h"
 #include "Engine.h"
 
-#include "IResourceController.h"
-
 #include <RenderApi/IRenderDevice.h>
+#include <RenderApi/IResourceController.h>
 #include <Sdk/Timer.h>
 
 
