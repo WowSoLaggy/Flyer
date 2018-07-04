@@ -17,13 +17,16 @@ class RenderDevice : public IRenderDevice
 {
 public:
 
-  bool isInitialized() const override { return d_isInitialized; }
+  virtual bool isInitialized() const override { return d_isInitialized; }
 
-  void initialize(HWND i_hWnd, int i_resolutionX, int i_resolutionY) override;
-  void dispose() override;
+  virtual void initialize(HWND i_hWnd, int i_resolutionX, int i_resolutionY) override;
+  virtual void dispose() override;
 
-  void beginScene() override;
-  void endScene() override;
+  virtual void beginScene() override;
+  virtual void endScene() override;
+
+  ID3D11Device* getDevicePtr() { return d_device; }
+  ID3D11DeviceContext* getDeviceContextPtr() { return d_deviceContext; }
 
 private:
 
