@@ -3,13 +3,6 @@
 #include "RenderApiFwd.h"
 
 
-struct ResourceDesc
-{
-  const ResourceId resourceId;
-  const IResourceController& resourceControllerPtr;
-};
-
-
 class IResourceController
 {
 public:
@@ -20,7 +13,8 @@ public:
 
   virtual ~IResourceController() = default;
 
-  virtual ResourceDesc getResourceDesc() const = 0;
+  virtual ResourceId getResourceIdModel() const = 0;
+  virtual ResourceId getResourceIdTexture() const = 0;
 
   virtual void initialize() = 0;
   virtual void dispose() = 0;

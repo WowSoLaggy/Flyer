@@ -2,9 +2,14 @@
 #include "ResourceController.h"
 
 
-ResourceDesc ResourceController::getResourceDesc() const
+ResourceId ResourceController::getResourceIdModel() const
 {
-  return { (ResourceId)0, std::ref(*this) };
+  return (ResourceId)0;
+}
+
+ResourceId ResourceController::getResourceIdTexture() const
+{
+  return (ResourceId)0;
 }
 
 

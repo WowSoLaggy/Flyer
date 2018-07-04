@@ -7,7 +7,8 @@ class ResourceController: public IResourceController
 {
 public:
 
-  virtual ResourceDesc getResourceDesc() const override;
+  virtual ResourceId getResourceIdModel() const override;
+  virtual ResourceId getResourceIdTexture() const override;
 
   virtual void initialize() override;
   virtual void dispose() override;
