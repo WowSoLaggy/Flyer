@@ -1,9 +1,18 @@
 #include "stdafx.h"
-#include "Drawer.h"
+#include "Renderer.h"
 
 
-void Drawer::drawObject(const ICamera& i_camera)
+void Renderer::renderObject(
+  const IRenderDevice& i_renderDevice, const ICamera& i_camera, const IObject& i_object)
 {
+  unsigned int stride = sizeof(VertexTypePosTexNorm);
+  unsigned int offset = 0;
+
+  i_renderDevice.getDeviceContextPtr()->IASetVertexBuffers(0, 1, &d_vertexBuffer, &stride, &offset);
+  i_renderDevice.getDeviceContextPtr()->IASetIndexBuffer(d_indexBuffer, DXGI_FORMAT_R32_UINT, 0);
+
+  i_renderDevice.getDeviceContextPtr()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
   //i_renderable.renderBuffers(i_renderDevice);
 
   //int curOffset = 0;

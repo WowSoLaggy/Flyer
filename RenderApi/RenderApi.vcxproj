@@ -136,7 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="Drawer.h" />
+    <ClInclude Include="Renderer.h" />
     <ClInclude Include="ICamera.h" />
     <ClInclude Include="IRenderDevice.h" />
     <ClInclude Include="IResource.h" />
@@ -149,7 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Drawer.cpp" />
+    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="ICamera.cpp" />
     <ClCompile Include="IRenderDevice.cpp" />
     <ClCompile Include="IResourceController.cpp" />
