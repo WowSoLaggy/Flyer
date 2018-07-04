@@ -10,7 +10,4 @@ public:
 
   static void render(const IRenderDevice& i_renderDevice, const World& i_world);
 
-private:
-
-  WorldRenderer() = default;
 };
