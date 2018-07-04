@@ -8,6 +8,7 @@ class WorldRenderer
 {
 public:
 
-  static void render(const IRenderDevice& i_renderDevice, const World& i_world);
+  static void render(const World& i_world,
+    const IRenderDevice& i_renderDevice, const IResourceController& i_resourceController);
 
 };

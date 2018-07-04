@@ -71,5 +71,5 @@ void App::updateCallback(double i_dt)
 
 void App::renderCallback()
 {
-  WorldRenderer::render(*d_engine->getRenderDevice(), *d_world);
+  WorldRenderer::render(*d_world, *d_engine->getRenderDevice(), *d_engine->getResourceController());
 }
