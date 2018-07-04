@@ -54,6 +54,9 @@
     <ClInclude Include="Renderer.h">
       <Filter>src\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -82,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="Renderer.cpp">
       <Filter>src\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource.cpp">
+      <Filter>src\Resources\ResourceTypes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
