@@ -7,6 +7,9 @@
     <Filter Include="src\RenderDevice">
       <UniqueIdentifier>{8cc891c0-3378-44db-a4cc-a3ce39f9bda1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Drawer">
+      <UniqueIdentifier>{62a6fdf6-cc17-4e12-adf6-8e2582a88e7b}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Camera">
       <UniqueIdentifier>{17410187-afc1-4479-b6d6-10092edbd729}</UniqueIdentifier>
     </Filter>
@@ -24,6 +27,9 @@
     <ClInclude Include="IRenderDevice.h">
       <Filter>src\RenderDevice</Filter>
     </ClInclude>
+    <ClInclude Include="Drawer.h">
+      <Filter>src\Drawer</Filter>
+    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>src\Camera</Filter>
     </ClInclude>
@@ -40,6 +46,9 @@
     </ClCompile>
     <ClCompile Include="IRenderDevice.cpp">
       <Filter>src\RenderDevice</Filter>
+    </ClCompile>
+    <ClCompile Include="Drawer.cpp">
+      <Filter>src\Drawer</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>src\Camera</Filter>

@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Drawer.h" />
     <ClInclude Include="ICamera.h" />
     <ClInclude Include="IRenderDevice.h" />
     <ClInclude Include="RenderApiFwd.h" />
@@ -144,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Drawer.cpp" />
     <ClCompile Include="ICamera.cpp" />
     <ClCompile Include="IRenderDevice.cpp" />
     <ClCompile Include="RenderDevice.cpp" />
