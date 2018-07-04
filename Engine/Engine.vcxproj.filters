@@ -7,12 +7,6 @@
     <Filter Include="src\Engine">
       <UniqueIdentifier>{038fe22d-7da6-49af-a3c7-b9ab7c9e1718}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Resources">
-      <UniqueIdentifier>{1f6ea69e-1807-4146-bb9b-f8f282907757}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Resources\ResourceTypes">
-      <UniqueIdentifier>{b44ae756-7433-4752-b6d3-12f660a5dc2e}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -30,18 +24,6 @@
     <ClInclude Include="EngineFwd.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="IResource.h">
-      <Filter>src\Resources\ResourceTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="ModelResource.h">
-      <Filter>src\Resources\ResourceTypes</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceController.h">
-      <Filter>src\Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="IResourceController.h">
-      <Filter>src\Resources</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -55,15 +37,6 @@
     </ClCompile>
     <ClCompile Include="IEngine.cpp">
       <Filter>src\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="ModelResource.cpp">
-      <Filter>src\Resources\ResourceTypes</Filter>
-    </ClCompile>
-    <ClCompile Include="ResourceController.cpp">
-      <Filter>src\Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="IResourceController.cpp">
-      <Filter>src\Resources</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
