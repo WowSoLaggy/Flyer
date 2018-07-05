@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Resource.h"
+#include "IResource.h"
 
 
-class TextureResource: public Resource
+class TextureResource: public IResource
 {
 public:
 
