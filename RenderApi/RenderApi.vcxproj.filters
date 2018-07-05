@@ -60,7 +60,7 @@
     <ClInclude Include="TextureResource.h">
       <Filter>src\Resources\ResourceTypes</Filter>
     </ClInclude>
-    <ClInclude Include="Material.h">
+    <ClInclude Include="MeshLoader.h">
       <Filter>src\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="MeshResource.h">
@@ -70,6 +70,9 @@
       <Filter>src\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="MaterialSequence.h">
+      <Filter>src\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
       <Filter>src\Mesh</Filter>
     </ClInclude>
   </ItemGroup>
@@ -103,6 +106,9 @@
     </ClCompile>
     <ClCompile Include="MeshResource.cpp">
       <Filter>src\Resources\ResourceTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshLoader.cpp">
+      <Filter>src\Mesh</Filter>
     </ClCompile>
     <ClCompile Include="MaterialSequence.cpp">
       <Filter>src\Mesh</Filter>
