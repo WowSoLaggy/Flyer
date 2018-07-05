@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Material.h"
+#include "MaterialSequence.h"
 #include "IResource.h"
 
 
