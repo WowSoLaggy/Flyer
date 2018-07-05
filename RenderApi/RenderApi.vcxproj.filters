@@ -42,9 +42,6 @@
     <ClInclude Include="IResource.h">
       <Filter>src\Resources\ResourceTypes</Filter>
     </ClInclude>
-    <ClInclude Include="ModelResource.h">
-      <Filter>src\Resources\ResourceTypes</Filter>
-    </ClInclude>
     <ClInclude Include="ResourceController.h">
       <Filter>src\Resources</Filter>
     </ClInclude>
@@ -63,6 +60,9 @@
     <ClInclude Include="TextureResource.h">
       <Filter>src\Resources\ResourceTypes</Filter>
     </ClInclude>
+    <ClInclude Include="MeshResource.h">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -79,9 +79,6 @@
     </ClCompile>
     <ClCompile Include="ICamera.cpp">
       <Filter>src\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="ModelResource.cpp">
-      <Filter>src\Resources\ResourceTypes</Filter>
     </ClCompile>
     <ClCompile Include="ResourceController.cpp">
       <Filter>src\Resources</Filter>

@@ -6,7 +6,7 @@
 enum class ResourceType
 {
   Texture,
-  Model,
+  Mesh,
   Shader,
 };
 

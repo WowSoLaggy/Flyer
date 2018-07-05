@@ -11,7 +11,7 @@ public:
 
   virtual ~IObject3D() = default;
 
-  virtual ResourceId getModelResourceId() const = 0;
+  virtual ResourceId getMeshResourceId() const = 0;
   virtual ResourceId getTextureResourceId() const = 0;
 
   virtual Vector3 getPosition() const = 0;

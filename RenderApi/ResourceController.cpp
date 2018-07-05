@@ -2,7 +2,7 @@
 #include "ResourceController.h"
 
 
-ResourceId ResourceController::getModelResourceId(const std::string& i_resourceName) const
+ResourceId ResourceController::getMeshResourceId(const std::string& i_resourceName) const
 {
   return d_resourceIdsMap.at(i_resourceName);
 }
@@ -13,9 +13,9 @@ ResourceId ResourceController::getTextureResourceId(const std::string& i_resourc
 }
 
 
-const ModelResource& ResourceController::getModelResource(ResourceId i_resourceId) const
+const MeshResource& ResourceController::getMeshResource(ResourceId i_resourceId) const
 {
-  return dynamic_cast<const ModelResource&>(*d_resourceMap.at(i_resourceId));
+  return dynamic_cast<const MeshResource&>(*d_resourceMap.at(i_resourceId));
 }
 
 const TextureResource& ResourceController::getTextureResource(ResourceId i_resourceId) const

@@ -13,7 +13,7 @@ public:
 
   virtual ~IResourceController() = default;
 
-  virtual ResourceId getModelResourceId(const std::string& i_resourceName) const = 0;
+  virtual ResourceId getMeshResourceId(const std::string& i_resourceName) const = 0;
   virtual ResourceId getTextureResourceId(const std::string& i_resourceName) const = 0;
 
   virtual void initialize() = 0;

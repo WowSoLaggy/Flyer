@@ -1,7 +1,7 @@
 #pragma once
 
 #include "IResourceController.h"
-#include "ModelResource.h"
+#include "MeshResource.h"
 #include "TextureResource.h"
 
 
@@ -9,10 +9,10 @@ class ResourceController: public IResourceController
 {
 public:
 
-  virtual ResourceId getModelResourceId(const std::string& i_resourceName) const override;
+  virtual ResourceId getMeshResourceId(const std::string& i_resourceName) const override;
   virtual ResourceId getTextureResourceId(const std::string& i_resourceName) const override;
 
-  const ModelResource& getModelResource(ResourceId i_resourceId) const;
+  const MeshResource& getMeshResource(ResourceId i_resourceId) const;
   const TextureResource& getTextureResource(ResourceId i_resourceId) const;
 
   virtual void initialize() override;

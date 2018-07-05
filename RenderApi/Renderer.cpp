@@ -22,7 +22,7 @@ void Renderer::renderObject(const IObject3D& i_object3D)
   const auto& renderDevice = dynamic_cast<const RenderDevice&>(d_renderDevice);
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_renderDevice);
 
-  const auto& modelResource = resourceController.getModelResource(i_object3D.getModelResourceId());
+  const auto& meshResource = resourceController.getMeshResource(i_object3D.getMeshResourceId());
   const auto& textureResource = resourceController.getTextureResource(i_object3D.getTextureResourceId());
 
   const auto position = i_object3D.getPosition();

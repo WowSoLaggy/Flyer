@@ -142,7 +142,7 @@
     <ClInclude Include="IRenderDevice.h" />
     <ClInclude Include="IResource.h" />
     <ClInclude Include="IResourceController.h" />
-    <ClInclude Include="ModelResource.h" />
+    <ClInclude Include="MeshResource.h" />
     <ClInclude Include="RenderApiFwd.h" />
     <ClInclude Include="RenderDevice.h" />
     <ClInclude Include="Resource.h" />
@@ -156,7 +156,7 @@
     <ClCompile Include="ICamera.cpp" />
     <ClCompile Include="IRenderDevice.cpp" />
     <ClCompile Include="IResourceController.cpp" />
-    <ClCompile Include="ModelResource.cpp" />
+    <ClCompile Include="MeshResource.cpp" />
     <ClCompile Include="RenderDevice.cpp" />
     <ClCompile Include="Resource.cpp" />
     <ClCompile Include="ResourceController.cpp" />
