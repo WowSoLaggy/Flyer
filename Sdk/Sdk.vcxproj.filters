@@ -10,6 +10,9 @@
     <Filter Include="src\Timer">
       <UniqueIdentifier>{38ef2dd5-1fa9-48e8-9ab6-1aa5887bc709}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Strings">
+      <UniqueIdentifier>{2464c6fa-eb4e-4594-96ad-58a9e915a29d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -26,6 +29,9 @@
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>src\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="StringUtils.h">
+      <Filter>src\Strings</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
