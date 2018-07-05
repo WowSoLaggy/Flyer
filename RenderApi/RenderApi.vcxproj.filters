@@ -69,6 +69,9 @@
     <ClInclude Include="VertexTypes.h">
       <Filter>src\Mesh</Filter>
     </ClInclude>
+    <ClInclude Include="MaterialSequence.h">
+      <Filter>src\Mesh</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -100,6 +103,9 @@
     </ClCompile>
     <ClCompile Include="MeshResource.cpp">
       <Filter>src\Resources\ResourceTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialSequence.cpp">
+      <Filter>src\Mesh</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

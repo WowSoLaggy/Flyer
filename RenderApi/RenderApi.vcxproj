@@ -138,6 +138,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="IObject3D.h" />
     <ClInclude Include="Material.h" />
+    <ClInclude Include="MaterialSequence.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="ICamera.h" />
     <ClInclude Include="IRenderDevice.h" />
@@ -153,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="MaterialSequence.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="ICamera.cpp" />
     <ClCompile Include="IRenderDevice.cpp" />
