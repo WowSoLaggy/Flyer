@@ -146,10 +146,10 @@
     <ClInclude Include="MeshResource.h" />
     <ClInclude Include="RenderApiFwd.h" />
     <ClInclude Include="RenderDevice.h" />
-    <ClInclude Include="Resource.h" />
     <ClInclude Include="ResourceController.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TextureResource.h" />
+    <ClInclude Include="VertexTypes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
@@ -159,7 +159,6 @@
     <ClCompile Include="IResourceController.cpp" />
     <ClCompile Include="MeshResource.cpp" />
     <ClCompile Include="RenderDevice.cpp" />
-    <ClCompile Include="Resource.cpp" />
     <ClCompile Include="ResourceController.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

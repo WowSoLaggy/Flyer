@@ -8,7 +8,7 @@ class Renderer
 public:
 
   Renderer(
-    const IRenderDevice& i_renderDevice,
+    IRenderDevice& i_renderDevice,
     const IResourceController& i_resourceController,
     const ICamera& i_camera);
 
@@ -16,7 +16,7 @@ public:
 
 private:
 
-  const IRenderDevice& d_renderDevice;
+  IRenderDevice& d_renderDevice;
   const IResourceController& d_resourceController;
   const ICamera& d_camera;
 
