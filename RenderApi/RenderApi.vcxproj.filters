@@ -60,6 +60,9 @@
     <ClInclude Include="TextureResource.h">
       <Filter>src\Resources\ResourceTypes</Filter>
     </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>src\Mesh</Filter>
+    </ClInclude>
     <ClInclude Include="MeshResource.h">
       <Filter>src\Resources\ResourceTypes</Filter>
     </ClInclude>
