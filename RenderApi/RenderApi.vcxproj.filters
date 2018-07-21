@@ -22,6 +22,9 @@
     <Filter Include="src\Mesh">
       <UniqueIdentifier>{c8170a72-b4dc-466c-b166-5b99e072a9cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Buffers">
+      <UniqueIdentifier>{99149c37-a63a-47ae-8b69-523f2363d42f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -75,6 +78,12 @@
     <ClInclude Include="Material.h">
       <Filter>src\Mesh</Filter>
     </ClInclude>
+    <ClInclude Include="VertexBuffer.h">
+      <Filter>src\Buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="IndexBuffer.h">
+      <Filter>src\Buffers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -112,6 +121,12 @@
     </ClCompile>
     <ClCompile Include="MaterialSequence.cpp">
       <Filter>src\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexBuffer.cpp">
+      <Filter>src\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexBuffer.cpp">
+      <Filter>src\Buffers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
