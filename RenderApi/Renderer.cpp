@@ -32,13 +32,21 @@ void Renderer::renderObject(const IObject3D& i_object3D)
   unsigned int stride = sizeof(VertexTypePosTexNorm);
   unsigned int offset = 0;
 
-  auto* vertexBufferPtr = meshResource.getVertexBufferPtr();
-  auto* indexBufferPtr = meshResource.getVertexBufferPtr();
+  auto& vertexBuffer = meshResource.getVertexBuffer();
+  auto& indexBuffer = meshResource.getIndexBuffer();
+
+  auto* vertexBufferPtr = vertexBuffer.getPtr();
+  auto* indexBufferPtr = indexBuffer.getPtr();
 
   renderDevice.getDeviceContextPtr()->IASetVertexBuffers(0, 1, &vertexBufferPtr, &stride, &offset);
   renderDevice.getDeviceContextPtr()->IASetIndexBuffer(indexBufferPtr, DXGI_FORMAT_R32_UINT, 0);
 
   renderDevice.getDeviceContextPtr()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
+  const auto& materialSpans = meshResource.getMaterialSpans();
+  for (auto& materialSpan : materialSpans)
+  {
+  }
 
   //int curOffset = 0;
   //int numToDraw;
