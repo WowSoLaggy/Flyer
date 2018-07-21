@@ -18,7 +18,7 @@ public:
   void clear();
   void add(const MaterialSpan& i_materialSpan);
 
-  std::vector<MaterialSpan> getMaterialSpans();
+  const std::vector<MaterialSpan>& getMaterialSpans() const;
 
 private:
 

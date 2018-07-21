@@ -2,6 +2,13 @@
 #include "MaterialSequence.h"
 
 
+namespace
+{
+  static const std::vector<MaterialSpan> s_materialSpan =
+    { { Material::getDefault(), 0, -1 } };
+}
+
+
 void MaterialSequence::clear()
 {
   d_materialSpans.clear();
@@ -13,10 +20,10 @@ void MaterialSequence::add(const MaterialSpan& i_materialSpan)
 }
 
 
-std::vector<MaterialSpan> MaterialSequence::getMaterialSpans()
+const std::vector<MaterialSpan>& MaterialSequence::getMaterialSpans() const
 {
   if (!d_materialSpans.empty())
     return d_materialSpans;
 
-  return { { "blank",{ 1.0f, 1.0f, 1.0f, 1.0f },{ 1.0f, 1.0f, 1.0f, 1.0f } } };
+  return s_materialSpan;
 }

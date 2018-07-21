@@ -7,4 +7,6 @@ struct Material
 
   XMFLOAT4 ambientColor;
   XMFLOAT4 diffuseColor;
+
+  static Material getDefault() { return { "", { 1, 1, 1, 1}, {1, 1, 1, 1} }; }
 };
