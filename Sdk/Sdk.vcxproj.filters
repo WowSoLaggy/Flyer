@@ -13,6 +13,9 @@
     <Filter Include="src\Strings">
       <UniqueIdentifier>{2464c6fa-eb4e-4594-96ad-58a9e915a29d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="libs">
+      <UniqueIdentifier>{8af4ec12-4637-4254-949a-e3cb5b000f12}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -32,6 +35,9 @@
     </ClInclude>
     <ClInclude Include="StringUtils.h">
       <Filter>src\Strings</Filter>
+    </ClInclude>
+    <ClInclude Include="dirent.h">
+      <Filter>libs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
