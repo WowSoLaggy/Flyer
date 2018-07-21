@@ -25,7 +25,7 @@ bool Engine::isRendererCreated() const
 void Engine::createRenderer(HWND i_hWnd, int i_resolutionX, int i_resolutionY)
 {
   d_renderDevice->initialize(i_hWnd, i_resolutionX, i_resolutionY);
-  d_resourceController->loadResources();
+  d_resourceController->loadResources(*d_renderDevice);
 }
 
 

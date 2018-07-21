@@ -33,10 +33,14 @@ void ResourceController::dispose()
 }
 
 
-void ResourceController::loadResources()
+void ResourceController::loadResources(IRenderDevice& i_renderDevice)
 {
+  for (auto& it : d_resourceMap)
+    it.second->load(i_renderDevice);
 }
 
 void ResourceController::unloadResources()
 {
+  for (auto& it : d_resourceMap)
+    it.second->unload();
 }

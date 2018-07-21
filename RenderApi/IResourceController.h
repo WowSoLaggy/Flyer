@@ -19,7 +19,7 @@ public:
   virtual void initialize() = 0;
   virtual void dispose() = 0;
 
-  virtual void loadResources() = 0;
+  virtual void loadResources(IRenderDevice& i_renderDevice) = 0;
   virtual void unloadResources() = 0;
 
 };

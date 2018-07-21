@@ -2,6 +2,7 @@
 
 #include "IResourceController.h"
 #include "MeshResource.h"
+#include "RenderApiFwd.h"
 #include "TextureResource.h"
 
 
@@ -18,7 +19,7 @@ public:
   virtual void initialize() override;
   virtual void dispose() override;
 
-  virtual void loadResources() override;
+  virtual void loadResources(IRenderDevice& i_renderDevice) override;
   virtual void unloadResources() override;
 
 private:
