@@ -1,26 +1,32 @@
 #pragma once
 
-#include "MaterialSequence.h"
 #include "IResource.h"
+#include "IndexBuffer.h"
+#include "MaterialSequence.h"
+#include "VertexBuffer.h"
 
 
 class MeshResource : public IResource
 {
 public:
 
+  MeshResource(const std::string& i_meshFilePath);
+
   virtual ResourceType getResourceType() const override final { return ResourceType::Mesh; }
 
-  virtual void load() override;
+  virtual void load(IRenderDevice& i_renderDevice) override;
   virtual void unload() override;
 
-  ID3D11Buffer* getIndexBufferPtr() const { return d_indexBuffer; }
-  ID3D11Buffer* getVertexBufferPtr() const { return d_vertexBuffer; }
-  const MaterialSequence& getMaterialSequence() const { return d_materialSequence; }
+  const IndexBuffer& getIndexBuffer() const { return d_indexBuffer; }
+  const VertexBuffer& getVertexBuffer() const { return d_vertexBuffer; }
+  const std::vector<MaterialSpan>& getMaterialSpans() const { return d_materialSequence.getMaterialSpans(); }
 
 private:
 
-  ID3D11Buffer* d_indexBuffer;
-  ID3D11Buffer* d_vertexBuffer;
+  std::string d_meshFilePath;
+
+  IndexBuffer d_indexBuffer;
+  VertexBuffer d_vertexBuffer;
   MaterialSequence d_materialSequence;
 
 };

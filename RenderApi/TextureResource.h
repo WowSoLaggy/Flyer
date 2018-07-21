@@ -9,6 +9,6 @@ public:
 
   virtual ResourceType getResourceType() const override final { return ResourceType::Texture; }
 
-  virtual void load() override;
+  virtual void load(IRenderDevice& i_renderDevice) override;
   virtual void unload() override;
 };

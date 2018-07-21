@@ -2,7 +2,7 @@
 #include "TextureResource.h"
 
 
-void TextureResource::load()
+void TextureResource::load(IRenderDevice& i_renderDevice)
 {
 }
 
