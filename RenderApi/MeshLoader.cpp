@@ -62,20 +62,18 @@ namespace
 } // anonymous NS
 
 
-void MeshLoader::loadInfoFromFile(
-  const std::string& i_modelPath, const std::string& i_materialsPath,
+void MeshLoader::loadInfoFromObjFile(
+  const std::string& i_modelPath,
   std::vector<VertexTypePosTexNorm>& o_vertices, std::vector<int>& o_indices,
   MaterialSequence& o_matSequence)
 {
   o_vertices.clear();
   o_indices.clear();
+  o_matSequence.clear();
 
   std::ifstream file(i_modelPath);
   if (!file)
     return;
-
-  o_matSequence.clear();
-  auto materials = loadMaterials(i_materialsPath);
 
   std::vector<XMFLOAT3> positions;
   std::vector<XMFLOAT2> texCoords;
@@ -84,7 +82,8 @@ void MeshLoader::loadInfoFromFile(
   std::map<std::tuple<int, int, int>, int> trioMap;
   int nextIndex = 0;
 
-  std::map<int, Material> materialMap;
+  std::string mtllibFileName;
+  std::vector<std::pair<int, std::string>> materialNamesMap;
 
   std::string line;
   while (std::getline(file, line))
@@ -141,27 +140,31 @@ void MeshLoader::loadInfoFromFile(
       }
     }
     else if (tokens[0] == "usemtl")
-    {
-      auto it = std::find_if(materials.begin(), materials.end(),
-        [&](const Material& i_material) { return i_material.name == tokens[1]; });
-      if (it == materials.end())
-        continue;
+      materialNamesMap.push_back({ o_indices.size(), tokens[1] });
+    else if (tokens[0] == "mtllib")
+      mtllibFileName = tokens[1];
 
-      materialMap.insert({ o_indices.size(), *it });
-    }
   } // while (std::getline(file, line))
 
-  for (auto it = materialMap.begin(); it != materialMap.end(); ++it)
+  auto materials = loadMaterials(mtllibFileName);
+
+  for (auto it = materialNamesMap.begin(); it != materialNamesMap.end(); ++it)
   {
-    if (std::next(it) != materialMap.end())
+    auto itMat = std::find_if(materials.begin(), materials.end(),
+      [&](const Material& i_material) { return i_material.name == it->second; });
+    Material material = itMat != materials.end() ? *itMat : Material::getDefault();
+
+    if (std::next(it) != materialNamesMap.end())
     {
+      // Not the last element
       int count = std::next(it)->first - it->first;
-      o_matSequence.add({ it->second, it->first, count });
+      o_matSequence.add({ material, it->first, count });
     }
     else
     {
-      int count = o_indices.size() - it->first;
-      o_matSequence.add({ it->second, it->first, count });
+      // The last element
+      int count = (int)o_indices.size() - it->first;
+      o_matSequence.add({ material, it->first, count });
     }
   }
 }
