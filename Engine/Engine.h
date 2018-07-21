@@ -15,7 +15,7 @@ public:
     UpdateCallback i_updateCallback,
     RenderCallback i_renderCallback) override;
 
-  virtual void initialize() override;
+  virtual void initialize(const std::string& i_resourceFolder) override;
   virtual void dispose() override;
 
   std::shared_ptr<IRenderDevice> getRenderDevice() override;

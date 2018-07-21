@@ -38,11 +38,11 @@ void Engine::run(
 }
 
 
-void Engine::initialize()
+void Engine::initialize(const std::string& i_resourceFolder)
 {
   d_renderDevice = IRenderDevice::create();
   d_resourceController = IResourceController::create();
-  d_resourceController->initialize();
+  d_resourceController->initialize(i_resourceFolder);
 }
 
 void Engine::dispose()

@@ -21,7 +21,7 @@ public:
     UpdateCallback i_updateCallback,
     RenderCallback i_renderCallback) = 0;
 
-  virtual void initialize() = 0;
+  virtual void initialize(const std::string& i_resourceFolder) = 0;
   virtual void dispose() = 0;
 
   virtual std::shared_ptr<IRenderDevice> getRenderDevice() = 0;

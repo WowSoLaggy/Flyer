@@ -10,4 +10,6 @@ public:
   int getWindowWidth() const;
   int getWindowHeight() const;
 
+  std::string getResourceFolder() const;
+
 };

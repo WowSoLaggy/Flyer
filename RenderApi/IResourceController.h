@@ -13,10 +13,9 @@ public:
 
   virtual ~IResourceController() = default;
 
-  virtual ResourceId getMeshResourceId(const std::string& i_resourceName) const = 0;
-  virtual ResourceId getTextureResourceId(const std::string& i_resourceName) const = 0;
+  virtual ResourceId getResourceId(const std::string& i_resourceName) const = 0;
 
-  virtual void initialize() = 0;
+  virtual void initialize(const std::string& i_resourcesFolder) = 0;
   virtual void dispose() = 0;
 
   virtual void loadResources(IRenderDevice& i_renderDevice) = 0;

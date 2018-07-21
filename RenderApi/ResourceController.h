@@ -10,13 +10,12 @@ class ResourceController: public IResourceController
 {
 public:
 
-  virtual ResourceId getMeshResourceId(const std::string& i_resourceName) const override;
-  virtual ResourceId getTextureResourceId(const std::string& i_resourceName) const override;
+  virtual ResourceId getResourceId(const std::string& i_resourceName) const override;
 
   const MeshResource& getMeshResource(ResourceId i_resourceId) const;
   const TextureResource& getTextureResource(ResourceId i_resourceId) const;
 
-  virtual void initialize() override;
+  virtual void initialize(const std::string& i_resourcesFolder) override;
   virtual void dispose() override;
 
   virtual void loadResources(IRenderDevice& i_renderDevice) override;
@@ -24,7 +23,13 @@ public:
 
 private:
 
-  std::unordered_map<std::string, ResourceId> d_resourceIdsMap;
-  std::unordered_map<ResourceId, std::shared_ptr<IResource>> d_resourceMap;
+  std::unordered_map<std::string, ResourceId> d_nameToIdMap;
+  std::unordered_map<ResourceId, std::shared_ptr<IResource>> d_idToResourceMap;
+
+  ResourceId d_nextResourceId;
+  ResourceId getFreeResourceId();
+
+  void indexResourcesInDir(const std::string& i_dirName);
+  void clearResoures();
 
 };

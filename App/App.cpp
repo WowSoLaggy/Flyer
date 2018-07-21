@@ -25,7 +25,7 @@ void App::initialize()
   d_windowCreator.showWindow();
 
   d_engine = IEngine::create();
-  d_engine->initialize();
+  d_engine->initialize(d_settingsController.getResourceFolder());
 }
 
 void App::runEngine()

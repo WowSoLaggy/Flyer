@@ -17,3 +17,9 @@ int SettingsController::getWindowHeight() const
 {
   return 960;
 }
+
+
+std::string SettingsController::getResourceFolder() const
+{
+  return ".\\data\\";
+}
