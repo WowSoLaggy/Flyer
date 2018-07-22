@@ -5,6 +5,13 @@ class Terrain
 {
 public:
 
+  void setModelName(const std::string& i_modelName) { d_modelName = i_modelName; }
+  const std::string& getModelName() const { return d_modelName; }
+
+  void setTextureName(const std::string& i_textureName) { d_textureName = i_textureName; }
+  const std::string& getTextureName() const { return d_textureName; }
+
+
   void setHeight(float i_height) { d_height = i_height; }
   float getHeight() const { return d_height; }
 
@@ -15,6 +22,9 @@ public:
   float getSizeZ() const { return d_sizeZ; }
 
 private:
+
+  std::string d_modelName;
+  std::string d_textureName;
 
   float d_sizeX;
   float d_sizeZ;
