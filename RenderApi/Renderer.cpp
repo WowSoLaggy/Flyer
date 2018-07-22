@@ -3,9 +3,11 @@
 
 #include "IObject3D.h"
 #include "MeshResource.h"
+#include "PixelShaderResource.h"
 #include "RenderDevice.h"
 #include "ResourceController.h"
-#include "VertexTypes.h"
+#include "TextureResource.h"
+#include "VertexShaderResource.h"
 
 
 Renderer::Renderer(
@@ -16,6 +18,8 @@ Renderer::Renderer(
   , d_resourceController(i_resourceController)
   , d_camera(i_camera)
 {
+  d_pixelShaderResourceId = d_resourceController.getResourceId("TextureLightPS.ps");
+  d_vertexShaderResourceId = d_resourceController.getResourceId("TextureLightVS.vs");
 }
 
 
@@ -26,6 +30,8 @@ void Renderer::renderObject(const IObject3D& i_object3D)
 
   const auto& meshResource = resourceController.getMeshResource(i_object3D.getMeshResourceId());
   const auto& textureResource = resourceController.getTextureResource(i_object3D.getTextureResourceId());
+  const auto& pixelShaderResource = resourceController.getPixelShaderResource(d_pixelShaderResourceId);
+  const auto& vertexShaderResource = resourceController.getVertexShaderResource(d_vertexShaderResourceId);
 
   const auto position = i_object3D.getPosition();
   const auto& worldMatrix = XMMatrixTranslation(position.x, position.y, position.z);
