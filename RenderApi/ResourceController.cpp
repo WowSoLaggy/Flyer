@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "ResourceController.h"
 
+#include "MeshResource.h"
+#include "TextureResource.h"
+
 
 namespace
 {
@@ -87,13 +90,18 @@ void ResourceController::indexResourcesInDir(const std::string& i_dirName)
     const std::regex vertexShaderPattern("\\w*.(vs)");
     const std::regex pixelShaderPattern("\\w*.(ps)");
 
+    auto resourceName = i_dirName + pEntity->d_name;
+    auto freeResourceId = getFreeResourceId();
+
     if (std::regex_match(pEntity->d_name, modelPattern))
     {
-      auto resourceName = i_dirName + pEntity->d_name;
-      auto freeResourceId = getFreeResourceId();
-
       d_nameToIdMap.insert({ resourceName, freeResourceId });
       d_idToResourceMap.insert({ freeResourceId, std::make_shared<MeshResource>(resourceName) });
+    }
+    else if (std::regex_match(pEntity->d_name, texturePattern))
+    {
+      d_nameToIdMap.insert({ resourceName, freeResourceId });
+      d_idToResourceMap.insert({ freeResourceId, std::make_shared<TextureResource>(resourceName) });
     }
   }
 }

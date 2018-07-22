@@ -2,6 +2,7 @@
 #include "Renderer.h"
 
 #include "IObject3D.h"
+#include "MeshResource.h"
 #include "RenderDevice.h"
 #include "ResourceController.h"
 #include "VertexTypes.h"

@@ -1,9 +1,7 @@
 #pragma once
 
 #include "IResourceController.h"
-#include "MeshResource.h"
 #include "RenderApiFwd.h"
-#include "TextureResource.h"
 
 
 class ResourceController: public IResourceController
