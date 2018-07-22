@@ -126,6 +126,8 @@
     <ClInclude Include="ObjectVm.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TerrainVm.h" />
+    <ClInclude Include="ViewModelFwd.h" />
+    <ClInclude Include="WorldVm.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ObjectVm.cpp" />
@@ -136,6 +138,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TerrainVm.cpp" />
+    <ClCompile Include="WorldVm.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
