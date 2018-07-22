@@ -21,7 +21,7 @@ namespace
 
 ResourceId ResourceController::getResourceId(const std::string& i_resourceName) const
 {
-  return d_nameToIdMap.at(i_resourceName);
+  return d_nameToIdMap.at(d_resourceFolder + i_resourceName);
 }
 
 
@@ -38,7 +38,8 @@ const TextureResource& ResourceController::getTextureResource(ResourceId i_resou
 
 void ResourceController::initialize(const std::string& i_resourcesFolder)
 {
-  indexResourcesInDir(i_resourcesFolder);
+  d_resourceFolder = i_resourcesFolder;
+  indexResourcesInDir(d_resourceFolder);
 }
 
 void ResourceController::dispose()

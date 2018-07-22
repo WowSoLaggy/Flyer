@@ -21,6 +21,8 @@ public:
 
 private:
 
+  std::string d_resourceFolder;
+
   std::unordered_map<std::string, ResourceId> d_nameToIdMap;
   std::unordered_map<ResourceId, std::shared_ptr<IResource>> d_idToResourceMap;
 
