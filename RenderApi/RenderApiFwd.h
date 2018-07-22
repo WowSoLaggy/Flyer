@@ -10,3 +10,5 @@ class IResourceController;
 class IResource;
 class MeshResource;
 class TextureResource;
+class PixelShaderResource;
+class VertexShaderResource;

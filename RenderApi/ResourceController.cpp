@@ -35,6 +35,16 @@ const TextureResource& ResourceController::getTextureResource(ResourceId i_resou
   return dynamic_cast<const TextureResource&>(*d_idToResourceMap.at(i_resourceId));
 }
 
+const PixelShaderResource& ResourceController::getPixelShaderResource(ResourceId i_resourceId) const
+{
+  return dynamic_cast<const PixelShaderResource&>(*d_idToResourceMap.at(i_resourceId));
+}
+
+const VertexShaderResource& ResourceController::getVertexShaderResource(ResourceId i_resourceId) const
+{
+  return dynamic_cast<const VertexShaderResource&>(*d_idToResourceMap.at(i_resourceId));
+}
+
 
 void ResourceController::initialize(const std::string& i_resourcesFolder)
 {

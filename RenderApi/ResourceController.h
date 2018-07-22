@@ -12,6 +12,8 @@ public:
 
   const MeshResource& getMeshResource(ResourceId i_resourceId) const;
   const TextureResource& getTextureResource(ResourceId i_resourceId) const;
+  const PixelShaderResource& getPixelShaderResource(ResourceId i_resourceId) const;
+  const VertexShaderResource& getVertexShaderResource(ResourceId i_resourceId) const;
 
   virtual void initialize(const std::string& i_resourcesFolder) override;
   virtual void dispose() override;
