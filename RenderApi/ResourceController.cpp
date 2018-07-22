@@ -2,6 +2,7 @@
 #include "ResourceController.h"
 
 #include "MeshResource.h"
+#include "PixelShaderResource.h"
 #include "TextureResource.h"
 #include "VertexShaderResource.h"
 
@@ -108,6 +109,11 @@ void ResourceController::indexResourcesInDir(const std::string& i_dirName)
     {
       d_nameToIdMap.insert({ resourceName, freeResourceId });
       d_idToResourceMap.insert({ freeResourceId, std::make_shared<VertexShaderResource>(resourceName) });
+    }
+    else if (std::regex_match(pEntity->d_name, pixelShaderPattern))
+    {
+      d_nameToIdMap.insert({ resourceName, freeResourceId });
+      d_idToResourceMap.insert({ freeResourceId, std::make_shared<PixelShaderResource>(resourceName) });
     }
   }
 }

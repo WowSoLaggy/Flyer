@@ -141,6 +141,7 @@
     <ClInclude Include="Material.h" />
     <ClInclude Include="MaterialSequence.h" />
     <ClInclude Include="MeshLoader.h" />
+    <ClInclude Include="PixelShaderResource.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="ICamera.h" />
     <ClInclude Include="IRenderDevice.h" />
@@ -161,6 +162,7 @@
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="MaterialSequence.cpp" />
     <ClCompile Include="MeshLoader.cpp" />
+    <ClCompile Include="PixelShaderResource.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="ICamera.cpp" />
     <ClCompile Include="IRenderDevice.cpp" />
