@@ -18,6 +18,9 @@
     <ClInclude Include="WorldRenderer.h">
       <Filter>src\WorldRenderer</Filter>
     </ClInclude>
+    <ClInclude Include="TerrainVm.h">
+      <Filter>src\ViewModels</Filter>
+    </ClInclude>
     <ClInclude Include="ObjectVm.h">
       <Filter>src\ViewModels</Filter>
     </ClInclude>
@@ -28,6 +31,9 @@
     </ClCompile>
     <ClCompile Include="WorldRenderer.cpp">
       <Filter>src\WorldRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="TerrainVm.cpp">
+      <Filter>src\ViewModels</Filter>
     </ClCompile>
     <ClCompile Include="ObjectVm.cpp">
       <Filter>src\ViewModels</Filter>
