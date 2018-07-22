@@ -84,6 +84,9 @@
     <ClInclude Include="IndexBuffer.h">
       <Filter>src\Buffers</Filter>
     </ClInclude>
+    <ClInclude Include="VertexShaderResource.h">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -127,6 +130,9 @@
     </ClCompile>
     <ClCompile Include="IndexBuffer.cpp">
       <Filter>src\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="VertexShaderResource.cpp">
+      <Filter>src\Resources\ResourceTypes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

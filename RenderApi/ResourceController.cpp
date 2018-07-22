@@ -3,6 +3,7 @@
 
 #include "MeshResource.h"
 #include "TextureResource.h"
+#include "VertexShaderResource.h"
 
 
 namespace
@@ -102,6 +103,11 @@ void ResourceController::indexResourcesInDir(const std::string& i_dirName)
     {
       d_nameToIdMap.insert({ resourceName, freeResourceId });
       d_idToResourceMap.insert({ freeResourceId, std::make_shared<TextureResource>(resourceName) });
+    }
+    else if (std::regex_match(pEntity->d_name, vertexShaderPattern))
+    {
+      d_nameToIdMap.insert({ resourceName, freeResourceId });
+      d_idToResourceMap.insert({ freeResourceId, std::make_shared<VertexShaderResource>(resourceName) });
     }
   }
 }
