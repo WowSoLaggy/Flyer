@@ -16,11 +16,15 @@ void VertexShaderResource::load(IRenderDevice& i_renderDevice)
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(i_renderDevice);
 
+  // Vertex Shader
+
   ID3D10Blob* vertexShaderBuffer = nullptr;
   D3DReadFileToBlob(Utils::getWString(d_shaderFilePath).c_str(), &vertexShaderBuffer);
 
   renderDevice.getDevicePtr()->CreateVertexShader(vertexShaderBuffer->GetBufferPointer(),
     vertexShaderBuffer->GetBufferSize(), NULL, &d_vertexShader);
+
+  // Input layout
 
   D3D11_INPUT_ELEMENT_DESC polygonLayout[3];
 
