@@ -9,10 +9,10 @@
 
 
 Renderer::Renderer(
-  IRenderDevice& i_renderDevice,
+  IRenderDevice& io_renderDevice,
   const IResourceController& i_resourceController,
   const ICamera& i_camera)
-  : d_renderDevice(i_renderDevice)
+  : d_renderDevice(io_renderDevice)
   , d_resourceController(i_resourceController)
   , d_camera(i_camera)
 {

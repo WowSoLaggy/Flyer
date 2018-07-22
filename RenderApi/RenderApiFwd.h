@@ -3,6 +3,7 @@
 class IRenderDevice;
 class ICamera;
 class IObject3D;
+class IRenderer;
 
 using ResourceId = int;
 class IResourceController;

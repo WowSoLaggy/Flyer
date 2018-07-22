@@ -3,7 +3,7 @@
 
 #include <Model/World.h>
 #include <RenderApi/ICamera.h>
-#include <RenderApi/Renderer.h>
+#include <RenderApi/IRenderer.h>
 
 
 WorldVm::WorldVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController,
@@ -12,6 +12,7 @@ WorldVm::WorldVm(IRenderDevice& io_renderDevice, const IResourceController& i_re
   , d_resourceController(i_resourceController)
 {
   d_camera = ICamera::createCamera(i_screenWidth, i_screenHeight);
+  d_renderer = IRenderer::createRenderer(io_renderDevice, i_resourceController, *d_camera);
 }
 
 
@@ -26,9 +27,8 @@ void WorldVm::buildFromWorld(const World& i_world)
 
 void WorldVm::render() const
 {
-  Renderer renderer(d_renderDevice, d_resourceController, *d_camera);
+  d_renderer->renderObject(*d_terrainVm);
 
-  renderer.renderObject(*d_terrainVm);
   for (const auto& objectVm : d_objectVms)
-    renderer.renderObject(objectVm);
+    d_renderer->renderObject(objectVm);
 }
