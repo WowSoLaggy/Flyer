@@ -5,7 +5,6 @@
 
 #include <Engine/IEngine.h>
 #include <ModelControllers/WorldController.h>
-#include <ViewModel/WorldRenderer.h>
 
 
 void App::run()
@@ -71,5 +70,4 @@ void App::updateCallback(double i_dt)
 
 void App::renderCallback()
 {
-  WorldRenderer::render(*d_world, *d_engine->getRenderDevice(), *d_engine->getResourceController());
 }

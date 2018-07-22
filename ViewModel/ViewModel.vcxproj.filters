@@ -4,9 +4,6 @@
     <Filter Include="src">
       <UniqueIdentifier>{bf2a7768-aad5-49df-be90-36fe6461527a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\WorldRenderer">
-      <UniqueIdentifier>{92cb63c9-a773-4350-92c8-d6325ffb1a5e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\ViewModels">
       <UniqueIdentifier>{affb2389-91ea-4647-b6b8-29844f795483}</UniqueIdentifier>
     </Filter>
@@ -14,9 +11,6 @@
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="WorldRenderer.h">
-      <Filter>src\WorldRenderer</Filter>
     </ClInclude>
     <ClInclude Include="TerrainVm.h">
       <Filter>src\ViewModels</Filter>
@@ -28,9 +22,6 @@
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="WorldRenderer.cpp">
-      <Filter>src\WorldRenderer</Filter>
     </ClCompile>
     <ClCompile Include="TerrainVm.cpp">
       <Filter>src\ViewModels</Filter>
