@@ -7,6 +7,9 @@
     <Filter Include="src\WorldRenderer">
       <UniqueIdentifier>{92cb63c9-a773-4350-92c8-d6325ffb1a5e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ViewModels">
+      <UniqueIdentifier>{affb2389-91ea-4647-b6b8-29844f795483}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -15,6 +18,9 @@
     <ClInclude Include="WorldRenderer.h">
       <Filter>src\WorldRenderer</Filter>
     </ClInclude>
+    <ClInclude Include="ObjectVm.h">
+      <Filter>src\ViewModels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -22,6 +28,9 @@
     </ClCompile>
     <ClCompile Include="WorldRenderer.cpp">
       <Filter>src\WorldRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectVm.cpp">
+      <Filter>src\ViewModels</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
