@@ -12,8 +12,6 @@ public:
 
   MeshResource(const std::string& i_meshFilePath);
 
-  virtual ResourceType getResourceType() const override final { return ResourceType::Mesh; }
-
   virtual void load(IRenderDevice& i_renderDevice) override;
   virtual void unload() override;
 
