@@ -21,7 +21,7 @@ public:
 
 private:
 
-  std::string d_meshFilePath;
+  const std::string d_meshFilePath;
 
   IndexBuffer d_indexBuffer;
   VertexBuffer d_vertexBuffer;
