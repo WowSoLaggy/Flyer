@@ -5,6 +5,7 @@
 
 #include <Engine/EngineFwd.h>
 #include <Model/World.h>
+#include <ViewModel/ViewModelFwd.h>
 
 
 class App
@@ -19,6 +20,7 @@ private:
   WindowCreator d_windowCreator;
   std::shared_ptr<IEngine> d_engine;
   std::shared_ptr<World> d_world;
+  std::shared_ptr<WorldVm> d_worldVm;
 
   void initialize();
   void runEngine();
