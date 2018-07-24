@@ -15,6 +15,9 @@ public:
   virtual void setDirection(const Vector3& i_direction) override;
   virtual void setUp(const Vector3& i_up) override;
 
+  const XMMATRIX& getProjectionMatrix() const { return d_projectionMatrix; }
+  const XMMATRIX& getViewMatrix() const { return d_viewMatrix; }
+
 private:
 
   const float c_fovAngle = (float)DirectX::XM_PI / 4.0f;
