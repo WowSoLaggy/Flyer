@@ -12,3 +12,5 @@ class MeshResource;
 class TextureResource;
 class PixelShaderResource;
 class VertexShaderResource;
+
+struct Material;

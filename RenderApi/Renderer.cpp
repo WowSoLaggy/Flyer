@@ -1,11 +1,13 @@
 #include "stdafx.h"
 #include "Renderer.h"
 
+#include "Camera.h"
 #include "IObject3D.h"
 #include "MeshResource.h"
 #include "PixelShaderResource.h"
 #include "RenderDevice.h"
 #include "ResourceController.h"
+#include "ShaderBuffers.h"
 #include "TextureResource.h"
 #include "VertexShaderResource.h"
 
@@ -20,6 +22,13 @@ Renderer::Renderer(
 {
   d_pixelShaderResourceId = d_resourceController.getResourceId("TextureLightPS.ps");
   d_vertexShaderResourceId = d_resourceController.getResourceId("TextureLightVS.vs");
+
+  createBuffers();
+}
+
+Renderer::~Renderer()
+{
+  disposeBuffers();
 }
 
 
@@ -33,46 +42,120 @@ void Renderer::renderObject(const IObject3D& i_object3D)
   const auto& pixelShaderResource = resourceController.getPixelShaderResource(d_pixelShaderResourceId);
   const auto& vertexShaderResource = resourceController.getVertexShaderResource(d_vertexShaderResourceId);
 
-  const auto position = i_object3D.getPosition();
-  const auto& worldMatrix = XMMatrixTranslation(position.x, position.y, position.z);
+  auto* samplerStatePtr = pixelShaderResource.getSampleStatePtr();
 
-  unsigned int stride = sizeof(VertexTypePosTexNorm);
-  unsigned int offset = 0;
 
-  auto& vertexBuffer = meshResource.getVertexBuffer();
-  auto& indexBuffer = meshResource.getIndexBuffer();
+  setBuffers(
+    meshResource.getVertexBuffer().getPtr(), meshResource.getIndexBuffer().getPtr(),
+    unsigned int(meshResource.getVertexBuffer().getStride()));
 
-  auto* vertexBufferPtr = vertexBuffer.getPtr();
-  auto* indexBufferPtr = indexBuffer.getPtr();
+  setShaderMatrices(i_object3D.getPosition());
+  setShaderTexture(textureResource.getTexturePtr());
 
-  renderDevice.getDeviceContextPtr()->IASetVertexBuffers(0, 1, &vertexBufferPtr, &stride, &offset);
-  renderDevice.getDeviceContextPtr()->IASetIndexBuffer(indexBufferPtr, DXGI_FORMAT_R32_UINT, 0);
-
-  renderDevice.getDeviceContextPtr()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
   const auto& materialSpans = meshResource.getMaterialSpans();
   for (auto& materialSpan : materialSpans)
   {
+    setShaderMaterial(materialSpan.material);
+
+
+    renderDevice.getDeviceContextPtr()->IASetInputLayout(vertexShaderResource.getLayoutPtr());
+
+    renderDevice.getDeviceContextPtr()->VSSetShader(vertexShaderResource.getPtr(), NULL, 0);
+    renderDevice.getDeviceContextPtr()->PSSetShader(pixelShaderResource.getPtr(), NULL, 0);
+
+    renderDevice.getDeviceContextPtr()->PSSetSamplers(0, 1, &samplerStatePtr);
+
+    renderDevice.getDeviceContextPtr()->DrawIndexed(materialSpan.count, materialSpan.startIndex, 0);
   }
+}
 
-  //int curOffset = 0;
-  //int numToDraw;
-  //auto matSequence = i_renderable.getMaterialSequence();
-  //for (int matIndex = 0; matIndex < matSequence.frameToMaterialPairs.size(); ++matIndex)
-  //{
-  //  Material& material = matSequence.frameToMaterialPairs[matIndex].second;
-  //  if (matIndex == matSequence.frameToMaterialPairs.size() - 1)
-  //  {
-  //    // Last material to render
-  //    numToDraw = i_renderable.getIndexCount() - curOffset;
-  //  }
-  //  else
-  //    numToDraw = matSequence.frameToMaterialPairs[matIndex + 1].first - curOffset;
 
-  //  d_textureLightShader.setParameters(i_renderDevice,
-  //    i_renderable.getWorldMatrix(), d_camera.getViewMatrix(), d_camera.getProjectionMatrix(),
-  //    i_renderable.getTexture(), d_light, material);
+void Renderer::setBuffers(ID3D11Buffer* i_vertexBufferPtr, ID3D11Buffer* i_indexBufferPtr, unsigned int i_stride)
+{
+  auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
 
-  //  d_textureLightShader.render(i_renderDevice, curOffset, numToDraw);
-  //}
+  unsigned int offset = 0;
+  renderDevice.getDeviceContextPtr()->IASetVertexBuffers(0, 1, &i_vertexBufferPtr, &i_stride, &offset);
+  renderDevice.getDeviceContextPtr()->IASetIndexBuffer(i_indexBufferPtr, DXGI_FORMAT_R32_UINT, 0);
+
+  renderDevice.getDeviceContextPtr()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+}
+
+void Renderer::setShaderMatrices(const Vector3& i_position)
+{
+  auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
+  auto& camera = dynamic_cast<const Camera&>(d_camera);
+
+
+  auto worldMatrix = XMMatrixTranspose(XMMatrixTranslation(i_position.x, i_position.y, i_position.z));
+  auto viewMatrix = XMMatrixTranspose(camera.getViewMatrix());
+  auto projectionMatrix = XMMatrixTranspose(camera.getProjectionMatrix());
+
+  D3D11_MAPPED_SUBRESOURCE mappedResource;
+  renderDevice.getDeviceContextPtr()->Map(d_matrixBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
+
+  auto* dataPtr = (MatrixBuffer*)mappedResource.pData;
+  dataPtr->world = worldMatrix;
+  dataPtr->view = viewMatrix;
+  dataPtr->projection = projectionMatrix;
+
+  renderDevice.getDeviceContextPtr()->Unmap(d_matrixBuffer, 0);
+
+  renderDevice.getDeviceContextPtr()->VSSetConstantBuffers(0, 1, &d_matrixBuffer);
+}
+
+void Renderer::setShaderTexture(ID3D11ShaderResourceView* i_texture)
+{
+  auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
+  renderDevice.getDeviceContextPtr()->PSSetShaderResources(0, 1, &i_texture);
+}
+
+void Renderer::setShaderMaterial(const Material& i_material)
+{
+  auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
+
+  D3D11_MAPPED_SUBRESOURCE mappedResource;
+  renderDevice.getDeviceContextPtr()->Map(d_lightBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
+
+  auto* dataPtr2 = (LightBuffer*)mappedResource.pData;
+  dataPtr2->diffuseColor = i_material.diffuseColor;
+  dataPtr2->lightColor = { 1.0f, 1.0f, 1.0f, 1.0f };
+  dataPtr2->lightDirection = { 0.0f, 0.0f, -1.0f };
+  dataPtr2->ambientStrength = 0.2f;
+
+  renderDevice.getDeviceContextPtr()->Unmap(d_lightBuffer, 0);
+
+  renderDevice.getDeviceContextPtr()->PSSetConstantBuffers(0, 1, &d_lightBuffer);
+}
+
+
+void Renderer::createBuffers()
+{
+  auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
+
+  D3D11_BUFFER_DESC matrixBufferDesc;
+  matrixBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+  matrixBufferDesc.ByteWidth = sizeof(MatrixBuffer);
+  matrixBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+  matrixBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+  matrixBufferDesc.MiscFlags = 0;
+  matrixBufferDesc.StructureByteStride = 0;
+
+  D3D11_BUFFER_DESC lightBufferDesc;
+  lightBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+  lightBufferDesc.ByteWidth = sizeof(LightBuffer);
+  lightBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+  lightBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+  lightBufferDesc.MiscFlags = 0;
+  lightBufferDesc.StructureByteStride = 0;
+
+  renderDevice.getDevicePtr()->CreateBuffer(&matrixBufferDesc, nullptr, &d_matrixBuffer);
+  renderDevice.getDevicePtr()->CreateBuffer(&lightBufferDesc, nullptr, &d_lightBuffer);
+}
+
+void Renderer::disposeBuffers()
+{
+  d_matrixBuffer->Release();
+  d_lightBuffer->Release();
 }
