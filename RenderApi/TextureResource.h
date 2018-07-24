@@ -12,6 +12,8 @@ public:
   virtual void load(IRenderDevice& i_renderDevice) override;
   virtual void unload() override;
 
+  ID3D11ShaderResourceView* getTexturePtr() const { return d_texture; }
+
 private:
 
   const std::string d_textureFilePath;
