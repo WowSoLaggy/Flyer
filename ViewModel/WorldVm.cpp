@@ -18,6 +18,10 @@ WorldVm::WorldVm(IRenderDevice& io_renderDevice, const IResourceController& i_re
 
 void WorldVm::buildFromWorld(const World& i_world)
 {
+  d_camera->setPosition({ 0, -20, 20 });
+  d_camera->setDirection({ 0, 1, -1 });
+  d_camera->setUp({ 0, 0, 1 });
+
   d_terrainVm = std::shared_ptr<TerrainVm>(new TerrainVm(d_resourceController, i_world.getTerrain()));
 
   for (const auto& object : i_world.getObjects())
