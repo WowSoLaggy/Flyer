@@ -34,8 +34,13 @@ private:
   void disposeBuffers();
 
   void setBuffers(ID3D11Buffer* i_vertexBufferPtr, ID3D11Buffer* i_indexBufferPtr, unsigned int i_stride);
+  void setShaders(
+    const VertexShaderResource& i_vertexShaderResource,
+    const PixelShaderResource& i_pixelShaderResource,
+    ID3D11SamplerState* i_samplerState);
   void setShaderMatrices(const Vector3& i_position);
   void setShaderTexture(ID3D11ShaderResourceView* i_texture);
   void setShaderMaterial(const Material& i_material);
+  void drawMaterial(const MaterialSpan& i_materialSpan);
 
 };

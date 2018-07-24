@@ -42,32 +42,19 @@ void Renderer::renderObject(const IObject3D& i_object3D)
   const auto& pixelShaderResource = resourceController.getPixelShaderResource(d_pixelShaderResourceId);
   const auto& vertexShaderResource = resourceController.getVertexShaderResource(d_vertexShaderResourceId);
 
-  auto* samplerStatePtr = pixelShaderResource.getSampleStatePtr();
-
 
   setBuffers(
     meshResource.getVertexBuffer().getPtr(), meshResource.getIndexBuffer().getPtr(),
     unsigned int(meshResource.getVertexBuffer().getStride()));
 
+  setShaders(vertexShaderResource, pixelShaderResource, pixelShaderResource.getSampleStatePtr());
   setShaderMatrices(i_object3D.getPosition());
   setShaderTexture(textureResource.getTexturePtr());
 
 
   const auto& materialSpans = meshResource.getMaterialSpans();
   for (auto& materialSpan : materialSpans)
-  {
-    setShaderMaterial(materialSpan.material);
-
-
-    renderDevice.getDeviceContextPtr()->IASetInputLayout(vertexShaderResource.getLayoutPtr());
-
-    renderDevice.getDeviceContextPtr()->VSSetShader(vertexShaderResource.getPtr(), NULL, 0);
-    renderDevice.getDeviceContextPtr()->PSSetShader(pixelShaderResource.getPtr(), NULL, 0);
-
-    renderDevice.getDeviceContextPtr()->PSSetSamplers(0, 1, &samplerStatePtr);
-
-    renderDevice.getDeviceContextPtr()->DrawIndexed(materialSpan.count, materialSpan.startIndex, 0);
-  }
+    drawMaterial(materialSpan);
 }
 
 
@@ -80,6 +67,19 @@ void Renderer::setBuffers(ID3D11Buffer* i_vertexBufferPtr, ID3D11Buffer* i_index
   renderDevice.getDeviceContextPtr()->IASetIndexBuffer(i_indexBufferPtr, DXGI_FORMAT_R32_UINT, 0);
 
   renderDevice.getDeviceContextPtr()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+}
+
+void Renderer::setShaders(
+  const VertexShaderResource& i_vertexShaderResource,
+  const PixelShaderResource& i_pixelShaderResource,
+  ID3D11SamplerState* i_samplerState)
+{
+  auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
+
+  renderDevice.getDeviceContextPtr()->IASetInputLayout(i_vertexShaderResource.getLayoutPtr());
+  renderDevice.getDeviceContextPtr()->VSSetShader(i_vertexShaderResource.getPtr(), NULL, 0);
+  renderDevice.getDeviceContextPtr()->PSSetShader(i_pixelShaderResource.getPtr(), NULL, 0);
+  renderDevice.getDeviceContextPtr()->PSSetSamplers(0, 1, &i_samplerState);
 }
 
 void Renderer::setShaderMatrices(const Vector3& i_position)
@@ -127,6 +127,14 @@ void Renderer::setShaderMaterial(const Material& i_material)
   renderDevice.getDeviceContextPtr()->Unmap(d_lightBuffer, 0);
 
   renderDevice.getDeviceContextPtr()->PSSetConstantBuffers(0, 1, &d_lightBuffer);
+}
+
+void Renderer::drawMaterial(const MaterialSpan& i_materialSpan)
+{
+  auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
+
+  setShaderMaterial(i_materialSpan.material);
+  renderDevice.getDeviceContextPtr()->DrawIndexed(i_materialSpan.count, i_materialSpan.startIndex, 0);
 }
 
 

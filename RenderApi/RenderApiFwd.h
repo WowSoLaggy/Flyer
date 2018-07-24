@@ -14,3 +14,4 @@ class PixelShaderResource;
 class VertexShaderResource;
 
 struct Material;
+struct MaterialSpan;
