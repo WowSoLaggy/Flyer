@@ -93,6 +93,9 @@
     <ClInclude Include="IRenderer.h">
       <Filter>src\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="ShaderBuffers.h">
+      <Filter>src\Buffers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
