@@ -20,8 +20,14 @@ Renderer::Renderer(
   , d_resourceController(i_resourceController)
   , d_camera(i_camera)
 {
-  d_pixelShaderResourceId = d_resourceController.getResourceId("TextureLightPS.ps");
-  d_vertexShaderResourceId = d_resourceController.getResourceId("TextureLightVS.vs");
+  const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
+
+  auto pixelShaderResourceId = resourceController.getResourceId("TextureLightPS.ps");
+  auto vertexShaderResourceId = resourceController.getResourceId("TextureLightVS.vs");
+
+  const auto& pixelShaderResource = resourceController.getPixelShaderResource(pixelShaderResourceId);
+  const auto& vertexShaderResource = resourceController.getVertexShaderResource(vertexShaderResourceId);
+  setShaders(vertexShaderResource, pixelShaderResource, pixelShaderResource.getSampleStatePtr());
 
   createBuffers();
 }
@@ -39,15 +45,13 @@ void Renderer::renderObject(const IObject3D& i_object3D)
 
   const auto& meshResource = resourceController.getMeshResource(i_object3D.getMeshResourceId());
   const auto& textureResource = resourceController.getTextureResource(i_object3D.getTextureResourceId());
-  const auto& pixelShaderResource = resourceController.getPixelShaderResource(d_pixelShaderResourceId);
-  const auto& vertexShaderResource = resourceController.getVertexShaderResource(d_vertexShaderResourceId);
 
 
   setBuffers(
     meshResource.getVertexBuffer().getPtr(), meshResource.getIndexBuffer().getPtr(),
     unsigned int(meshResource.getVertexBuffer().getStride()));
 
-  setShaders(vertexShaderResource, pixelShaderResource, pixelShaderResource.getSampleStatePtr());
+  
   setShaderMatrices(i_object3D.getPosition());
   setShaderTexture(textureResource.getTexturePtr());
 
@@ -77,8 +81,8 @@ void Renderer::setShaders(
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
 
   renderDevice.getDeviceContextPtr()->IASetInputLayout(i_vertexShaderResource.getLayoutPtr());
-  renderDevice.getDeviceContextPtr()->VSSetShader(i_vertexShaderResource.getPtr(), NULL, 0);
-  renderDevice.getDeviceContextPtr()->PSSetShader(i_pixelShaderResource.getPtr(), NULL, 0);
+  renderDevice.getDeviceContextPtr()->VSSetShader(i_vertexShaderResource.getPtr(), nullptr, 0);
+  renderDevice.getDeviceContextPtr()->PSSetShader(i_pixelShaderResource.getPtr(), nullptr, 0);
   renderDevice.getDeviceContextPtr()->PSSetSamplers(0, 1, &i_samplerState);
 }
 

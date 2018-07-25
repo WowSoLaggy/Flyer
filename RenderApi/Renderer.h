@@ -24,9 +24,6 @@ private:
   const IResourceController& d_resourceController;
   const ICamera& d_camera;
 
-  ResourceId d_pixelShaderResourceId;
-  ResourceId d_vertexShaderResourceId;
-
   ID3D11Buffer* d_matrixBuffer;
   ID3D11Buffer* d_lightBuffer;
 
