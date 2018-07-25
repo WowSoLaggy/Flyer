@@ -16,6 +16,9 @@
     <Filter Include="libs">
       <UniqueIdentifier>{8af4ec12-4637-4254-949a-e3cb5b000f12}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\FileSystem">
+      <UniqueIdentifier>{7c444a1c-68b8-4d43-8f20-9a9d5a65e475}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -38,6 +41,9 @@
     </ClInclude>
     <ClInclude Include="dirent.h">
       <Filter>libs</Filter>
+    </ClInclude>
+    <ClInclude Include="FileSystemUtils.h">
+      <Filter>src\FileSystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
