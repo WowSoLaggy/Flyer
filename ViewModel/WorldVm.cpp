@@ -18,7 +18,8 @@ WorldVm::WorldVm(IRenderDevice& io_renderDevice, const IResourceController& i_re
 
 void WorldVm::buildFromWorld(const World& i_world)
 {
-  d_camera->setPosition({ 0, -20, 20 });
+  const Vector3 defaultCameraOffset = { 0, -20, 20 };
+  d_camera->setPosition(defaultCameraOffset);
   d_camera->setDirection({ 0, 1, -1 });
   d_camera->setUp({ 0, 0, 1 });
 
@@ -26,6 +27,9 @@ void WorldVm::buildFromWorld(const World& i_world)
 
   for (const auto& object : i_world.getObjects())
     d_objectVms.push_back({ d_resourceController, object });
+
+  if (!d_objectVms.empty())
+    d_camera->setPosition(d_objectVms.front().getPosition() + defaultCameraOffset);
 }
 
 
