@@ -19,6 +19,9 @@ void MeshResource::load(IRenderDevice& i_renderDevice)
 
   d_vertexBuffer.create(i_renderDevice, vertices);
   d_indexBuffer.create(i_renderDevice, indices);
+
+  if (d_materialSequence.getMaterialSpans().empty())
+    d_materialSequence.add({ Material::getDefault(), 0, d_indexBuffer.getIndexCount() });
 }
 
 void MeshResource::unload()
