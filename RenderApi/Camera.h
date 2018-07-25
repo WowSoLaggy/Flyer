@@ -11,6 +11,10 @@ public:
 
   Camera(int i_screenWidth, int i_screenHeight);
 
+  virtual Vector3 getPosition() const override;
+  virtual Vector3 getDirection() const override;
+  virtual Vector3 getUp() const override;
+
   virtual void setPosition(const Vector3& i_position) override;
   virtual void setDirection(const Vector3& i_direction) override;
   virtual void setUp(const Vector3& i_up) override;

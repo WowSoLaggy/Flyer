@@ -11,6 +11,22 @@ Camera::Camera(int i_screenWidth, int i_screenHeight)
 }
 
 
+Vector3 Camera::getPosition() const
+{
+  return { d_position.x, d_position.y, d_position.z };
+}
+
+Vector3 Camera::getDirection() const
+{
+  return { d_direction.x, d_direction.y, d_direction.z };
+}
+
+Vector3 Camera::getUp() const
+{
+  return { d_up.x, d_up.y, d_up.z };
+}
+
+
 void Camera::setPosition(const Vector3& i_position)
 {
   d_position = XMFLOAT3(i_position.x, i_position.y, i_position.z);
