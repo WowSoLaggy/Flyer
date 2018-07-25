@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "MeshLoader.h"
 
+#include <Sdk/FileSystemUtils.h>
 #include <Sdk/StringUtils.h>
 
 
@@ -146,6 +147,7 @@ void MeshLoader::loadInfoFromObjFile(
 
   } // while (std::getline(file, line))
 
+  mtllibFileName = Utils::getParentFolder(i_modelPath) + "\\" + mtllibFileName;
   auto materials = loadMaterials(mtllibFileName);
 
   for (auto it = materialNamesMap.begin(); it != materialNamesMap.end(); ++it)
