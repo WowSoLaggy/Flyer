@@ -73,6 +73,7 @@ void WindowCreator::showWindow() const
 {
   // Bring the window up on the screen and set it as main focus.
   ShowWindow(d_hWnd, SW_SHOW);
+  UpdateWindow(d_hWnd);
   SetForegroundWindow(d_hWnd);
   SetFocus(d_hWnd);
 }
