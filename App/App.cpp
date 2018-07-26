@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "App.h"
 
-#include "WindowsApi.h"
-
 #include <Engine/IEngine.h>
 #include <ModelControllers/WorldController.h>
 #include <ViewModel/WorldVm.h>
@@ -47,7 +45,7 @@ void App::dispose()
 
 ControlSignal App::controlCallback()
 {
-  if (winPeekExit())
+  if (!handleMessages())
     return ControlSignal::Stop;
 
   if (!d_engine->isRendererCreated())

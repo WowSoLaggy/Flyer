@@ -24,14 +24,14 @@
     <ClCompile Include="App.cpp">
       <Filter>src\App</Filter>
     </ClCompile>
-    <ClCompile Include="WindowsApi.cpp">
-      <Filter>src\WindowsApi</Filter>
-    </ClCompile>
     <ClCompile Include="WindowCreator.cpp">
       <Filter>src\WindowsApi</Filter>
     </ClCompile>
     <ClCompile Include="SettingsController.cpp">
       <Filter>src\SettingsController</Filter>
+    </ClCompile>
+    <ClCompile Include="App_Wm.cpp">
+      <Filter>src\App</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -40,9 +40,6 @@
     </ClInclude>
     <ClInclude Include="App.h">
       <Filter>src\App</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowsApi.h">
-      <Filter>src\WindowsApi</Filter>
     </ClInclude>
     <ClInclude Include="WindowCreator.h">
       <Filter>src\WindowsApi</Filter>

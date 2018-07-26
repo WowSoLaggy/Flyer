@@ -26,6 +26,8 @@ private:
   void runEngine();
   void dispose();
 
+  bool handleMessages();
+
   ControlSignal controlCallback();
   void updateCallback(double i_dt);
   void renderCallback();
