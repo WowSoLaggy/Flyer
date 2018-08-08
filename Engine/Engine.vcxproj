@@ -131,7 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="EngineRenderer.cpp" />
+    <ClCompile Include="Engine_Renderer.cpp" />
     <ClCompile Include="IEngine.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

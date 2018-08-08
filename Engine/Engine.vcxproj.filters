@@ -7,6 +7,9 @@
     <Filter Include="src\Engine">
       <UniqueIdentifier>{038fe22d-7da6-49af-a3c7-b9ab7c9e1718}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Renderer">
+      <UniqueIdentifier>{bbbf8a25-e3bf-49b5-bf61-7df0aae69f97}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -32,11 +35,11 @@
     <ClCompile Include="Engine.cpp">
       <Filter>src\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="EngineRenderer.cpp">
-      <Filter>src\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="IEngine.cpp">
       <Filter>src\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine_Renderer.cpp">
+      <Filter>src\Renderer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
