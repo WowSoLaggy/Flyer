@@ -3,14 +3,12 @@
 #include "EngineFwd.h"
 #include "IEngine.h"
 
-#include <RenderApi/RenderApiFwd.h>
-
 
 class Engine : public IEngine
 {
 public:
 
-  void run(
+  virtual void run(
     ControlCallback i_controlCallback,
     UpdateCallback i_updateCallback,
     RenderCallback i_renderCallback) override;
@@ -18,14 +16,19 @@ public:
   virtual void initialize(const std::string& i_resourceFolder) override;
   virtual void dispose() override;
 
-  std::shared_ptr<IRenderDevice> getRenderDevice() override;
-  std::shared_ptr<IResourceController> getResourceController() override;
+  // Renderer
 
-  bool isRendererCreated() const override;
-  void createRenderer(HWND i_hWnd, int i_resolutionX, int i_resolutionY) override;
-  void disposeRenderer() override;
+  virtual std::shared_ptr<IRenderDevice> getRenderDevice() override;
+  virtual std::shared_ptr<IResourceController> getResourceController() override;
+
+  virtual bool isRendererCreated() const override;
+  virtual void createRenderer(HWND i_hWnd, int i_resolutionX, int i_resolutionY) override;
+  virtual void disposeRenderer() override;
+
 
 private:
+
+  // Renderer
 
   std::shared_ptr<IRenderDevice> d_renderDevice;
   std::shared_ptr<IResourceController> d_resourceController;
