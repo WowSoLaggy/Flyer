@@ -3,6 +3,7 @@
 #include "Callbacks.h"
 #include "EngineFwd.h"
 
+#include <InputApi/InputDeviceFwd.h>
 #include <RenderApi/RenderApiFwd.h>
 
 
@@ -30,5 +31,7 @@ public:
   virtual bool isRendererCreated() const = 0;
   virtual void createRenderer(HWND i_hWnd, int i_resolutionX, int i_resolutionY) = 0;
   virtual void disposeRenderer() = 0;
+
+  virtual void processMessage(const InputMessage& i_inputMessage) = 0;
 
 };
