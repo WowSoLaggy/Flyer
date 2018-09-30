@@ -20,7 +20,8 @@ public:
   virtual void run(
     ControlCallback i_controlCallback,
     UpdateCallback i_updateCallback,
-    RenderCallback i_renderCallback) = 0;
+    RenderCallback i_renderCallback,
+    InputCallback i_inputCallback) = 0;
 
   virtual void initialize(const std::string& i_resourceFolder) = 0;
   virtual void dispose() = 0;

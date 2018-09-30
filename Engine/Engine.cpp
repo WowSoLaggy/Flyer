@@ -10,7 +10,8 @@
 void Engine::run(
   ControlCallback i_controlCallback,
   UpdateCallback i_updateCallback,
-  RenderCallback i_renderCallback)
+  RenderCallback i_renderCallback,
+  InputCallback i_inputCallback)
 {
   Timer timer;
   timer.start();
@@ -20,6 +21,7 @@ void Engine::run(
   {
     dt = timer.restart();
 
+    i_inputCallback(dt, d_inputDevice->check());
     i_updateCallback(dt);
 
     if (d_renderDevice->isInitialized())
@@ -47,10 +49,12 @@ void Engine::initialize(const std::string& i_resourceFolder)
   d_resourceController->initialize(i_resourceFolder);
 
   d_inputDevice = IInputDevice::create();
+  d_inputDevice->initialize();
 }
 
 void Engine::dispose()
 {
+  d_inputDevice->dispose();
   d_inputDevice.reset();
 
   d_resourceController->dispose();

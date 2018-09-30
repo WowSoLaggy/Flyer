@@ -11,7 +11,8 @@ public:
   virtual void run(
     ControlCallback i_controlCallback,
     UpdateCallback i_updateCallback,
-    RenderCallback i_renderCallback) override;
+    RenderCallback i_renderCallback,
+    InputCallback i_inputCallback) override;
 
   virtual void initialize(const std::string& i_resourceFolder) override;
   virtual void dispose() override;
