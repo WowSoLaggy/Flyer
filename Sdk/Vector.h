@@ -13,6 +13,27 @@ struct Vector3
   float z;
 };
 
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Vector2
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+
+Vector2 operator+(const Vector2& i_left, const Vector2& i_right);
+Vector2 operator-(const Vector2& i_left, const Vector2& i_right);
+
+Vector2 operator*(const Vector2& i_v, float i_mul);
+
+float length(const Vector2& i_v);
+float lengthSq(const Vector2& i_v);
+Vector2 normalize(const Vector2& i_v);
+
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Vector3
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+
 Vector3 operator+(const Vector3& i_left, const Vector3& i_right);
 Vector3 operator-(const Vector3& i_left, const Vector3& i_right);
 
