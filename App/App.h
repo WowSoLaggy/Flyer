@@ -4,6 +4,7 @@
 #include "WindowCreator.h"
 
 #include <Engine/EngineFwd.h>
+#include <InputApi/InputDeviceFwd.h>
 #include <Model/World.h>
 #include <ViewModel/ViewModelFwd.h>
 
@@ -31,5 +32,6 @@ private:
   ControlSignal controlCallback();
   void updateCallback(double i_dt);
   void renderCallback();
+  void inputCallback(double i_dt, const KeyboardState& i_keyboardState);
 
 };

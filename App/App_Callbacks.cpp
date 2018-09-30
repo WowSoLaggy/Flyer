@@ -43,3 +43,21 @@ void App::renderCallback()
   d_worldVm->render();
 }
 
+void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
+{
+  const float speed = (float)(10 * i_dt);
+
+  auto& camera = d_worldVm->getCamera();
+  auto position = camera.getPosition();
+
+  if (i_keyboardState.W)
+    position.y -= speed;
+  if (i_keyboardState.S)
+    position.y += speed;
+  if (i_keyboardState.A)
+    position.x -= speed;
+  if (i_keyboardState.D)
+    position.x += speed;
+
+  camera.setPosition(position);
+}
