@@ -13,6 +13,9 @@
     <Filter Include="src\Objects">
       <UniqueIdentifier>{b72243d8-ddd0-418a-9f09-10e116f535ed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Actions">
+      <UniqueIdentifier>{651ab460-0843-4b75-8500-67fa1b18f060}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -43,6 +46,12 @@
     </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>src\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="IAction.h">
+      <Filter>src\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionMoveTo.h">
+      <Filter>src\Actions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

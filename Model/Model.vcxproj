@@ -134,6 +134,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionMoveTo.h" />
+    <ClInclude Include="IAction.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ModelFwd.h" />
     <ClInclude Include="Terrain.h" />
