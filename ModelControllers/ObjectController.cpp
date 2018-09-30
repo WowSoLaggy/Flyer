@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "ObjectController.h"
 
+#include <Model/ActionHold.h>
 #include <Model/ActionMoveTo.h>
 #include <Model/Object.h>
 
@@ -18,9 +19,8 @@ void ObjectController::updateObject(Object& i_object, double i_dt)
 
     if (lengthSq(goal - position) <= pMoveToAction->getToleranceSq())
     {
-      float newX = (float)(std::rand() % 180 - 90) / 10;
-      float newY = (float)(std::rand() % 180 - 90) / 10;
-      i_object.setCurrentAction(std::make_shared<ActionMoveTo>(ActionMoveTo({ newX, newY })));
+      double timeToHold = (double)(std::rand() % 50) / 10;
+      i_object.setCurrentAction(std::make_shared<ActionHold>(ActionHold(timeToHold)));
       return;
     }
 
@@ -28,5 +28,14 @@ void ObjectController::updateObject(Object& i_object, double i_dt)
     auto movement = normalize(goal - position) * speed;
 
     i_object.setPosition(i_object.getPosition() + movement);
+  }
+  else if (auto* pHoldAction = dynamic_cast<ActionHold*>(pAction.get()))
+  {
+    if (!pHoldAction->hold(i_dt))
+    {
+      float newX = (float)(std::rand() % 180 - 90) / 10;
+      float newY = (float)(std::rand() % 180 - 90) / 10;
+      i_object.setCurrentAction(std::make_shared<ActionMoveTo>(ActionMoveTo({ newX, newY })));
+    }
   }
 }

@@ -134,6 +134,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionHold.h" />
     <ClInclude Include="ActionMoveTo.h" />
     <ClInclude Include="IAction.h" />
     <ClInclude Include="Object.h" />

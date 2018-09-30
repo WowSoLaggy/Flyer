@@ -5,7 +5,7 @@
 #include <Sdk/Vector.h>
 
 
-class ActionMoveTo: public IAction
+class ActionMoveTo : public IAction
 {
 public:
   ActionMoveTo(Vector2 i_goal, float i_tolerance = 0.5f)
