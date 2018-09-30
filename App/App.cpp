@@ -14,6 +14,8 @@ void App::run()
 
 void App::initialize()
 {
+  srand((unsigned int)time(nullptr));
+
   d_windowCreator.createWindow(
     d_settingsController.getWindowWidth(),
     d_settingsController.getWindowHeight(),

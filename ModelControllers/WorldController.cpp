@@ -3,7 +3,7 @@
 
 #include "ObjectController.h"
 
-#include <Model/ActionMoveTo.h>
+#include <Model/ActionHold.h>
 #include <Model/World.h>
 
 
@@ -21,7 +21,7 @@ std::shared_ptr<World> WorldController::createNewWorld()
   tom.setPosition({ -7.5f, -7.5f });
   tom.setModelName("Tom.obj");
   tom.setTextureName("Blank.dds");
-  tom.setCurrentAction(std::make_shared<ActionMoveTo>(ActionMoveTo({ 7.5f, 7.5f })));
+  tom.setCurrentAction(std::make_shared<ActionHold>(ActionHold(2)));
   pWorld->getObjects().push_back(std::move(tom));
 
   return std::shared_ptr<World>(pWorld);
