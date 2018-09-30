@@ -14,11 +14,11 @@ std::shared_ptr<World> WorldController::createNewWorld()
   pWorld->getTerrain().setSizeZ(10);
   pWorld->getTerrain().setHeight(0);
 
-  Object player;
-  player.setPosition({ 5, 5 });
-  player.setModelName("Player.obj");
-  player.setTextureName("Blank.dds");
-  pWorld->getObjects().push_back(std::move(player));
+  Object tom;
+  tom.setPosition({ 5, 5 });
+  tom.setModelName("Tom.obj");
+  tom.setTextureName("Blank.dds");
+  pWorld->getObjects().push_back(std::move(tom));
 
   return std::shared_ptr<World>(pWorld);
 }
