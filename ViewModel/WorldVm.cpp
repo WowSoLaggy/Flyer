@@ -27,9 +27,6 @@ void WorldVm::buildFromWorld(const World& i_world)
 
   for (const auto& object : i_world.getObjects())
     d_objectVms.push_back({ d_resourceController, object });
-
-  if (!d_objectVms.empty())
-    d_camera->setPosition(d_objectVms.front().getPosition() + defaultCameraOffset);
 }
 
 

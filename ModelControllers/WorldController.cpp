@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "WorldController.h"
 
+#include "ObjectController.h"
+
+#include <Model/ActionMoveTo.h>
 #include <Model/World.h>
 
 
@@ -15,15 +18,18 @@ std::shared_ptr<World> WorldController::createNewWorld()
   pWorld->getTerrain().setHeight(0);
 
   Object tom;
-  tom.setPosition({ 5, 5 });
+  tom.setPosition({ -7.5f, -7.5f });
   tom.setModelName("Tom.obj");
   tom.setTextureName("Blank.dds");
+  tom.setCurrentAction(std::make_shared<ActionMoveTo>(ActionMoveTo({ 7.5f, 7.5f })));
   pWorld->getObjects().push_back(std::move(tom));
 
   return std::shared_ptr<World>(pWorld);
 }
 
 
-void WorldController::updateWorld(const World& i_world, double i_dt)
+void WorldController::updateWorld(World& i_world, double i_dt)
 {
+  for (auto& object : i_world.getObjects())
+    ObjectController::updateObject(object, i_dt);
 }
