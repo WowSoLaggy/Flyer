@@ -45,19 +45,33 @@ void App::renderCallback()
 
 void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
 {
-  const float speed = (float)(10 * i_dt);
+  const float speedMultiplier = i_keyboardState.LeftShift ? 60.f : 20.f;
+  const float speed = (float)(speedMultiplier * i_dt);
 
   auto& camera = d_worldVm->getCamera();
-  auto position = camera.getPosition();
 
   if (i_keyboardState.W)
-    position.y -= speed;
+  {
+    auto dir = camera.getForward();
+    dir.z = 0;
+    camera.setPosition(camera.getPosition() + normalize(dir) * speed);
+  }
   if (i_keyboardState.S)
-    position.y += speed;
+  {
+    auto dir = camera.getBackward();
+    dir.z = 0;
+    camera.setPosition(camera.getPosition() + normalize(dir) * speed);
+  }
   if (i_keyboardState.A)
-    position.x -= speed;
+  {
+    auto dir = camera.getLeft();
+    dir.z = 0;
+    camera.setPosition(camera.getPosition() + normalize(dir) * speed);
+  }
   if (i_keyboardState.D)
-    position.x += speed;
-
-  camera.setPosition(position);
+  {
+    auto dir = camera.getRight();
+    dir.z = 0;
+    camera.setPosition(camera.getPosition() + normalize(dir) * speed);
+  }
 }
