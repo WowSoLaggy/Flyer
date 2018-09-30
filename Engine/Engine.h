@@ -3,6 +3,8 @@
 #include "EngineFwd.h"
 #include "IEngine.h"
 
+#include <Gui/GuiFwd.h>
+
 
 class Engine : public IEngine
 {
@@ -40,5 +42,9 @@ private:
   // Input
 
   std::shared_ptr<IInputDevice> d_inputDevice;
+
+  // Gui
+
+  std::shared_ptr<IGuiController> d_guiController;
 
 };

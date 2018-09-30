@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Engine.h"
 
+#include <Gui/IGuiController.h>
 #include <InputApi/IInputDevice.h>
 #include <RenderApi/IRenderDevice.h>
 #include <RenderApi/IResourceController.h>
@@ -48,6 +49,9 @@ void Engine::initialize(const std::string& i_resourceFolder)
   d_resourceController = IResourceController::create();
   d_resourceController->initialize(i_resourceFolder);
 
+  d_guiController = IGuiController::create();
+  d_guiController->initialize();
+
   d_inputDevice = IInputDevice::create();
   d_inputDevice->initialize();
 }
@@ -56,6 +60,9 @@ void Engine::dispose()
 {
   d_inputDevice->dispose();
   d_inputDevice.reset();
+
+  d_guiController->dispose();
+  d_guiController.reset();
 
   d_resourceController->dispose();
   d_resourceController.reset();
