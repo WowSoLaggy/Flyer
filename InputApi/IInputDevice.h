@@ -13,6 +13,11 @@ public:
 
   virtual ~IInputDevice() = default;
 
+  virtual void initialize() = 0;
+  virtual void dispose() = 0;
+
   virtual void processMessage(const InputMessage& i_inputMessage) = 0;
+
+  virtual const KeyboardState& check() = 0;
 
 };

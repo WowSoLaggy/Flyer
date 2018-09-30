@@ -10,6 +10,9 @@
     <Filter Include="src\Messages">
       <UniqueIdentifier>{3c18f429-c81d-412a-b58a-8c98d17bccbc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Keyboard">
+      <UniqueIdentifier>{3ab50807-e9df-46c8-99ac-fd12f081c0ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -40,6 +43,9 @@
     </ClInclude>
     <ClInclude Include="InputMessage.h">
       <Filter>src\Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardState.h">
+      <Filter>src\Keyboard</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
