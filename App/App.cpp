@@ -2,8 +2,6 @@
 #include "App.h"
 
 #include <Engine/IEngine.h>
-#include <ModelControllers/WorldController.h>
-#include <ViewModel/WorldVm.h>
 
 
 void App::run()
@@ -40,39 +38,4 @@ void App::dispose()
   d_engine.reset();
 
   d_windowCreator.disposeWindow();
-}
-
-
-ControlSignal App::controlCallback()
-{
-  if (!handleMessages())
-    return ControlSignal::Stop;
-
-  if (!d_engine->isRendererCreated())
-  {
-    d_engine->createRenderer(d_windowCreator.getHWnd(),
-      d_settingsController.getWindowWidth(), d_settingsController.getWindowHeight());
-  }
-
-  if (!d_world)
-  {
-    d_world = WorldController::createNewWorld();
-
-    d_worldVm = std::shared_ptr<WorldVm>(
-      new WorldVm(*d_engine->getRenderDevice(), *d_engine->getResourceController(),
-        d_settingsController.getWindowWidth(), d_settingsController.getWindowHeight()));
-    d_worldVm->buildFromWorld(*d_world);
-  }
-  
-  return ControlSignal::Run;
-}
-
-void App::updateCallback(double i_dt)
-{
-  WorldController::updateWorld(*d_world, i_dt);
-}
-
-void App::renderCallback()
-{
-  d_worldVm->render();
 }
