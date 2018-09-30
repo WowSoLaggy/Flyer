@@ -16,8 +16,13 @@ public:
   virtual Vector3 getUp() const override;
 
   virtual void setPosition(const Vector3& i_position) override;
-  virtual void setDirection(const Vector3& i_direction) override;
-  virtual void setUp(const Vector3& i_up) override;
+  virtual void setDirection(Vector3 i_direction) override;
+  virtual void setUp(Vector3 i_up) override;
+
+  virtual Vector3 getLeft() const override;
+  virtual Vector3 getRight() const override;
+  virtual Vector3 getForward() const override;
+  virtual Vector3 getBackward() const override;
 
   const XMMATRIX& getProjectionMatrix() const { return d_projectionMatrix; }
   const XMMATRIX& getViewMatrix() const { return d_viewMatrix; }

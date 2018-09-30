@@ -33,16 +33,39 @@ void Camera::setPosition(const Vector3& i_position)
   updateViewMatrix();
 }
 
-void Camera::setDirection(const Vector3& i_direction)
+void Camera::setDirection(Vector3 i_direction)
 {
+  i_direction = normalize(i_direction);
   d_direction = XMFLOAT3(i_direction.x, i_direction.y, i_direction.z);
   updateViewMatrix();
 }
 
-void Camera::setUp(const Vector3& i_up)
+void Camera::setUp(Vector3 i_up)
 {
+  i_up = normalize(i_up);
   d_up = XMFLOAT3(i_up.x, i_up.y, i_up.z);
   updateViewMatrix();
+}
+
+
+Vector3 Camera::getLeft() const
+{
+  return normalize(cross(getForward(), getUp()));
+}
+
+Vector3 Camera::getRight() const
+{
+  return normalize(cross(getUp(), getForward()));
+}
+
+Vector3 Camera::getForward() const
+{
+  return Vector3{ d_direction.x, d_direction.y, d_direction.z };
+}
+
+Vector3 Camera::getBackward() const
+{
+  return Vector3{ -d_direction.x, -d_direction.y, -d_direction.z };
 }
 
 
