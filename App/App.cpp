@@ -2,6 +2,8 @@
 #include "App.h"
 
 #include <Engine/IEngine.h>
+#include <ModelControllers/WorldController.h>
+#include <ViewModel/WorldVm.h>
 
 
 void App::run()
@@ -48,4 +50,21 @@ void App::dispose()
 void App::stop()
 {
   d_stopFlag = true;
+}
+
+void App::createRenderer()
+{
+  d_engine->createRenderer(d_windowCreator.getHWnd(),
+    d_settingsController.getWindowWidth(), d_settingsController.getWindowHeight());
+}
+
+void App::createWorld()
+{
+  d_world = WorldController::createNewWorld();
+
+  d_worldVm = std::make_shared<WorldVm>(
+    *d_engine->getRenderDevice(), *d_engine->getResourceController(),
+    d_settingsController.getWindowWidth(), d_settingsController.getWindowHeight());
+
+  d_worldVm->buildFromWorld(*d_world);
 }

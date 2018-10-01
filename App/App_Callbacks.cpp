@@ -17,21 +17,10 @@ ControlSignal App::controlCallback()
     return ControlSignal::Stop;
 
   if (!d_engine->isRendererCreated())
-  {
-    d_engine->createRenderer(d_windowCreator.getHWnd(),
-      d_settingsController.getWindowWidth(), d_settingsController.getWindowHeight());
-  }
+    createRenderer();
 
   if (!d_world)
-  {
-    d_world = WorldController::createNewWorld();
-
-    d_worldVm = std::make_shared<WorldVm>(
-      *d_engine->getRenderDevice(), *d_engine->getResourceController(),
-      d_settingsController.getWindowWidth(), d_settingsController.getWindowHeight());
-
-    d_worldVm->buildFromWorld(*d_world);
-  }
+    createWorld();
 
   return ControlSignal::Run;
 }

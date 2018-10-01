@@ -30,6 +30,8 @@ private:
   void dispose();
 
   bool handleMessages();
+  void createRenderer();
+  void createWorld();
 
   void stop();
 
