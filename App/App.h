@@ -23,11 +23,15 @@ private:
   std::shared_ptr<World> d_world;
   std::shared_ptr<WorldVm> d_worldVm;
 
+  bool d_stopFlag;
+
   void initialize();
   void runEngine();
   void dispose();
 
   bool handleMessages();
+
+  void stop();
 
   ControlSignal controlCallback();
   void updateCallback(double i_dt);

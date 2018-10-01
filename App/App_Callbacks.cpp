@@ -10,6 +10,9 @@
 
 ControlSignal App::controlCallback()
 {
+  if (d_stopFlag)
+    return ControlSignal::Stop;
+
   if (!handleMessages())
     return ControlSignal::Stop;
 
@@ -45,6 +48,12 @@ void App::renderCallback()
 
 void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
 {
+  if (i_keyboardState.Escape)
+  {
+    stop();
+    return;
+  }
+
   const float speedMultiplier = i_keyboardState.LeftShift ? 60.f : 20.f;
   const float speed = (float)(speedMultiplier * i_dt);
 

@@ -24,6 +24,8 @@ void App::initialize()
 
   d_engine = IEngine::create();
   d_engine->initialize(d_settingsController.getResourceFolder());
+
+  d_stopFlag = false;
 }
 
 void App::runEngine()
@@ -41,4 +43,9 @@ void App::dispose()
   d_engine.reset();
 
   d_windowCreator.disposeWindow();
+}
+
+void App::stop()
+{
+  d_stopFlag = true;
 }
