@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="LabelVm.h" />
     <ClInclude Include="ObjectVm.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TerrainVm.h" />
@@ -130,6 +131,7 @@
     <ClInclude Include="WorldVm.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LabelVm.cpp" />
     <ClCompile Include="ObjectVm.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
