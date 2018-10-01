@@ -6,8 +6,8 @@
 #include <Sdk/StringUtils.h>
 
 
-PixelShaderResource::PixelShaderResource(const std::string& i_shaderFilePath)
-  : d_shaderFilePath(i_shaderFilePath)
+PixelShaderResource::PixelShaderResource(std::string i_shaderFilePath)
+  : d_shaderFilePath(std::move(i_shaderFilePath))
 {
 }
 

@@ -4,8 +4,8 @@
 #include "MeshLoader.h"
 
 
-MeshResource::MeshResource(const std::string& i_meshFilePath)
-  : d_meshFilePath(i_meshFilePath)
+MeshResource::MeshResource(std::string i_meshFilePath)
+  : d_meshFilePath(std::move(i_meshFilePath))
 {
 }
 

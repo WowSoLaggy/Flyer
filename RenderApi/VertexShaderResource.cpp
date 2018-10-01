@@ -6,8 +6,8 @@
 #include <Sdk/StringUtils.h>
 
 
-VertexShaderResource::VertexShaderResource(const std::string& i_shaderFilePath)
-  : d_shaderFilePath(i_shaderFilePath)
+VertexShaderResource::VertexShaderResource(std::string i_shaderFilePath)
+  : d_shaderFilePath(std::move(i_shaderFilePath))
 {
 }
 

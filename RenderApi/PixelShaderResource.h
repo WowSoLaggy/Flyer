@@ -7,7 +7,7 @@ class PixelShaderResource : public IResource
 {
 public:
 
-  PixelShaderResource(const std::string& i_shaderFilePath);
+  PixelShaderResource(std::string i_shaderFilePath);
 
   virtual void load(IRenderDevice& i_renderDevice) override;
   virtual void unload() override;

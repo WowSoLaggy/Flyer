@@ -6,8 +6,8 @@
 #include <Sdk/StringUtils.h>
 
 
-TextureResource::TextureResource(const std::string& i_textureFilePath)
-  : d_textureFilePath(i_textureFilePath)
+TextureResource::TextureResource(std::string i_textureFilePath)
+  : d_textureFilePath(std::move(i_textureFilePath))
 {
 }
 

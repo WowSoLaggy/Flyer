@@ -10,7 +10,7 @@ class MeshResource : public IResource
 {
 public:
 
-  MeshResource(const std::string& i_meshFilePath);
+  MeshResource(std::string i_meshFilePath);
 
   virtual void load(IRenderDevice& i_renderDevice) override;
   virtual void unload() override;

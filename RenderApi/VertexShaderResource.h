@@ -3,11 +3,11 @@
 #include "IResource.h"
 
 
-class VertexShaderResource: public IResource
+class VertexShaderResource : public IResource
 {
 public:
 
-  VertexShaderResource(const std::string& i_shaderFilePath);
+  VertexShaderResource(std::string i_shaderFilePath);
 
   virtual void load(IRenderDevice& i_renderDevice) override;
   virtual void unload() override;
