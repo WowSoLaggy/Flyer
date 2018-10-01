@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="FontResource.h" />
     <ClInclude Include="IndexBuffer.h" />
     <ClInclude Include="IObject3D.h" />
     <ClInclude Include="IRenderer.h" />
@@ -161,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="FontResource.cpp" />
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="IRenderer.cpp" />
     <ClCompile Include="MaterialSequence.cpp" />

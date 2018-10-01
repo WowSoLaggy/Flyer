@@ -11,5 +11,6 @@
 #include <DirectXMath.h>
 
 #include "DDSTextureLoader.h"
+#include "SpriteFont.h"
 
 using namespace DirectX;

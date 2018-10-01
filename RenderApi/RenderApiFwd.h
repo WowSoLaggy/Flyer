@@ -12,6 +12,13 @@ class MeshResource;
 class TextureResource;
 class PixelShaderResource;
 class VertexShaderResource;
+class FontResource;
 
 struct Material;
 struct MaterialSpan;
+
+namespace DirectX
+{
+  class SpriteFont;
+  class SpriteBatch;
+}

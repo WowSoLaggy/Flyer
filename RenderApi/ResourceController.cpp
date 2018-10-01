@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "ResourceController.h"
 
+#include "FontResource.h"
 #include "MeshResource.h"
 #include "PixelShaderResource.h"
 #include "TextureResource.h"
@@ -43,6 +44,11 @@ const PixelShaderResource& ResourceController::getPixelShaderResource(ResourceId
 const VertexShaderResource& ResourceController::getVertexShaderResource(ResourceId i_resourceId) const
 {
   return dynamic_cast<const VertexShaderResource&>(*d_idToResourceMap.at(i_resourceId));
+}
+
+const FontResource& ResourceController::getFontResource(ResourceId i_resourceId) const
+{
+  return dynamic_cast<const FontResource&>(*d_idToResourceMap.at(i_resourceId));
 }
 
 
@@ -102,6 +108,7 @@ void ResourceController::indexResourcesInDir(const std::string& i_dirName)
     const std::regex modelPattern("\\w*.(obj)");
     const std::regex vertexShaderPattern("\\w*.(vs)");
     const std::regex pixelShaderPattern("\\w*.(ps)");
+    const std::regex fontPattern("\\w*.(spritefont)");
 
     auto resourceName = i_dirName + pEntity->d_name;
     auto freeResourceId = getFreeResourceId();
@@ -125,6 +132,11 @@ void ResourceController::indexResourcesInDir(const std::string& i_dirName)
     {
       d_nameToIdMap.insert({ resourceName, freeResourceId });
       d_idToResourceMap.insert({ freeResourceId, std::make_shared<PixelShaderResource>(resourceName) });
+    }
+    else if (std::regex_match(pEntity->d_name, fontPattern))
+    {
+      d_nameToIdMap.insert({ resourceName, freeResourceId });
+      d_idToResourceMap.insert({ freeResourceId, std::make_shared<FontResource>(resourceName) });
     }
   }
 }

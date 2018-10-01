@@ -96,6 +96,9 @@
     <ClInclude Include="ShaderBuffers.h">
       <Filter>src\Buffers</Filter>
     </ClInclude>
+    <ClInclude Include="FontResource.h">
+      <Filter>src\Resources\ResourceTypes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -148,6 +151,9 @@
     </ClCompile>
     <ClCompile Include="IRenderer.cpp">
       <Filter>src\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="FontResource.cpp">
+      <Filter>src\Resources\ResourceTypes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
