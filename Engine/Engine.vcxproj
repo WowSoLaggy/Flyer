@@ -142,9 +142,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gui\Gui.vcxproj">
-      <Project>{33111543-b942-458c-ad83-892b7e208967}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\InputApi\InputApi.vcxproj">
       <Project>{cb7d9bcb-b2b7-4da6-b867-0896b3781c26}</Project>
     </ProjectReference>
