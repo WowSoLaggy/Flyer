@@ -5,7 +5,7 @@
 
 #include <Engine/EngineFwd.h>
 #include <InputApi/InputDeviceFwd.h>
-#include <Model/World.h>
+#include <Model/ModelFwd.h>
 #include <ViewModel/ViewModelFwd.h>
 
 
