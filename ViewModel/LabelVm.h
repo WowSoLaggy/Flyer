@@ -1,10 +1,12 @@
 #pragma once
 
+#include "GuiVm.h"
+
 #include <GuiModel/GuiModelFwd.h>
 #include <RenderApi/RenderApiFwd.h>
 
 
-class LabelVm
+class LabelVm : public GuiVm
 {
 public:
 

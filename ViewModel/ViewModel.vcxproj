@@ -123,6 +123,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="GuiCollectionVm.h" />
+    <ClInclude Include="GuiVm.h" />
     <ClInclude Include="LabelVm.h" />
     <ClInclude Include="ObjectVm.h" />
     <ClInclude Include="stdafx.h" />
@@ -131,6 +133,7 @@
     <ClInclude Include="WorldVm.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GuiCollectionVm.cpp" />
     <ClCompile Include="LabelVm.cpp" />
     <ClCompile Include="ObjectVm.cpp" />
     <ClCompile Include="stdafx.cpp">

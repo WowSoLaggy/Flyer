@@ -30,6 +30,12 @@
     <ClInclude Include="LabelVm.h">
       <Filter>src\Gui</Filter>
     </ClInclude>
+    <ClInclude Include="GuiCollectionVm.h">
+      <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="GuiVm.h">
+      <Filter>src\Gui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -45,6 +51,9 @@
       <Filter>src\World</Filter>
     </ClCompile>
     <ClCompile Include="LabelVm.cpp">
+      <Filter>src\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiCollectionVm.cpp">
       <Filter>src\Gui</Filter>
     </ClCompile>
   </ItemGroup>
