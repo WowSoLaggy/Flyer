@@ -1,8 +1,8 @@
 #include "stdafx.h"
-#include "Renderer.h"
+#include "Renderer3d.h"
 
 #include "Camera.h"
-#include "IObject3D.h"
+#include "IObject3d.h"
 #include "MeshResource.h"
 #include "PixelShaderResource.h"
 #include "RenderDevice.h"
@@ -12,7 +12,7 @@
 #include "VertexShaderResource.h"
 
 
-Renderer::Renderer(
+Renderer3d::Renderer3d(
   IRenderDevice& io_renderDevice,
   const IResourceController& i_resourceController,
   const ICamera& i_camera)
@@ -32,19 +32,19 @@ Renderer::Renderer(
   createBuffers();
 }
 
-Renderer::~Renderer()
+Renderer3d::~Renderer3d()
 {
   disposeBuffers();
 }
 
 
-void Renderer::renderObject(const IObject3D& i_object3D)
+void Renderer3d::renderObject(const IObject3d& i_object3d)
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
 
-  const auto& meshResource = resourceController.getMeshResource(i_object3D.getMeshResourceId());
-  const auto& textureResource = resourceController.getTextureResource(i_object3D.getTextureResourceId());
+  const auto& meshResource = resourceController.getMeshResource(i_object3d.getMeshResourceId());
+  const auto& textureResource = resourceController.getTextureResource(i_object3d.getTextureResourceId());
 
 
   setBuffers(
@@ -52,7 +52,7 @@ void Renderer::renderObject(const IObject3D& i_object3D)
     unsigned int(meshResource.getVertexBuffer().getStride()));
 
   
-  setShaderMatrices(i_object3D.getPosition());
+  setShaderMatrices(i_object3d.getPosition());
   setShaderTexture(textureResource.getTexturePtr());
 
 
@@ -62,7 +62,7 @@ void Renderer::renderObject(const IObject3D& i_object3D)
 }
 
 
-void Renderer::setBuffers(ID3D11Buffer* i_vertexBufferPtr, ID3D11Buffer* i_indexBufferPtr, unsigned int i_stride)
+void Renderer3d::setBuffers(ID3D11Buffer* i_vertexBufferPtr, ID3D11Buffer* i_indexBufferPtr, unsigned int i_stride)
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
 
@@ -73,7 +73,7 @@ void Renderer::setBuffers(ID3D11Buffer* i_vertexBufferPtr, ID3D11Buffer* i_index
   renderDevice.getDeviceContextPtr()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 }
 
-void Renderer::setShaders(
+void Renderer3d::setShaders(
   const VertexShaderResource& i_vertexShaderResource,
   const PixelShaderResource& i_pixelShaderResource,
   ID3D11SamplerState* i_samplerState)
@@ -86,7 +86,7 @@ void Renderer::setShaders(
   renderDevice.getDeviceContextPtr()->PSSetSamplers(0, 1, &i_samplerState);
 }
 
-void Renderer::setShaderMatrices(const Vector3& i_position)
+void Renderer3d::setShaderMatrices(const Vector3& i_position)
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
   auto& camera = dynamic_cast<const Camera&>(d_camera);
@@ -109,13 +109,13 @@ void Renderer::setShaderMatrices(const Vector3& i_position)
   renderDevice.getDeviceContextPtr()->VSSetConstantBuffers(0, 1, &d_matrixBuffer);
 }
 
-void Renderer::setShaderTexture(ID3D11ShaderResourceView* i_texture)
+void Renderer3d::setShaderTexture(ID3D11ShaderResourceView* i_texture)
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
   renderDevice.getDeviceContextPtr()->PSSetShaderResources(0, 1, &i_texture);
 }
 
-void Renderer::setShaderMaterial(const Material& i_material)
+void Renderer3d::setShaderMaterial(const Material& i_material)
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
 
@@ -133,7 +133,7 @@ void Renderer::setShaderMaterial(const Material& i_material)
   renderDevice.getDeviceContextPtr()->PSSetConstantBuffers(0, 1, &d_lightBuffer);
 }
 
-void Renderer::drawMaterial(const MaterialSpan& i_materialSpan)
+void Renderer3d::drawMaterial(const MaterialSpan& i_materialSpan)
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
 
@@ -142,7 +142,7 @@ void Renderer::drawMaterial(const MaterialSpan& i_materialSpan)
 }
 
 
-void Renderer::createBuffers()
+void Renderer3d::createBuffers()
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
 
@@ -166,7 +166,7 @@ void Renderer::createBuffers()
   renderDevice.getDevicePtr()->CreateBuffer(&lightBufferDesc, nullptr, &d_lightBuffer);
 }
 
-void Renderer::disposeBuffers()
+void Renderer3d::disposeBuffers()
 {
   d_matrixBuffer->Release();
   d_lightBuffer->Release();

@@ -5,11 +5,11 @@
 #include <Sdk/Vector.h>
 
 
-class IObject3D
+class IObject3d
 {
 public:
 
-  virtual ~IObject3D() = default;
+  virtual ~IObject3d() = default;
 
   virtual ResourceId getMeshResourceId() const = 0;
   virtual ResourceId getTextureResourceId() const = 0;

@@ -16,14 +16,14 @@
     <Filter Include="src\Resources\ResourceTypes">
       <UniqueIdentifier>{572e44ab-42dc-4f03-9084-d1c91d73c562}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Renderer">
-      <UniqueIdentifier>{62a6fdf6-cc17-4e12-adf6-8e2582a88e7b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Mesh">
       <UniqueIdentifier>{c8170a72-b4dc-466c-b166-5b99e072a9cd}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Buffers">
       <UniqueIdentifier>{99149c37-a63a-47ae-8b69-523f2363d42f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Renderer3d">
+      <UniqueIdentifier>{62a6fdf6-cc17-4e12-adf6-8e2582a88e7b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -53,12 +53,6 @@
     </ClInclude>
     <ClInclude Include="IResourceController.h">
       <Filter>src\Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>src\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="IObject3D.h">
-      <Filter>src\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="TextureResource.h">
       <Filter>src\Resources\ResourceTypes</Filter>
@@ -90,14 +84,20 @@
     <ClInclude Include="PixelShaderResource.h">
       <Filter>src\Resources\ResourceTypes</Filter>
     </ClInclude>
-    <ClInclude Include="IRenderer.h">
-      <Filter>src\Renderer</Filter>
-    </ClInclude>
     <ClInclude Include="ShaderBuffers.h">
       <Filter>src\Buffers</Filter>
     </ClInclude>
     <ClInclude Include="FontResource.h">
       <Filter>src\Resources\ResourceTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="IObject3d.h">
+      <Filter>src\Renderer3d</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderer3d.h">
+      <Filter>src\Renderer3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer3d.h">
+      <Filter>src\Renderer3d</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -121,9 +121,6 @@
     </ClCompile>
     <ClCompile Include="IResourceController.cpp">
       <Filter>src\Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>src\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="TextureResource.cpp">
       <Filter>src\Resources\ResourceTypes</Filter>
@@ -149,11 +146,14 @@
     <ClCompile Include="PixelShaderResource.cpp">
       <Filter>src\Resources\ResourceTypes</Filter>
     </ClCompile>
-    <ClCompile Include="IRenderer.cpp">
-      <Filter>src\Renderer</Filter>
-    </ClCompile>
     <ClCompile Include="FontResource.cpp">
       <Filter>src\Resources\ResourceTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="IRenderer3d.cpp">
+      <Filter>src\Renderer3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer3d.cpp">
+      <Filter>src\Renderer3d</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

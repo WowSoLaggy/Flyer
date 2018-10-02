@@ -1,11 +1,11 @@
 #pragma once
 
 #include <Model/ModelFwd.h>
-#include <RenderApi/IObject3D.h>
+#include <RenderApi/IObject3d.h>
 #include <RenderApi/RenderApiFwd.h>
 
 
-class ObjectVm : public IObject3D
+class ObjectVm : public IObject3d
 {
 public:
 

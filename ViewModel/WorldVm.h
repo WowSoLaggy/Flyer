@@ -27,7 +27,7 @@ private:
   const IResourceController& d_resourceController;
 
   std::shared_ptr<ICamera> d_camera;
-  std::shared_ptr<IRenderer> d_renderer;
+  std::shared_ptr<IRenderer3d> d_renderer;
 
   std::shared_ptr<TerrainVm> d_terrainVm;
   std::vector<ObjectVm> d_objectVms;

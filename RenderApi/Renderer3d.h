@@ -1,22 +1,22 @@
 #pragma once
 
-#include "IRenderer.h"
+#include "IRenderer3d.h"
 #include "RenderApiFwd.h"
 
 #include <Sdk/SdkFwd.h>
 
 
-class Renderer : public IRenderer
+class Renderer3d: public IRenderer3d
 {
 public:
 
-  Renderer(
+  Renderer3d(
     IRenderDevice& io_renderDevice,
     const IResourceController& i_resourceController,
     const ICamera& i_camera);
-  ~Renderer();
+  ~Renderer3d();
 
-  virtual void renderObject(const IObject3D& i_object) override;
+  virtual void renderObject(const IObject3d& i_object3d) override;
 
 private:
 

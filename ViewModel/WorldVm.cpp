@@ -3,7 +3,7 @@
 
 #include <Model/World.h>
 #include <RenderApi/ICamera.h>
-#include <RenderApi/IRenderer.h>
+#include <RenderApi/IRenderer3d.h>
 
 
 WorldVm::WorldVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController,
@@ -12,7 +12,7 @@ WorldVm::WorldVm(IRenderDevice& io_renderDevice, const IResourceController& i_re
   , d_resourceController(i_resourceController)
 {
   d_camera = ICamera::createCamera(i_screenWidth, i_screenHeight);
-  d_renderer = IRenderer::createRenderer(io_renderDevice, i_resourceController, *d_camera);
+  d_renderer = IRenderer3d::create(io_renderDevice, i_resourceController, *d_camera);
 }
 
 
