@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "WorldVm.h"
 
+#include "TerrainVm.h"
+#include "ObjectVm.h"
+
 #include <Model/World.h>
 #include <RenderApi/ICamera.h>
 #include <RenderApi/IRenderer3d.h>
@@ -26,7 +29,7 @@ void WorldVm::buildFromWorld(const World& i_world)
   d_terrainVm = std::shared_ptr<TerrainVm>(new TerrainVm(d_resourceController, i_world.getTerrain()));
 
   for (const auto& object : i_world.getObjects())
-    d_objectVms.push_back({ d_resourceController, object });
+    d_objectVms.push_back(std::make_shared<ObjectVm>(d_resourceController, object));
 }
 
 
@@ -35,5 +38,5 @@ void WorldVm::render() const
   d_renderer->renderObject(*d_terrainVm);
 
   for (const auto& objectVm : d_objectVms)
-    d_renderer->renderObject(objectVm);
+    d_renderer->renderObject(*objectVm);
 }

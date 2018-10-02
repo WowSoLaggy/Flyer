@@ -1,7 +1,6 @@
 #pragma once
 
-#include "TerrainVm.h"
-#include "ObjectVm.h"
+#include "ViewModelFwd.h"
 
 #include <Model/ModelFwd.h>
 #include <RenderApi/RenderApiFwd.h>
@@ -30,6 +29,6 @@ private:
   std::shared_ptr<IRenderer3d> d_renderer;
 
   std::shared_ptr<TerrainVm> d_terrainVm;
-  std::vector<ObjectVm> d_objectVms;
+  std::vector<std::shared_ptr<ObjectVm>> d_objectVms;
 
 };
