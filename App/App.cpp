@@ -2,7 +2,9 @@
 #include "App.h"
 
 #include <Engine/IEngine.h>
+#include <GuiController/GuiController.h>
 #include <ModelControllers/WorldController.h>
+#include <ViewModel/GuiCollectionVm.h>
 #include <ViewModel/WorldVm.h>
 
 
@@ -67,4 +69,12 @@ void App::createWorld()
     d_settingsController.getWindowWidth(), d_settingsController.getWindowHeight());
 
   d_worldVm->buildFromWorld(*d_world);
+
+  
+  d_guiCollection = GuiController::createGameGui();
+
+  d_guiCollectionVm = std::make_shared<GuiCollectionVm>(
+    *d_engine->getRenderDevice(), *d_engine->getResourceController());
+
+  d_guiCollectionVm->buildFromCollection(*d_guiCollection);
 }
