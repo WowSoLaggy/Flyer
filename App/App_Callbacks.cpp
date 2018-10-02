@@ -5,6 +5,7 @@
 #include <InputApi/KeyboardState.h>
 #include <ModelControllers/WorldController.h>
 #include <RenderApi/ICamera.h>
+#include <Sdk/Vector.h>
 #include <ViewModel/WorldVm.h>
 
 
