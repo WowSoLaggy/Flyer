@@ -2,3 +2,5 @@
 
 class IGui;
 class Label;
+
+class GuiCollection;
