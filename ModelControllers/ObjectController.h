@@ -7,7 +7,7 @@ class ObjectController
 {
 public:
 
-  static void updateObject(Object& i_object, double i_dt);
+  static void updateObject(Object& io_object, double i_dt);
 
 private:
   ObjectController() = default;

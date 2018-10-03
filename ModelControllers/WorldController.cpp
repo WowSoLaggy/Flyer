@@ -28,8 +28,8 @@ std::shared_ptr<World> WorldController::createNewWorld()
 }
 
 
-void WorldController::updateWorld(World& i_world, double i_dt)
+void WorldController::updateWorld(World& io_world, double i_dt)
 {
-  for (auto& object : i_world.getObjects())
+  for (auto& object : io_world.getObjects())
     ObjectController::updateObject(object, i_dt);
 }
