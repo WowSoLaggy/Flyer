@@ -7,13 +7,22 @@
     <Filter Include="src\GuiController">
       <UniqueIdentifier>{bb379983-a747-4df1-9513-3cfb34e72030}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\LabelController">
+      <UniqueIdentifier>{607ba65d-a401-4d2e-a0f7-ee6cc3c659e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="GuiController.cpp">
+    <ClCompile Include="GuiController_Update.cpp">
       <Filter>src\GuiController</Filter>
+    </ClCompile>
+    <ClCompile Include="GuiController_Create.cpp">
+      <Filter>src\GuiController</Filter>
+    </ClCompile>
+    <ClCompile Include="LabelController.cpp">
+      <Filter>src\LabelController</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -22,6 +31,9 @@
     </ClInclude>
     <ClInclude Include="GuiController.h">
       <Filter>src\GuiController</Filter>
+    </ClInclude>
+    <ClInclude Include="LabelController.h">
+      <Filter>src\LabelController</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

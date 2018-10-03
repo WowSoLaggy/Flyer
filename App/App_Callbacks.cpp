@@ -2,6 +2,7 @@
 #include "App.h"
 
 #include <Engine/IEngine.h>
+#include <GuiController/GuiController.h>
 #include <InputApi/KeyboardState.h>
 #include <ModelControllers/WorldController.h>
 #include <RenderApi/ICamera.h>
@@ -30,6 +31,7 @@ ControlSignal App::controlCallback()
 void App::updateCallback(double i_dt)
 {
   WorldController::updateWorld(*d_world, i_dt);
+  GuiController::update(d_guiCollection, i_dt);
 }
 
 void App::renderCallback()
