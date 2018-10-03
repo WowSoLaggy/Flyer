@@ -20,15 +20,6 @@ Renderer3d::Renderer3d(
   , d_resourceController(i_resourceController)
   , d_camera(i_camera)
 {
-  const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
-
-  auto pixelShaderResourceId = resourceController.getResourceId("TextureLightPS.ps");
-  auto vertexShaderResourceId = resourceController.getResourceId("TextureLightVS.vs");
-
-  const auto& pixelShaderResource = resourceController.getPixelShaderResource(pixelShaderResourceId);
-  const auto& vertexShaderResource = resourceController.getVertexShaderResource(vertexShaderResourceId);
-  setShaders(vertexShaderResource, pixelShaderResource, pixelShaderResource.getSampleStatePtr());
-
   createBuffers();
 }
 
@@ -46,7 +37,8 @@ void Renderer3d::renderObject(const IObject3d& i_object3d)
   const auto& meshResource = resourceController.getMeshResource(i_object3d.getMeshResourceId());
   const auto& textureResource = resourceController.getTextureResource(i_object3d.getTextureResourceId());
 
-
+  setShaders();
+  
   setBuffers(
     meshResource.getVertexBuffer().getPtr(), meshResource.getIndexBuffer().getPtr(),
     unsigned int(meshResource.getVertexBuffer().getStride()));
@@ -73,17 +65,23 @@ void Renderer3d::setBuffers(ID3D11Buffer* i_vertexBufferPtr, ID3D11Buffer* i_ind
   renderDevice.getDeviceContextPtr()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 }
 
-void Renderer3d::setShaders(
-  const VertexShaderResource& i_vertexShaderResource,
-  const PixelShaderResource& i_pixelShaderResource,
-  ID3D11SamplerState* i_samplerState)
+void Renderer3d::setShaders()
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
+  const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
 
-  renderDevice.getDeviceContextPtr()->IASetInputLayout(i_vertexShaderResource.getLayoutPtr());
-  renderDevice.getDeviceContextPtr()->VSSetShader(i_vertexShaderResource.getPtr(), nullptr, 0);
-  renderDevice.getDeviceContextPtr()->PSSetShader(i_pixelShaderResource.getPtr(), nullptr, 0);
-  renderDevice.getDeviceContextPtr()->PSSetSamplers(0, 1, &i_samplerState);
+  auto pixelShaderResourceId = resourceController.getResourceId("TextureLightPS.ps");
+  auto vertexShaderResourceId = resourceController.getResourceId("TextureLightVS.vs");
+
+  const auto& pixelShaderResource = resourceController.getPixelShaderResource(pixelShaderResourceId);
+  const auto& vertexShaderResource = resourceController.getVertexShaderResource(vertexShaderResourceId);
+  
+  auto* samplerState = pixelShaderResource.getSampleStatePtr();
+
+  renderDevice.getDeviceContextPtr()->IASetInputLayout(vertexShaderResource.getLayoutPtr());
+  renderDevice.getDeviceContextPtr()->VSSetShader(vertexShaderResource.getPtr(), nullptr, 0);
+  renderDevice.getDeviceContextPtr()->PSSetShader(pixelShaderResource.getPtr(), nullptr, 0);
+  renderDevice.getDeviceContextPtr()->PSSetSamplers(0, 1, &samplerState);
 }
 
 void Renderer3d::setShaderMatrices(const Vector3& i_position)
