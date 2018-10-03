@@ -141,7 +141,7 @@ void MeshLoader::loadInfoFromObjFile(
       }
     }
     else if (tokens[0] == "usemtl")
-      materialNamesMap.push_back({ o_indices.size(), tokens[1] });
+      materialNamesMap.push_back({ (int)o_indices.size(), tokens[1] });
     else if (tokens[0] == "mtllib")
       mtllibFileName = tokens[1];
 
