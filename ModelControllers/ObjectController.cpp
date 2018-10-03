@@ -24,8 +24,8 @@ void ObjectController::updateObject(Object& io_object, double i_dt)
       return;
     }
 
-    const float speed = 0.1f;
-    auto movement = normalize(goal - position) * speed;
+    const float maxSpeed = 1.0f;
+    auto movement = normalize(goal - position) * maxSpeed * (float)i_dt;
 
     io_object.setPosition(io_object.getPosition() + movement);
   }
