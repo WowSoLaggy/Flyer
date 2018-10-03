@@ -6,6 +6,7 @@
 #include <ModelControllers/WorldController.h>
 #include <RenderApi/ICamera.h>
 #include <Sdk/Vector.h>
+#include <ViewModel/GuiCollectionVm.h>
 #include <ViewModel/WorldVm.h>
 
 
@@ -34,6 +35,7 @@ void App::updateCallback(double i_dt)
 void App::renderCallback()
 {
   d_worldVm->render();
+  d_guiCollectionVm->render();
 }
 
 void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)

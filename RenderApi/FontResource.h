@@ -12,6 +12,8 @@ public:
   virtual void load(IRenderDevice& i_renderDevice) override;
   virtual void unload() override;
 
+  std::shared_ptr<SpriteFont> getSpriteFont() const { return d_spriteFont; }
+
 private:
 
   const std::string d_fontFilePath;

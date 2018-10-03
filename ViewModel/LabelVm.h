@@ -12,6 +12,8 @@ public:
 
   LabelVm(const IResourceController& i_resourceController, const Label& i_label);
 
+  virtual ResourceId getFontResourceId() const override { return d_fontResourceId; }
+
 private:
 
   const Label& d_label;
