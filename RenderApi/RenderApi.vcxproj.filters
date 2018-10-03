@@ -25,6 +25,9 @@
     <Filter Include="src\Renderer3d">
       <UniqueIdentifier>{62a6fdf6-cc17-4e12-adf6-8e2582a88e7b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Renderer2d">
+      <UniqueIdentifier>{e0711f13-e2d2-49f8-bf4c-5431a7d323dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -99,6 +102,15 @@
     <ClInclude Include="Renderer3d.h">
       <Filter>src\Renderer3d</Filter>
     </ClInclude>
+    <ClInclude Include="IRenderer2d.h">
+      <Filter>src\Renderer2d</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer2d.h">
+      <Filter>src\Renderer2d</Filter>
+    </ClInclude>
+    <ClInclude Include="IObject2d.h">
+      <Filter>src\Renderer2d</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -154,6 +166,12 @@
     </ClCompile>
     <ClCompile Include="Renderer3d.cpp">
       <Filter>src\Renderer3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer2d.cpp">
+      <Filter>src\Renderer2d</Filter>
+    </ClCompile>
+    <ClCompile Include="IRenderer2d.cpp">
+      <Filter>src\Renderer2d</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
