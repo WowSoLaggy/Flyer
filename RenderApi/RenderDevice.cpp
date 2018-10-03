@@ -347,3 +347,9 @@ void RenderDevice::endScene()
   unsigned int nominator = c_vSyncEnabled ? 1 : 0;
   d_swapChain->Present(nominator, 0);
 }
+
+
+void RenderDevice::resetBlendState()
+{
+  d_deviceContext->OMSetBlendState(nullptr, nullptr, 0xffffffff);
+}

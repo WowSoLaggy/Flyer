@@ -35,8 +35,12 @@ void WorldVm::buildFromWorld(const World& i_world)
 
 void WorldVm::render() const
 {
+  d_renderer->beginScene();
+
   d_renderer->renderObject(*d_terrainVm);
 
   for (const auto& objectVm : d_objectVms)
     d_renderer->renderObject(*objectVm);
+
+  d_renderer->endScene();
 }

@@ -169,3 +169,14 @@ void Renderer3d::disposeBuffers()
   d_matrixBuffer->Release();
   d_lightBuffer->Release();
 }
+
+
+void Renderer3d::beginScene()
+{
+  auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
+  renderDevice.resetBlendState();
+}
+
+void Renderer3d::endScene()
+{
+}

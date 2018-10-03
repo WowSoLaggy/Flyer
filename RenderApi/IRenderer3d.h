@@ -16,5 +16,8 @@ public:
 
   virtual ~IRenderer3d() = default;
 
-  virtual void renderObject(const IObject3d& i_object) = 0;
+  virtual void beginScene() = 0;
+  virtual void endScene() = 0;
+
+  virtual void renderObject(const IObject3d& i_object3d) = 0;
 };

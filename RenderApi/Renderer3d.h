@@ -16,6 +16,9 @@ public:
     const ICamera& i_camera);
   ~Renderer3d();
 
+  virtual void beginScene() override;
+  virtual void endScene() override;
+
   virtual void renderObject(const IObject3d& i_object3d) override;
 
 private:
