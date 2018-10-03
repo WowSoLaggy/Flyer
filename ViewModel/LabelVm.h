@@ -12,7 +12,8 @@ public:
 
   LabelVm(const IResourceController& i_resourceController, const Label& i_label);
 
-  virtual ResourceId getFontResourceId() const override { return d_fontResourceId; }
+  ResourceId getFontResourceId() const { return d_fontResourceId; }
+  const std::string& getText() const;
 
 private:
 

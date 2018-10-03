@@ -31,7 +31,10 @@ void GuiCollectionVm::render() const
   d_renderer->beginScene();
 
   for (const auto& guiVm : d_guiVms)
-    d_renderer->renderObject(*guiVm);
+  {
+    if (const auto* pLabelVm = dynamic_cast<const LabelVm*>(guiVm.get()))
+      d_renderer->renderText(pLabelVm->getText(), pLabelVm->getFontResourceId());
+  }
 
   d_renderer->endScene();
 }

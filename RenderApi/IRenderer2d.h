@@ -18,5 +18,5 @@ public:
   virtual void beginScene() = 0;
   virtual void endScene() = 0;
 
-  virtual void renderObject(const IObject2d& i_object2d) = 0;
+  virtual void renderText(const std::string& i_text, ResourceId i_fontResourceId) = 0;
 };

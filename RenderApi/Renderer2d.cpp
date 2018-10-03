@@ -1,10 +1,11 @@
 #include "stdafx.h"
 #include "Renderer2d.h"
 
-#include "IObject2d.h"
 #include "FontResource.h"
 #include "RenderDevice.h"
 #include "ResourceController.h"
+
+#include <Sdk/StringUtils.h>
 
 
 Renderer2d::Renderer2d(
@@ -35,10 +36,10 @@ void Renderer2d::endScene()
 }
 
 
-void Renderer2d::renderObject(const IObject2d& i_object2d)
+void Renderer2d::renderText(const std::string& i_text, ResourceId i_fontResourceId)
 {
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
 
-  const auto& fontResource = resourceController.getFontResource(i_object2d.getFontResourceId());
-  fontResource.getSpriteFont()->DrawString(d_spriteBatch.get(), L"Hello, world!", XMFLOAT2(0, 0));
+  const auto& fontResource = resourceController.getFontResource(i_fontResourceId);
+  fontResource.getSpriteFont()->DrawString(d_spriteBatch.get(), Utils::getWString(i_text).c_str(), XMFLOAT2(0, 0));
 }

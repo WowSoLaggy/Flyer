@@ -10,3 +10,9 @@ LabelVm::LabelVm(const IResourceController& i_resourceController, const Label& i
   , d_fontResourceId(i_resourceController.getResourceId(i_label.getFontName()))
 {
 }
+
+
+const std::string& LabelVm::getText() const
+{
+  return d_label.getText();
+}

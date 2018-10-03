@@ -108,9 +108,6 @@
     <ClInclude Include="Renderer2d.h">
       <Filter>src\Renderer2d</Filter>
     </ClInclude>
-    <ClInclude Include="IObject2d.h">
-      <Filter>src\Renderer2d</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

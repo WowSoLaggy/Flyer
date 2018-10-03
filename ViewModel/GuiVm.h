@@ -1,9 +1,7 @@
 #pragma once
 
-#include <RenderApi/IObject2d.h>
 
-
-class GuiVm : public IObject2d
+class GuiVm
 {
 public:
 

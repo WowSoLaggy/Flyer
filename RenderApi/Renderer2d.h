@@ -16,7 +16,7 @@ public:
   virtual void beginScene() override;
   virtual void endScene() override;
 
-  virtual void renderObject(const IObject2d& i_object2d) override;
+  virtual void renderText(const std::string& i_text, ResourceId i_fontResourceId) override;
 
 private:
 
