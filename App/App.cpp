@@ -3,7 +3,7 @@
 
 #include <Engine/IEngine.h>
 #include <GuiController/GuiController.h>
-#include <ModelControllers/WorldController.h>
+#include <ModelControllers/WorldCreator.h>
 #include <ViewModel/GuiCollectionVm.h>
 #include <ViewModel/WorldVm.h>
 
@@ -62,7 +62,7 @@ void App::createRenderer()
 
 void App::createWorld()
 {
-  d_world = WorldController::createNewWorld();
+  d_world = WorldCreator::createNewWorld();
 
   d_worldVm = std::make_shared<WorldVm>(
     *d_engine->getRenderDevice(), *d_engine->getResourceController(),

@@ -10,6 +10,9 @@
     <Filter Include="src\ObjectController">
       <UniqueIdentifier>{c39f967a-f296-410c-a443-8675f8260830}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\WorldCreator">
+      <UniqueIdentifier>{dfdbe8ff-a6fd-4278-99e3-bb80c54df202}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -21,6 +24,9 @@
     <ClCompile Include="ObjectController.cpp">
       <Filter>src\ObjectController</Filter>
     </ClCompile>
+    <ClCompile Include="WorldCreator.cpp">
+      <Filter>src\WorldCreator</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -31,6 +37,9 @@
     </ClInclude>
     <ClInclude Include="ObjectController.h">
       <Filter>src\ObjectController</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldCreator.h">
+      <Filter>src\WorldCreator</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

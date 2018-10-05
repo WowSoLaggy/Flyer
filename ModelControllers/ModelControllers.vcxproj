@@ -135,11 +135,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="WorldCreator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ObjectController.h" />
     <ClInclude Include="WorldController.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="WorldCreator.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.vcxproj">
