@@ -2,7 +2,6 @@
 #include "Renderer3d.h"
 
 #include "Camera.h"
-#include "IObject3d.h"
 #include "MeshResource.h"
 #include "PixelShaderResource.h"
 #include "RenderDevice.h"
@@ -29,13 +28,15 @@ Renderer3d::~Renderer3d()
 }
 
 
-void Renderer3d::renderObject(const IObject3d& i_object3d)
+void Renderer3d::renderObject(
+  ResourceId i_meshResourceId, ResourceId i_textureResourceId,
+  const Vector3& i_position)
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
 
-  const auto& meshResource = resourceController.getMeshResource(i_object3d.getMeshResourceId());
-  const auto& textureResource = resourceController.getTextureResource(i_object3d.getTextureResourceId());
+  const auto& meshResource = resourceController.getMeshResource(i_meshResourceId);
+  const auto& textureResource = resourceController.getTextureResource(i_textureResourceId);
 
   setShaders();
   
@@ -44,7 +45,7 @@ void Renderer3d::renderObject(const IObject3d& i_object3d)
     unsigned int(meshResource.getVertexBuffer().getStride()));
 
   
-  setShaderMatrices(i_object3d.getPosition());
+  setShaderMatrices(i_position);
   setShaderTexture(textureResource.getTexturePtr());
 
 

@@ -1,11 +1,10 @@
 #pragma once
 
 #include <Model/ModelFwd.h>
-#include <RenderApi/IObject3d.h>
 #include <RenderApi/RenderApiFwd.h>
 
 
-class TerrainVm: public IObject3d
+class TerrainVm
 {
 public:
 

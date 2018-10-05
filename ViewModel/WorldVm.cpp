@@ -37,10 +37,14 @@ void WorldVm::render() const
 {
   d_renderer->beginScene();
 
-  d_renderer->renderObject(*d_terrainVm);
+  //d_renderer->renderObject(*d_terrainVm);
 
   for (const auto& objectVm : d_objectVms)
-    d_renderer->renderObject(*objectVm);
+  {
+    d_renderer->renderObject(
+      objectVm->getMeshResourceId(), objectVm->getTextureResourceId(),
+      objectVm->getPosition());
+  }
 
   d_renderer->endScene();
 }

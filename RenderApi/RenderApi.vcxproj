@@ -142,7 +142,6 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="FontResource.h" />
     <ClInclude Include="IndexBuffer.h" />
-    <ClInclude Include="IObject3d.h" />
     <ClInclude Include="IRenderer2d.h" />
     <ClInclude Include="IRenderer3d.h" />
     <ClInclude Include="Material.h" />

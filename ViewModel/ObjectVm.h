@@ -1,20 +1,20 @@
 #pragma once
 
 #include <Model/ModelFwd.h>
-#include <RenderApi/IObject3d.h>
 #include <RenderApi/RenderApiFwd.h>
+#include <Sdk/SdkFwd.h>
 
 
-class ObjectVm : public IObject3d
+class ObjectVm
 {
 public:
 
   ObjectVm(const IResourceController& i_resourceController, const Object& i_object);
 
-  virtual ResourceId getMeshResourceId() const override { return d_meshResourceId; }
-  virtual ResourceId getTextureResourceId() const override { return d_textureResourceId; }
+  ResourceId getMeshResourceId() const { return d_meshResourceId; }
+  ResourceId getTextureResourceId() const { return d_textureResourceId; }
 
-  virtual Vector3 getPosition() const override;
+  const Vector3& getPosition() const;
 
 private:
 

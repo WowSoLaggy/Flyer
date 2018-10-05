@@ -3,8 +3,6 @@
 #include "IRenderer3d.h"
 #include "RenderApiFwd.h"
 
-#include <Sdk/SdkFwd.h>
-
 
 class Renderer3d: public IRenderer3d
 {
@@ -19,7 +17,9 @@ public:
   virtual void beginScene() override;
   virtual void endScene() override;
 
-  virtual void renderObject(const IObject3d& i_object3d) override;
+  virtual void renderObject(
+    ResourceId i_meshResourceId, ResourceId i_textureResourceId, 
+    const Vector3& i_position) override;
 
 private:
 

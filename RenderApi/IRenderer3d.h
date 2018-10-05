@@ -2,6 +2,8 @@
 
 #include "RenderApiFwd.h"
 
+#include <Sdk/SdkFwd.h>
+
 
 class IRenderer3d
 {
@@ -19,5 +21,7 @@ public:
   virtual void beginScene() = 0;
   virtual void endScene() = 0;
 
-  virtual void renderObject(const IObject3d& i_object3d) = 0;
+  virtual void renderObject(
+    ResourceId i_meshResourceId, ResourceId i_textureResourceId,
+    const Vector3& i_position) = 0;
 };
