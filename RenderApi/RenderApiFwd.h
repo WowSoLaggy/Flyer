@@ -16,8 +16,14 @@ class PixelShaderResource;
 class VertexShaderResource;
 class FontResource;
 
+class VertexBuffer;
+class IndexBuffer;
+
 struct Material;
 struct MaterialSpan;
+class MaterialSequence;
+
+struct ID3D11Buffer;
 
 namespace DirectX
 {

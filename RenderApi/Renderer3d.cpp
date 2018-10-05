@@ -2,12 +2,11 @@
 #include "Renderer3d.h"
 
 #include "Camera.h"
-#include "MeshResource.h"
+#include "MaterialSequence.h"
 #include "PixelShaderResource.h"
 #include "RenderDevice.h"
 #include "ResourceController.h"
 #include "ShaderBuffers.h"
-#include "TextureResource.h"
 #include "VertexShaderResource.h"
 
 #include <Sdk/Vector.h>
@@ -38,33 +37,6 @@ Renderer3d::Renderer3d(
 Renderer3d::~Renderer3d()
 {
   disposeBuffers();
-}
-
-
-void Renderer3d::renderObject(
-  ResourceId i_meshResourceId, ResourceId i_textureResourceId,
-  const Vector3& i_position)
-{
-  auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
-  const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
-
-  const auto& meshResource = resourceController.getMeshResource(i_meshResourceId);
-  const auto& textureResource = resourceController.getTextureResource(i_textureResourceId);
-
-  setShaders();
-  
-  setBuffers(
-    meshResource.getVertexBuffer().getPtr(), meshResource.getIndexBuffer().getPtr(),
-    unsigned int(meshResource.getVertexBuffer().getStride()));
-
-  
-  setShaderMatrices(i_position);
-  setShaderTexture(textureResource.getTexturePtr());
-
-
-  const auto& materialSpans = meshResource.getMaterialSpans();
-  for (auto& materialSpan : materialSpans)
-    drawMaterial(materialSpan);
 }
 
 
@@ -189,6 +161,9 @@ void Renderer3d::beginScene()
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
   renderDevice.resetBlendState();
+  renderDevice.resetRasterizerState();
+
+  setShaders();
 }
 
 void Renderer3d::endScene()

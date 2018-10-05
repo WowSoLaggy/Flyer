@@ -167,5 +167,8 @@
     <ClCompile Include="IRenderer2d.cpp">
       <Filter>src\Renderer2d</Filter>
     </ClCompile>
+    <ClCompile Include="Renderer3d_Renders.cpp">
+      <Filter>src\Renderer3d</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
