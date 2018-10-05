@@ -19,7 +19,7 @@ namespace
   {
     Object tom;
 
-    tom.setPosition({ -7.5f, -7.5f });
+    tom.setPosition({ 2.5f, 2.5f });
     tom.setModelName("Tom.obj");
     tom.setTextureName("Blank.dds");
     tom.setCurrentAction(std::make_shared<ActionHold>(ActionHold(2)));
