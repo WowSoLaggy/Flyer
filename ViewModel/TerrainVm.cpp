@@ -2,6 +2,7 @@
 #include "TerrainVm.h"
 
 #include <Model/Terrain.h>
+#include <RenderApi/IRenderer3d.h>
 #include <RenderApi/IResourceController.h>
 
 
@@ -29,7 +30,14 @@ TerrainVm::~TerrainVm()
 }
 
 
+void TerrainVm::render(IRenderer3d& i_renderer) const
 {
+  i_renderer.renderObject(
+    d_textureResourceId,
+    d_vertexBuffer, d_indexBuffer,
+    d_materialSequence.getMaterialSpans(), getPosition());
+}
+
 
 void TerrainVm::createBuffers(IRenderDevice& io_renderDevice)
 {

@@ -16,6 +16,7 @@ public:
     const Terrain& i_terrain);
   ~TerrainVm();
 
+  void render(IRenderer3d& i_renderer) const;
 
 private:
 
