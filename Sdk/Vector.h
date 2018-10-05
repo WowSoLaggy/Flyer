@@ -13,6 +13,14 @@ struct Vector3
   float z;
 };
 
+struct Vector4
+{
+  float x;
+  float y;
+  float z;
+  float w;
+};
+
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // Vector2
