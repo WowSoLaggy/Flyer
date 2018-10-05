@@ -2,23 +2,30 @@
 
 #include <Model/ModelFwd.h>
 #include <RenderApi/RenderApiFwd.h>
+#include <RenderApi/IndexBuffer.h>
+#include <RenderApi/MaterialSequence.h>
+#include <RenderApi/VertexBuffer.h>
 
 
 class TerrainVm
 {
 public:
 
-  TerrainVm(const IResourceController& i_resourceController, const Terrain& i_terrain);
+  TerrainVm(
+    IRenderDevice& io_renderDevice, const IResourceController& i_resourceController,
+    const Terrain& i_terrain);
+  ~TerrainVm();
 
-  virtual ResourceId getMeshResourceId() const override { return d_meshResourceId; }
-  virtual ResourceId getTextureResourceId() const override { return d_textureResourceId; }
-
-  virtual Vector3 getPosition() const override;
 
 private:
 
   const Terrain& d_terrain;
 
-  const ResourceId d_meshResourceId;
   const ResourceId d_textureResourceId;
+
+  VertexBuffer d_vertexBuffer;
+  IndexBuffer d_indexBuffer;
+  MaterialSequence d_materialSequence;
+
+  void createBuffers(IRenderDevice& io_renderDevice);
 };
