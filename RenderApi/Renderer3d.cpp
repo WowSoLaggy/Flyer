@@ -10,6 +10,19 @@
 #include "TextureResource.h"
 #include "VertexShaderResource.h"
 
+#include <Sdk/Vector.h>
+
+
+namespace
+{
+
+  XMFLOAT4 getColorFromV4(const Vector4& i_vector)
+  {
+    return { i_vector.x, i_vector.y, i_vector.z, i_vector.w };
+  }
+
+} // anonymous NS
+
 
 Renderer3d::Renderer3d(
   IRenderDevice& io_renderDevice,
@@ -122,7 +135,7 @@ void Renderer3d::setShaderMaterial(const Material& i_material)
   renderDevice.getDeviceContextPtr()->Map(d_lightBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
 
   auto* dataPtr2 = (LightBuffer*)mappedResource.pData;
-  dataPtr2->diffuseColor = i_material.diffuseColor;
+  dataPtr2->diffuseColor = getColorFromV4(i_material.diffuseColor);
   dataPtr2->lightColor = { 1.0f, 1.0f, 1.0f, 1.0f };
   dataPtr2->lightDirection = { 0.0f, 0.0f, -1.0f };
   dataPtr2->ambientStrength = 0.2f;

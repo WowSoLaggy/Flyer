@@ -1,12 +1,16 @@
 #pragma once
 
+#include "RenderApiFwd.h"
+
+#include <Sdk/Vector.h>
+
 
 struct Material
 {
   std::string name;
 
-  XMFLOAT4 ambientColor;
-  XMFLOAT4 diffuseColor;
+  Vector4 ambientColor;
+  Vector4 diffuseColor;
 
   static Material getDefault() { return { "", { 1, 1, 1, 1}, {1, 1, 1, 1} }; }
 };

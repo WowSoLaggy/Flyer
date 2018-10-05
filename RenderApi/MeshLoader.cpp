@@ -3,6 +3,7 @@
 
 #include <Sdk/FileSystemUtils.h>
 #include <Sdk/StringUtils.h>
+#include <Sdk/Vector.h>
 
 
 namespace
@@ -76,9 +77,9 @@ void MeshLoader::loadInfoFromObjFile(
   if (!file)
     return;
 
-  std::vector<XMFLOAT3> positions;
-  std::vector<XMFLOAT2> texCoords;
-  std::vector<XMFLOAT3> normals;
+  std::vector<Vector3> positions;
+  std::vector<Vector2> texCoords;
+  std::vector<Vector3> normals;
 
   std::map<std::tuple<int, int, int>, int> trioMap;
   int nextIndex = 0;
@@ -130,7 +131,7 @@ void MeshLoader::loadInfoFromObjFile(
         auto it = trioMap.find(trio);
         if (it == trioMap.end())
         {
-          XMFLOAT2 uv = (texCoordIndex == -1) ? XMFLOAT2(0.0f, 0.0f) : texCoords[texCoordIndex];
+          Vector2 uv = (texCoordIndex == -1) ? Vector2{ 0.0f, 0.0f } : texCoords[texCoordIndex];
           o_vertices.push_back({ positions[posIndex], uv, normals[normIndex] });
           trioMap[trio] = nextIndex;
           o_indices.push_back(nextIndex);

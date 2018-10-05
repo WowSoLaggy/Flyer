@@ -1,9 +1,11 @@
 #pragma once
 
+#include <Sdk/Vector.h>
+
 
 struct VertexTypePosTexNorm
 {
-  XMFLOAT3 position;
-  XMFLOAT2 texture;
-  XMFLOAT3 normal;
+  Vector3 position;
+  Vector2 texture;
+  Vector3 normal;
 };
