@@ -21,7 +21,7 @@ WorldVm::WorldVm(IRenderDevice& io_renderDevice, const IResourceController& i_re
 
 void WorldVm::buildFromWorld(const World& i_world)
 {
-  const Vector3 defaultCameraOffset = { 10, 15, -10 };
+  const Vector3 defaultCameraOffset = { 10, 15, -7 };
   d_camera->setPosition(defaultCameraOffset);
   d_camera->setDirection({ 0, -1, 1 });
   d_camera->setUp({ 0, 1, 0 });
