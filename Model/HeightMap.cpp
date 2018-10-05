@@ -27,7 +27,7 @@ void HeightMap::setHeight(int i_x, int i_z, float i_height)
   d_points[index] = i_height;
 }
 
-float HeightMap::getHeight(int i_x, int i_z)
+float HeightMap::getHeight(int i_x, int i_z) const
 {
   int index = i_x + i_z * d_sizeX;
 

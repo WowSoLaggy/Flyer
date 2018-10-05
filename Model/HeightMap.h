@@ -13,7 +13,7 @@ public:
   void resize(int i_sizeX, int i_sizeZ, float i_defaultHeight);
 
   void setHeight(int i_x, int i_z, float i_height);
-  float getHeight(int i_x, int i_z);
+  float getHeight(int i_x, int i_z) const;
 
 private:
 
