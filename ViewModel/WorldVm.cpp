@@ -21,10 +21,10 @@ WorldVm::WorldVm(IRenderDevice& io_renderDevice, const IResourceController& i_re
 
 void WorldVm::buildFromWorld(const World& i_world)
 {
-  const Vector3 defaultCameraOffset = { 0, -20, 20 };
+  const Vector3 defaultCameraOffset = { 10, 15, -10 };
   d_camera->setPosition(defaultCameraOffset);
-  d_camera->setDirection({ 0, 1, -1 });
-  d_camera->setUp({ 0, 0, 1 });
+  d_camera->setDirection({ 0, -1, 1 });
+  d_camera->setUp({ 0, 1, 0 });
 
   d_terrainVm = std::shared_ptr<TerrainVm>(new TerrainVm(d_resourceController, i_world.getTerrain()));
 

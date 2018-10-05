@@ -17,5 +17,5 @@ ObjectVm::ObjectVm(const IResourceController& i_resourceController, const Object
 Vector3 ObjectVm::getPosition() const
 {
   const auto& objectPosition = d_object.getPosition();
-  return { objectPosition.x, objectPosition.y, 0 };
+  return { objectPosition.x, 1, objectPosition.y };
 }

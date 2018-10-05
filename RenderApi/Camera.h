@@ -31,7 +31,7 @@ private:
 
   const float c_fovAngle = (float)DirectX::XM_PI / 4.0f;
   const float c_near = 0.1f;
-  const float c_far = 100.0f;
+  const float c_far = 1000.0f;
 
   XMFLOAT3 d_position;
   XMFLOAT3 d_direction;

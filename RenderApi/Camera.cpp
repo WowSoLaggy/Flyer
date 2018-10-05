@@ -50,12 +50,12 @@ void Camera::setUp(Vector3 i_up)
 
 Vector3 Camera::getLeft() const
 {
-  return normalize(cross(getForward(), getUp()));
+  return normalize(cross(getUp(), getForward()));
 }
 
 Vector3 Camera::getRight() const
 {
-  return normalize(cross(getUp(), getForward()));
+  return -getLeft();
 }
 
 Vector3 Camera::getForward() const
@@ -65,14 +65,14 @@ Vector3 Camera::getForward() const
 
 Vector3 Camera::getBackward() const
 {
-  return Vector3{ -d_direction.x, -d_direction.y, -d_direction.z };
+  return -getForward();
 }
 
 
 void Camera::updateProjectionMatrix(int i_screenWidth, int i_screenHeight)
 {
   float screenAspect = (float)i_screenWidth / (float)i_screenHeight;
-  d_projectionMatrix = XMMatrixPerspectiveFovLH(c_fovAngle, screenAspect, c_near, c_far);
+  d_projectionMatrix = XMMatrixPerspectiveFovRH(c_fovAngle, screenAspect, c_near, c_far);
 }
 
 void Camera::updateViewMatrix()
@@ -82,5 +82,5 @@ void Camera::updateViewMatrix()
     d_position.y + d_direction.y,
     d_position.z + d_direction.z };
 
-  d_viewMatrix = XMMatrixLookAtLH(XMLoadFloat3(&d_position), XMLoadFloat3(&lookAt), XMLoadFloat3(&d_up));
+  d_viewMatrix = XMMatrixLookAtRH(XMLoadFloat3(&d_position), XMLoadFloat3(&lookAt), XMLoadFloat3(&d_up));
 }
