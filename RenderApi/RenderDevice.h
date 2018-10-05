@@ -29,6 +29,7 @@ public:
   ID3D11DeviceContext* getDeviceContextPtr() { return d_deviceContext; }
 
   void resetBlendState();
+  void resetRasterizerState();
 
 private:
 

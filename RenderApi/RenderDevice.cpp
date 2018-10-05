@@ -236,26 +236,8 @@ void RenderDevice::initialize(HWND i_hWnd, int i_resolutionX, int i_resolutionY)
   // Bind the render target view and depth stencil buffer to the output render pipeline.
   d_deviceContext->OMSetRenderTargets(1, &d_renderTargetView, d_depthStencilView);
 
-  // Setup the raster description which will determine how and what polygons will be drawn.
-  D3D11_RASTERIZER_DESC rasterDesc;
-  rasterDesc.AntialiasedLineEnable = false;
-  rasterDesc.CullMode = D3D11_CULL_NONE;
-  rasterDesc.DepthBias = 0;
-  rasterDesc.DepthBiasClamp = 0.0f;
-  rasterDesc.DepthClipEnable = true;
-  rasterDesc.FillMode = D3D11_FILL_SOLID;
-  rasterDesc.FrontCounterClockwise = false;
-  rasterDesc.MultisampleEnable = false;
-  rasterDesc.ScissorEnable = false;
-  rasterDesc.SlopeScaledDepthBias = 0.0f;
-
-  // Create the rasterizer state from the description we just filled out.
-  result = d_device->CreateRasterizerState(&rasterDesc, &d_rasterState);
-  if (FAILED(result))
-    return;
-
-  // Now set the rasterizer state.
-  d_deviceContext->RSSetState(d_rasterState);
+  resetBlendState();
+  resetRasterizerState();
 
   // Setup the viewport for rendering.
   D3D11_VIEWPORT viewport;
@@ -352,4 +334,28 @@ void RenderDevice::endScene()
 void RenderDevice::resetBlendState()
 {
   d_deviceContext->OMSetBlendState(nullptr, nullptr, 0xffffffff);
+}
+
+void RenderDevice::resetRasterizerState()
+{
+  // Setup the raster description which will determine how and what polygons will be drawn.
+  D3D11_RASTERIZER_DESC rasterDesc;
+  rasterDesc.AntialiasedLineEnable = false;
+  rasterDesc.CullMode = D3D11_CULL_BACK;
+  rasterDesc.DepthBias = 0;
+  rasterDesc.DepthBiasClamp = 0.0f;
+  rasterDesc.DepthClipEnable = true;
+  rasterDesc.FillMode = D3D11_FILL_SOLID;
+  rasterDesc.FrontCounterClockwise = false;
+  rasterDesc.MultisampleEnable = false;
+  rasterDesc.ScissorEnable = false;
+  rasterDesc.SlopeScaledDepthBias = 0.0f;
+
+  // Create the rasterizer state from the description we just filled out.
+  HRESULT result = d_device->CreateRasterizerState(&rasterDesc, &d_rasterState);
+  if (FAILED(result))
+    return;
+
+  // Now set the rasterizer state.
+  d_deviceContext->RSSetState(d_rasterState);
 }
