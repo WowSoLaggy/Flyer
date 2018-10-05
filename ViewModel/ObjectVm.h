@@ -14,7 +14,7 @@ public:
   ResourceId getMeshResourceId() const { return d_meshResourceId; }
   ResourceId getTextureResourceId() const { return d_textureResourceId; }
 
-  const Vector3& getPosition() const;
+  Vector3 getPosition() const;
 
 private:
 
