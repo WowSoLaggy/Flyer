@@ -30,6 +30,9 @@
     <ClCompile Include="Object.cpp">
       <Filter>src\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="HeightMap.cpp">
+      <Filter>src\Terrain</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -55,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="ActionHold.h">
       <Filter>src\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="HeightMap.h">
+      <Filter>src\Terrain</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
