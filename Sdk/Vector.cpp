@@ -57,6 +57,12 @@ Vector3 operator-(const Vector3& i_left, const Vector3& i_right)
 }
 
 
+Vector3 operator-(const Vector3& i_v)
+{
+  return { -i_v.x, -i_v.y, -i_v.z };
+}
+
+
 Vector3 operator*(const Vector3& i_v, float i_mul)
 {
   return { i_v.x * i_mul, i_v.y * i_mul, i_v.z * i_mul };
