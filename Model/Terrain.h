@@ -1,33 +1,28 @@
 #pragma once
 
+#include "HeightMap.h"
+
 
 class Terrain
 {
 public:
 
-  void setModelName(const std::string& i_modelName) { d_modelName = i_modelName; }
-  const std::string& getModelName() const { return d_modelName; }
+  Terrain();
 
   void setTextureName(const std::string& i_textureName) { d_textureName = i_textureName; }
   const std::string& getTextureName() const { return d_textureName; }
 
+  void setHeightGridStep(float i_step) { d_heightGridStep = i_step; }
+  void setHeightMap(HeightMap i_heightMap);
 
-  void setHeight(float i_height) { d_height = i_height; }
-  float getHeight() const { return d_height; }
-
-  void setSizeX(float i_sizeX) { d_sizeX = i_sizeX; }
-  float getSizeX() const { return d_sizeX; }
-
-  void setSizeZ(float i_sizeZ) { d_sizeZ = i_sizeZ; }
-  float getSizeZ() const { return d_sizeZ; }
+  float getSizeX() const { return d_heightMap.getSizeX() * d_heightGridStep; }
+  float getSizeZ() const { return d_heightMap.getSizeZ() * d_heightGridStep; }
 
 private:
 
-  std::string d_modelName;
   std::string d_textureName;
 
-  float d_sizeX;
-  float d_sizeZ;
-  float d_height;
+  float d_heightGridStep;
+  HeightMap d_heightMap;
 
 };
