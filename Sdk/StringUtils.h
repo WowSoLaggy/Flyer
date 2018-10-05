@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cctype>
 #include <functional>
+#include <iomanip>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -143,6 +144,18 @@ namespace Utils
   static std::string getString(const std::wstring& i_wstring)
   {
     return std::string(i_wstring.begin(), i_wstring.end());
+  }
+
+
+  /// Converts the given @i_value to the string with the given @i_precision
+  /// \param[in] i_value - value to convert to the string
+  /// \param[in] i_precision - precision to convert the value with
+  template <typename T>
+  std::string toString(const T i_value, const int i_precision = 6)
+  {
+    std::ostringstream out;
+    out << std::setprecision(i_precision) << i_value;
+    return out.str();
   }
 
 } // NS Utils
