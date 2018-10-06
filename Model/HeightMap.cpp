@@ -13,15 +13,18 @@ void HeightMap::resize(int i_sizeX, int i_sizeZ, float i_defaultHeight)
   d_sizeX = i_sizeX;
   d_sizeZ = i_sizeZ;
 
-  d_points.resize(d_sizeX * d_sizeZ, i_defaultHeight);
+  d_sizeXInc = d_sizeX + 1;
+  d_sizeZInc = d_sizeZ + 1;
+
+  d_points.resize(d_sizeXInc * d_sizeZInc, i_defaultHeight);
 }
 
 
 void HeightMap::setHeight(int i_x, int i_z, float i_height)
 {
-  int index = i_x + i_z * d_sizeX;
+  int index = i_x + i_z * d_sizeXInc;
 
-  if (index < 0 || d_sizeX * d_sizeZ <= index)
+  if (index < 0 || d_sizeXInc * d_sizeZInc <= index)
     throw std::runtime_error("Pars are out of bounds.");
 
   d_points[index] = i_height;
@@ -29,9 +32,9 @@ void HeightMap::setHeight(int i_x, int i_z, float i_height)
 
 float HeightMap::getHeight(int i_x, int i_z) const
 {
-  int index = i_x + i_z * d_sizeX;
+  int index = i_x + i_z * d_sizeXInc;
 
-  if (index < 0 || d_sizeX * d_sizeZ <= index)
+  if (index < 0 || d_sizeXInc * d_sizeZInc <= index)
     throw std::runtime_error("Pars are out of bounds.");
 
   return d_points[index];

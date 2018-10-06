@@ -44,8 +44,8 @@ void TerrainVm::createBuffers(IRenderDevice& io_renderDevice)
   auto& heightMap = d_terrain.getHeightMap();
   float heightGridStep = d_terrain.getHeightGridStep();
   
-  int sizeX = heightMap.getSizeX();
-  int sizeZ = heightMap.getSizeZ();
+  int sizeX = heightMap.getSizeXInc();
+  int sizeZ = heightMap.getSizeZInc();
 
   std::vector<VertexTypePosTexNorm> vertices;
   std::vector<int> indices;
