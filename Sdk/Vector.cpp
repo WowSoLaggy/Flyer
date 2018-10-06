@@ -57,6 +57,23 @@ Vector3 operator-(const Vector3& i_left, const Vector3& i_right)
 }
 
 
+Vector3 operator+=(Vector3& i_left, const Vector3& i_right)
+{
+  i_left.x += i_right.x;
+  i_left.y += i_right.y;
+  i_left.z += i_right.z;
+  return i_left;
+}
+
+Vector3 operator-=(Vector3& i_left, const Vector3& i_right)
+{
+  i_left.x -= i_right.x;
+  i_left.y -= i_right.y;
+  i_left.z -= i_right.z;
+  return i_left;
+}
+
+
 Vector3 operator-(const Vector3& i_v)
 {
   return { -i_v.x, -i_v.y, -i_v.z };
@@ -66,6 +83,11 @@ Vector3 operator-(const Vector3& i_v)
 Vector3 operator*(const Vector3& i_v, float i_mul)
 {
   return { i_v.x * i_mul, i_v.y * i_mul, i_v.z * i_mul };
+}
+
+Vector3 operator/(const Vector3& i_v, float i_mul)
+{
+  return i_v * (1 / i_mul);
 }
 
 
