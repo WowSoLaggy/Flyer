@@ -22,9 +22,9 @@ GameVm::GameVm(IRenderDevice& io_renderDevice, const IResourceController& i_reso
   d_worldVm = std::make_shared<WorldVm>(io_renderDevice, i_resourceController);
   d_guiCollectionVm = std::make_shared<GuiCollectionVm>(io_renderDevice, i_resourceController);
 
-  const Vector3 defaultCameraOffset = { 10, 15, -7 };
+  const Vector3 defaultCameraOffset = { 10, 15, 27 };
   d_camera->setPosition(defaultCameraOffset);
-  d_camera->setDirection({ 0, -1, 1 });
+  d_camera->setDirection({ 0, -1, -1 });
   d_camera->setUp({ 0, 1, 0 });
 }
 
