@@ -1,6 +1,13 @@
 #pragma once
 
 
+enum class FillMode
+{
+  Solid,
+  Wire,
+};
+
+
 class IRenderDevice
 {
 public:
@@ -18,4 +25,7 @@ public:
 
   virtual void beginScene() = 0;
   virtual void endScene() = 0;
+
+  virtual void switchFillMode() = 0;
+  virtual void setFillMode(FillMode i_fillMode) = 0;
 };

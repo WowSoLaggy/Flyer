@@ -345,7 +345,7 @@ void RenderDevice::resetRasterizerState()
   rasterDesc.DepthBias = 0;
   rasterDesc.DepthBiasClamp = 0.0f;
   rasterDesc.DepthClipEnable = true;
-  rasterDesc.FillMode = D3D11_FILL_SOLID;
+  rasterDesc.FillMode = (d_fillMode == FillMode::Solid) ? D3D11_FILL_SOLID : D3D11_FILL_WIREFRAME;
   rasterDesc.FrontCounterClockwise = false;
   rasterDesc.MultisampleEnable = false;
   rasterDesc.ScissorEnable = false;
@@ -358,4 +358,15 @@ void RenderDevice::resetRasterizerState()
 
   // Now set the rasterizer state.
   d_deviceContext->RSSetState(d_rasterState);
+}
+
+
+void RenderDevice::switchFillMode()
+{
+  d_fillMode = (d_fillMode == FillMode::Solid) ? FillMode::Wire : FillMode::Solid;
+}
+
+void RenderDevice::setFillMode(FillMode i_fillMode)
+{
+  d_fillMode = i_fillMode;
 }
