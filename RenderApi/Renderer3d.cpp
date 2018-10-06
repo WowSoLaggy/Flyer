@@ -160,8 +160,7 @@ void Renderer3d::disposeBuffers()
 void Renderer3d::beginScene()
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
-  renderDevice.resetBlendState();
-  renderDevice.resetRasterizerState();
+  renderDevice.resetState();
 
   setShaders();
 }

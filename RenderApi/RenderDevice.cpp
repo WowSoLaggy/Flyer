@@ -216,9 +216,6 @@ void RenderDevice::initialize(HWND i_hWnd, int i_resolutionX, int i_resolutionY)
   if (FAILED(result))
     return;
 
-  // Set the depth stencil state.
-  d_deviceContext->OMSetDepthStencilState(d_depthStencilState, 1);
-
   // Initailze the depth stencil view.
   D3D11_DEPTH_STENCIL_VIEW_DESC depthStencilViewDesc;
   ZeroMemory(&depthStencilViewDesc, sizeof(depthStencilViewDesc));
@@ -236,8 +233,7 @@ void RenderDevice::initialize(HWND i_hWnd, int i_resolutionX, int i_resolutionY)
   // Bind the render target view and depth stencil buffer to the output render pipeline.
   d_deviceContext->OMSetRenderTargets(1, &d_renderTargetView, d_depthStencilView);
 
-  resetBlendState();
-  resetRasterizerState();
+  resetState();
 
   // Setup the viewport for rendering.
   D3D11_VIEWPORT viewport;
@@ -331,12 +327,7 @@ void RenderDevice::endScene()
 }
 
 
-void RenderDevice::resetBlendState()
-{
-  d_deviceContext->OMSetBlendState(nullptr, nullptr, 0xffffffff);
-}
-
-void RenderDevice::resetRasterizerState()
+void RenderDevice::resetState()
 {
   // Setup the raster description which will determine how and what polygons will be drawn.
   D3D11_RASTERIZER_DESC rasterDesc;
@@ -346,7 +337,7 @@ void RenderDevice::resetRasterizerState()
   rasterDesc.DepthBiasClamp = 0.0f;
   rasterDesc.DepthClipEnable = true;
   rasterDesc.FillMode = (d_fillMode == FillMode::Solid) ? D3D11_FILL_SOLID : D3D11_FILL_WIREFRAME;
-  rasterDesc.FrontCounterClockwise = false;
+  rasterDesc.FrontCounterClockwise = true;
   rasterDesc.MultisampleEnable = false;
   rasterDesc.ScissorEnable = false;
   rasterDesc.SlopeScaledDepthBias = 0.0f;
@@ -356,8 +347,11 @@ void RenderDevice::resetRasterizerState()
   if (FAILED(result))
     return;
 
-  // Now set the rasterizer state.
+  // Now set the rasterizer state
   d_deviceContext->RSSetState(d_rasterState);
+
+  d_deviceContext->OMSetBlendState(nullptr, nullptr, 0xffffffff);
+  d_deviceContext->OMSetDepthStencilState(d_depthStencilState, 1);
 }
 
 
