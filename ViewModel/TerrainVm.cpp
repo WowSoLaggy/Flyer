@@ -77,21 +77,21 @@ void TerrainVm::createBuffers(IRenderDevice& io_renderDevice)
                |
                v Z-axis
 
-    We are creating two triangles:
-      t1: (0, 0); (1, 0); (1, 1)
-      t2: (0, 0); (1, 1); (0, 1)
+    We are creating two CCW triangles:
+      t1: (0, 0); (1, 1); (1, 0)
+      t2: (0, 0); (0, 1); (1, 1)
     
     */
 
     // t1:
     indices.push_back(x + z * sizeX);
-    indices.push_back((x + 1) + z * sizeX);
     indices.push_back((x + 1) + (z + 1) * sizeX);
+    indices.push_back((x + 1) + z * sizeX);
 
     // t2:
     indices.push_back(x + z * sizeX);
-    indices.push_back((x + 1) + (z + 1) * sizeX);
     indices.push_back(x + (z + 1) * sizeX);
+    indices.push_back((x + 1) + (z + 1) * sizeX);
   };
 
 
