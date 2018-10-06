@@ -23,10 +23,9 @@ private:
   std::shared_ptr<IEngine> d_engine;
 
   std::shared_ptr<World> d_world;
-  std::shared_ptr<WorldVm> d_worldVm;
-
   std::shared_ptr<GuiCollection> d_guiCollection;
-  std::shared_ptr<GuiCollectionVm> d_guiCollectionVm;
+
+  std::shared_ptr<GameVm> d_gameVm;
 
   bool d_stopFlag;
 

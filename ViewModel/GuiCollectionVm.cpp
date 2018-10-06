@@ -12,7 +12,6 @@ GuiCollectionVm::GuiCollectionVm(IRenderDevice& io_renderDevice, const IResource
   : d_renderDevice(io_renderDevice)
   , d_resourceController(i_resourceController)
 {
-  d_renderer = IRenderer2d::create(io_renderDevice, i_resourceController);
 }
 
 
@@ -26,15 +25,11 @@ void GuiCollectionVm::buildFromCollection(const GuiCollection& i_guiCollection)
 }
 
 
-void GuiCollectionVm::render() const
+void GuiCollectionVm::render(IRenderer2d& i_renderer) const
 {
-  d_renderer->beginScene();
-
   for (const auto& guiVm : d_guiVms)
   {
     if (const auto* pLabelVm = dynamic_cast<const LabelVm*>(guiVm.get()))
-      d_renderer->renderText(pLabelVm->getText(), pLabelVm->getFontResourceId());
+      i_renderer.renderText(pLabelVm->getText(), pLabelVm->getFontResourceId());
   }
-
-  d_renderer->endScene();
 }

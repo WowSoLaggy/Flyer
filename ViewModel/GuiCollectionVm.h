@@ -14,14 +14,12 @@ public:
 
   void buildFromCollection(const GuiCollection& i_guiCollection);
 
-  void render() const;
+  void render(IRenderer2d& i_renderer) const;
 
 private:
 
   IRenderDevice & d_renderDevice;
   const IResourceController& d_resourceController;
-
-  std::shared_ptr<IRenderer2d> d_renderer;
 
   std::vector<std::shared_ptr<GuiVm>> d_guiVms;
 

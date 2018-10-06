@@ -8,8 +8,7 @@
 #include <RenderApi/ICamera.h>
 #include <RenderApi/IRenderDevice.h>
 #include <Sdk/Vector.h>
-#include <ViewModel/GuiCollectionVm.h>
-#include <ViewModel/WorldVm.h>
+#include <ViewModel/GameVm.h>
 
 
 ControlSignal App::controlCallback()
@@ -37,8 +36,7 @@ void App::updateCallback(double i_dt)
 
 void App::renderCallback()
 {
-  d_worldVm->render();
-  d_guiCollectionVm->render();
+  d_gameVm->render();
 }
 
 void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
@@ -52,7 +50,7 @@ void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
   const float speedMultiplier = i_keyboardState.currentState.LeftShift ? 60.f : 20.f;
   const float speed = (float)(speedMultiplier * i_dt);
 
-  auto& camera = d_worldVm->getCamera();
+  auto& camera = d_gameVm->getCamera();
 
   if (i_keyboardState.currentState.W)
   {

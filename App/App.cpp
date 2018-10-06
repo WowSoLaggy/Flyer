@@ -4,8 +4,7 @@
 #include <Engine/IEngine.h>
 #include <GuiController/GuiController.h>
 #include <ModelControllers/WorldCreator.h>
-#include <ViewModel/GuiCollectionVm.h>
-#include <ViewModel/WorldVm.h>
+#include <ViewModel/GameVm.h>
 
 
 void App::run()
@@ -63,18 +62,11 @@ void App::createRenderer()
 void App::createWorld()
 {
   d_world = WorldCreator::createNewWorld();
-
-  d_worldVm = std::make_shared<WorldVm>(
-    *d_engine->getRenderDevice(), *d_engine->getResourceController(),
-    d_settingsController.getWindowWidth(), d_settingsController.getWindowHeight());
-
-  d_worldVm->buildFromWorld(*d_world);
-
-  
   d_guiCollection = GuiController::createGameGui();
 
-  d_guiCollectionVm = std::make_shared<GuiCollectionVm>(
-    *d_engine->getRenderDevice(), *d_engine->getResourceController());
-
-  d_guiCollectionVm->buildFromCollection(*d_guiCollection);
+  d_gameVm = std::make_shared<GameVm>(
+    *d_engine->getRenderDevice(), *d_engine->getResourceController(),
+    d_settingsController.getWindowWidth(), d_settingsController.getWindowHeight());
+  d_gameVm->buildWorldVms(*d_world);
+  d_gameVm->buildGuiVms(*d_guiCollection);
 }
