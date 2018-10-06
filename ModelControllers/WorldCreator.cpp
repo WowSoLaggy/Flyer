@@ -11,7 +11,7 @@ namespace
 {
 
   const int sizeX = 20;
-  const int sizeY = 20;
+  const int sizeZ = 20;
   const float defaultHeight = 1.0f;
   const float heightGridStep = 1.0f;
 
@@ -31,7 +31,7 @@ namespace
   {
     HeightMap heightMap;
 
-    heightMap.resize(sizeX, sizeY, defaultHeight);
+    heightMap.resize(sizeX, sizeZ, defaultHeight);
 
     return heightMap;
   }
