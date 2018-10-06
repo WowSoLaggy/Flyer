@@ -10,6 +10,9 @@
     <Filter Include="src\Gui">
       <UniqueIdentifier>{0b33205e-565f-43b9-ab7c-808815d5062d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\GameVm">
+      <UniqueIdentifier>{df7bbe06-5aa7-450a-8af2-94fcc5196991}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -36,6 +39,9 @@
     <ClInclude Include="GuiVm.h">
       <Filter>src\Gui</Filter>
     </ClInclude>
+    <ClInclude Include="GameVm.h">
+      <Filter>src\GameVm</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -55,6 +61,9 @@
     </ClCompile>
     <ClCompile Include="GuiCollectionVm.cpp">
       <Filter>src\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="GameVm.cpp">
+      <Filter>src\GameVm</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

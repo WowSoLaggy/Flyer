@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="GameVm.h" />
     <ClInclude Include="GuiCollectionVm.h" />
     <ClInclude Include="GuiVm.h" />
     <ClInclude Include="LabelVm.h" />
@@ -137,6 +138,7 @@
     <ClInclude Include="WorldVm.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameVm.cpp" />
     <ClCompile Include="GuiCollectionVm.cpp" />
     <ClCompile Include="LabelVm.cpp" />
     <ClCompile Include="ObjectVm.cpp" />

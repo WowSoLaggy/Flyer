@@ -1,5 +1,7 @@
 #pragma once
 
+class GameVm;
+
 class WorldVm;
 class TerrainVm;
 class ObjectVm;
