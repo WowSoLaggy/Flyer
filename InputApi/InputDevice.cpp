@@ -5,6 +5,7 @@
 void InputDevice::initialize()
 {
   d_keyboard.reset(new Keyboard());
+  d_keyboardState.reset();
 }
 
 void InputDevice::dispose()
@@ -16,7 +17,11 @@ void InputDevice::dispose()
 const KeyboardState& InputDevice::check()
 {
   auto state = d_keyboard->GetState();
-  memcpy(&d_keyboardState, &state, sizeof(state));
+
+  KeyboardKeys keyboardKeys;
+  memcpy(&keyboardKeys, &state, sizeof(state));
+
+  d_keyboardState.update(keyboardKeys);
 
   return d_keyboardState;
 }

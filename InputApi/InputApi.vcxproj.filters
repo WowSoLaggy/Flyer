@@ -27,6 +27,9 @@
     <ClCompile Include="InputDevice_Messages.cpp">
       <Filter>src\Messages</Filter>
     </ClCompile>
+    <ClCompile Include="KeyboardState.cpp">
+      <Filter>src\Keyboard</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -45,6 +48,9 @@
       <Filter>src\Messages</Filter>
     </ClInclude>
     <ClInclude Include="KeyboardState.h">
+      <Filter>src\Keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardKeys.h">
       <Filter>src\Keyboard</Filter>
     </ClInclude>
   </ItemGroup>

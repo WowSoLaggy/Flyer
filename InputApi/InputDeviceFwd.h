@@ -3,4 +3,4 @@
 class IInputDevice;
 struct InputMessage;
 
-struct KeyboardState;
+class KeyboardState;

@@ -6,6 +6,7 @@
 #include <InputApi/KeyboardState.h>
 #include <ModelControllers/WorldController.h>
 #include <RenderApi/ICamera.h>
+#include <RenderApi/IRenderDevice.h>
 #include <Sdk/Vector.h>
 #include <ViewModel/GuiCollectionVm.h>
 #include <ViewModel/WorldVm.h>
@@ -42,39 +43,44 @@ void App::renderCallback()
 
 void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
 {
-  if (i_keyboardState.Escape)
+  if (i_keyboardState.pressed.Escape)
   {
     stop();
     return;
   }
 
-  const float speedMultiplier = i_keyboardState.LeftShift ? 60.f : 20.f;
+  const float speedMultiplier = i_keyboardState.currentState.LeftShift ? 60.f : 20.f;
   const float speed = (float)(speedMultiplier * i_dt);
 
   auto& camera = d_worldVm->getCamera();
 
-  if (i_keyboardState.W)
+  if (i_keyboardState.currentState.W)
   {
     auto dir = camera.getForward();
     dir.y = 0;
     camera.setPosition(camera.getPosition() + normalize(dir) * speed);
   }
-  if (i_keyboardState.S)
+  if (i_keyboardState.currentState.S)
   {
     auto dir = camera.getBackward();
     dir.y = 0;
     camera.setPosition(camera.getPosition() + normalize(dir) * speed);
   }
-  if (i_keyboardState.A)
+  if (i_keyboardState.currentState.A)
   {
     auto dir = camera.getLeft();
     dir.y = 0;
     camera.setPosition(camera.getPosition() + normalize(dir) * speed);
   }
-  if (i_keyboardState.D)
+  if (i_keyboardState.currentState.D)
   {
     auto dir = camera.getRight();
     dir.y = 0;
     camera.setPosition(camera.getPosition() + normalize(dir) * speed);
+  }
+
+  if (i_keyboardState.pressed.G && i_keyboardState.currentState.LeftControl)
+  {
+    d_engine->getRenderDevice()->switchFillMode();
   }
 }
