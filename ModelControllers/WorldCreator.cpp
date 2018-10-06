@@ -21,7 +21,7 @@ namespace
 
     tom.setPosition({ 2.5f, 2.5f });
     tom.setModelName("Tom.obj");
-    tom.setTextureName("Blank.dds");
+    tom.setTextureName("Tom.dds");
     tom.setCurrentAction(std::make_shared<ActionHold>(ActionHold(2)));
 
     return tom;
