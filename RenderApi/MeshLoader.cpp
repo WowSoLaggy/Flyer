@@ -109,7 +109,7 @@ void MeshLoader::loadInfoFromObjFile(
     {
       texCoords.push_back({
         (float)std::atof(tokens[1].c_str()),
-        (float)std::atof(tokens[2].c_str()) });
+        1.0f - (float)std::atof(tokens[2].c_str()) });
     }
     else if (tokens[0] == "vn")
     {
