@@ -45,6 +45,23 @@ namespace
       stump.setTextureName("Stump.dds");
       o_object.push_back(std::move(stump));
     }
+
+    {
+      Object barrel;
+      barrel.setPosition({ 7.4f, 1.0f, 11.4f });
+      barrel.setModelName("Barrel.obj");
+      barrel.setTextureName("Barrel.dds");
+      o_object.push_back(std::move(barrel));
+    }
+
+    {
+      Object barrel;
+      barrel.setPosition({ 7.4f, 1.4f, 12.6f });
+      barrel.setRotation({ Math::degToRad(-90.0f), Math::degToRad(45.0f), 0 });
+      barrel.setModelName("Barrel.obj");
+      barrel.setTextureName("Barrel.dds");
+      o_object.push_back(std::move(barrel));
+    }
   }
 
   HeightMap createHeightMap()
