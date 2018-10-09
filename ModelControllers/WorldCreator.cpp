@@ -16,29 +16,24 @@ namespace
   const float defaultHeight = 1.0f;
   const float heightGridStep = 1.0f;
 
-  Object createTom()
+  void createObjects(std::vector<Object>& o_object)
   {
-    Object tom;
+    o_object.clear();
 
+    Object tom;
     tom.setPosition({ 2.5f, 1, 2.5f });
     tom.setRotation({ 0, 0, 0 });
     tom.setModelName("Tom.obj");
     tom.setTextureName("Tom.dds");
     tom.setCurrentAction(std::make_shared<ActionHold>(ActionHold(2)));
+    o_object.push_back(std::move(tom));
 
-    return tom;
-  }
-
-  Object createHouse()
-  {
     Object house;
-
     house.setPosition({ 16.5f, 1, 6.5f });
     house.setRotation({ 0, -Math::degToRad(135.0f), 0 });
     house.setModelName("House.obj");
     house.setTextureName("House.dds");
-
-    return house;
+    o_object.push_back(std::move(house));
   }
 
   HeightMap createHeightMap()
@@ -61,8 +56,7 @@ std::shared_ptr<World> WorldCreator::createNewWorld()
   pWorld->getTerrain().setHeightMap(createHeightMap());
   pWorld->getTerrain().setHeightGridStep(heightGridStep);
   
-  pWorld->getObjects().push_back(createTom());
-  pWorld->getObjects().push_back(createHouse());
+  createObjects(pWorld->getObjects());
 
   return std::shared_ptr<World>(pWorld);
 }
