@@ -130,6 +130,7 @@
     <ClInclude Include="Common.h" />
     <ClInclude Include="dirent.h" />
     <ClInclude Include="FileSystemUtils.h" />
+    <ClInclude Include="Math.h" />
     <ClInclude Include="SdkFwd.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StringUtils.h" />

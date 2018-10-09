@@ -45,6 +45,9 @@
     <ClInclude Include="FileSystemUtils.h">
       <Filter>src\FileSystem</Filter>
     </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>src\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
