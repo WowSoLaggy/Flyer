@@ -5,6 +5,7 @@
 #include <Model/HeightMap.h>
 #include <Model/Object.h>
 #include <Model/World.h>
+#include <Sdk/Math.h>
 
 
 namespace
@@ -20,6 +21,7 @@ namespace
     Object tom;
 
     tom.setPosition({ 2.5f, 1, 2.5f });
+    tom.setRotation({ 0, 0, 0 });
     tom.setModelName("Tom.obj");
     tom.setTextureName("Tom.dds");
     tom.setCurrentAction(std::make_shared<ActionHold>(ActionHold(2)));
@@ -32,6 +34,7 @@ namespace
     Object house;
 
     house.setPosition({ 16.5f, 1, 6.5f });
+    house.setRotation({ 0, -Math::degToRad(135.0f), 0 });
     house.setModelName("House.obj");
     house.setTextureName("House.dds");
 
