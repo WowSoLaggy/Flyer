@@ -22,7 +22,7 @@ namespace
 
     {
       Object tom;
-      tom.setPosition({ 2.5f, 1, 2.5f });
+      tom.setPosition({ 2.5f, 1.0f, 2.5f });
       tom.setModelName("Tom.obj");
       tom.setTextureName("Tom.dds");
       tom.setCurrentAction(std::make_shared<ActionHold>(ActionHold(2)));
@@ -31,11 +31,19 @@ namespace
 
     {
       Object house;
-      house.setPosition({ 16.5f, 1, 6.5f });
-      house.setRotation({ 0, -Math::degToRad(135.0f), 0 });
+      house.setPosition({ 16.5f, 1.0f, 6.5f });
+      house.setRotation({ 0, Math::degToRad(-135.0f), 0 });
       house.setModelName("House.obj");
       house.setTextureName("House.dds");
       o_object.push_back(std::move(house));
+    }
+
+    {
+      Object stump;
+      stump.setPosition({ 8.0f, 1.0f, 12.0f });
+      stump.setModelName("Stump.obj");
+      stump.setTextureName("Stump.dds");
+      o_object.push_back(std::move(stump));
     }
   }
 
