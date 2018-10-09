@@ -17,5 +17,6 @@ ObjectVm::ObjectVm(const IResourceController& i_resourceController, const Object
 
 void ObjectVm::render(IRenderer3d& i_renderer) const
 {
-  i_renderer.renderObject(d_textureResourceId, d_meshResourceId, d_object.getPosition());
+  i_renderer.renderObject(d_textureResourceId, d_meshResourceId,
+    d_object.getPosition(), d_object.getRotation());
 }

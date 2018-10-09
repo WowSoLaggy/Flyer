@@ -6,14 +6,6 @@
 #include <RenderApi/IResourceController.h>
 
 
-namespace
-{
-
-  Vector3 getPosition() { return { 0, 0, 0 }; }
-
-} // anonymous NS
-
-
 TerrainVm::TerrainVm(
   IRenderDevice& io_renderDevice, const IResourceController& i_resourceController,
   const Terrain& i_terrain)
@@ -35,7 +27,7 @@ void TerrainVm::render(IRenderer3d& i_renderer) const
   i_renderer.renderObject(
     d_textureResourceId,
     d_vertexBuffer, d_indexBuffer,
-    d_materialSequence.getMaterialSpans(), getPosition());
+    d_materialSequence.getMaterialSpans(), { 0, 0, 0 }, { 0, 0, 0 });
 }
 
 
