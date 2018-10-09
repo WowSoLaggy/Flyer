@@ -70,13 +70,16 @@ void Renderer3d::setShaders()
   renderDevice.getDeviceContextPtr()->PSSetSamplers(0, 1, &samplerState);
 }
 
-void Renderer3d::setShaderMatrices(const Vector3& i_position)
+void Renderer3d::setShaderMatrices(const Vector3& i_position, const Vector3& i_rotation)
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
   auto& camera = dynamic_cast<const Camera&>(d_camera);
 
+  auto worldMatrix =
+    XMMatrixRotationRollPitchYaw(i_rotation.x, i_rotation.y, i_rotation.z) *
+    XMMatrixTranslation(i_position.x, i_position.y, i_position.z);
 
-  auto worldMatrix = XMMatrixTranspose(XMMatrixTranslation(i_position.x, i_position.y, i_position.z));
+  worldMatrix = XMMatrixTranspose(worldMatrix);
   auto viewMatrix = XMMatrixTranspose(camera.getViewMatrix());
   auto projectionMatrix = XMMatrixTranspose(camera.getProjectionMatrix());
 

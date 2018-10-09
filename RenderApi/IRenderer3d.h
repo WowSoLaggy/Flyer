@@ -24,10 +24,11 @@ public:
 
   virtual void renderObject(
     ResourceId i_textureResourceId, ResourceId i_meshResourceId,
-    const Vector3& i_position) = 0;
+    const Vector3& i_position, const Vector3& i_rotation) = 0;
 
   virtual void renderObject(
     ResourceId i_textureResourceId,
     const VertexBuffer& i_vertexBuffer, const IndexBuffer& i_indexBuffer,
-    const std::vector<MaterialSpan>& i_materialSpans, const Vector3& i_position) = 0;
+    const std::vector<MaterialSpan>& i_materialSpans,
+    const Vector3& i_position, const Vector3& i_rotation) = 0;
 };

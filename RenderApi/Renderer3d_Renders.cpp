@@ -9,21 +9,23 @@
 
 void Renderer3d::renderObject(
   ResourceId i_textureResourceId, ResourceId i_meshResourceId,
-  const Vector3& i_position)
+  const Vector3& i_position, const Vector3& i_rotation)
 {
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
   const auto& meshResource = resourceController.getMeshResource(i_meshResourceId);
 
   renderObject(i_textureResourceId,
     meshResource.getVertexBuffer(), meshResource.getIndexBuffer(),
-    meshResource.getMaterialSpans(), i_position);
+    meshResource.getMaterialSpans(),
+    i_position, i_rotation);
 }
 
 
 void Renderer3d::renderObject(
   ResourceId i_textureResourceId,
   const VertexBuffer& i_vertexBuffer, const IndexBuffer& i_indexBuffer,
-  const std::vector<MaterialSpan>& i_materialSpans, const Vector3& i_position)
+  const std::vector<MaterialSpan>& i_materialSpans,
+  const Vector3& i_position, const Vector3& i_rotation)
 {
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
   const auto& textureResource = resourceController.getTextureResource(i_textureResourceId);
@@ -33,7 +35,7 @@ void Renderer3d::renderObject(
     unsigned int(i_vertexBuffer.getStride()));
 
 
-  setShaderMatrices(i_position);
+  setShaderMatrices(i_position, i_rotation);
   setShaderTexture(textureResource.getTexturePtr());
 
   

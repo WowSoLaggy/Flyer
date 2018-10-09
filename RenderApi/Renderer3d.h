@@ -19,12 +19,13 @@ public:
 
   virtual void renderObject(
     ResourceId i_textureResourceId, ResourceId i_meshResourceId,
-    const Vector3& i_position) override;
+    const Vector3& i_position, const Vector3& i_rotation) override;
 
   virtual void renderObject(
     ResourceId i_textureResourceId,
     const VertexBuffer& i_vertexBuffer, const IndexBuffer& i_indexBuffer,
-    const std::vector<MaterialSpan>& i_materialSpans, const Vector3& i_position) override;
+    const std::vector<MaterialSpan>& i_materialSpans,
+    const Vector3& i_position, const Vector3& i_rotation) override;
 
 private:
 
@@ -40,7 +41,7 @@ private:
 
   void setBuffers(ID3D11Buffer* i_vertexBufferPtr, ID3D11Buffer* i_indexBufferPtr, unsigned int i_stride);
   void setShaders();
-  void setShaderMatrices(const Vector3& i_position);
+  void setShaderMatrices(const Vector3& i_position, const Vector3& i_rotation);
   void setShaderTexture(ID3D11ShaderResourceView* i_texture);
   void setShaderMaterial(const Material& i_material);
   void drawMaterial(const MaterialSpan& i_materialSpan);
