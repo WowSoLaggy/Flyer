@@ -33,8 +33,8 @@ void ObjectController::updateObject(Object& io_object, double i_dt)
   {
     if (!pHoldAction->hold(i_dt))
     {
-      float newX = (float)(std::rand() % 180) / 10;
-      float newY = (float)(std::rand() % 180) / 10;
+      float newX = (float)(std::rand() % 100 + 20) / 10;
+      float newY = (float)(std::rand() % 160 + 20) / 10;
       io_object.setCurrentAction(std::make_shared<ActionMoveTo>(ActionMoveTo({ newX, newY })));
     }
   }
