@@ -15,9 +15,10 @@ void ObjectController::updateObject(Object& io_object, double i_dt)
   if (const auto* pMoveToAction = dynamic_cast<ActionMoveTo*>(pAction.get()))
   {
     auto position = io_object.getPosition();
+    Vector2 position2 = { position.x, position.z };
     auto goal = pMoveToAction->getGoal();
 
-    if (lengthSq(goal - position) <= pMoveToAction->getToleranceSq())
+    if (lengthSq(goal - position2) <= pMoveToAction->getToleranceSq())
     {
       double timeToHold = (double)(std::rand() % 50) / 10;
       io_object.setCurrentAction(std::make_shared<ActionHold>(ActionHold(timeToHold)));
@@ -25,9 +26,9 @@ void ObjectController::updateObject(Object& io_object, double i_dt)
     }
 
     const float maxSpeed = 1.0f;
-    auto movement = normalize(goal - position) * maxSpeed * (float)i_dt;
+    auto movement = normalize(goal - position2) * maxSpeed * (float)i_dt;
 
-    io_object.setPosition(io_object.getPosition() + movement);
+    io_object.setPosition(io_object.getPosition() + Vector3{ movement.x, 0, movement.y });
   }
   else if (auto* pHoldAction = dynamic_cast<ActionHold*>(pAction.get()))
   {

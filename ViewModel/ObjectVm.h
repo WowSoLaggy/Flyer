@@ -20,6 +20,4 @@ private:
   const ResourceId d_meshResourceId;
   const ResourceId d_textureResourceId;
 
-  Vector3 getPosition() const;
-
 };

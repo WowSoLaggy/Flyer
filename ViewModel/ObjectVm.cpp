@@ -17,12 +17,5 @@ ObjectVm::ObjectVm(const IResourceController& i_resourceController, const Object
 
 void ObjectVm::render(IRenderer3d& i_renderer) const
 {
-  i_renderer.renderObject(d_textureResourceId, d_meshResourceId, getPosition());
-}
-
-
-Vector3 ObjectVm::getPosition() const
-{
-  const auto& objectPosition = d_object.getPosition();
-  return { objectPosition.x, 1, objectPosition.y };
+  i_renderer.renderObject(d_textureResourceId, d_meshResourceId, d_object.getPosition());
 }
