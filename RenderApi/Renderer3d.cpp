@@ -112,8 +112,8 @@ void Renderer3d::setShaderMaterial(const Material& i_material)
   auto* dataPtr2 = (LightBuffer*)mappedResource.pData;
   dataPtr2->diffuseColor = getColorFromV4(i_material.diffuseColor);
   dataPtr2->lightColor = { 1.0f, 1.0f, 1.0f, 1.0f };
-  dataPtr2->lightDirection = { 0.0f, -1.0f, 0.0f };
-  dataPtr2->ambientStrength = 0.2f;
+  dataPtr2->lightDirection = { 1.0f, -1.0f, -1.0f };
+  dataPtr2->ambientStrength = 0.3f;
 
   renderDevice.getDeviceContextPtr()->Unmap(d_lightBuffer, 0);
 
