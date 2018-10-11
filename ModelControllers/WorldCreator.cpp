@@ -62,6 +62,14 @@ namespace
       barrel.setTextureName("Barrel.dds");
       o_object.push_back(std::move(barrel));
     }
+
+    {
+      Object tree;
+      tree.setPosition({ 11.5f, 1.0f, 6.5f });
+      tree.setModelName("Tree.obj");
+      tree.setTextureName("Blank.dds");
+      o_object.push_back(std::move(tree));
+    }
   }
 
   HeightMap createHeightMap()
