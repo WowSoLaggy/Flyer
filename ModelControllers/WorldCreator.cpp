@@ -56,7 +56,7 @@ namespace
 
     {
       Object barrel;
-      barrel.setPosition({ 7.4f, 1.4f, 12.6f });
+      barrel.setPosition({ 7.4f, 1.4f, 12.9f });
       barrel.setRotation({ Math::degToRad(-90.0f), Math::degToRad(45.0f), 0 });
       barrel.setModelName("Barrel.obj");
       barrel.setTextureName("Barrel.dds");
@@ -69,6 +69,49 @@ namespace
       tree.setModelName("Tree.obj");
       tree.setTextureName("Blank.dds");
       o_object.push_back(std::move(tree));
+    }
+
+    {
+      Object fence;
+      fence.setPosition({ 12.0f, 1.0f, 5.75f });
+      fence.setRotation({ 0, Math::degToRad(15.0f), 0 });
+      fence.setModelName("Fence.obj");
+      fence.setTextureName("Fence.dds");
+      o_object.push_back(std::move(fence));
+    }
+
+    {
+      Object fenceSouth;
+      fenceSouth.setPosition({ 0.5f, 1.0f, 19.5f });
+      fenceSouth.setModelName("Fence10.obj");
+      fenceSouth.setTextureName("Fence.dds");
+      o_object.push_back(std::move(fenceSouth));
+    }
+
+    {
+      Object fenceWest;
+      fenceWest.setPosition({ 0.5f, 1.0f, 19.5f });
+      fenceWest.setRotation({ 0, Math::degToRad(90.0f), 0 });
+      fenceWest.setModelName("Fence10.obj");
+      fenceWest.setTextureName("Fence.dds");
+      o_object.push_back(std::move(fenceWest));
+    }
+
+    {
+      Object fenceNorth;
+      fenceNorth.setPosition({ 0.5f, 1.0f, 0.5f });
+      fenceNorth.setModelName("Fence10.obj");
+      fenceNorth.setTextureName("Fence.dds");
+      o_object.push_back(std::move(fenceNorth));
+    }
+
+    {
+      Object fenceEast;
+      fenceEast.setPosition({ 19.5f, 1.0f, 19.5f });
+      fenceEast.setRotation({ 0, Math::degToRad(90.0f), 0 });
+      fenceEast.setModelName("Fence10.obj");
+      fenceEast.setTextureName("Fence.dds");
+      o_object.push_back(std::move(fenceEast));
     }
   }
 
