@@ -18,7 +18,7 @@ public:
   virtual void endScene() override;
 
   virtual void renderObject(
-    ResourceId i_textureResourceId, ResourceId i_meshResourceId,
+    ResourceId i_textureResourceId, ResourceId i_meshResourceObjId,
     const Vector3& i_position, const Vector3& i_rotation) override;
 
   virtual void renderObject(

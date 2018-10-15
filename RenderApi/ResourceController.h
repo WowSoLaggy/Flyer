@@ -10,7 +10,7 @@ public:
 
   virtual ResourceId getResourceId(const std::string& i_resourceName) const override;
 
-  const MeshResource& getMeshResource(ResourceId i_resourceId) const;
+  const MeshResourceObj& getMeshResourceObj(ResourceId i_resourceId) const;
   const TextureResource& getTextureResource(ResourceId i_resourceId) const;
   const PixelShaderResource& getPixelShaderResource(ResourceId i_resourceId) const;
   const VertexShaderResource& getVertexShaderResource(ResourceId i_resourceId) const;

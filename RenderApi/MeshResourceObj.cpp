@@ -1,16 +1,16 @@
 #include "stdafx.h"
-#include "MeshResource.h"
+#include "MeshResourceObj.h"
 
 #include "MeshLoader.h"
 
 
-MeshResource::MeshResource(std::string i_meshFilePath)
+MeshResourceObj::MeshResourceObj(std::string i_meshFilePath)
   : d_meshFilePath(std::move(i_meshFilePath))
 {
 }
 
 
-void MeshResource::load(IRenderDevice& i_renderDevice)
+void MeshResourceObj::load(IRenderDevice& i_renderDevice)
 {
   std::vector<VertexTypePosTexNorm> vertices;
   std::vector<int> indices;
@@ -24,7 +24,7 @@ void MeshResource::load(IRenderDevice& i_renderDevice)
     d_materialSequence.add({ Material::getDefault(), 0, d_indexBuffer.getIndexCount() });
 }
 
-void MeshResource::unload()
+void MeshResourceObj::unload()
 {
   d_vertexBuffer.dispose();
   d_indexBuffer.dispose();

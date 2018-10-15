@@ -10,7 +10,7 @@ class IRenderer2d;
 using ResourceId = int;
 class IResourceController;
 class IResource;
-class MeshResource;
+class MeshResourceObj;
 class TextureResource;
 class PixelShaderResource;
 class VertexShaderResource;

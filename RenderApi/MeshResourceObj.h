@@ -6,11 +6,11 @@
 #include "VertexBuffer.h"
 
 
-class MeshResource : public IResource
+class MeshResourceObj: public IResource
 {
 public:
 
-  MeshResource(std::string i_meshFilePath);
+  MeshResourceObj(std::string i_meshFilePath);
 
   virtual void load(IRenderDevice& i_renderDevice) override;
   virtual void unload() override;

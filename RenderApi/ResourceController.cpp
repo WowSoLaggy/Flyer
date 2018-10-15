@@ -2,7 +2,7 @@
 #include "ResourceController.h"
 
 #include "FontResource.h"
-#include "MeshResource.h"
+#include "MeshResourceObj.h"
 #include "PixelShaderResource.h"
 #include "TextureResource.h"
 #include "VertexShaderResource.h"
@@ -26,9 +26,9 @@ ResourceId ResourceController::getResourceId(const std::string& i_resourceName) 
 }
 
 
-const MeshResource& ResourceController::getMeshResource(ResourceId i_resourceId) const
+const MeshResourceObj& ResourceController::getMeshResourceObj(ResourceId i_resourceId) const
 {
-  return dynamic_cast<const MeshResource&>(*d_idToResourceMap.at(i_resourceId));
+  return dynamic_cast<const MeshResourceObj&>(*d_idToResourceMap.at(i_resourceId));
 }
 
 const TextureResource& ResourceController::getTextureResource(ResourceId i_resourceId) const
@@ -116,7 +116,7 @@ void ResourceController::indexResourcesInDir(const std::string& i_dirName)
     if (std::regex_match(pEntity->d_name, modelPattern))
     {
       d_nameToIdMap.insert({ resourceName, freeResourceId });
-      d_idToResourceMap.insert({ freeResourceId, std::make_shared<MeshResource>(resourceName) });
+      d_idToResourceMap.insert({ freeResourceId, std::make_shared<MeshResourceObj>(resourceName) });
     }
     else if (std::regex_match(pEntity->d_name, texturePattern))
     {

@@ -23,7 +23,7 @@ public:
 
 
   virtual void renderObject(
-    ResourceId i_textureResourceId, ResourceId i_meshResourceId,
+    ResourceId i_textureResourceId, ResourceId i_meshResourceObjId,
     const Vector3& i_position, const Vector3& i_rotation) = 0;
 
   virtual void renderObject(

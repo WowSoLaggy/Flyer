@@ -1,22 +1,22 @@
 #include "stdafx.h"
 #include "Renderer3d.h"
 
-#include "MeshResource.h"
+#include "MeshResourceObj.h"
 #include "RenderDevice.h"
 #include "ResourceController.h"
 #include "TextureResource.h"
 
 
 void Renderer3d::renderObject(
-  ResourceId i_textureResourceId, ResourceId i_meshResourceId,
+  ResourceId i_textureResourceId, ResourceId i_meshResourceObjId,
   const Vector3& i_position, const Vector3& i_rotation)
 {
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
-  const auto& meshResource = resourceController.getMeshResource(i_meshResourceId);
+  const auto& meshResourceObj = resourceController.getMeshResourceObj(i_meshResourceObjId);
 
   renderObject(i_textureResourceId,
-    meshResource.getVertexBuffer(), meshResource.getIndexBuffer(),
-    meshResource.getMaterialSpans(),
+    meshResourceObj.getVertexBuffer(), meshResourceObj.getIndexBuffer(),
+    meshResourceObj.getMaterialSpans(),
     i_position, i_rotation);
 }
 
