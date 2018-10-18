@@ -10,7 +10,7 @@ class IRenderer2d;
 using ResourceId = int;
 class IResourceController;
 class IResource;
-class MeshResourceObj;
+class MeshResourceCmo;
 class TextureResource;
 class PixelShaderResource;
 class VertexShaderResource;
@@ -27,6 +27,7 @@ struct ID3D11Buffer;
 
 namespace DirectX
 {
+  class Model;
   class SpriteFont;
   class SpriteBatch;
 }

@@ -10,7 +10,10 @@
 #include <d3dcompiler.h>
 #include <DirectXMath.h>
 
+#include "CommonStates.h"
 #include "DDSTextureLoader.h"
+#include "Effects.h"
+#include "Model.h"
 #include "SpriteFont.h"
 
 using namespace DirectX;

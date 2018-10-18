@@ -2,7 +2,7 @@
 #include "ResourceController.h"
 
 #include "FontResource.h"
-#include "MeshResourceObj.h"
+#include "MeshResourceCmo.h"
 #include "PixelShaderResource.h"
 #include "TextureResource.h"
 #include "VertexShaderResource.h"
@@ -26,9 +26,9 @@ ResourceId ResourceController::getResourceId(const std::string& i_resourceName) 
 }
 
 
-const MeshResourceObj& ResourceController::getMeshResourceObj(ResourceId i_resourceId) const
+const MeshResourceCmo& ResourceController::getMeshResourceCmo(ResourceId i_resourceId) const
 {
-  return dynamic_cast<const MeshResourceObj&>(*d_idToResourceMap.at(i_resourceId));
+  return dynamic_cast<const MeshResourceCmo&>(*d_idToResourceMap.at(i_resourceId));
 }
 
 const TextureResource& ResourceController::getTextureResource(ResourceId i_resourceId) const
@@ -105,7 +105,7 @@ void ResourceController::indexResourcesInDir(const std::string& i_dirName)
     }
 
     const std::regex texturePattern("\\w*.(dds)");
-    const std::regex modelPattern("\\w*.(obj)");
+    const std::regex modelCmoPattern("\\w*.(cmo)");
     const std::regex vertexShaderPattern("\\w*.(vs)");
     const std::regex pixelShaderPattern("\\w*.(ps)");
     const std::regex fontPattern("\\w*.(spritefont)");
@@ -113,10 +113,10 @@ void ResourceController::indexResourcesInDir(const std::string& i_dirName)
     auto resourceName = i_dirName + pEntity->d_name;
     auto freeResourceId = getFreeResourceId();
 
-    if (std::regex_match(pEntity->d_name, modelPattern))
+    if (std::regex_match(pEntity->d_name, modelCmoPattern))
     {
       d_nameToIdMap.insert({ resourceName, freeResourceId });
-      d_idToResourceMap.insert({ freeResourceId, std::make_shared<MeshResourceObj>(resourceName) });
+      d_idToResourceMap.insert({ freeResourceId, std::make_shared<MeshResourceCmo>(resourceName) });
     }
     else if (std::regex_match(pEntity->d_name, texturePattern))
     {
