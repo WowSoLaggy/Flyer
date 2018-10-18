@@ -13,6 +13,9 @@
     <Filter Include="src\SettingsController">
       <UniqueIdentifier>{f7250c33-2cd6-4b25-b02c-f90c661a0e7f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="rsrc">
+      <UniqueIdentifier>{4b3eebb1-c0a9-43b4-90b6-0d50d2c40169}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -50,5 +53,16 @@
     <ClInclude Include="SettingsController.h">
       <Filter>src\SettingsController</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="..\rsrc\Arrow.fbx">
+      <Filter>rsrc</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="..\rsrc\House.fbx">
+      <Filter>rsrc</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="..\rsrc\Tom.fbx">
+      <Filter>rsrc</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>
