@@ -55,13 +55,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="..\rsrc\Arrow.fbx">
+    <MeshContentTask Include="..\rsrc\Models\Arrow.fbx">
       <Filter>rsrc</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="..\rsrc\House.fbx">
+    <MeshContentTask Include="..\rsrc\Models\House.fbx">
       <Filter>rsrc</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="..\rsrc\Tom.fbx">
+    <MeshContentTask Include="..\rsrc\Models\Tom.fbx">
       <Filter>rsrc</Filter>
     </MeshContentTask>
   </ItemGroup>

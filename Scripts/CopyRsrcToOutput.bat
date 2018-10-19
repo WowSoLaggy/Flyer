@@ -1,0 +1,3 @@
+echo Copy %2 to %1...
+if not exist "%1" md "%1"
+xcopy "%2" "%1" /y /d
