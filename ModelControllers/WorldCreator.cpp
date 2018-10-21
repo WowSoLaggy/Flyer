@@ -24,7 +24,6 @@ namespace
       Object tom;
       tom.setPosition({ 2.5f, 1.0f, 2.5f });
       tom.setModelName("Tom.cmo");
-      tom.setTextureName("Blank.dds");
       tom.setCurrentAction(std::make_shared<ActionHold>(ActionHold(2)));
       o_object.push_back(std::move(tom));
     }
@@ -34,7 +33,6 @@ namespace
       house.setPosition({ 16.5f, 1.0f, 6.5f });
       house.setRotation({ 0, Math::degToRad(-135.0f), 0 });
       house.setModelName("House.cmo");
-      house.setTextureName("Blank.dds");
       o_object.push_back(std::move(house));
     }
 
@@ -42,7 +40,6 @@ namespace
       /*Object stump;
       stump.setPosition({ 8.0f, 1.0f, 12.0f });
       stump.setModelName("Stump.obj");
-      stump.setTextureName("Stump.dds");
       o_object.push_back(std::move(stump));*/
     }
 
@@ -50,7 +47,6 @@ namespace
       Object tree;
       tree.setPosition({ 11.5f, 1.0f, 6.5f });
       tree.setModelName("Tree.obj");
-      tree.setTextureName("Blank.dds");
       o_object.push_back(std::move(tree));
     }*/
 
@@ -59,7 +55,6 @@ namespace
       fence.setPosition({ 12.0f, 1.0f, 5.75f });
       fence.setRotation({ 0, Math::degToRad(15.0f), 0 });
       fence.setModelName("Fence.obj");
-      fence.setTextureName("Fence.dds");
       o_object.push_back(std::move(fence));*/
     }
 
@@ -76,7 +71,6 @@ namespace
       fenceWest.setPosition({ 0.5f, 1.0f, 19.5f });
       fenceWest.setRotation({ 0, Math::degToRad(90.0f), 0 });
       fenceWest.setModelName("Fence10.obj");
-      fenceWest.setTextureName("Fence.dds");
       o_object.push_back(std::move(fenceWest));*/
     }
 
@@ -84,7 +78,6 @@ namespace
       /*Object fenceNorth;
       fenceNorth.setPosition({ 0.5f, 1.0f, 0.5f });
       fenceNorth.setModelName("Fence10.obj");
-      fenceNorth.setTextureName("Fence.dds");
       o_object.push_back(std::move(fenceNorth));*/
     }
 
@@ -93,7 +86,6 @@ namespace
       fenceEast.setPosition({ 19.5f, 1.0f, 19.5f });
       fenceEast.setRotation({ 0, Math::degToRad(90.0f), 0 });
       fenceEast.setModelName("Fence10.obj");
-      fenceEast.setTextureName("Fence.dds");
       o_object.push_back(std::move(fenceEast));*/
     }
 
@@ -101,7 +93,6 @@ namespace
       Object arrow;
       arrow.setPosition({ 15.0f, 1.0f, 15.0f });
       arrow.setModelName("Arrow.cmo");
-      arrow.setTextureName("Blank.dds");
       o_object.push_back(std::move(arrow));
     }
   }

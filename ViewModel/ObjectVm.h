@@ -18,6 +18,5 @@ private:
   const Object& d_object;
 
   const ResourceId d_meshResourcCmoId;
-  const ResourceId d_textureResourceId;
 
 };

@@ -9,7 +9,6 @@
 
 ObjectVm::ObjectVm(const IResourceController& i_resourceController, const Object& i_object)
   : d_object(i_object)
-  , d_textureResourceId(i_resourceController.getResourceId(d_object.getTextureName()))
   , d_meshResourcCmoId(i_resourceController.getResourceId(d_object.getModelName()))
 {
 }
