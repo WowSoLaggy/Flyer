@@ -11,10 +11,10 @@
 namespace
 {
 
-  const int sizeX = 20;
-  const int sizeZ = 20;
+  const int sizeX = 1;
+  const int sizeZ = 1;
   const float defaultHeight = 1.0f;
-  const float heightGridStep = 1.0f;
+  const float heightGridStep = 20.0f;
 
   void createObjects(std::vector<Object>& o_object)
   {
@@ -44,42 +44,43 @@ namespace
     }
 
     {
-      /*Object fence;
+      Object fence;
       fence.setPosition({ 12.0f, 1.0f, 5.75f });
-      fence.setRotation({ 0, Math::degToRad(15.0f), 0 });
-      fence.setModelName("Fence.obj");
-      o_object.push_back(std::move(fence));*/
+      fence.setRotation({ 0, Math::degToRad(105.0f), 0 });
+      fence.setModelName("Fence.cmo");
+      o_object.push_back(std::move(fence));
     }
 
     {
-      /*Object fenceSouth;
+      Object fenceSouth;
       fenceSouth.setPosition({ 0.5f, 1.0f, 19.5f });
-      fenceSouth.setModelName("Fence10.obj");
-      fenceSouth.setTextureName("Fence.dds");
-      o_object.push_back(std::move(fenceSouth));*/
+      fenceSouth.setRotation({ 0, Math::degToRad(90.0f), 0 });
+      fenceSouth.setModelName("Fence10.cmo");
+      o_object.push_back(std::move(fenceSouth));
     }
 
     {
-      /*Object fenceWest;
+      Object fenceWest;
       fenceWest.setPosition({ 0.5f, 1.0f, 19.5f });
-      fenceWest.setRotation({ 0, Math::degToRad(90.0f), 0 });
-      fenceWest.setModelName("Fence10.obj");
-      o_object.push_back(std::move(fenceWest));*/
+      fenceWest.setRotation({ 0, Math::degToRad(180.0f), 0 });
+      fenceWest.setModelName("Fence10.cmo");
+      o_object.push_back(std::move(fenceWest));
     }
 
     {
-      /*Object fenceNorth;
+      Object fenceNorth;
       fenceNorth.setPosition({ 0.5f, 1.0f, 0.5f });
-      fenceNorth.setModelName("Fence10.obj");
-      o_object.push_back(std::move(fenceNorth));*/
+      fenceNorth.setRotation({ 0, Math::degToRad(90.0f), 0 });
+      fenceNorth.setModelName("Fence10.cmo");
+      o_object.push_back(std::move(fenceNorth));
     }
 
     {
-      /*Object fenceEast;
+      Object fenceEast;
       fenceEast.setPosition({ 19.5f, 1.0f, 19.5f });
-      fenceEast.setRotation({ 0, Math::degToRad(90.0f), 0 });
-      fenceEast.setModelName("Fence10.obj");
-      o_object.push_back(std::move(fenceEast));*/
+      fenceEast.setRotation({ 0, Math::degToRad(180.0f), 0 });
+      fenceEast.setModelName("Fence10.cmo");
+      o_object.push_back(std::move(fenceEast));
     }
 
     {
