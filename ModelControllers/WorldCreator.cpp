@@ -37,18 +37,11 @@ namespace
     }
 
     {
-      /*Object stump;
-      stump.setPosition({ 8.0f, 1.0f, 12.0f });
-      stump.setModelName("Stump.obj");
-      o_object.push_back(std::move(stump));*/
-    }
-
-    /*{
       Object tree;
       tree.setPosition({ 11.5f, 1.0f, 6.5f });
-      tree.setModelName("Tree.obj");
+      tree.setModelName("Tree.cmo");
       o_object.push_back(std::move(tree));
-    }*/
+    }
 
     {
       /*Object fence;

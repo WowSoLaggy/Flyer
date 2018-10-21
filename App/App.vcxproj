@@ -208,6 +208,7 @@ call "$(SolutionDir)Scripts\CopyRsrcToOutput.bat" "$(TargetDir)Data" "$(Solution
     <MeshContentTask Include="..\rsrc\Models\Arrow.fbx" />
     <MeshContentTask Include="..\rsrc\Models\House.fbx" />
     <MeshContentTask Include="..\rsrc\Models\Tom.fbx" />
+    <MeshContentTask Include="..\rsrc\Models\Tree.fbx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

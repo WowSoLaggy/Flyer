@@ -64,5 +64,8 @@
     <MeshContentTask Include="..\rsrc\Models\Tom.fbx">
       <Filter>rsrc</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="..\rsrc\Models\Tree.fbx">
+      <Filter>rsrc</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>
