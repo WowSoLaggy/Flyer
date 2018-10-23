@@ -1,18 +1,29 @@
 #include "stdafx.h"
 #include "Object.h"
 
+#include "ActionIdle.h"
+
+
+Object::Object()
+{
+  setCurrentAction(std::make_shared<ActionIdle>());
+}
+
 
 void Object::setCurrentAction(std::shared_ptr<IAction> i_action)
 {
+  if (!i_action)
+    return;
   d_currentAction = i_action;
 }
 
-void Object::resetCurrentAction()
+IAction& Object::getCurrentAction()
 {
-  d_currentAction.reset();
+  return *d_currentAction;
 }
 
-std::shared_ptr<IAction> Object::getCurrentAction() const
+const IAction& Object::getCurrentAction() const
 {
-  return d_currentAction;
+  return *d_currentAction;
 }
+

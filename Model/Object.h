@@ -8,6 +8,8 @@ class Object
 {
 public:
 
+  Object();
+
   void setModelName(const std::string& i_modelName) { d_modelName = i_modelName; }
   const std::string& getModelName() const { return d_modelName; }
 
@@ -18,8 +20,8 @@ public:
   const Vector3& getRotation() const { return d_rotation; }
 
   void setCurrentAction(std::shared_ptr<IAction> i_action);
-  void resetCurrentAction();
-  std::shared_ptr<IAction> getCurrentAction() const;
+  IAction& getCurrentAction();
+  const IAction& getCurrentAction() const;
 
 private:
 
