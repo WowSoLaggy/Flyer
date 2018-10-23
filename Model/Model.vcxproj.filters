@@ -62,5 +62,8 @@
     <ClInclude Include="HeightMap.h">
       <Filter>src\Terrain</Filter>
     </ClInclude>
+    <ClInclude Include="ActionIdle.h">
+      <Filter>src\Actions</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

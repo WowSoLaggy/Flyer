@@ -140,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionHold.h" />
+    <ClInclude Include="ActionIdle.h" />
     <ClInclude Include="ActionMoveTo.h" />
     <ClInclude Include="HeightMap.h" />
     <ClInclude Include="IAction.h" />
