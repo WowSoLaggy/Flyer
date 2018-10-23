@@ -28,7 +28,7 @@ void Engine::run(
     {
       d_renderDevice->beginScene();
 
-      i_renderCallback();
+      i_renderCallback(dt);
 
       d_renderDevice->endScene();
     }

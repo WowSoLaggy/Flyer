@@ -41,7 +41,7 @@ private:
 
   ControlSignal controlCallback();
   void updateCallback(double i_dt);
-  void renderCallback();
+  void renderCallback(double i_dt);
   void inputCallback(double i_dt, const KeyboardState& i_keyboardState);
 
 };

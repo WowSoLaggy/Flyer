@@ -7,5 +7,5 @@
 
 using ControlCallback = std::function<ControlSignal()>;
 using UpdateCallback = std::function<void(double)>;
-using RenderCallback = std::function<void()>;
+using RenderCallback = std::function<void(double)>;
 using InputCallback = std::function<void(double, const KeyboardState& i_keyboardState)>;

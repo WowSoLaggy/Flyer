@@ -25,7 +25,7 @@ void GuiCollectionVm::buildFromCollection(const GuiCollection& i_guiCollection)
 }
 
 
-void GuiCollectionVm::render(IRenderer2d& i_renderer) const
+void GuiCollectionVm::render(IRenderer2d& i_renderer, double i_dt) const
 {
   for (const auto& guiVm : d_guiVms)
   {

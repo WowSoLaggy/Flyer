@@ -14,7 +14,7 @@ public:
 
   void buildFromCollection(const GuiCollection& i_guiCollection);
 
-  void render(IRenderer2d& i_renderer) const;
+  void render(IRenderer2d& i_renderer, double i_dt) const;
 
 private:
 

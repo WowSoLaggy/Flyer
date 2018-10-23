@@ -40,13 +40,13 @@ void GameVm::buildGuiVms(const GuiCollection& i_guiCollection)
 }
 
 
-void GameVm::render() const
+void GameVm::render(double i_dt) const
 {
   d_renderer3d->beginScene();
-  d_worldVm->render(*d_renderer3d);
+  d_worldVm->render(*d_renderer3d, i_dt);
   d_renderer3d->endScene();
 
   d_renderer2d->beginScene();
-  d_guiCollectionVm->render(*d_renderer2d);
+  d_guiCollectionVm->render(*d_renderer2d, i_dt);
   d_renderer2d->endScene();
 }

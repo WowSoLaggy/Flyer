@@ -14,6 +14,10 @@ ObjectVm::ObjectVm(const IResourceController& i_resourceController, const Object
 }
 
 
+void ObjectVm::update(double i_dt)
+{
+}
+
 void ObjectVm::render(IRenderer3d& i_renderer) const
 {
   i_renderer.renderObject(d_meshResourcCmoId, d_object.getPosition(), d_object.getRotation());

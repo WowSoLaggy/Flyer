@@ -14,7 +14,7 @@ public:
 
   void buildFromWorld(const World& i_world);
 
-  void render(IRenderer3d& i_renderer) const;
+  void render(IRenderer3d& i_renderer, double i_dt) const;
 
 private:
 

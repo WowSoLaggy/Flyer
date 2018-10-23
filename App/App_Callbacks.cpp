@@ -34,9 +34,9 @@ void App::updateCallback(double i_dt)
   GuiController::update(d_guiCollection, i_dt);
 }
 
-void App::renderCallback()
+void App::renderCallback(double i_dt)
 {
-  d_gameVm->render();
+  d_gameVm->render(i_dt);
 }
 
 void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)

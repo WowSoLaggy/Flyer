@@ -11,6 +11,7 @@ public:
 
   ObjectVm(const IResourceController& i_resourceController, const Object& i_object);
 
+  void update(double i_dt);
   void render(IRenderer3d& i_renderer) const;
 
 private:

@@ -36,7 +36,7 @@ void App::runEngine()
   d_engine->run(
     std::bind(&App::controlCallback, std::ref(*this)),
     std::bind(&App::updateCallback, std::ref(*this), std::placeholders::_1),
-    std::bind(&App::renderCallback, std::ref(*this)),
+    std::bind(&App::renderCallback, std::ref(*this), std::placeholders::_1),
     std::bind(&App::inputCallback, std::ref(*this), std::placeholders::_1, std::placeholders::_2));
 }
 

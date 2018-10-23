@@ -25,10 +25,13 @@ void WorldVm::buildFromWorld(const World& i_world)
 }
 
 
-void WorldVm::render(IRenderer3d& i_renderer) const
+void WorldVm::render(IRenderer3d& i_renderer, double i_dt) const
 {
   d_terrainVm->render(i_renderer);
 
   for (const auto& objectVm : d_objectVms)
+  {
+    objectVm->update(i_dt);
     objectVm->render(i_renderer);
+  }
 }

@@ -20,7 +20,7 @@ public:
   void buildWorldVms(const World& i_world);
   void buildGuiVms(const GuiCollection& i_guiCollection);
 
-  void render() const;
+  void render(double i_dt) const;
 
 private:
 
