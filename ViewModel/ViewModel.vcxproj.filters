@@ -4,13 +4,16 @@
     <Filter Include="src">
       <UniqueIdentifier>{bf2a7768-aad5-49df-be90-36fe6461527a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\World">
+    <Filter Include="src\ViewModels">
+      <UniqueIdentifier>{b14c0ebc-d4c9-4d99-8732-e2c0cef03a8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ViewModels\World">
       <UniqueIdentifier>{affb2389-91ea-4647-b6b8-29844f795483}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Gui">
+    <Filter Include="src\ViewModels\Gui">
       <UniqueIdentifier>{0b33205e-565f-43b9-ab7c-808815d5062d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\GameVm">
+    <Filter Include="src\ViewModels\GameVm">
       <UniqueIdentifier>{df7bbe06-5aa7-450a-8af2-94fcc5196991}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -19,28 +22,28 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="TerrainVm.h">
-      <Filter>src\World</Filter>
+      <Filter>src\ViewModels\World</Filter>
     </ClInclude>
     <ClInclude Include="ObjectVm.h">
-      <Filter>src\World</Filter>
+      <Filter>src\ViewModels\World</Filter>
     </ClInclude>
     <ClInclude Include="WorldVm.h">
-      <Filter>src\World</Filter>
+      <Filter>src\ViewModels\World</Filter>
     </ClInclude>
     <ClInclude Include="ViewModelFwd.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="LabelVm.h">
-      <Filter>src\Gui</Filter>
+      <Filter>src\ViewModels\Gui</Filter>
     </ClInclude>
     <ClInclude Include="GuiCollectionVm.h">
-      <Filter>src\Gui</Filter>
+      <Filter>src\ViewModels\Gui</Filter>
     </ClInclude>
     <ClInclude Include="GuiVm.h">
-      <Filter>src\Gui</Filter>
+      <Filter>src\ViewModels\Gui</Filter>
     </ClInclude>
     <ClInclude Include="GameVm.h">
-      <Filter>src\GameVm</Filter>
+      <Filter>src\ViewModels\GameVm</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -48,22 +51,22 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="TerrainVm.cpp">
-      <Filter>src\World</Filter>
+      <Filter>src\ViewModels\World</Filter>
     </ClCompile>
     <ClCompile Include="ObjectVm.cpp">
-      <Filter>src\World</Filter>
+      <Filter>src\ViewModels\World</Filter>
     </ClCompile>
     <ClCompile Include="WorldVm.cpp">
-      <Filter>src\World</Filter>
+      <Filter>src\ViewModels\World</Filter>
     </ClCompile>
     <ClCompile Include="LabelVm.cpp">
-      <Filter>src\Gui</Filter>
+      <Filter>src\ViewModels\Gui</Filter>
     </ClCompile>
     <ClCompile Include="GuiCollectionVm.cpp">
-      <Filter>src\Gui</Filter>
+      <Filter>src\ViewModels\Gui</Filter>
     </ClCompile>
     <ClCompile Include="GameVm.cpp">
-      <Filter>src\GameVm</Filter>
+      <Filter>src\ViewModels\GameVm</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
