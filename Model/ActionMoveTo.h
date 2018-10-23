@@ -15,6 +15,8 @@ public:
   {
   }
 
+  virtual ActionType getActionType() const override { return ActionType::MoveTo; }
+
   const Vector2& getGoal() const { return d_goal; }
   float getTolerance() const { return d_tolerance; }
   float getToleranceSq() const { return d_toleranceSq; }

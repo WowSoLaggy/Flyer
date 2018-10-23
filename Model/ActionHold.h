@@ -11,6 +11,8 @@ public:
   {
   }
 
+  virtual ActionType getActionType() const override { return ActionType::Hold; }
+
   bool hold(double i_dt)
   {
     d_holdTime -= i_dt;
