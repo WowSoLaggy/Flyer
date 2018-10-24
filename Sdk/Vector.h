@@ -4,6 +4,8 @@ struct Vector2
 {
   float x;
   float y;
+
+  static Vector2 zero() { return { 0, 0 }; }
 };
 
 struct Vector3
@@ -11,6 +13,8 @@ struct Vector3
   float x;
   float y;
   float z;
+
+  static Vector3 zero() { return { 0, 0, 0 }; }
 };
 
 struct Vector4
@@ -19,6 +23,8 @@ struct Vector4
   float y;
   float z;
   float w;
+
+  static Vector4 zero() { return { 0, 0, 0, 0 }; }
 };
 
 
