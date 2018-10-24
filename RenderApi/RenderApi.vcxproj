@@ -139,8 +139,10 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationController.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="FontResource.h" />
+    <ClInclude Include="IAnimationController.h" />
     <ClInclude Include="IndexBuffer.h" />
     <ClInclude Include="IRenderer2d.h" />
     <ClInclude Include="IRenderer3d.h" />
@@ -166,8 +168,10 @@
     <ClInclude Include="VertexTypes.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationController.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="FontResource.cpp" />
+    <ClCompile Include="IAnimationController.cpp" />
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="IRenderer2d.cpp" />
     <ClCompile Include="IRenderer3d.cpp" />

@@ -23,6 +23,8 @@ struct Material;
 struct MaterialSpan;
 class MaterialSequence;
 
+class IAnimationController;
+
 struct ID3D11Buffer;
 
 namespace DirectX

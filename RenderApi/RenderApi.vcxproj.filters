@@ -28,6 +28,9 @@
     <Filter Include="src\Renderer2d">
       <UniqueIdentifier>{e0711f13-e2d2-49f8-bf4c-5431a7d323dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Animation">
+      <UniqueIdentifier>{a2329c46-c70a-46b5-b051-a056fb7da2af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -105,6 +108,12 @@
     <ClInclude Include="MeshResourceCmo.h">
       <Filter>src\Resources\ResourceTypes</Filter>
     </ClInclude>
+    <ClInclude Include="AnimationController.h">
+      <Filter>src\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="IAnimationController.h">
+      <Filter>src\Animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -169,6 +178,12 @@
     </ClCompile>
     <ClCompile Include="MeshResourceCmo.cpp">
       <Filter>src\Resources\ResourceTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationController.cpp">
+      <Filter>src\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="IAnimationController.cpp">
+      <Filter>src\Animation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
