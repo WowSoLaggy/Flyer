@@ -82,13 +82,6 @@ namespace
       fenceEast.setModelName("Fence10.cmo");
       o_objects.push_back(std::move(fenceEast));
     }
-
-    {
-      Object arrow;
-      arrow.setPosition({ 15.0f, 1.0f, 15.0f });
-      arrow.setModelName("Arrow.cmo");
-      o_objects.push_back(std::move(arrow));
-    }
   }
 
   HeightMap createHeightMap()

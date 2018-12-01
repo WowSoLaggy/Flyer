@@ -1,12 +1,39 @@
 #include "stdafx.h"
 #include "ObjectController.h"
 
+#include "WorldController.h"
+
 #include <Model/ActionHold.h>
 #include <Model/ActionMoveTo.h>
 #include <Model/Object.h>
+#include <Model/World.h>
 
 
-void ObjectController::updateObject(Object& io_object, double i_dt, World& io_world)
+namespace
+{
+
+  void createDestinationArrowObject(ObjectId& o_destinationArrowId, const Vector3& i_position)
+  {
+    Object arrow;
+    arrow.setPosition(i_position);
+    arrow.setModelName("Arrow.cmo");
+
+    o_destinationArrowId = arrow.getId();
+    WorldController::addObject(arrow);
+  }
+
+  void deleteDestinationArrowObject(ObjectId i_destinationArrowId)
+  {
+    WorldController::deleteObject(i_destinationArrowId);
+  }
+
+} // anonymous NS
+
+
+ObjectId ObjectController::d_destinationArrowId = -1;
+
+
+void ObjectController::updateObject(Object& io_object, double i_dt)
 {
   auto& action = io_object.getCurrentAction();
   switch (action.getActionType())
@@ -19,6 +46,8 @@ void ObjectController::updateObject(Object& io_object, double i_dt, World& io_wo
       float newX = (float)(std::rand() % 100 + 20) / 10;
       float newY = (float)(std::rand() % 160 + 20) / 10;
       io_object.setCurrentAction(std::make_shared<ActionMoveTo>(ActionMoveTo({ newX, newY })));
+      
+      createDestinationArrowObject(ObjectController::d_destinationArrowId, { newX, 1, newY });
     }
     break;
   }
@@ -35,6 +64,9 @@ void ObjectController::updateObject(Object& io_object, double i_dt, World& io_wo
     {
       double timeToHold = (double)(std::rand() % 50) / 10;
       io_object.setCurrentAction(std::make_shared<ActionHold>(ActionHold(timeToHold)));
+
+      deleteDestinationArrowObject(ObjectController::d_destinationArrowId);
+
       return;
     }
 
