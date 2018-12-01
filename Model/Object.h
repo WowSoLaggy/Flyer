@@ -23,6 +23,9 @@ public:
   IAction& getCurrentAction();
   const IAction& getCurrentAction() const;
 
+  void setVisibility(bool i_visible) { d_visible = i_visible; }
+  bool getVisibility() const { return d_visible; }
+
 private:
 
   std::string d_modelName;
@@ -31,4 +34,6 @@ private:
   Vector3 d_rotation;
 
   std::shared_ptr<IAction> d_currentAction;
+
+  bool d_visible;
 };

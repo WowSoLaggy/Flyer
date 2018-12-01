@@ -44,6 +44,9 @@ void ObjectVm::update(double i_dt)
 
 void ObjectVm::render(IRenderer3d& i_renderer) const
 {
+  if (!d_object.getVisibility())
+    return;
+
   i_renderer.renderObject(d_meshResourceCmoId, *d_animationController,
     d_object.getPosition(), d_object.getRotation());
 }
