@@ -24,6 +24,7 @@ public:
     const Vector3& i_position = Vector3::zero(), const Vector3& i_rotation = Vector3::zero()) override;
 
   virtual void renderObject(ResourceId i_meshResourceCmoId,
+    const IAnimationController& i_animationController,
     const Vector3& i_position = Vector3::zero(), const Vector3& i_rotation = Vector3::zero()) override;
 
 private:

@@ -19,5 +19,6 @@ private:
   const Object& d_object;
   const ResourceId d_meshResourceCmoId;
 
+  std::shared_ptr<IAnimationController> d_animationController;
 
 };

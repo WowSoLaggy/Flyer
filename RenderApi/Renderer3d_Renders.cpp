@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Renderer3d.h"
 
+#include "AnimationController.h"
 #include "Camera.h"
 #include "IndexBuffer.h"
 #include "MaterialSequence.h"
@@ -35,6 +36,7 @@ void Renderer3d::renderObject(
 
 
 void Renderer3d::renderObject(ResourceId i_meshResourceCmoId,
+  const IAnimationController& i_animationController,
   const Vector3& i_position /* = Vector3::zero() */, const Vector3& i_rotation /* = Vector3::zero() */)
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
@@ -43,8 +45,12 @@ void Renderer3d::renderObject(ResourceId i_meshResourceCmoId,
 
   auto& camera = dynamic_cast<const Camera&>(d_camera);
 
+  const auto& animationController = dynamic_cast<const AnimationController&>(i_animationController);
+  const auto animationTransform = animationController.getTransform();
+
   auto worldMatrix =
     XMMatrixRotationRollPitchYaw(i_rotation.x, i_rotation.y, i_rotation.z) *
+    animationTransform *
     XMMatrixTranslation(i_position.x, i_position.y, i_position.z);
 
   meshResourceCmo.getModel().UpdateEffects([&](IEffect* io_pEffect)

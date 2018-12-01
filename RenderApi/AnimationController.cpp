@@ -35,6 +35,28 @@ void AnimationController::update(double i_dt)
   d_animationTime += i_dt;
 
   resetTransforms();
+
+  for (int meshIndex = 0; meshIndex < d_model.meshes.size(); ++meshIndex)
+  {
+    const auto& mesh = d_model.meshes.at(meshIndex);
+
+    auto itAnim = mesh->animClipMap.find(L"MyBone|" + d_currentAnimationName);
+    if (itAnim == mesh->animClipMap.end())
+      continue;
+
+    double animLength = itAnim->second.EndTime - itAnim->second.StartTime;
+    double time = d_animationTime;
+    while (time > animLength)
+      time -= animLength;
+
+    for (const auto& keyframe : itAnim->second.Keyframes)
+    {
+      if (keyframe.Time > time)
+        break;
+
+      d_meshesBoneTransforms.at(meshIndex).at(keyframe.BoneIndex) = keyframe.Transform;
+    }
+  }
 }
 
 
