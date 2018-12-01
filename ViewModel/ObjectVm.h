@@ -14,6 +14,8 @@ public:
   void update(double i_dt);
   void render(IRenderer3d& i_renderer) const;
 
+  const Object& getObject() const { return d_object; }
+
 private:
 
   const Object& d_object;

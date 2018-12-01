@@ -35,3 +35,18 @@ void WorldVm::render(IRenderer3d& i_renderer, double i_dt) const
     objectVm->render(i_renderer);
   }
 }
+
+
+void WorldVm::onObjectAdded(const Object& i_object)
+{
+  d_objectVms.push_back(std::make_shared<ObjectVm>(d_resourceController, i_object));
+}
+
+void WorldVm::onObjectDeleted(ObjectId i_objectId)
+{
+  d_objectVms.erase(std::remove_if(d_objectVms.begin(), d_objectVms.end(),
+    [&](const std::shared_ptr<ObjectVm>& i_objectVm)
+  {
+    return i_objectVm->getObject().getId() == i_objectId;
+  }), d_objectVms.end());
+}

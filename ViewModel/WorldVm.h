@@ -16,6 +16,9 @@ public:
 
   void render(IRenderer3d& i_renderer, double i_dt) const;
 
+  void onObjectAdded(const Object& i_object);
+  void onObjectDeleted(ObjectId i_objectId);
+
 private:
 
   IRenderDevice& d_renderDevice;

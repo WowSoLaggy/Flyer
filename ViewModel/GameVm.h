@@ -20,6 +20,8 @@ public:
   void buildWorldVms(const World& i_world);
   void buildGuiVms(const GuiCollection& i_guiCollection);
 
+  std::shared_ptr<WorldVm> getWorldVm() { return d_worldVm; }
+
   void render(double i_dt) const;
 
 private:
