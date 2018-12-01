@@ -16,16 +16,16 @@ namespace
   const float defaultHeight = 1.0f;
   const float heightGridStep = 20.0f;
 
-  void createObjects(std::vector<Object>& o_object)
+  void createObjects(std::vector<Object>& o_objects)
   {
-    o_object.clear();
+    o_objects.clear();
 
     {
       Object tom;
       tom.setPosition({ 2.5f, 1.0f, 2.5f });
       tom.setModelName("Tom.cmo");
       tom.setCurrentAction(std::make_shared<ActionHold>(ActionHold(2)));
-      o_object.push_back(std::move(tom));
+      o_objects.push_back(std::move(tom));
     }
 
     {
@@ -33,14 +33,14 @@ namespace
       house.setPosition({ 16.5f, 1.0f, 6.5f });
       house.setRotation({ 0, Math::degToRad(-135.0f), 0 });
       house.setModelName("House.cmo");
-      o_object.push_back(std::move(house));
+      o_objects.push_back(std::move(house));
     }
 
     {
       Object tree;
       tree.setPosition({ 11.5f, 1.0f, 6.5f });
       tree.setModelName("Tree.cmo");
-      o_object.push_back(std::move(tree));
+      o_objects.push_back(std::move(tree));
     }
 
     {
@@ -48,7 +48,7 @@ namespace
       fence.setPosition({ 12.0f, 1.0f, 5.75f });
       fence.setRotation({ 0, Math::degToRad(105.0f), 0 });
       fence.setModelName("Fence.cmo");
-      o_object.push_back(std::move(fence));
+      o_objects.push_back(std::move(fence));
     }
 
     {
@@ -56,7 +56,7 @@ namespace
       fenceSouth.setPosition({ 0.5f, 1.0f, 19.5f });
       fenceSouth.setRotation({ 0, Math::degToRad(90.0f), 0 });
       fenceSouth.setModelName("Fence10.cmo");
-      o_object.push_back(std::move(fenceSouth));
+      o_objects.push_back(std::move(fenceSouth));
     }
 
     {
@@ -64,7 +64,7 @@ namespace
       fenceWest.setPosition({ 0.5f, 1.0f, 19.5f });
       fenceWest.setRotation({ 0, Math::degToRad(180.0f), 0 });
       fenceWest.setModelName("Fence10.cmo");
-      o_object.push_back(std::move(fenceWest));
+      o_objects.push_back(std::move(fenceWest));
     }
 
     {
@@ -72,7 +72,7 @@ namespace
       fenceNorth.setPosition({ 0.5f, 1.0f, 0.5f });
       fenceNorth.setRotation({ 0, Math::degToRad(90.0f), 0 });
       fenceNorth.setModelName("Fence10.cmo");
-      o_object.push_back(std::move(fenceNorth));
+      o_objects.push_back(std::move(fenceNorth));
     }
 
     {
@@ -80,14 +80,14 @@ namespace
       fenceEast.setPosition({ 19.5f, 1.0f, 19.5f });
       fenceEast.setRotation({ 0, Math::degToRad(180.0f), 0 });
       fenceEast.setModelName("Fence10.cmo");
-      o_object.push_back(std::move(fenceEast));
+      o_objects.push_back(std::move(fenceEast));
     }
 
     {
       Object arrow;
       arrow.setPosition({ 15.0f, 1.0f, 15.0f });
       arrow.setModelName("Arrow.cmo");
-      o_object.push_back(std::move(arrow));
+      o_objects.push_back(std::move(arrow));
     }
   }
 
