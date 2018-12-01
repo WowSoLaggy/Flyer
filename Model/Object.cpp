@@ -4,8 +4,12 @@
 #include "ActionIdle.h"
 
 
+ObjectId Object::s_nextId = 0;
+
+
 Object::Object()
-  : d_modelName("")
+  : d_id(s_nextId++)
+  , d_modelName("")
   , d_position{ 0, 0, 0 }
   , d_rotation{ 0, 0, 0 }
   , d_visible(true)

@@ -4,11 +4,17 @@
 
 #include <Sdk/Vector.h>
 
+
+using ObjectId = int;
+
+
 class Object
 {
 public:
 
   Object();
+
+  ObjectId getId() const { return d_id; }
 
   void setModelName(const std::string& i_modelName) { d_modelName = i_modelName; }
   const std::string& getModelName() const { return d_modelName; }
@@ -27,6 +33,9 @@ public:
   bool getVisibility() const { return d_visible; }
 
 private:
+
+  ObjectId d_id;
+  static ObjectId s_nextId;
 
   std::string d_modelName;
 
