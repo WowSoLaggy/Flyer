@@ -24,7 +24,7 @@ void ObjectController::updateObject(Object& io_object, double i_dt)
   }
   case ActionType::MoveTo:
   {
-    auto& moveToAction = dynamic_cast<ActionMoveTo&>(action);
+    const auto& moveToAction = dynamic_cast<const ActionMoveTo&>(action);
     auto position = io_object.getPosition();
     Vector2 position2 = { position.x, position.z };
     auto goal = moveToAction.getGoal();

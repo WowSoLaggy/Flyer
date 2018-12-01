@@ -9,7 +9,7 @@
 
 ObjectVm::ObjectVm(const IResourceController& i_resourceController, const Object& i_object)
   : d_object(i_object)
-  , d_meshResourcCmoId(i_resourceController.getResourceId(d_object.getModelName()))
+  , d_meshResourceCmoId(i_resourceController.getResourceId(d_object.getModelName()))
 {
 }
 
