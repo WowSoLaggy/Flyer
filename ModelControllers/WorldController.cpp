@@ -9,5 +9,5 @@
 void WorldController::updateWorld(World& io_world, double i_dt)
 {
   for (auto& object : io_world.getObjects())
-    ObjectController::updateObject(object, i_dt);
+    ObjectController::updateObject(object, i_dt, io_world);
 }

@@ -6,7 +6,7 @@
 #include <Model/Object.h>
 
 
-void ObjectController::updateObject(Object& io_object, double i_dt)
+void ObjectController::updateObject(Object& io_object, double i_dt, World& io_world)
 {
   auto& action = io_object.getCurrentAction();
   switch (action.getActionType())
