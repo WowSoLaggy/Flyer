@@ -5,6 +5,9 @@
 
 
 Object::Object()
+  : d_modelName("")
+  , d_position{ 0, 0, 0 }
+  , d_rotation{ 0, 0, 0 }
 {
   setCurrentAction(std::make_shared<ActionIdle>());
 }
