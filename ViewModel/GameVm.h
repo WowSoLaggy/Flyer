@@ -24,7 +24,7 @@ public:
 
 private:
 
-  IRenderDevice & d_renderDevice;
+  IRenderDevice& d_renderDevice;
   const IResourceController& d_resourceController;
 
   std::shared_ptr<ICamera> d_camera;
