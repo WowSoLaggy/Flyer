@@ -5,3 +5,5 @@ class Terrain;
 class Object;
 
 class IAction;
+
+using ObjectId = int;

@@ -5,9 +5,6 @@
 #include <Sdk/Vector.h>
 
 
-using ObjectId = int;
-
-
 class Object
 {
 public:
