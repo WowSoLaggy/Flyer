@@ -14,12 +14,9 @@ std::vector<ObjectId> WorldController::d_objectIdsToDelete;
 void WorldController::updateWorld(World& io_world, double i_dt, WorldVm& i_worldVm)
 {
   auto& objs = io_world.getObjects();
-
-  for (auto& object : objs)
-    ObjectController::updateObject(object, i_dt);
-
-  deleteObjects(objs, i_worldVm);
-  addObjects(objs, i_worldVm);
+  
+  updateObjects(objs, i_dt);
+  addDeleteObjects(objs, i_worldVm);
 }
 
 
@@ -34,30 +31,33 @@ void WorldController::deleteObject(ObjectId i_objectId)
 }
 
 
-void WorldController::addObjects(std::vector<Object>& io_worldObjects, WorldVm& i_worldVm)
+void WorldController::updateObjects(std::vector<Object>& io_worldObjects, double i_dt)
 {
-  if (d_objectsToAdd.empty())
-    return;
-
-  int size = (int)io_worldObjects.size();
-  io_worldObjects.insert(io_worldObjects.end(), d_objectsToAdd.begin(), d_objectsToAdd.end());
-  auto it = std::next(io_worldObjects.begin(), size);
-  for (; it != io_worldObjects.end(); ++it)
-    i_worldVm.onObjectAdded(*it);
-  d_objectsToAdd.clear();
+  for (auto& object : io_worldObjects)
+    ObjectController::updateObject(object, i_dt);
 }
 
-void WorldController::deleteObjects(std::vector<Object>& io_worldObjects, WorldVm& i_worldVm)
+void WorldController::addDeleteObjects(std::vector<Object>& io_worldObjects, WorldVm& i_worldVm)
 {
-  if (d_objectIdsToDelete.empty())
-    return;
-
-  for (auto objectId : d_objectIdsToDelete)
+  if (!d_objectIdsToDelete.empty())
   {
-    i_worldVm.onObjectDeleted(objectId);
-    io_worldObjects.erase(std::remove_if(io_worldObjects.begin(), io_worldObjects.end(),
-                                         [&](const Object& i_object) { return i_object.getId() == objectId; }),
-                          io_worldObjects.end());
+    for (auto objectId : d_objectIdsToDelete)
+    {
+      i_worldVm.onObjectDeleted(objectId);
+      io_worldObjects.erase(std::remove_if(io_worldObjects.begin(), io_worldObjects.end(),
+                                           [&](const Object& i_object) { return i_object.getId() == objectId; }),
+                            io_worldObjects.end());
+    }
+    d_objectIdsToDelete.clear();
   }
-  d_objectIdsToDelete.clear();
+
+  if (!d_objectsToAdd.empty())
+  {
+    int size = (int)io_worldObjects.size();
+    io_worldObjects.insert(io_worldObjects.end(), d_objectsToAdd.begin(), d_objectsToAdd.end());
+    auto it = std::next(io_worldObjects.begin(), size);
+    for (; it != io_worldObjects.end(); ++it)
+      i_worldVm.onObjectAdded(*it);
+    d_objectsToAdd.clear();
+  }
 }

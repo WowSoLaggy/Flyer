@@ -21,6 +21,6 @@ private:
   static std::vector<Object> d_objectsToAdd;
   static std::vector<ObjectId> d_objectIdsToDelete;
 
-  static void addObjects(std::vector<Object>& io_worldObjects, WorldVm& i_worldVm);
-  static void deleteObjects(std::vector<Object>& io_worldObjects, WorldVm& i_worldVm);
+  static void updateObjects(std::vector<Object>& io_worldObjects, double i_dt);
+  static void addDeleteObjects(std::vector<Object>& io_worldObjects, WorldVm& i_worldVm);
 };
