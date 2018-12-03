@@ -36,6 +36,9 @@ void WorldController::deleteObject(ObjectId i_objectId)
 
 void WorldController::addObjects(std::vector<Object>& io_worldObjects, WorldVm& i_worldVm)
 {
+  if (d_objectsToAdd.empty())
+    return;
+
   int size = (int)io_worldObjects.size();
   io_worldObjects.insert(io_worldObjects.end(), d_objectsToAdd.begin(), d_objectsToAdd.end());
   auto it = std::next(io_worldObjects.begin(), size);
@@ -46,6 +49,9 @@ void WorldController::addObjects(std::vector<Object>& io_worldObjects, WorldVm& 
 
 void WorldController::deleteObjects(std::vector<Object>& io_worldObjects, WorldVm& i_worldVm)
 {
+  if (d_objectIdsToDelete.empty())
+    return;
+
   for (auto objectId : d_objectIdsToDelete)
   {
     i_worldVm.onObjectDeleted(objectId);
