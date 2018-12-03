@@ -13,10 +13,8 @@ std::vector<ObjectId> WorldController::d_objectIdsToDelete;
 
 void WorldController::updateWorld(World& io_world, double i_dt, WorldVm& i_worldVm)
 {
-  auto& objs = io_world.getObjects();
-  
-  updateObjects(objs, i_dt);
-  addDeleteObjects(objs, i_worldVm);
+  updateObjects(io_world.getObjects(), i_dt);
+  addDeleteObjects(io_world.getObjects(), i_worldVm);
 }
 
 
