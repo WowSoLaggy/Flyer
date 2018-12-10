@@ -29,6 +29,15 @@ namespace
     }
 
     {
+      ObjectPtr jerry = std::make_shared<Object>();
+      jerry->setPosition({ 8.5f, 1.0f, 12.5f });
+      jerry->setRotation({ 0, Math::degToRad(180.0f), 0 });
+      jerry->setModelName("Tom.cmo");
+      jerry->setCurrentAction(std::make_shared<ActionHold>(ActionHold(2)));
+      o_objects.push_back(std::move(jerry));
+    }
+
+    {
       ObjectPtr house = std::make_shared<Object>();
       house->setPosition({ 16.5f, 1.0f, 6.5f });
       house->setRotation({ 0, Math::degToRad(-135.0f), 0 });

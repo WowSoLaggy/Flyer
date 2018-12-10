@@ -11,6 +11,7 @@
 
 namespace
 {
+  std::map<ObjectId, ObjectId> s_destinationArrowIdMap;
 
   void createDestinationArrowObject(ObjectId& o_destinationArrowId, const Vector3& i_position)
   {
@@ -30,9 +31,6 @@ namespace
 } // anonymous NS
 
 
-ObjectId ObjectController::d_destinationArrowId = -1;
-
-
 void ObjectController::updateObject(ObjectPtr& io_object, double i_dt)
 {
   auto& action = io_object->getCurrentAction();
@@ -47,7 +45,7 @@ void ObjectController::updateObject(ObjectPtr& io_object, double i_dt)
       float newY = (float)(std::rand() % 160 + 20) / 10;
       io_object->setCurrentAction(std::make_shared<ActionMoveTo>(ActionMoveTo({ newX, newY })));
       
-      createDestinationArrowObject(ObjectController::d_destinationArrowId, { newX, 1, newY });
+      createDestinationArrowObject(s_destinationArrowIdMap[io_object->getId()], { newX, 1, newY });
     }
     break;
   }
@@ -65,7 +63,7 @@ void ObjectController::updateObject(ObjectPtr& io_object, double i_dt)
       double timeToHold = (double)(std::rand() % 50) / 10;
       io_object->setCurrentAction(std::make_shared<ActionHold>(ActionHold(timeToHold)));
 
-      deleteDestinationArrowObject(ObjectController::d_destinationArrowId);
+      deleteDestinationArrowObject(s_destinationArrowIdMap.at(io_object->getId()));
 
       return;
     }
