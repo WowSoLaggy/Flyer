@@ -7,9 +7,9 @@
 #include <GuiModel/Label.h>
 
 
-void GuiController::update(std::shared_ptr<GuiCollection> io_guiCollection, double i_dt)
+void GuiController::update(GuiCollection& io_guiCollection, double i_dt)
 {
-  auto& guis = io_guiCollection->getGuis();
+  auto& guis = io_guiCollection.getGuis();
   for (auto gui : guis)
   {
     if (auto* pLabel = dynamic_cast<Label*>(gui.get()))
