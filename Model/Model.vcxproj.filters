@@ -16,6 +16,9 @@
     <Filter Include="src\Actions">
       <UniqueIdentifier>{651ab460-0843-4b75-8500-67fa1b18f060}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Events">
+      <UniqueIdentifier>{da2de5da-d261-433f-b6a2-8f88d2f4db8f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -32,6 +35,9 @@
     </ClCompile>
     <ClCompile Include="HeightMap.cpp">
       <Filter>src\Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>src\Events</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +70,15 @@
     </ClInclude>
     <ClInclude Include="ActionIdle.h">
       <Filter>src\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>src\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSchedules.h">
+      <Filter>src\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="IEventSchedule.h">
+      <Filter>src\Events</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
