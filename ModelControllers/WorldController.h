@@ -11,16 +11,16 @@ public:
 
   static void updateWorld(World& io_world, double i_dt, WorldVm& i_worldVm);
 
-  static void addObject(Object i_object);
+  static void addObject(ObjectPtr i_object);
   static void deleteObject(ObjectId i_objectId);
 
 private:
 
   WorldController() = default;
 
-  static std::vector<Object> d_objectsToAdd;
+  static ObjectPtrs d_objectsToAdd;
   static std::vector<ObjectId> d_objectIdsToDelete;
 
-  static void updateObjects(std::vector<Object>& io_worldObjects, double i_dt);
-  static void addDeleteObjects(std::vector<Object>& io_worldObjects, WorldVm& i_worldVm);
+  static void updateObjects(ObjectPtrs& io_worldObjects, double i_dt);
+  static void addDeleteObjects(ObjectPtrs& io_worldObjects, WorldVm& i_worldVm);
 };

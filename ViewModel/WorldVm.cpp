@@ -21,7 +21,7 @@ void WorldVm::buildFromWorld(const World& i_world)
     new TerrainVm(d_renderDevice, d_resourceController, i_world.getTerrain()));
 
   for (const auto& object : i_world.getObjects())
-    d_objectVms.push_back(std::make_shared<ObjectVm>(d_resourceController, object));
+    d_objectVms.push_back(std::make_shared<ObjectVm>(d_resourceController, *object));
 }
 
 
