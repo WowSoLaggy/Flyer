@@ -41,5 +41,14 @@
     <ClInclude Include="WorldCreator.h">
       <Filter>src\WorldCreator</Filter>
     </ClInclude>
+    <ClInclude Include="WorldWrapper.h">
+      <Filter>src\WorldController</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldEvents.h">
+      <Filter>src\WorldController</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelControllersFwd.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
