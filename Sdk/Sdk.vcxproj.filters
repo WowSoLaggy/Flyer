@@ -19,6 +19,9 @@
     <Filter Include="src\FileSystem">
       <UniqueIdentifier>{7c444a1c-68b8-4d43-8f20-9a9d5a65e475}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Events">
+      <UniqueIdentifier>{c241b64f-1014-44a6-a628-84eee6ed34d1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -48,6 +51,12 @@
     <ClInclude Include="Math.h">
       <Filter>src\Math</Filter>
     </ClInclude>
+    <ClInclude Include="IEvent.h">
+      <Filter>src\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHandler.h">
+      <Filter>src\Events</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -55,6 +64,9 @@
     </ClCompile>
     <ClCompile Include="Vector.cpp">
       <Filter>src\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="EventHandler.cpp">
+      <Filter>src\Events</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

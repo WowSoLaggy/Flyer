@@ -129,7 +129,9 @@
   <ItemGroup>
     <ClInclude Include="Common.h" />
     <ClInclude Include="dirent.h" />
+    <ClInclude Include="EventHandler.h" />
     <ClInclude Include="FileSystemUtils.h" />
+    <ClInclude Include="IEvent.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="SdkFwd.h" />
     <ClInclude Include="stdafx.h" />
@@ -138,6 +140,7 @@
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
