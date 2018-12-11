@@ -22,7 +22,7 @@ void EventHandler::connectTo(EventHandler& i_handler)
 
 void EventHandler::disconnectFrom(EventHandler& i_handler)
 {
-  auto removeHandler = [&](std::vector<EventHandlerRef>& io_eventHandlers)
+  auto removeHandler = [&](EventHandlerRefs& io_eventHandlers)
   {
     io_eventHandlers.erase(
       std::remove_if(io_eventHandlers.begin(), io_eventHandlers.end(), [&](const EventHandlerRef& i_ref)

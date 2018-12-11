@@ -19,8 +19,9 @@ public:
 private:
 
   using EventHandlerRef = std::reference_wrapper<EventHandler>;
+  using EventHandlerRefs = std::vector<EventHandlerRef>;
   
-  std::vector<EventHandlerRef> d_clients;
-  std::vector<EventHandlerRef> d_servers;
+  EventHandlerRefs d_clients;
+  EventHandlerRefs d_servers;
 
 };
