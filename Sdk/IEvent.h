@@ -3,4 +3,6 @@
 
 class IEvent
 {
+public:
+  virtual ~IEvent() = default;
 };
