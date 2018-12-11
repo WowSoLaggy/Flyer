@@ -2,19 +2,18 @@
 #include "WorldController.h"
 
 #include "ObjectController.h"
-
-#include <Model/World.h>
-#include <ViewModel/WorldVm.h>
+#include "WorldEvents.h"
+#include "WorldWrapper.h"
 
 
 ObjectPtrs WorldController::d_objectsToAdd;
 std::vector<ObjectId> WorldController::d_objectIdsToDelete;
 
 
-void WorldController::updateWorld(World& io_world, double i_dt, WorldVm& i_worldVm)
+void WorldController::updateWorld(WorldWrapper& io_world, double i_dt)
 {
-  updateObjects(io_world.getObjects(), i_dt);
-  addDeleteObjects(io_world.getObjects(), i_worldVm);
+  updateObjects(io_world, i_dt);
+  addDeleteObjects(io_world);
 }
 
 
@@ -29,34 +28,40 @@ void WorldController::deleteObject(ObjectId i_objectId)
 }
 
 
-void WorldController::updateObjects(ObjectPtrs& io_worldObjects, double i_dt)
+void WorldController::updateObjects(WorldWrapper& io_world, double i_dt)
 {
-  for (auto& object : io_worldObjects)
+  for (auto& object : io_world.getObjects())
     ObjectController::updateObject(object, i_dt);
 }
 
-void WorldController::addDeleteObjects(ObjectPtrs& io_worldObjects, WorldVm& i_worldVm)
+void WorldController::addDeleteObjects(WorldWrapper& io_world)
 {
+  auto& worldObjects = io_world.getObjects();
+
   if (!d_objectIdsToDelete.empty())
   {
     for (auto objectId : d_objectIdsToDelete)
     {
-      i_worldVm.onObjectDeleted(objectId);
-      io_worldObjects.erase(
-        std::remove_if(io_worldObjects.begin(), io_worldObjects.end(),
-                       [&](const ObjectPtr& i_object) { return i_object->getId() == objectId; }),
-        io_worldObjects.end());
+      auto it = std::find_if(worldObjects.begin(), worldObjects.end(),
+                             [&](const ObjectPtr& i_object) { return i_object->getId() == objectId; });
+      if (it == worldObjects.end())
+        continue;
+
+      io_world.notify(ObjectDeletedEvent{ **it });
+
+      worldObjects.erase(it);
     }
     d_objectIdsToDelete.clear();
   }
 
   if (!d_objectsToAdd.empty())
   {
-    int size = (int)io_worldObjects.size();
-    io_worldObjects.insert(io_worldObjects.end(), d_objectsToAdd.begin(), d_objectsToAdd.end());
-    auto it = std::next(io_worldObjects.begin(), size);
-    for (; it != io_worldObjects.end(); ++it)
-      i_worldVm.onObjectAdded(**it);
+    int size = (int)worldObjects.size();
+    worldObjects.insert(worldObjects.end(), d_objectsToAdd.begin(), d_objectsToAdd.end());
+
+    for (auto object : d_objectsToAdd)
+      io_world.notify(ObjectAddedEvent{ *object });
+
     d_objectsToAdd.clear();
   }
 }

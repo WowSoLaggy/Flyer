@@ -4,7 +4,6 @@
 #include "GuiCollectionVm.h"
 #include "WorldVm.h"
 
-#include <Model/World.h>
 #include <RenderApi/ICamera.h>
 #include <RenderApi/IRenderer2d.h>
 #include <RenderApi/IRenderer3d.h>
@@ -29,7 +28,7 @@ GameVm::GameVm(IRenderDevice& io_renderDevice, const IResourceController& i_reso
 }
 
 
-void GameVm::buildWorldVms(const World& i_world)
+void GameVm::buildWorldVms(WorldWrapper& i_world)
 {
   d_worldVm->buildFromWorld(i_world);
 }

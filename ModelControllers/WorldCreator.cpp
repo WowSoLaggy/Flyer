@@ -1,10 +1,11 @@
 #include "stdafx.h"
 #include "WorldCreator.h"
 
+#include "WorldWrapper.h"
+
 #include <Model/ActionHold.h>
 #include <Model/HeightMap.h>
 #include <Model/Object.h>
-#include <Model/World.h>
 #include <Sdk/Math.h>
 
 
@@ -105,9 +106,9 @@ namespace
 } // anonymous NS
 
 
-std::shared_ptr<World> WorldCreator::createNewWorld()
+std::shared_ptr<WorldWrapper> WorldCreator::createNewWorld()
 {
-  auto* pWorld = new World();
+  auto pWorld = std::make_shared<WorldWrapper>();
 
   pWorld->getTerrain().setTextureName("Grass.dds");
   pWorld->getTerrain().setHeightMap(createHeightMap());
@@ -115,5 +116,5 @@ std::shared_ptr<World> WorldCreator::createNewWorld()
   
   createObjects(pWorld->getObjects());
 
-  return std::shared_ptr<World>(pWorld);
+  return pWorld;
 }

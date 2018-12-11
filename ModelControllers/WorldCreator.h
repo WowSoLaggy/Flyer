@@ -1,13 +1,13 @@
 #pragma once
 
-#include <Model/ModelFwd.h>
+#include "ModelControllersFwd.h"
 
 
 class WorldCreator
 {
 public:
 
-  static std::shared_ptr<World> createNewWorld();
+  static std::shared_ptr<WorldWrapper> createNewWorld();
 
 private:
   WorldCreator() = default;

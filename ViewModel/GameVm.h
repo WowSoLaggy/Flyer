@@ -3,7 +3,7 @@
 #include "ViewModelFwd.h"
 
 #include <GuiModel/GuiModelFwd.h>
-#include <Model/ModelFwd.h>
+#include <ModelControllers/ModelControllersFwd.h>
 #include <RenderApi/RenderApiFwd.h>
 
 
@@ -17,10 +17,8 @@ public:
   ICamera& getCamera() { return *d_camera; }
   const ICamera& getCamera() const { return *d_camera; }
 
-  void buildWorldVms(const World& i_world);
+  void buildWorldVms(WorldWrapper& i_world);
   void buildGuiVms(const GuiCollection& i_guiCollection);
-
-  std::shared_ptr<WorldVm> getWorldVm() { return d_worldVm; }
 
   void render(double i_dt) const;
 
