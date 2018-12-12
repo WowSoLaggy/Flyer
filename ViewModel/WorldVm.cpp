@@ -22,7 +22,7 @@ void WorldVm::buildFromWorld(WorldWrapper& i_world)
     new TerrainVm(d_renderDevice, d_resourceController, i_world.getTerrain()));
 
   for (const auto& object : i_world.getObjects())
-    d_objectVms.push_back(std::make_shared<ObjectVm>(d_resourceController, *object));
+    onObjectAdded(*object);
 
   connectTo(i_world);
 }
