@@ -3,7 +3,6 @@
 #include "ModelControllersFwd.h"
 
 #include <Model/ModelFwd.h>
-#include <Model/Object.h>
 
 
 class WorldController
