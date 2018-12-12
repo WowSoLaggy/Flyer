@@ -15,6 +15,8 @@ public:
 
   virtual void update(double i_dt) override;
 
+  virtual void processEvent(const IEvent& i_event) override;
+
 private:
 
   GuiCollection& d_guiCollection;

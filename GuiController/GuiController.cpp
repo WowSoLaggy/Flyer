@@ -6,6 +6,7 @@
 #include <GuiModel/GuiCollection.h>
 #include <GuiModel/Label.h>
 #include <ModelControllers/WorldController.h>
+#include <ModelControllers/WorldEvents.h>
 
 
 GuiController::GuiController(GuiCollection& io_guiCollection, IWorldController& io_worldController)
@@ -23,5 +24,16 @@ void GuiController::update(double i_dt)
   {
     if (auto* pLabel = dynamic_cast<Label*>(gui.get()))
       LabelController::update(*pLabel, i_dt);
+  }
+}
+
+
+void GuiController::processEvent(const IEvent& i_event)
+{
+  if (auto* pObjectAddedEvent = dynamic_cast<const ObjectAddedEvent*>(&i_event))
+  {
+  }
+  else if (auto* pObjectDeletedEvent = dynamic_cast<const ObjectDeletedEvent*>(&i_event))
+  {
   }
 }
