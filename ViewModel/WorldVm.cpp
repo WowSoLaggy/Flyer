@@ -4,8 +4,9 @@
 #include "TerrainVm.h"
 #include "ObjectVm.h"
 
+#include <Model/World.h>
+#include <ModelControllers/WorldController.h>
 #include <ModelControllers/WorldEvents.h>
-#include <ModelControllers/WorldWrapper.h>
 #include <RenderApi/IRenderer3d.h>
 
 
@@ -16,15 +17,17 @@ WorldVm::WorldVm(IRenderDevice& io_renderDevice, const IResourceController& i_re
 }
 
 
-void WorldVm::buildFromWorld(WorldWrapper& i_world)
+void WorldVm::buildFromWorld(IWorldController& i_worldController)
 {
-  d_terrainVm = std::shared_ptr<TerrainVm>(
-    new TerrainVm(d_renderDevice, d_resourceController, i_world.getTerrain()));
+  auto& worldController = dynamic_cast<WorldController&>(i_worldController);
 
-  for (const auto& object : i_world.getObjects())
+  d_terrainVm = std::shared_ptr<TerrainVm>(
+    new TerrainVm(d_renderDevice, d_resourceController, worldController.getWorld().getTerrain()));
+
+  for (const auto& object : worldController.getWorld().getObjects())
     onObjectAdded(*object);
 
-  connectTo(i_world);
+  connectTo(worldController);
 }
 
 

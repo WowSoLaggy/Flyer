@@ -17,7 +17,7 @@ public:
   ICamera& getCamera() { return *d_camera; }
   const ICamera& getCamera() const { return *d_camera; }
 
-  void buildWorldVms(WorldWrapper& i_world);
+  void buildWorldVms(IWorldController& i_worldController);
   void buildGuiVms(const GuiCollection& i_guiCollection);
 
   void render(double i_dt) const;

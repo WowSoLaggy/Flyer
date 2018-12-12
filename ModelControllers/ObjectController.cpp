@@ -13,25 +13,27 @@ namespace
 {
   std::map<ObjectId, ObjectId> s_destinationArrowIdMap;
 
-  void createDestinationArrowObject(ObjectId& o_destinationArrowId, const Vector3& i_position)
+  void createDestinationArrowObject(ObjectId& o_destinationArrowId, const Vector3& i_position,
+                                    WorldController& io_worldController)
   {
     ObjectPtr arrow = std::make_shared<Object>();
     arrow->setPosition(i_position);
     arrow->setModelName("Arrow.cmo");
 
     o_destinationArrowId = arrow->getId();
-    WorldController::addObject(arrow);
+    io_worldController.addObject(arrow);
   }
 
-  void deleteDestinationArrowObject(ObjectId i_destinationArrowId)
+  void deleteDestinationArrowObject(ObjectId i_destinationArrowId, WorldController& io_worldController)
   {
-    WorldController::deleteObject(i_destinationArrowId);
+    io_worldController.deleteObject(i_destinationArrowId);
   }
 
 } // anonymous NS
 
 
-void ObjectController::updateObject(ObjectPtr& io_object, double i_dt)
+void ObjectController::updateObject(ObjectPtr& io_object, double i_dt,
+                                    WorldController& io_worldController)
 {
   auto& action = io_object->getCurrentAction();
   switch (action.getActionType())
@@ -45,7 +47,8 @@ void ObjectController::updateObject(ObjectPtr& io_object, double i_dt)
       float newY = (float)(std::rand() % 160 + 20) / 10;
       io_object->setCurrentAction(std::make_shared<ActionMoveTo>(ActionMoveTo({ newX, newY })));
       
-      createDestinationArrowObject(s_destinationArrowIdMap[io_object->getId()], { newX, 1, newY });
+      createDestinationArrowObject(s_destinationArrowIdMap[io_object->getId()], { newX, 1, newY },
+                                   io_worldController);
     }
     break;
   }
@@ -63,7 +66,7 @@ void ObjectController::updateObject(ObjectPtr& io_object, double i_dt)
       double timeToHold = (double)(std::rand() % 50) / 10;
       io_object->setCurrentAction(std::make_shared<ActionHold>(ActionHold(timeToHold)));
 
-      deleteDestinationArrowObject(s_destinationArrowIdMap.at(io_object->getId()));
+      deleteDestinationArrowObject(s_destinationArrowIdMap.at(io_object->getId()), io_worldController);
 
       return;
     }

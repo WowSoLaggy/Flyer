@@ -14,7 +14,7 @@ public:
 
   WorldVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController);
 
-  void buildFromWorld(WorldWrapper& i_world);
+  void buildFromWorld(IWorldController& i_worldController);
 
   void render(IRenderer3d& i_renderer, double i_dt) const;
 

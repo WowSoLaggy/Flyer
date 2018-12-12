@@ -28,9 +28,9 @@ GameVm::GameVm(IRenderDevice& io_renderDevice, const IResourceController& i_reso
 }
 
 
-void GameVm::buildWorldVms(WorldWrapper& i_world)
+void GameVm::buildWorldVms(IWorldController& i_worldController)
 {
-  d_worldVm->buildFromWorld(i_world);
+  d_worldVm->buildFromWorld(i_worldController);
 }
 
 void GameVm::buildGuiVms(const GuiCollection& i_guiCollection)

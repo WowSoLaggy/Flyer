@@ -3,6 +3,7 @@
 
 #include <Engine/IEngine.h>
 #include <GuiController/GuiController.h>
+#include <ModelControllers/IWorldController.h>
 #include <ModelControllers/WorldCreator.h>
 #include <ViewModel/GameVm.h>
 
@@ -62,11 +63,12 @@ void App::createRenderer()
 void App::createWorld()
 {
   d_world = WorldCreator::createNewWorld();
+  d_worldController = IWorldController::create(*d_world);
   d_guiCollection = GuiController::createGameGui();
 
   d_gameVm = std::make_shared<GameVm>(
     *d_engine->getRenderDevice(), *d_engine->getResourceController(),
     d_settingsController.getWindowWidth(), d_settingsController.getWindowHeight());
-  d_gameVm->buildWorldVms(*d_world);
+  d_gameVm->buildWorldVms(*d_worldController);
   d_gameVm->buildGuiVms(*d_guiCollection);
 }

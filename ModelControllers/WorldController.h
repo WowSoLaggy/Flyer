@@ -1,26 +1,32 @@
 #pragma once
 
-#include "ModelControllersFwd.h"
+#include "IWorldController.h"
 
 #include <Model/ModelFwd.h>
+#include <Sdk/EventHandler.h>
 
 
-class WorldController
+class WorldController : public IWorldController, public EventHandler
 {
 public:
 
-  static void updateWorld(WorldWrapper& io_world, double i_dt);
+  WorldController(World& io_world);
 
-  static void addObject(ObjectPtr i_object);
-  static void deleteObject(ObjectId i_objectId);
+  virtual void update(double i_dt) override;
+
+  World& getWorld() { return d_world; }
+  const World& getWorld() const { return d_world; }
+
+  void addObject(ObjectPtr i_object);
+  void deleteObject(ObjectId i_objectId);
 
 private:
 
-  WorldController() = default;
+  World& d_world;
 
-  static ObjectPtrs d_objectsToAdd;
-  static std::vector<ObjectId> d_objectIdsToDelete;
+  ObjectPtrs d_objectsToAdd;
+  std::vector<ObjectId> d_objectIdsToDelete;
 
-  static void updateObjects(WorldWrapper& io_world, double i_dt);
-  static void addDeleteObjects(WorldWrapper& io_world);
+  void updateObjects(double i_dt);
+  void addDeleteObjects();
 };

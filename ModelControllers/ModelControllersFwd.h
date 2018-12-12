@@ -1,3 +1,4 @@
 #pragma once
 
-class WorldWrapper;
+class IWorldController;
+class WorldController;

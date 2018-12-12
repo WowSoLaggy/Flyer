@@ -27,6 +27,9 @@
     <ClCompile Include="WorldCreator.cpp">
       <Filter>src\WorldCreator</Filter>
     </ClCompile>
+    <ClCompile Include="IWorldController.cpp">
+      <Filter>src\WorldController</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -41,10 +44,10 @@
     <ClInclude Include="WorldCreator.h">
       <Filter>src\WorldCreator</Filter>
     </ClInclude>
-    <ClInclude Include="WorldWrapper.h">
+    <ClInclude Include="WorldEvents.h">
       <Filter>src\WorldController</Filter>
     </ClInclude>
-    <ClInclude Include="WorldEvents.h">
+    <ClInclude Include="IWorldController.h">
       <Filter>src\WorldController</Filter>
     </ClInclude>
     <ClInclude Include="ModelControllersFwd.h">

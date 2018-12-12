@@ -6,6 +6,7 @@
 #include <Engine/EngineFwd.h>
 #include <GuiModel/GuiModelFwd.h>
 #include <InputApi/InputDeviceFwd.h>
+#include <Model/ModelFwd.h>
 #include <ModelControllers/ModelControllersFwd.h>
 #include <ViewModel/ViewModelFwd.h>
 
@@ -22,7 +23,8 @@ private:
   WindowCreator d_windowCreator;
   std::shared_ptr<IEngine> d_engine;
 
-  std::shared_ptr<WorldWrapper> d_world;
+  std::shared_ptr<World> d_world;
+  std::shared_ptr<IWorldController> d_worldController;
   std::shared_ptr<GuiCollection> d_guiCollection;
 
   std::shared_ptr<GameVm> d_gameVm;

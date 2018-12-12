@@ -3,17 +3,20 @@
 
 #include "ObjectController.h"
 #include "WorldEvents.h"
-#include "WorldWrapper.h"
+
+#include <Model/World.h>
 
 
-ObjectPtrs WorldController::d_objectsToAdd;
-std::vector<ObjectId> WorldController::d_objectIdsToDelete;
-
-
-void WorldController::updateWorld(WorldWrapper& io_world, double i_dt)
+WorldController::WorldController(World& io_world)
+  : d_world(io_world)
 {
-  updateObjects(io_world, i_dt);
-  addDeleteObjects(io_world);
+}
+
+
+void WorldController::update(double i_dt)
+{
+  updateObjects(i_dt);
+  addDeleteObjects();
 }
 
 
@@ -28,15 +31,15 @@ void WorldController::deleteObject(ObjectId i_objectId)
 }
 
 
-void WorldController::updateObjects(WorldWrapper& io_world, double i_dt)
+void WorldController::updateObjects(double i_dt)
 {
-  for (auto& object : io_world.getObjects())
-    ObjectController::updateObject(object, i_dt);
+  for (auto& object : d_world.getObjects())
+    ObjectController::updateObject(object, i_dt, *this);
 }
 
-void WorldController::addDeleteObjects(WorldWrapper& io_world)
+void WorldController::addDeleteObjects()
 {
-  auto& worldObjects = io_world.getObjects();
+  auto& worldObjects = d_world.getObjects();
 
   if (!d_objectIdsToDelete.empty())
   {
@@ -47,7 +50,7 @@ void WorldController::addDeleteObjects(WorldWrapper& io_world)
       if (it == worldObjects.end())
         continue;
 
-      io_world.notify(ObjectDeletedEvent{ **it });
+      notify(ObjectDeletedEvent{ **it });
 
       worldObjects.erase(it);
     }
@@ -60,7 +63,7 @@ void WorldController::addDeleteObjects(WorldWrapper& io_world)
     worldObjects.insert(worldObjects.end(), d_objectsToAdd.begin(), d_objectsToAdd.end());
 
     for (auto object : d_objectsToAdd)
-      io_world.notify(ObjectAddedEvent{ *object });
+      notify(ObjectAddedEvent{ *object });
 
     d_objectsToAdd.clear();
   }

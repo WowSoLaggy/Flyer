@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="IWorldController.cpp" />
     <ClCompile Include="ObjectController.cpp" />
     <ClCompile Include="WorldController.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -138,13 +139,13 @@
     <ClCompile Include="WorldCreator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IWorldController.h" />
     <ClInclude Include="ModelControllersFwd.h" />
     <ClInclude Include="ObjectController.h" />
     <ClInclude Include="WorldController.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="WorldCreator.h" />
     <ClInclude Include="WorldEvents.h" />
-    <ClInclude Include="WorldWrapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.vcxproj">
