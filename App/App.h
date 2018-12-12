@@ -5,6 +5,7 @@
 
 #include <Engine/EngineFwd.h>
 #include <GuiModel/GuiModelFwd.h>
+#include <GuiController/GuiControllerFwd.h>
 #include <InputApi/InputDeviceFwd.h>
 #include <Model/ModelFwd.h>
 #include <ModelControllers/ModelControllersFwd.h>
@@ -26,6 +27,7 @@ private:
   std::shared_ptr<World> d_world;
   std::shared_ptr<IWorldController> d_worldController;
   std::shared_ptr<GuiCollection> d_guiCollection;
+  std::shared_ptr<IGuiController> d_guiController;
 
   std::shared_ptr<GameVm> d_gameVm;
 

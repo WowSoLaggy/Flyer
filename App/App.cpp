@@ -2,7 +2,8 @@
 #include "App.h"
 
 #include <Engine/IEngine.h>
-#include <GuiController/GuiController.h>
+#include <GuiController/GuiCreator.h>
+#include <GuiController/IGuiController.h>
 #include <ModelControllers/IWorldController.h>
 #include <ModelControllers/WorldCreator.h>
 #include <ViewModel/GameVm.h>
@@ -64,7 +65,8 @@ void App::createWorld()
 {
   d_world = WorldCreator::createNewWorld();
   d_worldController = IWorldController::create(*d_world);
-  d_guiCollection = GuiController::createGameGui();
+  d_guiCollection = GuiCreator::createGameGui();
+  d_guiController = IGuiController::create(*d_guiCollection, *d_worldController);
 
   d_gameVm = std::make_shared<GameVm>(
     *d_engine->getRenderDevice(), *d_engine->getResourceController(),

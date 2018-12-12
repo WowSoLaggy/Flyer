@@ -31,7 +31,7 @@ ControlSignal App::controlCallback()
 void App::updateCallback(double i_dt)
 {
   d_worldController->update(i_dt);
-  GuiController::update(*d_guiCollection, i_dt);
+  d_guiController->update(i_dt);
 }
 
 void App::renderCallback(double i_dt)

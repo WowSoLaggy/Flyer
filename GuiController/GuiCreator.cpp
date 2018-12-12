@@ -1,11 +1,11 @@
 #include "stdafx.h"
-#include "GuiController.h"
+#include "GuiCreator.h"
 
 #include <GuiModel/GuiCollection.h>
 #include <GuiModel/Label.h>
 
 
-std::shared_ptr<GuiCollection> GuiController::createGameGui()
+std::shared_ptr<GuiCollection> GuiCreator::createGameGui()
 {
   auto guiCollection = std::make_shared<GuiCollection>();
 

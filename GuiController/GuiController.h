@@ -1,16 +1,21 @@
 #pragma once
 
+#include "IGuiController.h"
+
 #include <GuiModel/GuiModelFwd.h>
+#include <ModelControllers/ModelControllersFwd.h>
+#include <Sdk/EventHandler.h>
 
 
-class GuiController
+class GuiController : public IGuiController, public EventHandler
 {
 public:
 
-  static std::shared_ptr<GuiCollection> createGameGui();
+  GuiController(GuiCollection& io_guiCollection, IWorldController& io_worldController);
 
-  static void update(GuiCollection& io_guiCollection, double i_dt);
+  virtual void update(double i_dt) override;
 
 private:
-  GuiController() = delete;
+
+  GuiCollection& d_guiCollection;
 };

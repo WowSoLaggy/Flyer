@@ -127,8 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GuiController_Create.cpp" />
-    <ClCompile Include="GuiController_Update.cpp" />
+    <ClCompile Include="GuiController.cpp" />
+    <ClCompile Include="GuiCreator.cpp" />
+    <ClCompile Include="IGuiController.cpp" />
     <ClCompile Include="LabelController.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -139,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GuiController.h" />
+    <ClInclude Include="GuiControllerFwd.h" />
+    <ClInclude Include="GuiCreator.h" />
+    <ClInclude Include="IGuiController.h" />
     <ClInclude Include="LabelController.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
