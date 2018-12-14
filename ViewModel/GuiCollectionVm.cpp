@@ -7,7 +7,6 @@
 #include <GuiModel/GuiCollection.h>
 #include <GuiModel/Label.h>
 #include <GuiModel/Panel.h>
-#include <RenderApi/IRenderer2d.h>
 
 
 GuiCollectionVm::GuiCollectionVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController)
@@ -32,8 +31,5 @@ void GuiCollectionVm::buildFromCollection(const GuiCollection& i_guiCollection)
 void GuiCollectionVm::render(IRenderer2d& i_renderer, double i_dt) const
 {
   for (const auto& guiVm : d_guiVms)
-  {
-    if (const auto* pLabelVm = dynamic_cast<const LabelVm*>(guiVm.get()))
-      i_renderer.renderText(pLabelVm->getText(), pLabelVm->getFontResourceId());
-  }
+    guiVm->render(i_renderer);
 }

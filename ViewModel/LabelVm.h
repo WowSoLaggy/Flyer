@@ -3,7 +3,6 @@
 #include "GuiVm.h"
 
 #include <GuiModel/GuiModelFwd.h>
-#include <RenderApi/RenderApiFwd.h>
 
 
 class LabelVm : public GuiVm
@@ -12,8 +11,7 @@ public:
 
   LabelVm(const IResourceController& i_resourceController, const Label& i_label);
 
-  ResourceId getFontResourceId() const { return d_fontResourceId; }
-  const std::string& getText() const;
+  virtual void render(IRenderer2d& i_renderer) const override;
 
 private:
 
