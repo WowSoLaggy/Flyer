@@ -2,9 +2,11 @@
 #include "GuiCollectionVm.h"
 
 #include "LabelVm.h"
+#include "PanelVm.h"
 
 #include <GuiModel/GuiCollection.h>
 #include <GuiModel/Label.h>
+#include <GuiModel/Panel.h>
 #include <RenderApi/IRenderer2d.h>
 
 
@@ -21,6 +23,8 @@ void GuiCollectionVm::buildFromCollection(const GuiCollection& i_guiCollection)
   {
     if (const auto* pLabel = dynamic_cast<const Label*>(gui.get()))
       d_guiVms.push_back(std::make_shared<LabelVm>(d_resourceController, *pLabel));
+    else if (const auto* pPanel = dynamic_cast<const Panel*>(gui.get()))
+      d_guiVms.push_back(std::make_shared<PanelVm>(d_resourceController, *pPanel));
   }
 }
 

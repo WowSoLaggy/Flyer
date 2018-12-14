@@ -45,6 +45,9 @@
     <ClInclude Include="GameVm.h">
       <Filter>src\ViewModels\GameVm</Filter>
     </ClInclude>
+    <ClInclude Include="PanelVm.h">
+      <Filter>src\ViewModels\Gui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -67,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="GameVm.cpp">
       <Filter>src\ViewModels\GameVm</Filter>
+    </ClCompile>
+    <ClCompile Include="PanelVm.cpp">
+      <Filter>src\ViewModels\Gui</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

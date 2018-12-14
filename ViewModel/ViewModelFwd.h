@@ -9,3 +9,4 @@ class ObjectVm;
 class GuiCollectionVm;
 class GuiVm;
 class LabelVm;
+class PanelVm;
