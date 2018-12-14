@@ -7,7 +7,7 @@ class ICamera
 {
 public:
 
-  static std::shared_ptr<ICamera> createCamera(int i_screenWidth, int i_screenHeight);
+  static std::shared_ptr<ICamera> createCamera(float i_viewportAspect);
 
 public:
 

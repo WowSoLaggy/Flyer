@@ -9,7 +9,7 @@ class Camera : public ICamera
 {
 public:
 
-  Camera(int i_screenWidth, int i_screenHeight);
+  Camera(float i_viewportAspect);
 
   virtual Vector3 getPosition() const override;
   virtual Vector3 getDirection() const override;
@@ -40,7 +40,7 @@ private:
   XMMATRIX d_projectionMatrix;
   XMMATRIX d_viewMatrix;
 
-  void updateProjectionMatrix(int i_screenWidth, int i_screenHeight);
+  void updateProjectionMatrix(float i_viewportAspect);
   void updateViewMatrix();
 
 };

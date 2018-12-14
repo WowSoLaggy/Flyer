@@ -4,8 +4,8 @@
 #include "Camera.h"
 
 
-std::shared_ptr<ICamera> ICamera::createCamera(int i_screenWidth, int i_screenHeight)
+std::shared_ptr<ICamera> ICamera::createCamera(float i_viewportAspect)
 {
-  auto* pCamera = new Camera(i_screenWidth, i_screenHeight);
+  auto* pCamera = new Camera(i_viewportAspect);
   return std::shared_ptr<ICamera>(pCamera);
 }

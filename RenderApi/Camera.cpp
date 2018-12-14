@@ -2,12 +2,12 @@
 #include "Camera.h"
 
 
-Camera::Camera(int i_screenWidth, int i_screenHeight)
+Camera::Camera(float i_viewportAspect)
   : d_position{ 0, 0, 0 }
   , d_direction{ 1, 0, 0 }
   , d_up{ 0, 1, 0 }
 {
-  updateProjectionMatrix(i_screenWidth, i_screenHeight);
+  updateProjectionMatrix(i_viewportAspect);
 }
 
 
@@ -69,10 +69,9 @@ Vector3 Camera::getBackward() const
 }
 
 
-void Camera::updateProjectionMatrix(int i_screenWidth, int i_screenHeight)
+void Camera::updateProjectionMatrix(float i_viewportAspect)
 {
-  float screenAspect = (float)i_screenWidth / (float)i_screenHeight;
-  d_projectionMatrix = XMMatrixPerspectiveFovRH(c_fovAngle, screenAspect, c_near, c_far);
+  d_projectionMatrix = XMMatrixPerspectiveFovRH(c_fovAngle, i_viewportAspect, c_near, c_far);
 }
 
 void Camera::updateViewMatrix()
