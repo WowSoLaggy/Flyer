@@ -4,8 +4,10 @@
 #include "FontResource.h"
 #include "RenderDevice.h"
 #include "ResourceController.h"
+#include "TextureResource.h"
 
 #include <Sdk/StringUtils.h>
+#include <Sdk/Vector.h>
 
 
 Renderer2d::Renderer2d(
@@ -36,10 +38,19 @@ void Renderer2d::endScene()
 }
 
 
-void Renderer2d::renderText(const std::string& i_text, ResourceId i_fontResourceId)
+void Renderer2d::renderText(const std::string& i_text, ResourceId i_fontResourceId, const Vector2& i_position)
 {
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
-
   const auto& fontResource = resourceController.getFontResource(i_fontResourceId);
-  fontResource.getSpriteFont()->DrawString(d_spriteBatch.get(), Utils::getWString(i_text).c_str(), XMFLOAT2(0, 0));
+
+  fontResource.getSpriteFont()->DrawString(d_spriteBatch.get(),Utils::getWString(i_text).c_str(),
+                                           XMFLOAT2(i_position.x, i_position.y));
+}
+
+void Renderer2d::renderTexture(ResourceId i_textureResourceId, const Vector2& i_position)
+{
+  const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
+  const auto& textureResource = resourceController.getTextureResource(i_textureResourceId);
+
+  d_spriteBatch->Draw(textureResource.getTexturePtr(), XMFLOAT2(i_position.x, i_position.y), Colors::White);
 }
