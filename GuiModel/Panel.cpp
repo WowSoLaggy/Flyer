@@ -3,6 +3,6 @@
 
 
 Panel::Panel()
-  : d_textureName("HealthBar.dds")
+  : d_textureName("")
 {
 }
