@@ -3,10 +3,12 @@
 class World;
 class Terrain;
 
+using ObjectId = int;
 class Object;
 using ObjectPtr = std::shared_ptr<Object>;
 using ObjectPtrs = std::vector<ObjectPtr>;
 
-class IAction;
+class Creature;
+using CreaturePtr = std::shared_ptr<Creature>;
 
-using ObjectId = int;
+class IAction;

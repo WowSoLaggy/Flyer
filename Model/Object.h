@@ -13,6 +13,8 @@ public:
 
   ObjectId getId() const { return d_id; }
 
+  virtual bool isCreature() const { return false; }
+
   void setModelName(const std::string& i_modelName) { d_modelName = i_modelName; }
   const std::string& getModelName() const { return d_modelName; }
 

@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Creature.cpp" />
     <ClCompile Include="HeightMap.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Terrain.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="ActionHold.h" />
     <ClInclude Include="ActionIdle.h" />
     <ClInclude Include="ActionMoveTo.h" />
+    <ClInclude Include="Creature.h" />
     <ClInclude Include="HeightMap.h" />
     <ClInclude Include="IAction.h" />
     <ClInclude Include="Object.h" />

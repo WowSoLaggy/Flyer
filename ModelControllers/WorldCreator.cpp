@@ -2,6 +2,7 @@
 #include "WorldCreator.h"
 
 #include <Model/ActionHold.h>
+#include <Model/Creature.h>
 #include <Model/HeightMap.h>
 #include <Model/Object.h>
 #include <Model/World.h>
@@ -21,7 +22,7 @@ namespace
     o_objects.clear();
 
     {
-      ObjectPtr tom = std::make_shared<Object>();
+      CreaturePtr tom = std::make_shared<Creature>();
       tom->setPosition({ 2.5f, 1.0f, 2.5f });
       tom->setModelName("Tom.cmo");
       tom->setCurrentAction(std::make_shared<ActionHold>(ActionHold(1)));
@@ -29,7 +30,7 @@ namespace
     }
 
     {
-      ObjectPtr jerry = std::make_shared<Object>();
+      CreaturePtr jerry = std::make_shared<Creature>();
       jerry->setPosition({ 8.5f, 1.0f, 12.5f });
       jerry->setRotation({ 0, Math::degToRad(180.0f), 0 });
       jerry->setModelName("Tom.cmo");

@@ -6,6 +6,13 @@ class ObjectProperty
 {
 public:
 
+  ObjectProperty(T i_initialValue, T i_minValue, T i_maxValue)
+    : d_value(i_initialValue)
+    , d_valueMin(i_minValue)
+    , d_valueMax(i_maxValue)
+  {
+  }
+
   T getValue() const { return d_value; }
   T getValueMin() const { return d_valueMin; }
   T getValueMax() const { return d_valueMax; }
