@@ -2,6 +2,7 @@
 
 #include <GuiModel/GuiModelFwd.h>
 #include <ModelControllers/ModelControllersFwd.h>
+#include <RenderApi/RenderApiFwd.h>
 
 
 class IGuiController
@@ -9,7 +10,7 @@ class IGuiController
 public:
 
   static std::shared_ptr<IGuiController> create(
-    GuiCollection& io_guiCollection, IWorldController& io_worldController);
+    GuiCollection& io_guiCollection, IWorldController& io_worldController, const ICamera& i_camera);
 
 public:
 

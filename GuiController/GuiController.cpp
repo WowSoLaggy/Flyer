@@ -7,10 +7,12 @@
 #include <GuiModel/Label.h>
 #include <ModelControllers/WorldController.h>
 #include <ModelControllers/WorldEvents.h>
+#include <RenderApi/ICamera.h>
 
 
-GuiController::GuiController(GuiCollection& io_guiCollection, IWorldController& io_worldController)
+GuiController::GuiController(GuiCollection& io_guiCollection, IWorldController& io_worldController, const ICamera& i_camera)
   : d_guiCollection(io_guiCollection)
+  , d_camera(i_camera)
 {
   auto& worldController = dynamic_cast<WorldController&>(io_worldController);
   connectTo(worldController);
