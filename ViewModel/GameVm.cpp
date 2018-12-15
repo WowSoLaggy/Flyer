@@ -33,9 +33,9 @@ void GameVm::buildWorldVms(IWorldController& i_worldController)
   d_worldVm->buildFromWorld(i_worldController);
 }
 
-void GameVm::buildGuiVms(const GuiCollection& i_guiCollection)
+void GameVm::buildGuiVms(IGuiController& i_guiController)
 {
-  d_guiCollectionVm->buildFromCollection(i_guiCollection);
+  d_guiCollectionVm->buildFromCollection(i_guiController);
 }
 
 

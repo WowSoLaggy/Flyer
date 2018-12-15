@@ -2,6 +2,7 @@
 
 #include "ViewModelFwd.h"
 
+#include <GuiController/GuiControllerFwd.h>
 #include <GuiModel/GuiModelFwd.h>
 #include <ModelControllers/ModelControllersFwd.h>
 #include <RenderApi/RenderApiFwd.h>
@@ -18,7 +19,7 @@ public:
   const ICamera& getCamera() const { return *d_camera; }
 
   void buildWorldVms(IWorldController& i_worldController);
-  void buildGuiVms(const GuiCollection& i_guiCollection);
+  void buildGuiVms(IGuiController& i_guiController);
 
   void render(double i_dt) const;
 
