@@ -10,6 +10,7 @@ std::shared_ptr<GuiCollection> GuiCreator::createGameGui()
   auto guiCollection = std::make_shared<GuiCollection>();
 
   auto pLabel = std::make_shared<Label>();
+  pLabel->setPosition({ 0, 0 });
   pLabel->setText("Meow");
   guiCollection->addGui(pLabel);
 

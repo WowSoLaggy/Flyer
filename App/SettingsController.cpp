@@ -18,11 +18,6 @@ int SettingsController::getWindowHeight() const
   return 960;
 }
 
-float SettingsController::getWindowAspect() const
-{
-  return (float)getWindowWidth() / (float)getWindowHeight();
-}
-
 
 std::string SettingsController::getResourceFolder() const
 {
