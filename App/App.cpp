@@ -63,13 +63,15 @@ void App::createRenderer()
 
 void App::createWorld()
 {
+  d_gameVm = std::make_shared<GameVm>(
+    *d_engine->getRenderDevice(), *d_engine->getResourceController(),
+    d_settingsController.getWindowWidth(), d_settingsController.getWindowHeight());
+
   d_world = WorldCreator::createNewWorld();
   d_worldController = IWorldController::create(*d_world);
   d_guiCollection = GuiCreator::createGameGui();
   d_guiController = IGuiController::create(*d_guiCollection, *d_worldController);
 
-  d_gameVm = std::make_shared<GameVm>(
-    *d_engine->getRenderDevice(), *d_engine->getResourceController(), d_settingsController.getWindowAspect());
   d_gameVm->buildWorldVms(*d_worldController);
   d_gameVm->buildGuiVms(*d_guiCollection);
 }

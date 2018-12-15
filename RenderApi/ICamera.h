@@ -7,7 +7,7 @@ class ICamera
 {
 public:
 
-  static std::shared_ptr<ICamera> createCamera(float i_viewportAspect);
+  static std::shared_ptr<ICamera> createCamera(int i_screenWidth, int i_screenHeight);
 
 public:
 
@@ -25,4 +25,6 @@ public:
   virtual Vector3 getRight() const = 0;
   virtual Vector3 getForward() const = 0;
   virtual Vector3 getBackward() const = 0;
+
+  virtual Vector2 worldToScreen(const Vector3& i_point) const = 0;
 };

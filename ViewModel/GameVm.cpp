@@ -10,11 +10,11 @@
 
 
 GameVm::GameVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController,
-               float i_viewportAspect)
+  int i_screenWidth, int i_screenHeight)
   : d_renderDevice(io_renderDevice)
   , d_resourceController(i_resourceController)
 {
-  d_camera = ICamera::createCamera(i_viewportAspect);
+  d_camera = ICamera::createCamera(i_screenWidth, i_screenHeight);
   d_renderer2d = IRenderer2d::create(io_renderDevice, i_resourceController);
   d_renderer3d = IRenderer3d::create(io_renderDevice, i_resourceController, *d_camera);
 

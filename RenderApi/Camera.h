@@ -9,7 +9,7 @@ class Camera : public ICamera
 {
 public:
 
-  Camera(float i_viewportAspect);
+  Camera(int i_screenWidth, int i_screenHeight);
 
   virtual Vector3 getPosition() const override;
   virtual Vector3 getDirection() const override;
@@ -24,14 +24,19 @@ public:
   virtual Vector3 getForward() const override;
   virtual Vector3 getBackward() const override;
 
+  virtual Vector2 worldToScreen(const Vector3& i_point) const override;
+
   const XMMATRIX& getProjectionMatrix() const { return d_projectionMatrix; }
   const XMMATRIX& getViewMatrix() const { return d_viewMatrix; }
 
 private:
 
-  const float c_fovAngle = (float)DirectX::XM_PI / 4.0f;
-  const float c_near = 0.1f;
-  const float c_far = 1000.0f;
+  const float FovAngle = (float)DirectX::XM_PI / 4.0f;
+  const float ViewportMinZ = 0.1f;
+  const float ViewportMaxZ = 1000.0f;
+
+  int d_viewportWidth;
+  int d_viewportHeight;
 
   XMFLOAT3 d_position;
   XMFLOAT3 d_direction;
@@ -40,7 +45,7 @@ private:
   XMMATRIX d_projectionMatrix;
   XMMATRIX d_viewMatrix;
 
-  void updateProjectionMatrix(float i_viewportAspect);
+  void updateProjectionMatrix();
   void updateViewMatrix();
 
 };

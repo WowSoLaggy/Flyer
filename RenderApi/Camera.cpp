@@ -2,12 +2,14 @@
 #include "Camera.h"
 
 
-Camera::Camera(float i_viewportAspect)
+Camera::Camera(int i_screenWidth, int i_screenHeight)
   : d_position{ 0, 0, 0 }
   , d_direction{ 1, 0, 0 }
   , d_up{ 0, 1, 0 }
+  , d_viewportWidth(i_screenWidth)
+  , d_viewportHeight(i_screenHeight)
 {
-  updateProjectionMatrix(i_viewportAspect);
+  updateProjectionMatrix();
 }
 
 
@@ -69,9 +71,11 @@ Vector3 Camera::getBackward() const
 }
 
 
-void Camera::updateProjectionMatrix(float i_viewportAspect)
+void Camera::updateProjectionMatrix()
 {
-  d_projectionMatrix = XMMatrixPerspectiveFovRH(c_fovAngle, i_viewportAspect, c_near, c_far);
+  float screenAspect = (float)d_viewportWidth/ (float)d_viewportHeight;
+  d_projectionMatrix = XMMatrixPerspectiveFovRH(FovAngle, screenAspect,
+                                                ViewportMinZ, ViewportMaxZ);
 }
 
 void Camera::updateViewMatrix()
@@ -82,4 +86,19 @@ void Camera::updateViewMatrix()
     d_position.z + d_direction.z };
 
   d_viewMatrix = XMMatrixLookAtRH(XMLoadFloat3(&d_position), XMLoadFloat3(&lookAt), XMLoadFloat3(&d_up));
+}
+
+
+Vector2 Camera::worldToScreen(const Vector3& i_point) const
+{
+  FXMVECTOR v1 = XMVectorSet(i_point.x, i_point.y, i_point.z, 1);
+  auto worldMatrix = XMMatrixIdentity();
+
+  auto res = XMVector3Project(v1, 0, 0,
+                              d_viewportWidth, d_viewportHeight, ViewportMinZ, ViewportMaxZ,
+                              d_projectionMatrix, d_viewMatrix, worldMatrix);
+
+  XMFLOAT3 tempVector;
+  XMStoreFloat3(&tempVector, res);
+  return { tempVector.x, tempVector.y };
 }

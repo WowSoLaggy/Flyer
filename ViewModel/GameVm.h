@@ -12,7 +12,7 @@ class GameVm
 public:
 
   GameVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController,
-         float i_viewportAspect);
+    int i_screenWidth, int i_screenHeight);
 
   ICamera& getCamera() { return *d_camera; }
   const ICamera& getCamera() const { return *d_camera; }
