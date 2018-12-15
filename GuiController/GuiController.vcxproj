@@ -142,6 +142,7 @@
     <ClInclude Include="GuiController.h" />
     <ClInclude Include="GuiControllerFwd.h" />
     <ClInclude Include="GuiCreator.h" />
+    <ClInclude Include="GuiEvents.h" />
     <ClInclude Include="IGuiController.h" />
     <ClInclude Include="LabelController.h" />
     <ClInclude Include="stdafx.h" />

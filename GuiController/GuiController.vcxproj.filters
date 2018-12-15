@@ -50,5 +50,8 @@
     <ClInclude Include="GuiControllerFwd.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="GuiEvents.h">
+      <Filter>src\GuiController</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
