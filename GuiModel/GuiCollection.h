@@ -7,12 +7,11 @@ class GuiCollection
 {
 public:
 
-  const std::vector<std::shared_ptr<IGui>>& getGuis() const { return d_guis; }
-
-  void addGui(std::shared_ptr<IGui> i_gui);
+  IGuiPtrs& getGuis() { return d_guis; }
+  const IGuiPtrs& getGuis() const { return d_guis; }
 
 private:
 
-  std::vector<std::shared_ptr<IGui>> d_guis;
+  IGuiPtrs d_guis;
 
 };
