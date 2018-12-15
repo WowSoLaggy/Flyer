@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GuiCollection.cpp" />
+    <ClCompile Include="IGui.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="Panel.cpp" />
     <ClCompile Include="stdafx.cpp">
