@@ -17,3 +17,9 @@ void PanelVm::render(IRenderer2d& i_renderer) const
 {
   i_renderer.renderTexture(d_textureResourceId, d_panel.getPosition());
 }
+
+
+const IGui& PanelVm::getGui() const
+{
+  return d_panel;
+}

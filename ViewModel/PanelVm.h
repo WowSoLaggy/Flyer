@@ -13,6 +13,8 @@ public:
 
   virtual void render(IRenderer2d& i_renderer) const override;
 
+  virtual const IGui& getGui() const override;
+
 private:
 
   const Panel& d_panel;

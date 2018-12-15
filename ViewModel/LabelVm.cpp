@@ -17,3 +17,9 @@ void LabelVm::render(IRenderer2d& i_renderer) const
 {
   i_renderer.renderText(d_label.getText(), d_fontResourceId, d_label.getPosition());
 }
+
+
+const IGui& LabelVm::getGui() const
+{
+  return d_label;
+}
