@@ -8,16 +8,16 @@ class ObjectAddedEvent : public IEvent
 {
 public:
 
-  ObjectAddedEvent(const Object& i_object)
+  ObjectAddedEvent(ObjectPtr i_object)
     : d_object(i_object)
   {
   }
 
-  const Object& getObject() const { return d_object; }
+  ObjectPtr getObject() const { return d_object; }
 
 private:
 
-  const Object& d_object;
+  ObjectPtr d_object;
 };
 
 
@@ -25,15 +25,15 @@ class ObjectDeletedEvent : public IEvent
 {
 public:
 
-  ObjectDeletedEvent(const Object& i_object)
+  ObjectDeletedEvent(ObjectPtr i_object)
     : d_object(i_object)
   {
   }
 
-  const Object& getObject() const { return d_object; }
+  ObjectPtr getObject() const { return d_object; }
 
 private:
 
-  const Object& d_object;
+  ObjectPtr d_object;
 };
 

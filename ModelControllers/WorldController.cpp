@@ -50,7 +50,7 @@ void WorldController::addDeleteObjects()
       if (it == worldObjects.end())
         continue;
 
-      notify(ObjectDeletedEvent{ **it });
+      notify(ObjectDeletedEvent{ *it });
 
       worldObjects.erase(it);
     }
@@ -63,7 +63,7 @@ void WorldController::addDeleteObjects()
     worldObjects.insert(worldObjects.end(), d_objectsToAdd.begin(), d_objectsToAdd.end());
 
     for (auto object : d_objectsToAdd)
-      notify(ObjectAddedEvent{ *object });
+      notify(ObjectAddedEvent{ object });
 
     d_objectsToAdd.clear();
   }

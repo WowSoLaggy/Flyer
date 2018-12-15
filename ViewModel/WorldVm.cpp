@@ -46,9 +46,9 @@ void WorldVm::render(IRenderer3d& i_renderer, double i_dt) const
 void WorldVm::processEvent(const IEvent& i_event)
 {
   if (const auto* pObjectAddedEvent = dynamic_cast<const ObjectAddedEvent*>(&i_event))
-    onObjectAdded(pObjectAddedEvent->getObject());
+    onObjectAdded(*pObjectAddedEvent->getObject());
   else if (const auto* pObjectDeletedEvent = dynamic_cast<const ObjectDeletedEvent*>(&i_event))
-    onObjectDeleted(pObjectDeletedEvent->getObject());
+    onObjectDeleted(*pObjectDeletedEvent->getObject());
 }
 
 
@@ -60,7 +60,7 @@ void WorldVm::onObjectAdded(const Object& i_object)
 void WorldVm::onObjectDeleted(const Object& i_object)
 {
   d_objectVms.erase(std::remove_if(d_objectVms.begin(), d_objectVms.end(),
-    [&](const std::shared_ptr<ObjectVm>& i_objectVm)
+                                   [&](std::shared_ptr<ObjectVm> i_objectVm)
   {
     return i_objectVm->getObject().getId() == i_object.getId();
   }), d_objectVms.end());
