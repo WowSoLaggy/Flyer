@@ -7,10 +7,5 @@ class LabelController
 {
 public:
 
-  static void update(Label& io_label, double i_dt);
-
-private:
-
-  LabelController() = default;
-
+  void update(Label& io_label, double i_dt);
 };

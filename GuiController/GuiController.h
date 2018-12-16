@@ -1,6 +1,7 @@
 #pragma once
 
 #include "IGuiController.h"
+#include "LabelController.h"
 
 #include <GuiModel/GuiModelFwd.h>
 #include <Model/ModelFwd.h>
@@ -27,6 +28,7 @@ private:
   const ICamera& d_camera;
 
   std::unordered_map<GuiId, ObjectPtr> d_healthBarMap;
+  LabelController d_labelController;
 
   void createGameGui(const World& i_world);
 

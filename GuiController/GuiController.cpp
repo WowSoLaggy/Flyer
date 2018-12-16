@@ -3,7 +3,6 @@
 
 #include "GuiCreator.h"
 #include "GuiEvents.h"
-#include "LabelController.h"
 
 #include <GuiModel/GuiCollection.h>
 #include <GuiModel/HealthBar.h>
@@ -20,6 +19,7 @@
 GuiController::GuiController(GuiCollection& io_guiCollection, IWorldController& io_worldController, const ICamera& i_camera)
   : d_guiCollection(io_guiCollection)
   , d_camera(i_camera)
+  , d_labelController()
 {
   auto& worldController = dynamic_cast<WorldController&>(io_worldController);
   createGameGui(worldController.getWorld());
@@ -33,7 +33,7 @@ void GuiController::update(double i_dt)
   for (auto gui : guis)
   {
     if (auto* pLabel = dynamic_cast<Label*>(gui.get()))
-      LabelController::update(*pLabel, i_dt);
+      d_labelController.update(*pLabel, i_dt);
     if (auto* pHealthBar = dynamic_cast<HealthBar*>(gui.get()))
       positionHealthBar(*pHealthBar);
   }
