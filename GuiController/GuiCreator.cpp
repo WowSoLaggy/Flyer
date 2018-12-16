@@ -24,6 +24,9 @@ std::shared_ptr<HealthBar> GuiCreator::createHealthBar()
   auto pHealthBar = std::make_shared<HealthBar>();
   pHealthBar->setTextureBackName("HealthBar_back.dds");
   pHealthBar->setTextureFrontName("HealthBar_front.dds");
-  pHealthBar->setOffset({ 2, 2 });
+  pHealthBar->setOffset({ -40, 10 });
+  pHealthBar->setFrontOffset({ 2, 2 });
+  pHealthBar->setSizeBack({ 80, 8 });
+  pHealthBar->setSizeFront({ 76, 4 });
   return pHealthBar;
 }
