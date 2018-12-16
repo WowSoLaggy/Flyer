@@ -52,5 +52,17 @@ void Renderer2d::renderTexture(ResourceId i_textureResourceId, const Vector2& i_
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
   const auto& textureResource = resourceController.getTextureResource(i_textureResourceId);
 
-  d_spriteBatch->Draw(textureResource.getTexturePtr(), XMFLOAT2(i_position.x, i_position.y), Colors::White);
+  d_spriteBatch->Draw(textureResource.getTexturePtr(), XMFLOAT2((int)i_position.x, (int)i_position.y), Colors::White);
 }
+
+void Renderer2d::renderTexture(ResourceId i_textureResourceId,
+                               const Vector2& i_position, const Vector2& i_size)
+{
+  const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
+  const auto& textureResource = resourceController.getTextureResource(i_textureResourceId);
+
+  RECT destinationRect{ (int)i_position.x, (int)i_position.y,
+    (int)(i_position.x + i_size.x), (int)(i_position.y + i_size.y) };
+  d_spriteBatch->Draw(textureResource.getTexturePtr(), destinationRect, Colors::White);
+}
+

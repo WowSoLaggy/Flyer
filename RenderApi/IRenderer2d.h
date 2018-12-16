@@ -22,4 +22,6 @@ public:
 
   virtual void renderText(const std::string& i_text, ResourceId i_fontResourceId, const Vector2& i_position) = 0;
   virtual void renderTexture(ResourceId i_textureResourceId, const Vector2& i_position) = 0;
+  virtual void renderTexture(ResourceId i_textureResourceId,
+                             const Vector2& i_position, const Vector2& i_size) = 0;
 };
