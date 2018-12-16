@@ -22,7 +22,7 @@ public:
   void setValueMax(T i_valueMax) { d_valueMax = i_valueMax; }
   T getValueMax() const { return d_valueMax; }
 
-  double getValueRelative() const { return (d_value - d_valueMin) / (d_valueMax - d_valueMin); }
+  double getValueRelative() const { return double(d_value - d_valueMin) / double(d_valueMax - d_valueMin); }
 
 private:
 
