@@ -49,8 +49,8 @@ void Renderer3d::renderObject(ResourceId i_meshResourceCmoId,
   const auto animationTransform = animationController.getTransform();
 
   auto worldMatrix =
-    XMMatrixRotationRollPitchYaw(i_rotation.x, i_rotation.y, i_rotation.z) *
     animationTransform *
+    XMMatrixRotationRollPitchYaw(i_rotation.x, i_rotation.y, i_rotation.z) *
     XMMatrixTranslation(i_position.x, i_position.y, i_position.z);
 
   meshResourceCmo.getModel().UpdateEffects([&](IEffect* io_pEffect)
