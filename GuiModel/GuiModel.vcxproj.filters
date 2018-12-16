@@ -30,6 +30,9 @@
     <ClInclude Include="Panel.h">
       <Filter>src\Guis</Filter>
     </ClInclude>
+    <ClInclude Include="HealthBar.h">
+      <Filter>src\Guis</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -45,6 +48,9 @@
       <Filter>src\Guis</Filter>
     </ClCompile>
     <ClCompile Include="IGui.cpp">
+      <Filter>src\Guis</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthBar.cpp">
       <Filter>src\Guis</Filter>
     </ClCompile>
   </ItemGroup>
