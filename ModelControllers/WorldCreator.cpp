@@ -25,7 +25,10 @@ namespace
       CreaturePtr tom = std::make_shared<Creature>();
       tom->setPosition({ 2.5f, 1.0f, 2.5f });
       tom->setModelName("Tom.cmo");
+
       tom->setCurrentAction(std::make_shared<ActionHold>(ActionHold(1)));
+      tom->getPropHealth().setValue(100);
+
       o_objects.push_back(std::move(tom));
     }
 
@@ -34,7 +37,10 @@ namespace
       jerry->setPosition({ 8.5f, 1.0f, 12.5f });
       jerry->setRotation({ 0, Math::degToRad(180.0f), 0 });
       jerry->setModelName("Tom.cmo");
+
       jerry->setCurrentAction(std::make_shared<ActionHold>(ActionHold(2)));
+      jerry->getPropHealth().setValue(50);
+
       o_objects.push_back(std::move(jerry));
     }
 
