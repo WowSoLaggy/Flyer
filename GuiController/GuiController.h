@@ -1,5 +1,6 @@
 #pragma once
 
+#include "HealthBarController.h"
 #include "IGuiController.h"
 #include "LabelController.h"
 
@@ -13,7 +14,8 @@ class GuiController : public IGuiController, public EventHandler
 {
 public:
 
-  GuiController(GuiCollection& io_guiCollection, IWorldController& io_worldController, const ICamera& i_camera);
+  GuiController(GuiCollection& io_guiCollection, IWorldController& io_worldController,
+                const ICamera& i_camera);
 
   virtual void update(double i_dt) override;
 
@@ -25,15 +27,9 @@ public:
 private:
 
   GuiCollection& d_guiCollection;
-  const ICamera& d_camera;
 
-  std::unordered_map<GuiId, ObjectPtr> d_healthBarMap;
   LabelController d_labelController;
+  HealthBarController d_healthBarController;
 
   void createGameGui(const World& i_world);
-
-  void addHealthBar(CreaturePtr i_creaturePtr);
-  void deleteHealthBar(ObjectId i_objectId);
-  void positionHealthBar(HealthBar& io_healthBar);
-  void positionHealthBar(HealthBar& io_healthBar, CreaturePtr i_creaturePtr);
 };

@@ -7,11 +7,11 @@
     <Filter Include="src\GuiController">
       <UniqueIdentifier>{bb379983-a747-4df1-9513-3cfb34e72030}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\LabelController">
-      <UniqueIdentifier>{607ba65d-a401-4d2e-a0f7-ee6cc3c659e3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\GuiCreator">
       <UniqueIdentifier>{be63cb07-9b21-4e21-8bda-5ee39c122612}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Controllers">
+      <UniqueIdentifier>{607ba65d-a401-4d2e-a0f7-ee6cc3c659e3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -19,7 +19,7 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="LabelController.cpp">
-      <Filter>src\LabelController</Filter>
+      <Filter>src\Controllers</Filter>
     </ClCompile>
     <ClCompile Include="IGuiController.cpp">
       <Filter>src\GuiController</Filter>
@@ -30,6 +30,9 @@
     <ClCompile Include="GuiController.cpp">
       <Filter>src\GuiController</Filter>
     </ClCompile>
+    <ClCompile Include="HealthBarController.cpp">
+      <Filter>src\Controllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -39,7 +42,7 @@
       <Filter>src\GuiController</Filter>
     </ClInclude>
     <ClInclude Include="LabelController.h">
-      <Filter>src\LabelController</Filter>
+      <Filter>src\Controllers</Filter>
     </ClInclude>
     <ClInclude Include="IGuiController.h">
       <Filter>src\GuiController</Filter>
@@ -52,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="GuiEvents.h">
       <Filter>src\GuiController</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthBarController.h">
+      <Filter>src\Controllers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
