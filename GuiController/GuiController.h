@@ -3,6 +3,7 @@
 #include "IGuiController.h"
 
 #include <GuiModel/GuiModelFwd.h>
+#include <Model/ModelFwd.h>
 #include <ModelControllers/ModelControllersFwd.h>
 #include <Sdk/EventHandler.h>
 
@@ -25,4 +26,12 @@ private:
   GuiCollection& d_guiCollection;
   const ICamera& d_camera;
 
+  std::unordered_map<GuiId, ObjectPtr> d_healthBarMap;
+
+  void createGameGui(const World& i_world);
+
+  void addHealthBar(CreaturePtr i_creaturePtr);
+  void deleteHealthBar(ObjectId i_objectId);
+  void positionHealthBar(HealthBar& io_healthBar);
+  void positionHealthBar(HealthBar& io_healthBar, CreaturePtr i_creaturePtr);
 };
