@@ -130,6 +130,7 @@
     <ClInclude Include="GameVm.h" />
     <ClInclude Include="GuiCollectionVm.h" />
     <ClInclude Include="GuiVm.h" />
+    <ClInclude Include="HealthBarVm.h" />
     <ClInclude Include="LabelVm.h" />
     <ClInclude Include="ObjectVm.h" />
     <ClInclude Include="PanelVm.h" />
@@ -141,6 +142,7 @@
   <ItemGroup>
     <ClCompile Include="GameVm.cpp" />
     <ClCompile Include="GuiCollectionVm.cpp" />
+    <ClCompile Include="HealthBarVm.cpp" />
     <ClCompile Include="LabelVm.cpp" />
     <ClCompile Include="ObjectVm.cpp" />
     <ClCompile Include="PanelVm.cpp" />

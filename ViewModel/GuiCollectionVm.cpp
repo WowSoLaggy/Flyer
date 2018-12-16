@@ -1,12 +1,14 @@
 #include "stdafx.h"
 #include "GuiCollectionVm.h"
 
+#include "HealthBarVm.h"
 #include "LabelVm.h"
 #include "PanelVm.h"
 
 #include <GuiController/GuiController.h>
 #include <GuiController/GuiEvents.h>
 #include <GuiModel/GuiCollection.h>
+#include <GuiModel/HealthBar.h>
 #include <GuiModel/Label.h>
 #include <GuiModel/Panel.h>
 
@@ -51,6 +53,8 @@ void GuiCollectionVm::onGuiAdded(const IGui& i_gui)
     d_guiVms.push_back(std::make_shared<LabelVm>(d_resourceController, *pLabel));
   else if (const auto* pPanel = dynamic_cast<const Panel*>(&i_gui))
     d_guiVms.push_back(std::make_shared<PanelVm>(d_resourceController, *pPanel));
+  else if (const auto* pHealthBar = dynamic_cast<const HealthBar*>(&i_gui))
+    d_guiVms.push_back(std::make_shared<HealthBarVm>(d_resourceController, *pHealthBar));
 }
 
 void GuiCollectionVm::onGuiDeleted(const IGui& i_gui)

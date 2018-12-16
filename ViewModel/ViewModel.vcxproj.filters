@@ -48,6 +48,9 @@
     <ClInclude Include="PanelVm.h">
       <Filter>src\ViewModels\Gui</Filter>
     </ClInclude>
+    <ClInclude Include="HealthBarVm.h">
+      <Filter>src\ViewModels\Gui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -72,6 +75,9 @@
       <Filter>src\ViewModels\GameVm</Filter>
     </ClCompile>
     <ClCompile Include="PanelVm.cpp">
+      <Filter>src\ViewModels\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthBarVm.cpp">
       <Filter>src\ViewModels\Gui</Filter>
     </ClCompile>
   </ItemGroup>
