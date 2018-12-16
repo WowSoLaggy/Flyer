@@ -1,9 +1,10 @@
 #include "stdafx.h"
 #include "WorldController.h"
 
-#include "ObjectController.h"
+#include "CreatureController.h"
 #include "WorldEvents.h"
 
+#include <Model/Creature.h>
 #include <Model/World.h>
 
 
@@ -33,8 +34,11 @@ void WorldController::deleteObject(ObjectId i_objectId)
 
 void WorldController::updateObjects(double i_dt)
 {
-  for (auto& object : d_world.getObjects())
-    ObjectController::updateObject(object, i_dt, *this);
+  for (auto objectPtr : d_world.getObjects())
+  {
+    if (objectPtr->isCreature())
+      CreatureController::updateObject(std::dynamic_pointer_cast<Creature>(objectPtr), i_dt, *this);
+  }
 }
 
 void WorldController::addDeleteObjects()

@@ -7,11 +7,11 @@
     <Filter Include="src\WorldController">
       <UniqueIdentifier>{63f7d5a3-82ed-443c-a7ad-a403f072fe0f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\ObjectController">
-      <UniqueIdentifier>{c39f967a-f296-410c-a443-8675f8260830}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\WorldCreator">
       <UniqueIdentifier>{dfdbe8ff-a6fd-4278-99e3-bb80c54df202}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ObjectControllers">
+      <UniqueIdentifier>{c39f967a-f296-410c-a443-8675f8260830}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -21,14 +21,14 @@
     <ClCompile Include="WorldController.cpp">
       <Filter>src\WorldController</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectController.cpp">
-      <Filter>src\ObjectController</Filter>
-    </ClCompile>
     <ClCompile Include="WorldCreator.cpp">
       <Filter>src\WorldCreator</Filter>
     </ClCompile>
     <ClCompile Include="IWorldController.cpp">
       <Filter>src\WorldController</Filter>
+    </ClCompile>
+    <ClCompile Include="CreatureController.cpp">
+      <Filter>src\ObjectControllers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -37,9 +37,6 @@
     </ClInclude>
     <ClInclude Include="WorldController.h">
       <Filter>src\WorldController</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjectController.h">
-      <Filter>src\ObjectController</Filter>
     </ClInclude>
     <ClInclude Include="WorldCreator.h">
       <Filter>src\WorldCreator</Filter>
@@ -52,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="ModelControllersFwd.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="CreatureController.h">
+      <Filter>src\ObjectControllers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
