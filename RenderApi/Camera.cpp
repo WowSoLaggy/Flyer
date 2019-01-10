@@ -94,8 +94,8 @@ Vector2 Camera::worldToScreen(const Vector3& i_point) const
   FXMVECTOR v1 = XMVectorSet(i_point.x, i_point.y, i_point.z, 1);
   auto worldMatrix = XMMatrixIdentity();
 
-  auto res = XMVector3Project(v1, 0, 0,
-                              d_viewportWidth, d_viewportHeight, ViewportMinZ, ViewportMaxZ,
+  auto res = XMVector3Project(v1, 0.0f, 0.0f,
+                              (float)d_viewportWidth, (float)d_viewportHeight, ViewportMinZ, ViewportMaxZ,
                               d_projectionMatrix, d_viewMatrix, worldMatrix);
 
   XMFLOAT3 tempVector;
