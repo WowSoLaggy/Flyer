@@ -33,8 +33,8 @@ private:
 
   // Scripts
 
-  const int MaxNumberOfCreatures = 10;
-  const double TimeBeforeNextCreatureIsSpawn = 3.0;
+  const int MaxNumberOfCreatures = 20;
+  const double TimeBeforeNextCreatureIsSpawn = 1.0;
   
   double timeLeftBeforeSpawn;
 };
