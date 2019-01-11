@@ -106,16 +106,17 @@ void CreatureController::updateObject(CreaturePtr io_creature, double i_dt,
     const auto& attackAction = dynamic_cast<const ActionAttack&>(action);
     auto targetObjectPtr = attackAction.getTarget();
 
-    auto positionAttacker = xyz2xz(io_creature->getPosition());
-    auto positionTarget = xyz2xz(targetObjectPtr->getPosition());
-    
-    auto distanceToTarget = length(positionTarget - positionAttacker);
+    auto distance = xyz2xz(targetObjectPtr->getPosition()) - xyz2xz(io_creature->getPosition());
+    auto distanceLength = length(distance);
 
-    if (distanceToTarget > AttackDistance)
+    if (distanceLength > AttackDistance)
     {
       io_creature->setCurrentAction(std::make_shared<ActionMoveTo>(targetObjectPtr, ApproachDistance));
       break;
     }
+
+    // Turn to the target
+    io_creature->setRotation({ 0, -std::atan2(distance.y, distance.x), 0 });
 
     // TODO: Make this check not so stupid
     if (io_creature->getPropAttackCooldown().getValueRelative() < 0.01)
