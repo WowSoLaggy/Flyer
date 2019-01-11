@@ -7,6 +7,7 @@
 #include <functional>
 #include <map>
 #include <memory>
+#include <numeric>
 #include <regex>
 #include <string>
 #include <thread>
