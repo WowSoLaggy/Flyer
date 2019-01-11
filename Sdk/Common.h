@@ -1,5 +1,7 @@
 #pragma once
 
+#define NOMINMAX
+
 #include <chrono>
 #include <fstream>
 #include <functional>
