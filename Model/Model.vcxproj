@@ -140,7 +140,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ActionHold.h" />
     <ClInclude Include="ActionIdle.h" />
     <ClInclude Include="ActionMoveTo.h" />
     <ClInclude Include="Creature.h" />

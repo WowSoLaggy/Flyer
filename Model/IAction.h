@@ -4,7 +4,6 @@
 enum class ActionType : int
 {
   Idle = 0,
-  Hold,
   MoveTo,
 };
 

@@ -59,9 +59,6 @@
     <ClInclude Include="ActionMoveTo.h">
       <Filter>src\Actions</Filter>
     </ClInclude>
-    <ClInclude Include="ActionHold.h">
-      <Filter>src\Actions</Filter>
-    </ClInclude>
     <ClInclude Include="HeightMap.h">
       <Filter>src\Terrain</Filter>
     </ClInclude>

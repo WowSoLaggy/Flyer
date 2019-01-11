@@ -3,7 +3,6 @@
 
 #include "WorldController.h"
 
-#include <Model/ActionHold.h>
 #include <Model/ActionMoveTo.h>
 #include <Model/Creature.h>
 #include <Model/Object.h>
@@ -39,7 +38,7 @@ void CreatureController::updateObject(CreaturePtr io_creature, double i_dt,
   auto& action = io_creature->getCurrentAction();
   switch (action.getActionType())
   {
-  case ActionType::Hold:
+  /*case ActionType::Hold:
   {
     auto& holdAction = dynamic_cast<ActionHold&>(action);
     if (!holdAction.hold(i_dt))
@@ -52,7 +51,8 @@ void CreatureController::updateObject(CreaturePtr io_creature, double i_dt,
                                    io_worldController);
     }
     break;
-  }
+  }*/
+
   case ActionType::MoveTo:
   {
     const auto& moveToAction = dynamic_cast<const ActionMoveTo&>(action);
@@ -65,9 +65,9 @@ void CreatureController::updateObject(CreaturePtr io_creature, double i_dt,
     if (lengthSq(direction) <= moveToAction.getToleranceSq())
     {
       double timeToHold = (double)(std::rand() % 50) / 10;
-      io_creature->setCurrentAction(std::make_shared<ActionHold>(ActionHold(timeToHold)));
+      io_creature->setCurrentAction(std::make_shared<ActionIdle>());
 
-      deleteDestinationArrowObject(s_destinationArrowIdMap.at(io_creature->getId()), io_worldController);
+      //deleteDestinationArrowObject(s_destinationArrowIdMap.at(io_creature->getId()), io_worldController);
 
       return;
     }

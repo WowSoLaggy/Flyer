@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "WorldCreator.h"
 
-#include <Model/ActionHold.h>
 #include <Model/Creature.h>
 #include <Model/HeightMap.h>
 #include <Model/Object.h>
@@ -26,7 +25,6 @@ namespace
       tom->setPosition({ 2.5f, 1.0f, 2.5f });
       tom->setModelName("Tom.cmo");
 
-      tom->setCurrentAction(std::make_shared<ActionHold>(ActionHold(1)));
       tom->getPropHealth().setValue(100);
 
       o_objects.push_back(std::move(tom));
@@ -38,7 +36,6 @@ namespace
       jerry->setRotation({ 0, Math::degToRad(180.0f), 0 });
       jerry->setModelName("Tom.cmo");
 
-      jerry->setCurrentAction(std::make_shared<ActionHold>(ActionHold(2)));
       jerry->getPropHealth().setValue(50);
 
       o_objects.push_back(std::move(jerry));
