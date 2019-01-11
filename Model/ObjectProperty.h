@@ -6,7 +6,7 @@ class ObjectProperty
 {
 public:
 
-  ObjectProperty(T i_initialValue, T i_minValue, T i_maxValue)
+  ObjectProperty(T i_initialValue = T(0), T i_minValue = T(0), T i_maxValue = T(0))
     : d_value(i_initialValue)
     , d_valueMin(i_minValue)
     , d_valueMax(i_maxValue)
