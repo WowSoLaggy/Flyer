@@ -5,6 +5,7 @@ enum class ActionType : int
 {
   Idle = 0,
   MoveTo,
+  Attack,
 };
 
 

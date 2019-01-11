@@ -71,5 +71,8 @@
     <ClInclude Include="Creature.h">
       <Filter>src\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="ActionAttack.h">
+      <Filter>src\Actions</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
