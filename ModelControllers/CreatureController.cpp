@@ -3,7 +3,9 @@
 
 #include "WorldController.h"
 
+#include <Model/ActionAttack.h>
 #include <Model/ActionMoveTo.h>
+#include <Model/ActionIdle.h>
 #include <Model/Creature.h>
 #include <Model/Object.h>
 #include <Model/World.h>
@@ -12,9 +14,35 @@
 namespace
 {
 
+  CreaturePtr findTarget(CreaturePtr i_attacker, const ObjectPtrs& i_objects, double& o_distance)
   {
+    auto attackerId = i_attacker->getId();
+    auto isOurObject = [&](ObjectPtr i_object)
+    {
+      return i_object->isCreature() && i_object->getId() != attackerId;
+    };
 
+    CreaturePtr closestTarget = nullptr;
+    double distSqToClosestTarget = std::numeric_limits<double>::max();
+    auto attackerPosition = xyz2xz(i_attacker->getPosition());
 
+    for (auto objectPtr : i_objects)
+    {
+      if (!isOurObject(objectPtr))
+        continue;
+
+      auto targetPosition = xyz2xz(objectPtr->getPosition());
+      double distSq = lengthSq(targetPosition - attackerPosition);
+
+      if (distSq < distSqToClosestTarget)
+      {
+        distSq = distSqToClosestTarget;
+        closestTarget = std::dynamic_pointer_cast<Creature>(objectPtr);
+      }
+    }
+
+    o_distance = std::sqrt(distSqToClosestTarget);
+    return closestTarget;
   }
 
 } // anonymous NS
@@ -26,8 +54,22 @@ void CreatureController::updateObject(CreaturePtr io_creature, double i_dt,
   auto& action = io_creature->getCurrentAction();
   switch (action.getActionType())
   {
+
+  case ActionType::Idle:
   {
+    double distanceToTarget = 0;
+    auto closestTarget = findTarget(io_creature, io_worldController.getWorld().getObjects(), distanceToTarget);
+    if (!closestTarget)
+      break;
+
+    const float DistanceToAttack = 1.0f;
+    if (distanceToTarget <= DistanceToAttack)
+      io_creature->setCurrentAction(std::make_shared<ActionAttack>(closestTarget));
+    else
+      io_creature->setCurrentAction(std::make_shared<ActionMoveTo>(closestTarget, 0.9f));
+
     break;
+  }
 
   case ActionType::MoveTo:
   {
