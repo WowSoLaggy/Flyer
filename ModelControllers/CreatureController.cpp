@@ -36,7 +36,7 @@ namespace
 
       if (distSq < distSqToClosestTarget)
       {
-        distSq = distSqToClosestTarget;
+        distSqToClosestTarget = distSq;
         closestTarget = std::dynamic_pointer_cast<Creature>(objectPtr);
       }
     }
