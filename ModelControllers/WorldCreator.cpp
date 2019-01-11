@@ -20,13 +20,21 @@ namespace
   const int DefaultMaxHealth = 100;
   const int DefaultHealth = DefaultMaxHealth;
 
+  const double DefaultMinAttackCooldown = 0;
+  const double DefaultMaxAttackCooldown = 1.0;
+  const double DefaultAttackCooldown = DefaultMaxAttackCooldown;
+
+  const int DefaultDamage = 10;
+
+
   CreaturePtr createCreature()
   {
     CreaturePtr creature = std::make_shared<Creature>();
 
-    creature->getPropHealth().setValueMin(DefaultMinHealth);
-    creature->getPropHealth().setValueMax(DefaultMaxHealth);
-    creature->getPropHealth().setValue(DefaultHealth);
+    creature->getPropHealth().set(DefaultHealth, DefaultMinHealth, DefaultMaxHealth);
+    creature->getPropAttackCooldown().set(
+      DefaultAttackCooldown, DefaultMinAttackCooldown, DefaultMaxAttackCooldown);
+    creature->getPropDamage().set(DefaultDamage, DefaultDamage, DefaultDamage);
 
     return creature;
   }
