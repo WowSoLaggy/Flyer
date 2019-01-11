@@ -8,8 +8,6 @@ class Creature : public Object
 {
 public:
 
-  Creature();
-
   virtual bool isCreature() const { return true; }
 
   ObjectProperty<int>& getPropHealth() { return d_health; }

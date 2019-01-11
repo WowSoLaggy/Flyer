@@ -33,9 +33,6 @@
     <ClCompile Include="HeightMap.cpp">
       <Filter>src\Terrain</Filter>
     </ClCompile>
-    <ClCompile Include="Creature.cpp">
-      <Filter>src\Objects</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">

@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Creature.cpp" />
     <ClCompile Include="HeightMap.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Terrain.cpp" />

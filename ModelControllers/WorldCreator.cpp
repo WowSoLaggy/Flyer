@@ -11,17 +11,32 @@
 namespace
 {
 
-  const int sizeX = 1;
-  const int sizeZ = 1;
-  const float defaultHeight = 1.0f;
-  const float heightGridStep = 20.0f;
+  const int SizeX = 1;
+  const int SizeZ = 1;
+  const float DefaultHeight = 1.0f;
+  const float HeightGridStep = 20.0f;
+
+  const int DefaultMinHealth = 0;
+  const int DefaultMaxHealth = 100;
+  const int DefaultHealth = DefaultMaxHealth;
+
+  CreaturePtr createCreature()
+  {
+    CreaturePtr creature = std::make_shared<Creature>();
+
+    creature->getPropHealth().setValueMin(DefaultMinHealth);
+    creature->getPropHealth().setValueMax(DefaultMaxHealth);
+    creature->getPropHealth().setValue(DefaultHealth);
+
+    return creature;
+  }
 
   void createObjects(ObjectPtrs& o_objects)
   {
     o_objects.clear();
 
     {
-      CreaturePtr tom = std::make_shared<Creature>();
+      CreaturePtr tom = createCreature();
       tom->setPosition({ 2.5f, 1.0f, 2.5f });
       tom->setModelName("Tom.cmo");
 
@@ -31,7 +46,7 @@ namespace
     }
 
     {
-      CreaturePtr jerry = std::make_shared<Creature>();
+      CreaturePtr jerry = createCreature();
       jerry->setPosition({ 8.5f, 1.0f, 12.5f });
       jerry->setRotation({ 0, Math::degToRad(180.0f), 0 });
       jerry->setModelName("Tom.cmo");
@@ -101,7 +116,7 @@ namespace
   {
     HeightMap heightMap;
 
-    heightMap.resize(sizeX, sizeZ, defaultHeight);
+    heightMap.resize(SizeX, SizeZ, DefaultHeight);
 
     return heightMap;
   }
@@ -115,7 +130,7 @@ std::shared_ptr<World> WorldCreator::createNewWorld()
 
   pWorld->getTerrain().setTextureName("Grass.dds");
   pWorld->getTerrain().setHeightMap(createHeightMap());
-  pWorld->getTerrain().setHeightGridStep(heightGridStep);
+  pWorld->getTerrain().setHeightGridStep(HeightGridStep);
   
   createObjects(pWorld->getObjects());
 
