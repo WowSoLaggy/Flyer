@@ -2,6 +2,7 @@
 #include "WorldController.h"
 
 #include "CreatureController.h"
+#include "WorldCreator.h"
 #include "WorldEvents.h"
 
 #include <Model/Creature.h>
@@ -11,11 +12,13 @@
 WorldController::WorldController(World& io_world)
   : d_world(io_world)
 {
+  timeLeftBeforeSpawn = TimeBeforeNextCreatureIsSpawn;
 }
 
 
 void WorldController::update(double i_dt)
 {
+  updateScripts(i_dt);
   updateObjects(i_dt);
   addDeleteObjects();
 }
@@ -31,6 +34,31 @@ void WorldController::deleteObject(ObjectId i_objectId)
   d_objectIdsToDelete.push_back(i_objectId);
 }
 
+
+void WorldController::updateScripts(double i_dt)
+{
+  auto& worldObjects = d_world.getObjects();
+  int numberOfAliveCreatures = std::accumulate(worldObjects.begin(), worldObjects.end(), 0,
+                  [](int i_total, const ObjectPtr& i_objectPtr)
+  {
+    return i_objectPtr->isCreature() ? i_total + 1 : i_total;
+  });
+
+  if (numberOfAliveCreatures >= MaxNumberOfCreatures)
+    return;
+
+  timeLeftBeforeSpawn -= i_dt;
+  if (timeLeftBeforeSpawn > 0)
+    return;
+
+  timeLeftBeforeSpawn = TimeBeforeNextCreatureIsSpawn;
+
+  CreaturePtr newCreature = WorldCreator::createCreature();
+  float xPos = (float)(std::rand() % 100 + 20) / 10;
+  float zPos = (float)(std::rand() % 160 + 20) / 10;
+  newCreature->setPosition({ xPos, 1.0f, zPos });
+  addObject(newCreature);
+}
 
 void WorldController::updateObjects(double i_dt)
 {

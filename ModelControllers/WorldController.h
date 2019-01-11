@@ -27,6 +27,14 @@ private:
   ObjectPtrs d_objectsToAdd;
   std::vector<ObjectId> d_objectIdsToDelete;
 
+  void updateScripts(double i_dt);
   void updateObjects(double i_dt);
   void addDeleteObjects();
+
+  // Scripts
+
+  const int MaxNumberOfCreatures = 10;
+  const double TimeBeforeNextCreatureIsSpawn = 3.0;
+  
+  double timeLeftBeforeSpawn;
 };
