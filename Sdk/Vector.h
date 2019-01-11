@@ -64,3 +64,11 @@ float lengthSq(const Vector3& i_v);
 Vector3 normalize(const Vector3& i_v);
 
 Vector3 cross(const Vector3& i_left, const Vector3& i_right);
+
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Common
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+
+Vector2 xyz2xz(const Vector3& i_v);

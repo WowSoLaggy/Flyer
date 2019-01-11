@@ -115,3 +115,14 @@ Vector3 cross(const Vector3& i_left, const Vector3& i_right)
     i_left.z * i_right.x - i_left.x * i_right.z,
     i_left.x * i_right.y - i_left.y * i_right.x };
 }
+
+
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Common
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+
+Vector2 xyz2xz(const Vector3& i_v)
+{
+  return Vector2{ i_v.x, i_v.z };
+}
