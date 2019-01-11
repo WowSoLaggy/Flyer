@@ -117,6 +117,7 @@ void CreatureController::updateObject(CreaturePtr io_creature, double i_dt,
       break;
     }
 
+    // TODO: Make this check not so stupid
     if (io_creature->getPropAttackCooldown().getValueRelative() < 0.01)
     {
       io_creature->getPropAttackCooldown().setToMax();
@@ -125,6 +126,13 @@ void CreatureController::updateObject(CreaturePtr io_creature, double i_dt,
       auto damage = io_creature->getPropDamage().getValue();
 
       targetObjectPtr->getPropHealth().setValue(currentHealth - damage);
+
+      // TODO: Make this check not so stupid
+      if (targetObjectPtr->getPropHealth().getValueRelative() < 0.01)
+      {
+        io_worldController.deleteObject(targetObjectPtr->getId());
+        io_creature->setCurrentAction(std::make_shared<ActionIdle>());
+      }
     }
 
     break;
