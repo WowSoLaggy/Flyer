@@ -51,6 +51,12 @@ namespace
 void CreatureController::updateObject(CreaturePtr io_creature, double i_dt,
                                     WorldController& io_worldController)
 {
+  const float AttackDistance = 1.0f;
+  const float ApproachDistance = AttackDistance - 0.1f;
+
+  double attackCooldownValue = std::max(io_creature->getPropAttackCooldown().getValue() - i_dt, 0.0);
+  io_creature->getPropAttackCooldown().setValue(attackCooldownValue);
+
   auto& action = io_creature->getCurrentAction();
   switch (action.getActionType())
   {
@@ -62,11 +68,10 @@ void CreatureController::updateObject(CreaturePtr io_creature, double i_dt,
     if (!closestTarget)
       break;
 
-    const float DistanceToAttack = 1.0f;
-    if (distanceToTarget <= DistanceToAttack)
+    if (distanceToTarget <= AttackDistance)
       io_creature->setCurrentAction(std::make_shared<ActionAttack>(closestTarget));
     else
-      io_creature->setCurrentAction(std::make_shared<ActionMoveTo>(closestTarget, 0.9f));
+      io_creature->setCurrentAction(std::make_shared<ActionMoveTo>(closestTarget, ApproachDistance));
 
     break;
   }
@@ -84,7 +89,7 @@ void CreatureController::updateObject(CreaturePtr io_creature, double i_dt,
     {
       double timeToHold = (double)(std::rand() % 50) / 10;
       io_creature->setCurrentAction(std::make_shared<ActionIdle>());
-      return;
+      break;
     }
 
     const float maxSpeed = 1.0f;
@@ -92,6 +97,35 @@ void CreatureController::updateObject(CreaturePtr io_creature, double i_dt,
 
     io_creature->setPosition(io_creature->getPosition() + Vector3{ movement.x, 0, movement.y });
     io_creature->setRotation({ 0, -std::atan2(direction.y, direction.x), 0 });
+
+    break;
+  }
+
+  case ActionType::Attack:
+  {
+    const auto& attackAction = dynamic_cast<const ActionAttack&>(action);
+    auto targetObjectPtr = attackAction.getTarget();
+
+    auto positionAttacker = xyz2xz(io_creature->getPosition());
+    auto positionTarget = xyz2xz(targetObjectPtr->getPosition());
+    
+    auto distanceToTarget = length(positionTarget - positionAttacker);
+
+    if (distanceToTarget > AttackDistance)
+    {
+      io_creature->setCurrentAction(std::make_shared<ActionMoveTo>(targetObjectPtr, ApproachDistance));
+      break;
+    }
+
+    if (io_creature->getPropAttackCooldown().getValueRelative() < 0.01)
+    {
+      io_creature->getPropAttackCooldown().setToMax();
+
+      auto currentHealth = targetObjectPtr->getPropHealth().getValue();
+      auto damage = io_creature->getPropDamage().getValue();
+
+      targetObjectPtr->getPropHealth().setValue(currentHealth - damage);
+    }
 
     break;
   }
