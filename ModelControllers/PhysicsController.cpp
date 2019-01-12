@@ -17,10 +17,11 @@ void PhysicsController::updateObject(IRealObjectPtr io_object, double i_dt)
     return;
 
   const float MinThreshold = 0.01f;
-
-  const auto direction = io_object->getMovementDirection();
   const float acceleration = io_object->getAcceleration();
   const float maxSpeed = io_object->getMaxSpeed();
+
+  const auto direction = io_object->getMovementDirection();
+  auto speedVector = io_object->getSpeed();
 
   auto accelerationVector = Vector3::zero();
   if (length(direction) >= MinThreshold)
@@ -28,13 +29,15 @@ void PhysicsController::updateObject(IRealObjectPtr io_object, double i_dt)
     // Have movement direction - accelerate this direction
     accelerationVector = normalize(direction) * acceleration;
   }
-  else if (length(io_object->getSpeed()) >= MinThreshold)
+  else if (length(speedVector) >= MinThreshold)
   {
     // No movement direction, but have some speed - reduce the speed
-    accelerationVector = normalize(io_object->getSpeed()) * -acceleration;
+    accelerationVector = normalize(speedVector) * -acceleration;
   }
 
-  auto speedVector = io_object->getSpeed() + accelerationVector * (float)i_dt;
+  if (length(accelerationVector) >= MinThreshold)
+    speedVector += accelerationVector * (float)i_dt;
+
   const float speed = length(speedVector);
   if (speed > maxSpeed)
   {
