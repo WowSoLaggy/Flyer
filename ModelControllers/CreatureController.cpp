@@ -79,23 +79,20 @@ void CreatureController::updateObject(CreaturePtr io_creature, double i_dt,
   case ActionType::MoveTo:
   {
     const auto& moveToAction = dynamic_cast<const ActionMoveTo&>(action);
-    auto position = io_creature->getPosition();
-    Vector2 position2 = { position.x, position.z };
-    auto goal = moveToAction.getGoal();
 
-    auto direction = goal - position2;
+    auto position = xyz2xz(io_creature->getPosition());
+    auto goal = moveToAction.getGoal();
+    auto direction = goal - position;
 
     if (lengthSq(direction) <= moveToAction.getToleranceSq())
     {
       double timeToHold = (double)(std::rand() % 50) / 10;
       io_creature->setCurrentAction(std::make_shared<ActionIdle>());
+      io_creature->resetMovementDirection();
       break;
     }
 
-    const float maxSpeed = 1.0f;
-    auto movement = normalize(direction) * maxSpeed * (float)i_dt;
-
-    io_creature->setPosition(io_creature->getPosition() + Vector3{ movement.x, 0, movement.y });
+    io_creature->setMovementDirection({ direction.x, 0.0f, direction.y });
     io_creature->setRotation({ 0, -std::atan2(direction.y, direction.x), 0 });
 
     break;

@@ -2,6 +2,7 @@
 #include "WorldController.h"
 
 #include "CreatureController.h"
+#include "PhysicsController.h"
 #include "WorldCreator.h"
 #include "WorldEvents.h"
 
@@ -21,6 +22,12 @@ void WorldController::update(double i_dt)
   updateScripts(i_dt);
   updateObjects(i_dt);
   addDeleteObjects();
+
+  // TODO: please deal with this shit
+  IRealObjectPtrs realObjects;
+  std::copy(d_world.getObjects().begin(), d_world.getObjects().end(), std::back_inserter(realObjects));
+
+  PhysicsController::updateObjects(realObjects, i_dt);
 }
 
 
