@@ -9,6 +9,7 @@ class Creature : public Object
 public:
 
   virtual bool isCreature() const { return true; }
+  virtual bool isMovable() const override { return true; }
 
   ObjectProperty<int>& getPropHealth() { return d_health; }
   const ObjectProperty<int>& getPropHealth() const { return d_health; }

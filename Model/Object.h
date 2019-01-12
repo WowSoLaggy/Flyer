@@ -1,11 +1,12 @@
 #pragma once
 
+#include "IRealObject.h"
 #include "ModelFwd.h"
 
 #include <Sdk/Vector.h>
 
 
-class Object
+class Object : public IRealObject
 {
 public:
 
@@ -15,11 +16,28 @@ public:
 
   virtual bool isCreature() const { return false; }
 
+  ///
+  /// IRealObject
+  ///
+
+  virtual bool isMovable() const override;
+  virtual float getAcceleration() const override;
+  virtual float getMaxSpeed() const override;
+  virtual Vector3 getMovementDirection() const override;
+
+  virtual Vector3 getPosition() const override;
+  virtual void setPosition(Vector3 i_position) override;
+
+  virtual Vector3 getSpeed() const override;
+  virtual void setSpeed(Vector3 i_speed) override;
+
+  ///
+
+  void setMovementDirection(Vector3 i_movementDirection);
+  void resetMovementDirection();
+
   void setModelName(const std::string& i_modelName) { d_modelName = i_modelName; }
   const std::string& getModelName() const { return d_modelName; }
-
-  void setPosition(const Vector3& i_position) { d_position = i_position; }
-  const Vector3& getPosition() const { return d_position; }
 
   void setRotation(const Vector3& i_rotation) { d_rotation = i_rotation; }
   const Vector3& getRotation() const { return d_rotation; }
@@ -38,7 +56,9 @@ private:
 
   std::string d_modelName;
 
+  Vector3 d_movementDirection;
   Vector3 d_position;
+  Vector3 d_speed;
   Vector3 d_rotation;
 
   std::shared_ptr<IAction> d_currentAction;
