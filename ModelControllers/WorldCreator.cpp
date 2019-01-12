@@ -20,11 +20,11 @@ namespace
 
   const int DefaultMinHealth = 0;
   const int DefaultMaxHealth = 100;
-  const int DefaultHealth = DefaultMaxHealth;
+  const int DefaultStartHealth = DefaultMaxHealth;
 
   const double DefaultMinAttackCooldown = 0;
   const double DefaultMaxAttackCooldown = 1.0;
-  const double DefaultAttackCooldown = DefaultMaxAttackCooldown;
+  const double DefaultStartAttackCooldown = DefaultMinAttackCooldown;
 
   const int DefaultDamage = 10;
 
@@ -60,9 +60,9 @@ CreaturePtr WorldCreator::createCreature()
 
   creature->setModelName(defaultModelName);
 
-  creature->getPropHealth().set(DefaultHealth, DefaultMinHealth, DefaultMaxHealth);
+  creature->getPropHealth().set(DefaultStartHealth, DefaultMinHealth, DefaultMaxHealth);
   creature->getPropAttackCooldown().set(
-    DefaultAttackCooldown, DefaultMinAttackCooldown, DefaultMaxAttackCooldown);
+    DefaultStartAttackCooldown, DefaultMinAttackCooldown, DefaultMaxAttackCooldown);
   creature->getPropDamage().set(DefaultDamage, DefaultDamage, DefaultDamage);
 
   return creature;
