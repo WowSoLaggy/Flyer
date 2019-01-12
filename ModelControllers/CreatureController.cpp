@@ -14,7 +14,7 @@
 namespace
 {
 
-  const float AttackDistance = 1.0f;
+  const float AttackDistance = 1.5f;
   const float ApproachDistance = AttackDistance - 0.1f;
 
   CreaturePtr findTarget(CreaturePtr i_attacker, const ObjectPtrs& i_objects, double& o_distance)
