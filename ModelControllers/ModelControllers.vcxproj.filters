@@ -36,6 +36,9 @@
     <ClCompile Include="PhysicsController.cpp">
       <Filter>src\PhysicsController</Filter>
     </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>src\PhysicsController</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -60,6 +63,9 @@
       <Filter>src\ObjectControllers</Filter>
     </ClInclude>
     <ClInclude Include="PhysicsController.h">
+      <Filter>src\PhysicsController</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
       <Filter>src\PhysicsController</Filter>
     </ClInclude>
   </ItemGroup>

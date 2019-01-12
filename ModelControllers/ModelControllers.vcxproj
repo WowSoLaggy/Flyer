@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Collider.cpp" />
     <ClCompile Include="IWorldController.cpp" />
     <ClCompile Include="CreatureController.cpp" />
     <ClCompile Include="PhysicsController.cpp" />
@@ -140,6 +141,7 @@
     <ClCompile Include="WorldCreator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Collider.h" />
     <ClInclude Include="IWorldController.h" />
     <ClInclude Include="ModelControllersFwd.h" />
     <ClInclude Include="CreatureController.h" />
