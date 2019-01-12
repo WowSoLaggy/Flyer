@@ -19,6 +19,9 @@
     <Filter Include="src\Physics">
       <UniqueIdentifier>{f48dfb1b-0726-45b0-b144-6a6f609e115f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Physics\Shapes">
+      <UniqueIdentifier>{be347729-90ed-40fe-887b-9a7fd045f6b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -76,6 +79,12 @@
     </ClInclude>
     <ClInclude Include="IRealObject.h">
       <Filter>src\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="IShape.h">
+      <Filter>src\Physics\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>src\Physics\Shapes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

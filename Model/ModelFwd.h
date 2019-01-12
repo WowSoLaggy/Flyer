@@ -15,4 +15,6 @@ class IRealObject;
 using IRealObjectPtr = std::shared_ptr<IRealObject>;
 using IRealObjectPtrs = std::vector<IRealObjectPtr>;
 
+class IShape;
+
 class IAction;
