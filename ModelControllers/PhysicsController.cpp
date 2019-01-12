@@ -39,13 +39,17 @@ void PhysicsController::updateObject(IRealObjectPtr io_object, double i_dt)
     speedVector += accelerationVector * (float)i_dt;
 
   const float speed = length(speedVector);
+  if (speed < MinThreshold)
+  {
+    io_object->setSpeed(Vector3::zero());
+    return;
+  }
+
   if (speed > maxSpeed)
   {
     const float speedDecreaseCoef = speed / maxSpeed;
     speedVector = speedVector / speedDecreaseCoef;
   }
-  if (speed < MinThreshold)
-    speedVector = Vector3::zero();
   io_object->setSpeed(speedVector);
 
   auto newPosition = io_object->getPosition() + speedVector * (float)i_dt;
