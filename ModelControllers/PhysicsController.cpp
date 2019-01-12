@@ -4,19 +4,27 @@
 #include <Model/IRealObject.h>
 
 
+namespace
+{
+  const float MinThreshold = 0.01f;
+} // anonymous NS
+
+
 void PhysicsController::updateObjects(std::vector<IRealObjectPtr>& io_objects, double i_dt)
 {
   for (auto realObjectPtr : io_objects)
-    updateObject(realObjectPtr, i_dt);
+  {
+    if (!realObjectPtr->isMovable())
+      continue;
+
+    const auto virtualSpeed = getVirtualSpeed(realObjectPtr, i_dt);
+    applySpeed(realObjectPtr, i_dt, realSpeed);
+  }
 }
 
 
-void PhysicsController::updateObject(IRealObjectPtr io_object, double i_dt)
+Vector3 PhysicsController::getVirtualSpeed(IRealObjectPtr io_object, double i_dt)
 {
-  if (!io_object->isMovable())
-    return;
-
-  const float MinThreshold = 0.01f;
   const float acceleration = io_object->getAcceleration();
   const float maxSpeed = io_object->getMaxSpeed();
 
@@ -40,19 +48,22 @@ void PhysicsController::updateObject(IRealObjectPtr io_object, double i_dt)
 
   const float speed = length(speedVector);
   if (speed < MinThreshold)
-  {
-    io_object->setSpeed(Vector3::zero());
-    return;
-  }
+    return Vector3::zero();
 
   if (speed > maxSpeed)
   {
     const float speedDecreaseCoef = speed / maxSpeed;
     speedVector = speedVector / speedDecreaseCoef;
   }
-  io_object->setSpeed(speedVector);
 
-  auto newPosition = io_object->getPosition() + speedVector * (float)i_dt;
+  return speedVector;
+}
+
+void PhysicsController::applySpeed(IRealObjectPtr io_object, double i_dt, Vector3 i_speed)
+{
+  io_object->setSpeed(i_speed);
+
+  auto newPosition = io_object->getPosition() + i_speed * (float)i_dt;
   newPosition.y = 1.0f; // place on terrain
   io_object->setPosition(newPosition);
 }
