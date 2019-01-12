@@ -13,6 +13,9 @@
     <Filter Include="src\ObjectControllers">
       <UniqueIdentifier>{c39f967a-f296-410c-a443-8675f8260830}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\PhysicsController">
+      <UniqueIdentifier>{ab37f8c5-fcfb-40c0-ad98-deb0cd0a97d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -29,6 +32,9 @@
     </ClCompile>
     <ClCompile Include="CreatureController.cpp">
       <Filter>src\ObjectControllers</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsController.cpp">
+      <Filter>src\PhysicsController</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="CreatureController.h">
       <Filter>src\ObjectControllers</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsController.h">
+      <Filter>src\PhysicsController</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="IWorldController.cpp" />
     <ClCompile Include="CreatureController.cpp" />
+    <ClCompile Include="PhysicsController.cpp" />
     <ClCompile Include="WorldController.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -142,6 +143,7 @@
     <ClInclude Include="IWorldController.h" />
     <ClInclude Include="ModelControllersFwd.h" />
     <ClInclude Include="CreatureController.h" />
+    <ClInclude Include="PhysicsController.h" />
     <ClInclude Include="WorldController.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="WorldCreator.h" />
