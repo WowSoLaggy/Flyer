@@ -10,5 +10,8 @@ class CreatureController
 public:
   CreatureController() = delete;
 
-  static void updateObject(CreaturePtr io_creature, double i_dt, WorldController& io_worldController);
+  static void updateCreature(CreaturePtr io_creature, double i_dt, WorldController& io_worldController);
+
+private:
+  static void updateCreatureState(CreaturePtr io_creature, double i_dt);
 };

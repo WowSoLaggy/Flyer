@@ -48,14 +48,13 @@ namespace
 } // anonymous NS
 
 
-void CreatureController::updateObject(CreaturePtr io_creature, double i_dt,
-                                    WorldController& io_worldController)
+void CreatureController::updateCreature(CreaturePtr io_creature, double i_dt,
+                                        WorldController& io_worldController)
 {
+  updateCreatureState(io_creature, i_dt);
+
   const float AttackDistance = 1.0f;
   const float ApproachDistance = AttackDistance - 0.1f;
-
-  double attackCooldownValue = std::max(io_creature->getPropAttackCooldown().getValue() - i_dt, 0.0);
-  io_creature->getPropAttackCooldown().setValue(attackCooldownValue);
 
   auto& action = io_creature->getCurrentAction();
   switch (action.getActionType())
@@ -137,4 +136,11 @@ void CreatureController::updateObject(CreaturePtr io_creature, double i_dt,
   }
 
   } // switch (action.getActionType())
+}
+
+
+void CreatureController::updateCreatureState(CreaturePtr io_creature, double i_dt)
+{
+  double attackCooldownValue = std::max(io_creature->getPropAttackCooldown().getValue() - i_dt, 0.0);
+  io_creature->getPropAttackCooldown().setValue(attackCooldownValue);
 }

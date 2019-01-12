@@ -72,7 +72,7 @@ void WorldController::updateObjects(double i_dt)
   for (auto objectPtr : d_world.getObjects())
   {
     if (objectPtr->isCreature())
-      CreatureController::updateObject(std::dynamic_pointer_cast<Creature>(objectPtr), i_dt, *this);
+      CreatureController::updateCreature(std::dynamic_pointer_cast<Creature>(objectPtr), i_dt, *this);
   }
 }
 
