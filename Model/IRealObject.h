@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ModelFwd.h"
+
 #include <Sdk/Vector.h>
 
 
@@ -19,4 +21,6 @@ public:
 
   virtual Vector3 getSpeed() const = 0;
   virtual void setSpeed(Vector3 i_speed) = 0;
+
+  virtual const IShape& getCollisionShape() const = 0;
 };

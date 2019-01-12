@@ -17,6 +17,7 @@ Object::Object()
   , d_visible(true)
 {
   setCurrentAction(std::make_shared<ActionIdle>());
+  d_collisionShape.setRadius(0.5);
 }
 
 
@@ -53,6 +54,11 @@ void Object::setPosition(Vector3 i_position) { d_position = std::move(i_position
 
 Vector3 Object::getSpeed() const { return d_speed; }
 void Object::setSpeed(Vector3 i_speed) { d_speed = std::move(i_speed); }
+
+const IShape& Object::getCollisionShape() const
+{
+  return d_collisionShape;
+}
 
 ///
 

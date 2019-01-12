@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Circle.h"
 #include "IRealObject.h"
 #include "ModelFwd.h"
 
@@ -31,6 +32,8 @@ public:
   virtual Vector3 getSpeed() const override;
   virtual void setSpeed(Vector3 i_speed) override;
 
+  virtual const IShape& getCollisionShape() const override;
+
   ///
 
   void setMovementDirection(Vector3 i_movementDirection);
@@ -60,6 +63,8 @@ private:
   Vector3 d_position;
   Vector3 d_speed;
   Vector3 d_rotation;
+
+  Circle d_collisionShape;
 
   std::shared_ptr<IAction> d_currentAction;
 
