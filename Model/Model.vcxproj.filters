@@ -16,6 +16,9 @@
     <Filter Include="src\Actions">
       <UniqueIdentifier>{651ab460-0843-4b75-8500-67fa1b18f060}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Physics">
+      <UniqueIdentifier>{f48dfb1b-0726-45b0-b144-6a6f609e115f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -70,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="ActionAttack.h">
       <Filter>src\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="IRealObject.h">
+      <Filter>src\Physics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

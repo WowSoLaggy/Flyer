@@ -145,6 +145,7 @@
     <ClInclude Include="Creature.h" />
     <ClInclude Include="HeightMap.h" />
     <ClInclude Include="IAction.h" />
+    <ClInclude Include="IRealObject.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ModelFwd.h" />
     <ClInclude Include="ObjectProperty.h" />
