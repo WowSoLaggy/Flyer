@@ -75,7 +75,14 @@ Vector3 PhysicsController::getRealSpeed(ObjectPtr io_object, double i_dt,
     if (!Collider::collide(io_object, objectPtr, normal, tangent))
       continue;
 
-    return Vector3::zero();
+    float normalProjection = dot(xyz2xz(i_virtualSpeed), normal);
+    if (normalProjection > 0)
+    {
+      // It is allowed to go FROM the collision
+      continue;
+    }
+
+    return i_virtualSpeed - xy2x0z(normal * normalProjection, 0.0f);
   }
 
   return i_virtualSpeed;
