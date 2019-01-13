@@ -69,81 +69,81 @@ CreaturePtr WorldCreator::createCreature()
 }
 
 
+ObjectPtr WorldCreator::createObject(ObjectPtrs& o_objects)
+{
+  ObjectPtr object = std::make_shared<Object>();
+  o_objects.push_back(object);
+  return object;
+}
+
+CreaturePtr WorldCreator::createCreature(ObjectPtrs& o_objects)
+{
+  auto creature = createCreature();
+  o_objects.push_back(creature);
+  return creature;
+}
+
+
 void WorldCreator::createObjects(ObjectPtrs& o_objects)
 {
   o_objects.clear();
 
   {
-    CreaturePtr tom = createCreature();
+    auto tom = createCreature(o_objects);
     tom->setPosition({ 2.5f, 1.0f, 2.5f });
-
-    tom->getPropHealth().setValue(100);
-
-    o_objects.push_back(std::move(tom));
   }
 
   {
-    CreaturePtr jerry = createCreature();
+    auto jerry = createCreature(o_objects);
     jerry->setPosition({ 8.5f, 1.0f, 12.5f });
     jerry->setRotation({ 0, Math::degToRad(180.0f), 0 });
-
-    jerry->getPropHealth().setValue(50);
-
-    o_objects.push_back(std::move(jerry));
   }
 
   {
-    ObjectPtr house = std::make_shared<Object>();
+    auto house = createObject(o_objects);
     house->setPosition({ 16.5f, 1.0f, 6.5f });
     house->setRotation({ 0, Math::degToRad(-135.0f), 0 });
     house->setModelName("House.cmo");
-    o_objects.push_back(std::move(house));
   }
 
   {
-    ObjectPtr tree = std::make_shared<Object>();
+    auto tree = createObject(o_objects);
     tree->setPosition({ 11.5f, 1.0f, 6.5f });
     tree->setModelName("Tree.cmo");
-    o_objects.push_back(std::move(tree));
   }
 
   {
-    ObjectPtr fence = std::make_shared<Object>();
+    auto fence = createObject(o_objects);
     fence->setPosition({ 12.0f, 1.0f, 5.75f });
     fence->setRotation({ 0, Math::degToRad(105.0f), 0 });
     fence->setModelName("Fence.cmo");
-    o_objects.push_back(std::move(fence));
   }
 
   {
-    ObjectPtr fenceSouth = std::make_shared<Object>();
+    auto fenceSouth = createObject(o_objects);
     fenceSouth->setPosition({ 0.5f, 1.0f, 19.5f });
     fenceSouth->setRotation({ 0, Math::degToRad(90.0f), 0 });
     fenceSouth->setModelName("Fence10.cmo");
-    o_objects.push_back(std::move(fenceSouth));
   }
 
   {
-    ObjectPtr fenceWest = std::make_shared<Object>();
+    auto fenceWest = createObject(o_objects);
     fenceWest->setPosition({ 0.5f, 1.0f, 19.5f });
     fenceWest->setRotation({ 0, Math::degToRad(180.0f), 0 });
     fenceWest->setModelName("Fence10.cmo");
-    o_objects.push_back(std::move(fenceWest));
   }
 
   {
-    ObjectPtr fenceNorth = std::make_shared<Object>();
+    auto fenceNorth = createObject(o_objects);
     fenceNorth->setPosition({ 0.5f, 1.0f, 0.5f });
     fenceNorth->setRotation({ 0, Math::degToRad(90.0f), 0 });
     fenceNorth->setModelName("Fence10.cmo");
-    o_objects.push_back(std::move(fenceNorth));
   }
 
   {
-    ObjectPtr fenceEast = std::make_shared<Object>();
+    auto fenceEast = createObject(o_objects);
     fenceEast->setPosition({ 19.5f, 1.0f, 19.5f });
     fenceEast->setRotation({ 0, Math::degToRad(180.0f), 0 });
     fenceEast->setModelName("Fence10.cmo");
-    o_objects.push_back(std::move(fenceEast));
   }
 }

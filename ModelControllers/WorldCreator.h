@@ -14,4 +14,7 @@ private:
   WorldCreator() = default;
 
   static void createObjects(ObjectPtrs& o_objects);
+
+  static ObjectPtr createObject(ObjectPtrs& o_objects);
+  static CreaturePtr createCreature(ObjectPtrs& o_objects);
 };
