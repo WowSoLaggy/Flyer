@@ -41,6 +41,12 @@ Vector2 normalize(const Vector2& i_v)
 }
 
 
+float dot(const Vector2& i_v1, const Vector2& i_v2)
+{
+  return i_v1.x * i_v2.x + i_v1.y * i_v2.y;
+}
+
+
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // Vector3
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -125,4 +131,9 @@ Vector3 cross(const Vector3& i_left, const Vector3& i_right)
 Vector2 xyz2xz(const Vector3& i_v)
 {
   return Vector2{ i_v.x, i_v.z };
+}
+
+Vector3 xy2x0z(const Vector2& i_v, float i_y /* = 0.0f */)
+{
+  return  Vector3{ i_v.x, i_y, i_v.y };
 }

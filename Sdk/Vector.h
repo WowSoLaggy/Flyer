@@ -42,6 +42,8 @@ float length(const Vector2& i_v);
 float lengthSq(const Vector2& i_v);
 Vector2 normalize(const Vector2& i_v);
 
+float dot(const Vector2& i_v1, const Vector2& i_v2);
+
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // Vector3
@@ -72,3 +74,4 @@ Vector3 cross(const Vector3& i_left, const Vector3& i_right);
 
 
 Vector2 xyz2xz(const Vector3& i_v);
+Vector3 xy2x0z(const Vector2& i_v, float i_y = 0.0f);
