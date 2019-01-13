@@ -1,7 +1,9 @@
 #include "stdafx.h"
 #include "PhysicsController.h"
 
-#include <Model/IRealObject.h>
+#include "Collider.h"
+
+#include <Model/Object.h>
 
 
 namespace
@@ -10,20 +12,21 @@ namespace
 } // anonymous NS
 
 
-void PhysicsController::updateObjects(std::vector<IRealObjectPtr>& io_objects, double i_dt)
+void PhysicsController::updateObjects(ObjectPtrs& io_objects, double i_dt)
 {
-  for (auto realObjectPtr : io_objects)
+  for (auto objectPtr : io_objects)
   {
-    if (!realObjectPtr->isMovable())
+    if (!objectPtr->isMovable())
       continue;
 
-    const auto virtualSpeed = getVirtualSpeed(realObjectPtr, i_dt);
-    applySpeed(realObjectPtr, i_dt, realSpeed);
+    const auto virtualSpeed = getVirtualSpeed(objectPtr, i_dt);
+    const auto realSpeed = getRealSpeed(objectPtr, i_dt, virtualSpeed, io_objects);
+    applySpeed(objectPtr, i_dt, realSpeed);
   }
 }
 
 
-Vector3 PhysicsController::getVirtualSpeed(IRealObjectPtr io_object, double i_dt)
+Vector3 PhysicsController::getVirtualSpeed(ObjectPtr io_object, double i_dt)
 {
   const float acceleration = io_object->getAcceleration();
   const float maxSpeed = io_object->getMaxSpeed();
@@ -59,7 +62,26 @@ Vector3 PhysicsController::getVirtualSpeed(IRealObjectPtr io_object, double i_dt
   return speedVector;
 }
 
-void PhysicsController::applySpeed(IRealObjectPtr io_object, double i_dt, Vector3 i_speed)
+Vector3 PhysicsController::getRealSpeed(ObjectPtr io_object, double i_dt,
+                                        Vector3 i_virtualSpeed, const ObjectPtrs& io_objects)
+{
+  for (auto objectPtr : io_objects)
+  {
+    if (objectPtr->getId() == io_object->getId())
+      continue;
+
+    Vector2 normal;
+    Vector2 tangent;
+    if (!Collider::collide(io_object, objectPtr, normal, tangent))
+      continue;
+
+    return Vector3::zero();
+  }
+
+  return i_virtualSpeed;
+}
+
+void PhysicsController::applySpeed(ObjectPtr io_object, double i_dt, Vector3 i_speed)
 {
   io_object->setSpeed(i_speed);
 

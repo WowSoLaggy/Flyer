@@ -9,9 +9,11 @@ class PhysicsController
 public:
   PhysicsController() = delete;
 
-  static void updateObjects(std::vector<IRealObjectPtr>& io_objects, double i_dt);
+  static void updateObjects(ObjectPtrs& io_objects, double i_dt);
 
 private:
-  static Vector3 getVirtualSpeed(IRealObjectPtr io_object, double i_dt);
-  static void applySpeed(IRealObjectPtr io_object, double i_dt, Vector3 i_speed);
+  static Vector3 getVirtualSpeed(ObjectPtr io_object, double i_dt);
+  static Vector3 getRealSpeed(ObjectPtr io_object, double i_dt,
+                              Vector3 i_virtualSpeed, const ObjectPtrs& io_objects);
+  static void applySpeed(ObjectPtr io_object, double i_dt, Vector3 i_speed);
 };
