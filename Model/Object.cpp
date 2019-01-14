@@ -28,14 +28,14 @@ void Object::setCurrentAction(std::shared_ptr<IAction> i_action)
   d_currentAction = i_action;
 }
 
-IAction& Object::getCurrentAction()
+IActionPtr Object::getCurrentAction()
 {
-  return *d_currentAction;
+  return d_currentAction;
 }
 
-const IAction& Object::getCurrentAction() const
+IActionPtr Object::getCurrentAction() const
 {
-  return *d_currentAction;
+  return d_currentAction;
 }
 
 

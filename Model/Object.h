@@ -46,8 +46,8 @@ public:
   const Vector3& getRotation() const { return d_rotation; }
 
   void setCurrentAction(std::shared_ptr<IAction> i_action);
-  IAction& getCurrentAction();
-  const IAction& getCurrentAction() const;
+  IActionPtr getCurrentAction();
+  IActionPtr getCurrentAction() const;
 
   void setVisibility(bool i_visible) { d_visible = i_visible; }
   bool getVisibility() const { return d_visible; }
@@ -66,7 +66,7 @@ private:
 
   Circle d_collisionShape;
 
-  std::shared_ptr<IAction> d_currentAction;
+  IActionPtr d_currentAction;
 
   bool d_visible;
 };

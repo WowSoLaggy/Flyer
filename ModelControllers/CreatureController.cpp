@@ -69,8 +69,8 @@ void CreatureController::updateCreatureState(CreaturePtr io_creature, double i_d
 
 void CreatureController::selectCreatureAction(CreaturePtr io_creature, WorldController& io_worldController)
 {
-  auto& action = io_creature->getCurrentAction();
-  switch (action.getActionType())
+  auto actionPtr = io_creature->getCurrentAction();
+  switch (actionPtr->getActionType())
   {
 
   case ActionType::Idle:
@@ -103,8 +103,8 @@ void CreatureController::selectCreatureAction(CreaturePtr io_creature, WorldCont
 
 void CreatureController::performCreatureAction(CreaturePtr io_creature, WorldController& io_worldController)
 {
-  auto& action = io_creature->getCurrentAction();
-  switch (action.getActionType())
+  auto actionPtr = io_creature->getCurrentAction();
+  switch (actionPtr->getActionType())
   {
 
   case ActionType::Idle:
@@ -115,7 +115,7 @@ void CreatureController::performCreatureAction(CreaturePtr io_creature, WorldCon
 
   case ActionType::MoveTo:
   {
-    const auto& moveToAction = dynamic_cast<const ActionMoveTo&>(action);
+    const auto& moveToAction = dynamic_cast<const ActionMoveTo&>(*actionPtr);
 
     auto position = xyz2xz(io_creature->getPosition());
     auto goal = moveToAction.getGoal();
@@ -137,7 +137,7 @@ void CreatureController::performCreatureAction(CreaturePtr io_creature, WorldCon
 
   case ActionType::Attack:
   {
-    const auto& attackAction = dynamic_cast<const ActionAttack&>(action);
+    const auto& attackAction = dynamic_cast<const ActionAttack&>(*actionPtr);
     auto targetObjectPtr = attackAction.getTarget();
 
     auto distance = xyz2xz(targetObjectPtr->getPosition()) - xyz2xz(io_creature->getPosition());

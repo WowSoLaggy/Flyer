@@ -31,7 +31,7 @@ ObjectVm::ObjectVm(const IResourceController& i_resourceController, const Object
 
 void ObjectVm::update(double i_dt)
 {
-  const auto objectActionType = d_object.getCurrentAction().getActionType();
+  const auto objectActionType = d_object.getCurrentAction()->getActionType();
   const auto& objectActionName = actionTypeStringsMap.at(objectActionType);
 
   const auto& currentActionName = d_animationController->getCurrentAnimationName();

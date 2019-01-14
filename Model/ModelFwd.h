@@ -19,3 +19,4 @@ class IShape;
 class Circle;
 
 class IAction;
+using IActionPtr = std::shared_ptr<IAction>;
