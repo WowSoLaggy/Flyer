@@ -2,6 +2,7 @@
 #include "CreatureController.h"
 
 #include "WorldController.h"
+#include "WorldEvents.h"
 
 #include <Model/ActionAttack.h>
 #include <Model/ActionMoveTo.h>
@@ -61,6 +62,14 @@ void CreatureController::updateCreature(CreaturePtr io_creature, double i_dt,
 }
 
 
+void CreatureController::setCreatureAction(CreaturePtr io_creature, IActionPtr i_actionPtr,
+                                           WorldController& io_worldController)
+{
+  auto previousAction = io_creature->getCurrentAction();
+  io_creature->setCurrentAction(i_actionPtr);
+}
+
+
 void CreatureController::updateCreatureState(CreaturePtr io_creature, double i_dt)
 {
   double attackCooldownValue = std::max(io_creature->getPropAttackCooldown().getValue() - i_dt, 0.0);
@@ -81,9 +90,9 @@ void CreatureController::selectCreatureAction(CreaturePtr io_creature, WorldCont
       break;
 
     if (distanceToTarget <= AttackDistance)
-      io_creature->setCurrentAction(std::make_shared<ActionAttack>(closestTarget));
+      setCreatureAction(io_creature, std::make_shared<ActionAttack>(closestTarget), io_worldController);
     else
-      io_creature->setCurrentAction(std::make_shared<ActionMoveTo>(closestTarget, ApproachDistance));
+      setCreatureAction(io_creature, std::make_shared<ActionMoveTo>(closestTarget, ApproachDistance), io_worldController);
 
     break;
   }
@@ -124,7 +133,7 @@ void CreatureController::performCreatureAction(CreaturePtr io_creature, WorldCon
     if (lengthSq(direction) <= moveToAction.getToleranceSq())
     {
       double timeToHold = (double)(std::rand() % 50) / 10;
-      io_creature->setCurrentAction(std::make_shared<ActionIdle>());
+      setCreatureAction(io_creature, std::make_shared<ActionIdle>(), io_worldController);
       io_creature->resetMovementDirection();
       break;
     }
@@ -145,7 +154,7 @@ void CreatureController::performCreatureAction(CreaturePtr io_creature, WorldCon
 
     if (distanceLength > AttackDistance)
     {
-      io_creature->setCurrentAction(std::make_shared<ActionMoveTo>(targetObjectPtr, ApproachDistance));
+      setCreatureAction(io_creature, std::make_shared<ActionMoveTo>(targetObjectPtr, ApproachDistance), io_worldController);
       break;
     }
 
@@ -167,7 +176,7 @@ void CreatureController::performCreatureAction(CreaturePtr io_creature, WorldCon
     if (targetObjectPtr->getPropHealth().getValueRelative() < 0.01)
     {
       io_worldController.deleteObject(targetObjectPtr->getId());
-      io_creature->setCurrentAction(std::make_shared<ActionIdle>());
+      setCreatureAction(io_creature, std::make_shared<ActionIdle>(), io_worldController);
     }
 
     break;
