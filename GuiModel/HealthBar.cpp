@@ -3,10 +3,11 @@
 
 
 HealthBar::HealthBar()
-  : d_position({ 0, 0 })
-  , d_frontOffset({ 0, 0 })
-  , d_sizeBack({ 0, 0 })
-  , d_sizeFront({ 0, 0 })
+  : d_position(Vector2::zero())
+  , d_offset(Vector2::zero())
+  , d_frontOffset(Vector2::zero())
+  , d_sizeBack(Vector2::zero())
+  , d_sizeFront(Vector2::zero())
   , d_value(1)
   , d_textureBackName("")
   , d_textureFrontName("")
