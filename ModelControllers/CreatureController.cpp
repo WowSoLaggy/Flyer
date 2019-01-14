@@ -57,7 +57,7 @@ void CreatureController::updateCreature(CreaturePtr io_creature, double i_dt,
   updateCreatureState(io_creature, i_dt);
   if (io_creature->isAiControlled())
     selectCreatureAction(io_creature, io_worldController);
-  performCreatureAction(io_creature);
+  performCreatureAction(io_creature, io_worldController);
 }
 
 
@@ -90,51 +90,18 @@ void CreatureController::selectCreatureAction(CreaturePtr io_creature, WorldCont
 
   case ActionType::MoveTo:
   {
-    const auto& moveToAction = dynamic_cast<const ActionMoveTo&>(action);
-
-    auto position = xyz2xz(io_creature->getPosition());
-    auto goal = moveToAction.getGoal();
-    auto direction = goal - position;
-
-    if (lengthSq(direction) <= moveToAction.getToleranceSq())
-    {
-      double timeToHold = (double)(std::rand() % 50) / 10;
-      io_creature->setCurrentAction(std::make_shared<ActionIdle>());
-      io_creature->resetMovementDirection();
-      break;
-    }
-
     break;
   }
 
   case ActionType::Attack:
   {
-    const auto& attackAction = dynamic_cast<const ActionAttack&>(action);
-    auto targetObjectPtr = attackAction.getTarget();
-
-    auto distance = xyz2xz(targetObjectPtr->getPosition()) - xyz2xz(io_creature->getPosition());
-    auto distanceLength = length(distance);
-
-    if (distanceLength > AttackDistance)
-    {
-      io_creature->setCurrentAction(std::make_shared<ActionMoveTo>(targetObjectPtr, ApproachDistance));
-      break;
-    }
-
-    // TODO: Make this check not so stupid
-    if (targetObjectPtr->getPropHealth().getValueRelative() < 0.01)
-    {
-      io_worldController.deleteObject(targetObjectPtr->getId());
-      io_creature->setCurrentAction(std::make_shared<ActionIdle>());
-    }
-
     break;
   }
 
   } // switch (action.getActionType())
 }
 
-void CreatureController::performCreatureAction(CreaturePtr io_creature)
+void CreatureController::performCreatureAction(CreaturePtr io_creature, WorldController& io_worldController)
 {
   auto& action = io_creature->getCurrentAction();
   switch (action.getActionType())
@@ -154,6 +121,14 @@ void CreatureController::performCreatureAction(CreaturePtr io_creature)
     auto goal = moveToAction.getGoal();
     auto direction = goal - position;
 
+    if (lengthSq(direction) <= moveToAction.getToleranceSq())
+    {
+      double timeToHold = (double)(std::rand() % 50) / 10;
+      io_creature->setCurrentAction(std::make_shared<ActionIdle>());
+      io_creature->resetMovementDirection();
+      break;
+    }
+
     io_creature->setMovementDirection({ direction.x, 0.0f, direction.y });
     io_creature->setRotation({ 0, -std::atan2(direction.y, direction.x), 0 });
 
@@ -166,6 +141,13 @@ void CreatureController::performCreatureAction(CreaturePtr io_creature)
     auto targetObjectPtr = attackAction.getTarget();
 
     auto distance = xyz2xz(targetObjectPtr->getPosition()) - xyz2xz(io_creature->getPosition());
+    auto distanceLength = length(distance);
+
+    if (distanceLength > AttackDistance)
+    {
+      io_creature->setCurrentAction(std::make_shared<ActionMoveTo>(targetObjectPtr, ApproachDistance));
+      break;
+    }
 
     // Turn to the target
     io_creature->setRotation({ 0, -std::atan2(distance.y, distance.x), 0 });
@@ -179,6 +161,13 @@ void CreatureController::performCreatureAction(CreaturePtr io_creature)
       auto damage = io_creature->getPropDamage().getValue();
 
       targetObjectPtr->getPropHealth().setValue(currentHealth - damage);
+    }
+
+    // TODO: Make this check not so stupid
+    if (targetObjectPtr->getPropHealth().getValueRelative() < 0.01)
+    {
+      io_worldController.deleteObject(targetObjectPtr->getId());
+      io_creature->setCurrentAction(std::make_shared<ActionIdle>());
     }
 
     break;

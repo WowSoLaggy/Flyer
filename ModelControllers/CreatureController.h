@@ -15,5 +15,5 @@ public:
 private:
   static void updateCreatureState(CreaturePtr io_creature, double i_dt);
   static void selectCreatureAction(CreaturePtr io_creature, WorldController& io_worldController);
-  static void performCreatureAction(CreaturePtr io_creature);
+  static void performCreatureAction(CreaturePtr io_creature, WorldController& io_worldController);
 };
