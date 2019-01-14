@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CurrentActionPanel.h" />
     <ClInclude Include="GuiCollection.h" />
     <ClInclude Include="GuiModelFwd.h" />
     <ClInclude Include="HealthBar.h" />
@@ -136,6 +137,7 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CurrentActionPanel.cpp" />
     <ClCompile Include="GuiCollection.cpp" />
     <ClCompile Include="HealthBar.cpp" />
     <ClCompile Include="IGui.cpp" />

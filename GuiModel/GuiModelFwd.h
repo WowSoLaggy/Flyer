@@ -7,6 +7,7 @@ using IGuiPtrs = std::vector<IGuiPtr>;
 class Label;
 class Panel;
 class HealthBar;
+class CurrentActionPanel;
 
 class GuiCollection;
 using GuiId = int;

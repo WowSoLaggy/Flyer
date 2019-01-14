@@ -33,6 +33,9 @@
     <ClInclude Include="HealthBar.h">
       <Filter>src\Guis</Filter>
     </ClInclude>
+    <ClInclude Include="CurrentActionPanel.h">
+      <Filter>src\Guis</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -51,6 +54,9 @@
       <Filter>src\Guis</Filter>
     </ClCompile>
     <ClCompile Include="HealthBar.cpp">
+      <Filter>src\Guis</Filter>
+    </ClCompile>
+    <ClCompile Include="CurrentActionPanel.cpp">
       <Filter>src\Guis</Filter>
     </ClCompile>
   </ItemGroup>
