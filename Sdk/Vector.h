@@ -5,7 +5,7 @@ struct Vector2
   float x;
   float y;
 
-  static Vector2 zero() { return { 0, 0 }; }
+  static Vector2 zero() { return { 0.0f, 0.0f }; }
 };
 
 struct Vector3
@@ -14,7 +14,7 @@ struct Vector3
   float y;
   float z;
 
-  static Vector3 zero() { return { 0, 0, 0 }; }
+  static Vector3 zero() { return { 0.0f, 0.0f, 0.0f }; }
 };
 
 struct Vector4
@@ -24,7 +24,7 @@ struct Vector4
   float z;
   float w;
 
-  static Vector4 zero() { return { 0, 0, 0, 0 }; }
+  static Vector4 zero() { return { 0.0f, 0.0f, 0.0f, 0.0f }; }
 };
 
 
