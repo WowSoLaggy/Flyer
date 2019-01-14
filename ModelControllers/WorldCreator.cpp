@@ -18,6 +18,8 @@ namespace
 
   const std::string defaultModelName = "Tom.cmo";
 
+  const bool DefaultAiControlled = true;
+
   const int DefaultMinHealth = 0;
   const int DefaultMaxHealth = 100;
   const int DefaultStartHealth = DefaultMaxHealth;
@@ -59,6 +61,8 @@ CreaturePtr WorldCreator::createCreature()
   CreaturePtr creature = std::make_shared<Creature>();
 
   creature->setModelName(defaultModelName);
+
+  creature->setAiControlled(DefaultAiControlled);
 
   creature->getPropHealth().set(DefaultStartHealth, DefaultMinHealth, DefaultMaxHealth);
   creature->getPropAttackCooldown().set(
