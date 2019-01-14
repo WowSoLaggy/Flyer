@@ -50,7 +50,7 @@ std::shared_ptr<World> WorldCreator::createNewWorld()
   pWorld->getTerrain().setHeightMap(createHeightMap());
   pWorld->getTerrain().setHeightGridStep(HeightGridStep);
   
-  createObjects(pWorld->getObjects());
+  createArenaObjects(pWorld->getObjects());
 
   return pWorld;
 }
@@ -88,7 +88,7 @@ CreaturePtr WorldCreator::createCreature(ObjectPtrs& o_objects)
 }
 
 
-void WorldCreator::createObjects(ObjectPtrs& o_objects)
+void WorldCreator::createArenaObjects(ObjectPtrs& o_objects)
 {
   o_objects.clear();
 
