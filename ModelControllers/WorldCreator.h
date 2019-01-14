@@ -13,7 +13,8 @@ public:
 private:
   WorldCreator() = default;
 
-  static void createArenaObjects(ObjectPtrs& o_objects);
+  static void createArena(World& io_world);
+  static void createCollisionTest(World& io_world);
 
   static ObjectPtr createObject(ObjectPtrs& o_objects);
   static CreaturePtr createCreature(ObjectPtrs& o_objects);
