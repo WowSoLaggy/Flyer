@@ -51,6 +51,7 @@ std::shared_ptr<World> WorldCreator::createNewWorld()
   pWorld->getTerrain().setHeightGridStep(HeightGridStep);
   
   createArenaObjects(pWorld->getObjects());
+  pWorld->getObjects().clear();
 
   return pWorld;
 }
@@ -90,8 +91,6 @@ CreaturePtr WorldCreator::createCreature(ObjectPtrs& o_objects)
 
 void WorldCreator::createArenaObjects(ObjectPtrs& o_objects)
 {
-  o_objects.clear();
-
   {
     auto tom = createCreature(o_objects);
     tom->setPosition({ 2.5f, 1.0f, 2.5f });
