@@ -40,6 +40,9 @@ void WorldController::deleteObject(ObjectId i_objectId)
 
 void WorldController::updateScripts(double i_dt)
 {
+  if (!d_world.getScriptsActive())
+    return;
+
   auto& worldObjects = d_world.getObjects();
   int numberOfAliveCreatures = std::accumulate(worldObjects.begin(), worldObjects.end(), 0,
                   [](int i_total, const ObjectPtr& i_objectPtr)
