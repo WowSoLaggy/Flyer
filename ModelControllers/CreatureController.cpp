@@ -67,6 +67,7 @@ void CreatureController::setCreatureAction(CreaturePtr io_creature, IActionPtr i
 {
   auto previousAction = io_creature->getCurrentAction();
   io_creature->setCurrentAction(i_actionPtr);
+  io_worldController.notify(ObjectChangedActionEvent(io_creature, previousAction));
 }
 
 
