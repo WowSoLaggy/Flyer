@@ -11,12 +11,19 @@ public:
 
   Camera(int i_screenWidth, int i_screenHeight);
 
-  virtual Vector3 getPosition() const override;
-  virtual Vector3 getLookAt() const override;
-  virtual Vector3 getUp() const override;
+  virtual float getYaw() const override { return d_yaw; }
+  virtual void setYaw(float i_yaw) override;
 
-  virtual void setPosition(const Vector3& i_position) override;
+  virtual float getPitch() const override { return d_pitch; }
+  virtual void setPitch(float i_pitch) override;
+
+  virtual float getDistance() const override { return d_distance; }
+  virtual void setDistance(float i_distance) override;
+
+  virtual Vector3 getLookAt() const override { return d_lookAt; }
   virtual void setLookAt(Vector3 i_lookAt) override;
+
+  virtual Vector3 getUp() const override { return d_up; }
   virtual void setUp(Vector3 i_up) override;
 
   virtual Vector3 getLeft() const override;
@@ -38,14 +45,18 @@ private:
   int d_viewportWidth;
   int d_viewportHeight;
 
-  XMFLOAT3 d_position;
-  XMFLOAT3 d_lookAt;
-  XMFLOAT3 d_up;
+  float d_yaw;
+  float d_pitch;
+  float d_distance;
+  Vector3 d_lookAt;
+  Vector3 d_up;
 
   XMMATRIX d_projectionMatrix;
   XMMATRIX d_viewMatrix;
 
   void updateProjectionMatrix();
   void updateViewMatrix();
+
+  Vector3 getPosition() const;
 
 };

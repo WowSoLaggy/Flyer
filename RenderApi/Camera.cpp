@@ -1,9 +1,24 @@
 #include "stdafx.h"
 #include "Camera.h"
 
+#include <Sdk/Math.h>
+
+
+namespace
+{
+
+  XMVECTOR toXmVector(const Vector3& i_vector)
+  {
+    return XMVectorSet(i_vector.x, i_vector.y, i_vector.z, 1);
+  }
+
+} // anonymous NS
+
 
 Camera::Camera(int i_screenWidth, int i_screenHeight)
-  : d_position{ 1, 1, 1 }
+  : d_yaw(0)
+  , d_pitch(Math::degToRad(45))
+  , d_distance(10)
   , d_lookAt{ 0, 0, 0 }
   , d_up{ 0, 1, 0 }
   , d_viewportWidth(i_screenWidth)
@@ -13,39 +28,47 @@ Camera::Camera(int i_screenWidth, int i_screenHeight)
 }
 
 
-Vector3 Camera::getPosition() const
+void Camera::setYaw(float i_yaw)
 {
-  return { d_position.x, d_position.y, d_position.z };
+  d_yaw = i_yaw;
+  updateViewMatrix();
 }
 
-Vector3 Camera::getLookAt() const
+void Camera::setPitch(float i_pitch)
 {
-  return { d_lookAt.x, d_lookAt.y, d_lookAt.z };
+  d_pitch = i_pitch;
+  updateViewMatrix();
 }
 
-Vector3 Camera::getUp() const
+void Camera::setDistance(float i_distance)
 {
-  return { d_up.x, d_up.y, d_up.z };
-}
-
-
-void Camera::setPosition(const Vector3& i_position)
-{
-  d_position = XMFLOAT3(i_position.x, i_position.y, i_position.z);
+  d_distance = i_distance;
   updateViewMatrix();
 }
 
 void Camera::setLookAt(Vector3 i_lookAt)
 {
-  d_lookAt = XMFLOAT3(i_lookAt.x, i_lookAt.y, i_lookAt.z);
+  d_lookAt = std::move(i_lookAt);
   updateViewMatrix();
 }
 
 void Camera::setUp(Vector3 i_up)
 {
   i_up = normalize(i_up);
-  d_up = XMFLOAT3(i_up.x, i_up.y, i_up.z);
+  d_up = std::move(i_up);
   updateViewMatrix();
+}
+
+
+Vector3 Camera::getPosition() const
+{
+  XMFLOAT3 unitVector{ 1, 0, 0 };
+
+  auto qRotation = XMQuaternionRotationRollPitchYaw(0, d_yaw, d_pitch);
+  XMStoreFloat3(&unitVector, XMVector3Rotate(XMLoadFloat3(&unitVector), qRotation));
+
+  Vector3 relativePosition{ unitVector.x * d_distance, unitVector.y * d_distance, unitVector.z * d_distance };
+  return d_lookAt + relativePosition;
 }
 
 
@@ -61,7 +84,7 @@ Vector3 Camera::getRight() const
 
 Vector3 Camera::getForward() const
 {
-  return Vector3{ d_position.x - d_lookAt.x, d_position.y - d_lookAt.y, d_position.z - d_lookAt.z };
+  return getLookAt() - getPosition();
 }
 
 Vector3 Camera::getBackward() const
@@ -72,23 +95,22 @@ Vector3 Camera::getBackward() const
 
 void Camera::updateProjectionMatrix()
 {
-  float screenAspect = (float)d_viewportWidth/ (float)d_viewportHeight;
+  float screenAspect = (float)d_viewportWidth / (float)d_viewportHeight;
   d_projectionMatrix = XMMatrixPerspectiveFovRH(FovAngle, screenAspect,
                                                 ViewportMinZ, ViewportMaxZ);
 }
 
 void Camera::updateViewMatrix()
 {
-  d_viewMatrix = XMMatrixLookAtRH(XMLoadFloat3(&d_position), XMLoadFloat3(&d_lookAt), XMLoadFloat3(&d_up));
+  d_viewMatrix = XMMatrixLookAtRH(toXmVector(getPosition()), toXmVector(d_lookAt), toXmVector(d_up));
 }
 
 
 Vector2 Camera::worldToScreen(const Vector3& i_point) const
 {
-  FXMVECTOR v1 = XMVectorSet(i_point.x, i_point.y, i_point.z, 1);
   auto worldMatrix = XMMatrixIdentity();
 
-  auto res = XMVector3Project(v1, 0.0f, 0.0f,
+  auto res = XMVector3Project(toXmVector(i_point), 0.0f, 0.0f,
                               (float)d_viewportWidth, (float)d_viewportHeight, ViewportMinZ, ViewportMaxZ,
                               d_projectionMatrix, d_viewMatrix, worldMatrix);
 

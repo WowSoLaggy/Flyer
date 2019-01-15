@@ -56,25 +56,25 @@ void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
   {
     auto dir = camera.getForward();
     dir.y = 0;
-    camera.setPosition(camera.getPosition() + normalize(dir) * speed);
+    camera.setLookAt(camera.getLookAt() + normalize(dir) * speed);
   }
   if (i_keyboardState.currentState.S)
   {
     auto dir = camera.getBackward();
     dir.y = 0;
-    camera.setPosition(camera.getPosition() + normalize(dir) * speed);
+    camera.setLookAt(camera.getLookAt() + normalize(dir) * speed);
   }
   if (i_keyboardState.currentState.A)
   {
     auto dir = camera.getLeft();
     dir.y = 0;
-    camera.setPosition(camera.getPosition() + normalize(dir) * speed);
+    camera.setLookAt(camera.getLookAt() + normalize(dir) * speed);
   }
   if (i_keyboardState.currentState.D)
   {
     auto dir = camera.getRight();
     dir.y = 0;
-    camera.setPosition(camera.getPosition() + normalize(dir) * speed);
+    camera.setLookAt(camera.getLookAt() + normalize(dir) * speed);
   }
 
   if (i_keyboardState.pressed.G && i_keyboardState.currentState.LeftControl)
