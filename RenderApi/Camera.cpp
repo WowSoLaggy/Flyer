@@ -17,7 +17,7 @@ namespace
 
 Camera::Camera(int i_screenWidth, int i_screenHeight)
   : d_yaw(0)
-  , d_pitch(Math::degToRad(45))
+  , d_pitch(Math::degToRad(45.0f))
   , d_distance(10)
   , d_lookAt{ 0, 0, 0 }
   , d_up{ 0, 1, 0 }
