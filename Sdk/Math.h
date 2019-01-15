@@ -5,6 +5,7 @@ namespace Math
 {
 
   const double Pi = 3.14159265358979323846;
+  const double PiHalf = Pi / 2.0;
 
   template <typename T>
   T getPi()
