@@ -7,6 +7,7 @@
 #include <ModelControllers/WorldController.h>
 #include <RenderApi/ICamera.h>
 #include <RenderApi/IRenderDevice.h>
+#include <Sdk/Math.h>
 #include <Sdk/Vector.h>
 #include <ViewModel/GameVm.h>
 
@@ -49,6 +50,8 @@ void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
 
   const float linearSpeedMultiplier = i_keyboardState.currentState.LeftShift ? 60.f : 20.f;
   const float linearSpeed = (float)(linearSpeedMultiplier * i_dt);
+  const float angleSpeedMultiplier = i_keyboardState.currentState.LeftShift ? 6.f : 2.f;
+  const float angleSpeed = (float)(angleSpeedMultiplier * i_dt);
 
   auto& camera = d_gameVm->getCamera();
 
@@ -76,6 +79,24 @@ void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
     dir.y = 0;
     camera.setLookAt(camera.getLookAt() + normalize(dir) * linearSpeed);
   }
+
+  if (i_keyboardState.currentState.OemQuotes)
+    camera.setYaw(camera.getYaw() + angleSpeed);
+  if (i_keyboardState.currentState.L)
+    camera.setYaw(camera.getYaw() - angleSpeed);
+  if (i_keyboardState.currentState.N)
+    camera.setYaw(Math::degToRad(-90.0f));
+  if (i_keyboardState.currentState.P)
+  {
+    const float maxPitch = Math::degToRad(80.0f);
+    float newPitch = std::min(camera.getPitch() + angleSpeed, maxPitch);
+    camera.setPitch(newPitch);
+  }
+  if (i_keyboardState.currentState.OemSemicolon)
+  {
+    const float minPitch = Math::degToRad(10.0f);
+    float newPitch = std::max(camera.getPitch() - angleSpeed, minPitch);
+    camera.setPitch(newPitch);
   }
 
   if (i_keyboardState.pressed.G && i_keyboardState.currentState.LeftControl)
