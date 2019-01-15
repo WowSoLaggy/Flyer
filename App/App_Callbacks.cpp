@@ -47,8 +47,8 @@ void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
     return;
   }
 
-  const float speedMultiplier = i_keyboardState.currentState.LeftShift ? 60.f : 20.f;
-  const float speed = (float)(speedMultiplier * i_dt);
+  const float linearSpeedMultiplier = i_keyboardState.currentState.LeftShift ? 60.f : 20.f;
+  const float linearSpeed = (float)(linearSpeedMultiplier * i_dt);
 
   auto& camera = d_gameVm->getCamera();
 
@@ -56,25 +56,26 @@ void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
   {
     auto dir = camera.getForward();
     dir.y = 0;
-    camera.setLookAt(camera.getLookAt() + normalize(dir) * speed);
+    camera.setLookAt(camera.getLookAt() + normalize(dir) * linearSpeed);
   }
   if (i_keyboardState.currentState.S)
   {
     auto dir = camera.getBackward();
     dir.y = 0;
-    camera.setLookAt(camera.getLookAt() + normalize(dir) * speed);
+    camera.setLookAt(camera.getLookAt() + normalize(dir) * linearSpeed);
   }
   if (i_keyboardState.currentState.A)
   {
     auto dir = camera.getLeft();
     dir.y = 0;
-    camera.setLookAt(camera.getLookAt() + normalize(dir) * speed);
+    camera.setLookAt(camera.getLookAt() + normalize(dir) * linearSpeed);
   }
   if (i_keyboardState.currentState.D)
   {
     auto dir = camera.getRight();
     dir.y = 0;
-    camera.setLookAt(camera.getLookAt() + normalize(dir) * speed);
+    camera.setLookAt(camera.getLookAt() + normalize(dir) * linearSpeed);
+  }
   }
 
   if (i_keyboardState.pressed.G && i_keyboardState.currentState.LeftControl)
