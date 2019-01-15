@@ -3,8 +3,8 @@
 
 
 Camera::Camera(int i_screenWidth, int i_screenHeight)
-  : d_position{ 0, 0, 0 }
-  , d_direction{ 1, 0, 0 }
+  : d_position{ 1, 1, 1 }
+  , d_lookAt{ 0, 0, 0 }
   , d_up{ 0, 1, 0 }
   , d_viewportWidth(i_screenWidth)
   , d_viewportHeight(i_screenHeight)
@@ -18,9 +18,9 @@ Vector3 Camera::getPosition() const
   return { d_position.x, d_position.y, d_position.z };
 }
 
-Vector3 Camera::getDirection() const
+Vector3 Camera::getLookAt() const
 {
-  return { d_direction.x, d_direction.y, d_direction.z };
+  return { d_lookAt.x, d_lookAt.y, d_lookAt.z };
 }
 
 Vector3 Camera::getUp() const
@@ -35,10 +35,9 @@ void Camera::setPosition(const Vector3& i_position)
   updateViewMatrix();
 }
 
-void Camera::setDirection(Vector3 i_direction)
+void Camera::setLookAt(Vector3 i_lookAt)
 {
-  i_direction = normalize(i_direction);
-  d_direction = XMFLOAT3(i_direction.x, i_direction.y, i_direction.z);
+  d_lookAt = XMFLOAT3(i_lookAt.x, i_lookAt.y, i_lookAt.z);
   updateViewMatrix();
 }
 
@@ -62,7 +61,7 @@ Vector3 Camera::getRight() const
 
 Vector3 Camera::getForward() const
 {
-  return Vector3{ d_direction.x, d_direction.y, d_direction.z };
+  return Vector3{ d_position.x - d_lookAt.x, d_position.y - d_lookAt.y, d_position.z - d_lookAt.z };
 }
 
 Vector3 Camera::getBackward() const
@@ -80,12 +79,7 @@ void Camera::updateProjectionMatrix()
 
 void Camera::updateViewMatrix()
 {
-  XMFLOAT3 lookAt = {
-    d_position.x + d_direction.x,
-    d_position.y + d_direction.y,
-    d_position.z + d_direction.z };
-
-  d_viewMatrix = XMMatrixLookAtRH(XMLoadFloat3(&d_position), XMLoadFloat3(&lookAt), XMLoadFloat3(&d_up));
+  d_viewMatrix = XMMatrixLookAtRH(XMLoadFloat3(&d_position), XMLoadFloat3(&d_lookAt), XMLoadFloat3(&d_up));
 }
 
 

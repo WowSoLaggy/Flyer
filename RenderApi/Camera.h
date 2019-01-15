@@ -12,11 +12,11 @@ public:
   Camera(int i_screenWidth, int i_screenHeight);
 
   virtual Vector3 getPosition() const override;
-  virtual Vector3 getDirection() const override;
+  virtual Vector3 getLookAt() const override;
   virtual Vector3 getUp() const override;
 
   virtual void setPosition(const Vector3& i_position) override;
-  virtual void setDirection(Vector3 i_direction) override;
+  virtual void setLookAt(Vector3 i_lookAt) override;
   virtual void setUp(Vector3 i_up) override;
 
   virtual Vector3 getLeft() const override;
@@ -39,7 +39,7 @@ private:
   int d_viewportHeight;
 
   XMFLOAT3 d_position;
-  XMFLOAT3 d_direction;
+  XMFLOAT3 d_lookAt;
   XMFLOAT3 d_up;
 
   XMMATRIX d_projectionMatrix;
