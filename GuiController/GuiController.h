@@ -1,5 +1,6 @@
 #pragma once
 
+#include "CurrentActionPanelController.h"
 #include "HealthBarController.h"
 #include "IGuiController.h"
 #include "LabelController.h"
@@ -30,6 +31,7 @@ private:
 
   LabelController d_labelController;
   HealthBarController d_healthBarController;
+  CurrentActionPanelController d_currentActionPanelController;
 
   void createGameGui(const World& i_world);
 };

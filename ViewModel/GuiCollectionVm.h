@@ -29,5 +29,6 @@ private:
 
   void onGuiAdded(const IGui& i_gui);
   void onGuiDeleted(const IGui& i_gui);
+  void onGuiResourcesChanged(const IGui& i_gui);
 
 };

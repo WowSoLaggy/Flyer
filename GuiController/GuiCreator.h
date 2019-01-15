@@ -10,6 +10,7 @@ public:
   static std::shared_ptr<GuiCollection> createGameGui();
 
   static std::shared_ptr<HealthBar> createHealthBar();
+  static std::shared_ptr<CurrentActionPanel> createCurrentActionPanel();
 
 private:
   GuiCreator() = default;

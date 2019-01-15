@@ -1,12 +1,14 @@
 #include "stdafx.h"
 #include "GuiCollectionVm.h"
 
+#include "CurrentActionPanelVm.h"
 #include "HealthBarVm.h"
 #include "LabelVm.h"
 #include "PanelVm.h"
 
 #include <GuiController/GuiController.h>
 #include <GuiController/GuiEvents.h>
+#include <GuiModel/CurrentActionPanel.h>
 #include <GuiModel/GuiCollection.h>
 #include <GuiModel/HealthBar.h>
 #include <GuiModel/Label.h>
@@ -44,6 +46,8 @@ void GuiCollectionVm::processEvent(const IEvent& i_event)
     onGuiAdded(*pObjectAddedEvent->getGui());
   else if (const auto* pObjectDeletedEvent = dynamic_cast<const GuiDeletedEvent*>(&i_event))
     onGuiDeleted(*pObjectDeletedEvent->getGui());
+  else if (const auto* pGuiResourceChanged = dynamic_cast<const GuiResourcesChanged*>(&i_event))
+    onGuiResourcesChanged(*pGuiResourceChanged->getGui());
 }
 
 
@@ -55,6 +59,8 @@ void GuiCollectionVm::onGuiAdded(const IGui& i_gui)
     d_guiVms.push_back(std::make_shared<PanelVm>(d_resourceController, *pPanel));
   else if (const auto* pHealthBar = dynamic_cast<const HealthBar*>(&i_gui))
     d_guiVms.push_back(std::make_shared<HealthBarVm>(d_resourceController, *pHealthBar));
+  else if (const auto* pCurrentActionPanel = dynamic_cast<const CurrentActionPanel*>(&i_gui))
+    d_guiVms.push_back(std::make_shared<CurrentActionPanelVm>(d_resourceController, *pCurrentActionPanel));
 }
 
 void GuiCollectionVm::onGuiDeleted(const IGui& i_gui)
@@ -64,4 +70,14 @@ void GuiCollectionVm::onGuiDeleted(const IGui& i_gui)
   {
     return i_guiVm->getGui().getId() == i_gui.getId();
   }), d_guiVms.end());
+}
+
+void GuiCollectionVm::onGuiResourcesChanged(const IGui& i_gui)
+{
+  auto it = std::find_if(d_guiVms.begin(), d_guiVms.end(),
+                         [&](std::shared_ptr<GuiVm> i_guiVm) { return i_guiVm->getGui().getId() == i_gui.getId(); });
+  if (it == d_guiVms.end())
+    return;
+
+  (*it)->reloadResources(d_resourceController);
 }
