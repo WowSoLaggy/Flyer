@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CurrentActionPanelVm.h" />
     <ClInclude Include="GameVm.h" />
     <ClInclude Include="GuiCollectionVm.h" />
     <ClInclude Include="GuiVm.h" />
@@ -140,6 +141,7 @@
     <ClInclude Include="WorldVm.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CurrentActionPanelVm.cpp" />
     <ClCompile Include="GameVm.cpp" />
     <ClCompile Include="GuiCollectionVm.cpp" />
     <ClCompile Include="HealthBarVm.cpp" />
