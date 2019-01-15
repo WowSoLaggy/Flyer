@@ -8,10 +8,15 @@
 
 PanelVm::PanelVm(const IResourceController& i_resourceController, const Panel& i_panel)
   : d_panel(i_panel)
-  , d_textureResourceId(i_resourceController.getResourceId(i_panel.getTextureName()))
 {
+  reloadResources(i_resourceController);
 }
 
+
+void PanelVm::reloadResources(const IResourceController& i_resourceController)
+{
+  d_textureResourceId = i_resourceController.getResourceId(d_panel.getTextureName());
+}
 
 void PanelVm::render(IRenderer2d& i_renderer) const
 {

@@ -11,6 +11,7 @@ public:
 
   HealthBarVm(const IResourceController& i_resourceController, const HealthBar& i_healthBar);
 
+  virtual void reloadResources(const IResourceController& i_resourceController) override;
   virtual void render(IRenderer2d& i_renderer) const override;
 
   virtual const IGui& getGui() const override;
@@ -18,6 +19,6 @@ public:
 private:
 
   const HealthBar& d_healthBar;
-  const ResourceId d_textureBackResourceId;
-  const ResourceId d_textureFrontResourceId;
+  ResourceId d_textureBackResourceId;
+  ResourceId d_textureFrontResourceId;
 };

@@ -8,10 +8,15 @@
 
 LabelVm::LabelVm(const IResourceController& i_resourceController, const Label& i_label)
   : d_label(i_label)
-  , d_fontResourceId(i_resourceController.getResourceId(i_label.getFontName()))
 {
+  reloadResources(i_resourceController);
 }
 
+
+void LabelVm::reloadResources(const IResourceController& i_resourceController)
+{
+  d_fontResourceId = i_resourceController.getResourceId(d_label.getFontName());
+}
 
 void LabelVm::render(IRenderer2d& i_renderer) const
 {

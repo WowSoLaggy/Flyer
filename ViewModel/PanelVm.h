@@ -11,6 +11,7 @@ public:
 
   PanelVm(const IResourceController& i_resourceController, const Panel& i_panel);
 
+  virtual void reloadResources(const IResourceController& i_resourceController) override;
   virtual void render(IRenderer2d& i_renderer) const override;
 
   virtual const IGui& getGui() const override;
@@ -18,6 +19,6 @@ public:
 private:
 
   const Panel& d_panel;
-  const ResourceId d_textureResourceId;
+  ResourceId d_textureResourceId;
 
 };
