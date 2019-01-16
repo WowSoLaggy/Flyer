@@ -94,7 +94,7 @@ void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
   }
   if (i_keyboardState.currentState.OemSemicolon)
   {
-    const float minPitch = Math::degToRad(10.0f);
+    const float minPitch = Math::degToRad(5.0f);
     float newPitch = std::max(camera.getPitch() - angleSpeed, minPitch);
     camera.setPitch(newPitch);
   }
