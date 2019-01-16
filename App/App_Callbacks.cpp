@@ -98,6 +98,18 @@ void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
     float newPitch = std::max(camera.getPitch() - angleSpeed, minPitch);
     camera.setPitch(newPitch);
   }
+  if (i_keyboardState.currentState.OemOpenBrackets)
+  {
+    const float maxDistance = 30.0f;
+    float newDistance = std::min(camera.getDistance() + linearSpeed, maxDistance);
+    camera.setDistance(newDistance);
+  }
+  if (i_keyboardState.currentState.OemCloseBrackets)
+  {
+    const float minDistance = 1.0f;
+    float newDistance = std::max(camera.getDistance() - linearSpeed, minDistance);
+    camera.setDistance(newDistance);
+  }
 
   if (i_keyboardState.pressed.G && i_keyboardState.currentState.LeftControl)
   {
