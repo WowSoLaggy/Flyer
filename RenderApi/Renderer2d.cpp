@@ -21,11 +21,6 @@ Renderer2d::Renderer2d(
   d_spriteBatch = std::make_shared<SpriteBatch>(renderDevice.getDeviceContextPtr());
 }
 
-Renderer2d::~Renderer2d()
-{
-  d_spriteBatch.reset();
-}
-
 
 void Renderer2d::beginScene()
 {

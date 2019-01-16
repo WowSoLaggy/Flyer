@@ -11,7 +11,6 @@ public:
   Renderer2d(
     IRenderDevice& io_renderDevice,
     const IResourceController& i_resourceController);
-  ~Renderer2d();
 
   virtual void beginScene() override;
   virtual void endScene() override;
