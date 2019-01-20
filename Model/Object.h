@@ -27,20 +27,11 @@ public:
   void setMovementDirection(Vector3 i_movementDirection) { d_movementDirection = std::move(i_movementDirection); }
   void resetMovementDirection() { d_movementDirection = Vector3::zero(); }
 
-  void setModelName(const std::string& i_modelName) { d_modelName = i_modelName; }
-  const std::string& getModelName() const { return d_modelName; }
-
-  void setCustomTextureName(const std::string& i_customTextureName) { d_customTextureName = i_customTextureName; }
-  const std::string& getCustomTextureName() const { return d_customTextureName; }
-
   void setCurrentAction(std::shared_ptr<IAction> i_action);
   IActionPtr getCurrentAction() const { return d_currentAction; }
   IActionPtr getCurrentAction() { return d_currentAction; }
 
 private:
-
-  std::string d_modelName;
-  std::string d_customTextureName;
 
   Vector3 d_movementDirection;
   Vector3 d_speed;

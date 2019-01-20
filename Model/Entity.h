@@ -16,6 +16,12 @@ public:
 
   virtual bool isCreature() const { return false; }
 
+  const std::string& getModelName() const { return d_modelName; }
+  void setModelName(const std::string& i_modelName) { d_modelName = i_modelName; }
+
+  const std::string& getCustomTextureName() const { return d_customTextureName; }
+  void setCustomTextureName(const std::string& i_customTextureName) { d_customTextureName = i_customTextureName; }
+
   Vector3 getPosition() const { return d_position; }
   void setPosition(Vector3 i_position) { d_position = std::move(i_position); }
 
@@ -28,6 +34,9 @@ public:
 private:
   ObjectId d_id;
   static ObjectId s_nextId;
+
+  std::string d_modelName;
+  std::string d_customTextureName;
 
   Vector3 d_position;
   Vector3 d_rotation;

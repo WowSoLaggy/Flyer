@@ -5,8 +5,7 @@
 
 
 Object::Object()
-  : d_modelName("")
-  , d_movementDirection{ 0, 0, 0 }
+  : d_movementDirection{ 0, 0, 0 }
   , d_speed{ 0, 0, 0 }
 {
   setCurrentAction(std::make_shared<ActionIdle>());
