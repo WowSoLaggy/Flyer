@@ -57,10 +57,15 @@ void Renderer3d::renderObject(ResourceId i_meshResourceCmoId,
   {
     if (auto* pLights = dynamic_cast<IEffectLights*>(io_pEffect))
     {
-      const float ambientMultiplier = 1.0f;
+      const float ambientMultiplier = 0.3f;
       pLights->SetAmbientLightColor({ ambientMultiplier, ambientMultiplier, ambientMultiplier });
 
-      pLights->SetLightDirection(0, { 1.0f, -1.0f, -1.0f });
+      pLights->SetLightEnabled(1, true);
+      pLights->SetLightDiffuseColor(0, { 1, 1, 1 });
+      pLights->SetLightDirection(0, { 1, -1, -1 });
+
+      pLights->SetLightEnabled(1, false);
+      pLights->SetLightEnabled(2, false);
     }
   });
 
