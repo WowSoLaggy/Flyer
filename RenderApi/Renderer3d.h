@@ -24,10 +24,10 @@ public:
     const Vector3& i_position, const Vector3& i_rotation) override;
 
   virtual void renderObject(
-    ResourceId i_meshResourceCmoId,
+    ResourceId i_meshResourceCmoId, ResourceId i_textureResourceId,
     const IAnimationController& i_animationController,
     const Vector3& i_position, const Vector3& i_rotation,
-    ResourceId i_textureResourceId = ResourceIdEmpty) override;
+    bool i_useLighting) override;
 
 private:
 

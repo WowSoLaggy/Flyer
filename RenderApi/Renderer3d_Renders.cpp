@@ -36,10 +36,10 @@ void Renderer3d::renderObject(
 
 
 void Renderer3d::renderObject(
-  ResourceId i_meshResourceCmoId,
+  ResourceId i_meshResourceCmoId, ResourceId i_textureResourceId,
   const IAnimationController& i_animationController,
   const Vector3& i_position, const Vector3& i_rotation,
-  ResourceId i_textureResourceId /* = ResourceIdEmpty */)
+  bool i_useLighting)
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
@@ -55,22 +55,29 @@ void Renderer3d::renderObject(
     XMMatrixRotationRollPitchYaw(i_rotation.x, i_rotation.y, i_rotation.z) *
     XMMatrixTranslation(i_position.x, i_position.y, i_position.z);
 
+  bool customTexture = i_textureResourceId != ResourceIdEmpty;
+
   meshResourceCmo.getModel().UpdateEffects([&](IEffect* io_pEffect)
   {
     if (auto* pLights = dynamic_cast<IEffectLights*>(io_pEffect))
     {
-      const float ambientMultiplier = 0.3f;
-      pLights->SetAmbientLightColor({ ambientMultiplier, ambientMultiplier, ambientMultiplier });
+      pLights->SetLightingEnabled(i_useLighting);
+      
+      if (i_useLighting)
+      {
+        const float ambientMultiplier = 0.3f;
+        pLights->SetAmbientLightColor({ ambientMultiplier, ambientMultiplier, ambientMultiplier });
 
-      pLights->SetLightEnabled(1, true);
-      pLights->SetLightDiffuseColor(0, { 1, 1, 1 });
-      pLights->SetLightDirection(0, { 1, -1, -1 });
+        pLights->SetLightEnabled(0, true);
+        pLights->SetLightDiffuseColor(0, { 1, 1, 1 });
+        pLights->SetLightDirection(0, { 1, -1, -1 });
 
-      pLights->SetLightEnabled(1, false);
-      pLights->SetLightEnabled(2, false);
+        pLights->SetLightEnabled(1, false);
+        pLights->SetLightEnabled(2, false);
+      }
     }
 
-    if (i_textureResourceId != ResourceIdEmpty)
+    if (customTexture)
     {
       if (auto* dgslEffect = dynamic_cast<DGSLEffect*>(io_pEffect))
       {
