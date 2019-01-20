@@ -8,6 +8,8 @@ class IRenderer3d;
 class IRenderer2d;
 
 using ResourceId = int;
+const ResourceId ResourceIdEmpty = ResourceId(-1);
+
 class IResourceController;
 class IResource;
 class MeshResourceCmo;

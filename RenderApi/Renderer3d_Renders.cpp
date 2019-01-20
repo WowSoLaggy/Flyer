@@ -35,9 +35,11 @@ void Renderer3d::renderObject(
 }
 
 
-void Renderer3d::renderObject(ResourceId i_meshResourceCmoId,
+void Renderer3d::renderObject(
+  ResourceId i_meshResourceCmoId,
   const IAnimationController& i_animationController,
-  const Vector3& i_position, const Vector3& i_rotation)
+  const Vector3& i_position, const Vector3& i_rotation,
+  ResourceId i_textureResourceId /* = ResourceIdEmpty */)
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
@@ -66,6 +68,15 @@ void Renderer3d::renderObject(ResourceId i_meshResourceCmoId,
 
       pLights->SetLightEnabled(1, false);
       pLights->SetLightEnabled(2, false);
+    }
+
+    if (i_textureResourceId != ResourceIdEmpty)
+    {
+      if (auto* dgslEffect = dynamic_cast<DGSLEffect*>(io_pEffect))
+      {
+        auto texture = resourceController.getTextureResource(i_textureResourceId).getTexturePtr();
+        dgslEffect->SetTexture(texture);
+      }
     }
   });
 

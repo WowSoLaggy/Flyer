@@ -23,9 +23,11 @@ public:
     const std::vector<MaterialSpan>& i_materialSpans,
     const Vector3& i_position, const Vector3& i_rotation) override;
 
-  virtual void renderObject(ResourceId i_meshResourceCmoId,
+  virtual void renderObject(
+    ResourceId i_meshResourceCmoId,
     const IAnimationController& i_animationController,
-    const Vector3& i_position, const Vector3& i_rotation) override;
+    const Vector3& i_position, const Vector3& i_rotation,
+    ResourceId i_textureResourceId = ResourceIdEmpty) override;
 
 private:
 

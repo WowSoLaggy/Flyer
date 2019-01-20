@@ -28,7 +28,9 @@ public:
     const std::vector<MaterialSpan>& i_materialSpans,
     const Vector3& i_position, const Vector3& i_rotation) = 0;
 
-  virtual void renderObject(ResourceId i_meshResourceCmoId,
+  virtual void renderObject(
+    ResourceId i_meshResourceCmoId,
     const IAnimationController& i_animationController,
-    const Vector3& i_position, const Vector3& i_rotation) = 0;
+    const Vector3& i_position, const Vector3& i_rotation,
+    ResourceId i_textureResourceId = ResourceIdEmpty) = 0;
 };
