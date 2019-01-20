@@ -64,7 +64,6 @@ void Renderer3d::renderObject(ResourceId i_meshResourceCmoId,
     }
   });
 
-  CommonStates states(renderDevice.getDevicePtr());
-  meshResourceCmo.getModel().Draw(renderDevice.getDeviceContextPtr(), states,
+  meshResourceCmo.getModel().Draw(renderDevice.getDeviceContextPtr(), *d_commonStates,
     worldMatrix, camera.getViewMatrix(), camera.getProjectionMatrix());
 }

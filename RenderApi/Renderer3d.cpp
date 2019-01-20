@@ -31,6 +31,8 @@ Renderer3d::Renderer3d(
   , d_resourceController(i_resourceController)
   , d_camera(i_camera)
 {
+  auto& renderDevice = dynamic_cast<RenderDevice&>(io_renderDevice);
+  d_commonStates = std::make_shared<CommonStates>(renderDevice.getDevicePtr());
   createBuffers();
 }
 

@@ -33,6 +33,8 @@ private:
   const IResourceController& d_resourceController;
   const ICamera& d_camera;
 
+  std::shared_ptr<CommonStates> d_commonStates;
+
   ID3D11Buffer* d_matrixBuffer;
   ID3D11Buffer* d_lightBuffer;
 
