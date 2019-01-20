@@ -27,7 +27,8 @@ void TerrainVm::render(IRenderer3d& i_renderer) const
   i_renderer.renderObject(
     d_textureResourceId,
     d_vertexBuffer, d_indexBuffer,
-    d_materialSequence.getMaterialSpans());
+    d_materialSequence.getMaterialSpans(),
+    Vector3::zero(), Vector3::zero());
 }
 
 

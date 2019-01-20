@@ -26,9 +26,9 @@ public:
     ResourceId i_textureResourceId,
     const VertexBuffer& i_vertexBuffer, const IndexBuffer& i_indexBuffer,
     const std::vector<MaterialSpan>& i_materialSpans,
-    const Vector3& i_position = Vector3::zero(), const Vector3& i_rotation = Vector3::zero()) = 0;
+    const Vector3& i_position, const Vector3& i_rotation) = 0;
 
   virtual void renderObject(ResourceId i_meshResourceCmoId,
     const IAnimationController& i_animationController,
-    const Vector3& i_position = Vector3::zero(), const Vector3& i_rotation = Vector3::zero()) = 0;
+    const Vector3& i_position, const Vector3& i_rotation) = 0;
 };

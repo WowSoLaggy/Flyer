@@ -16,7 +16,7 @@ void Renderer3d::renderObject(
   ResourceId i_textureResourceId,
   const VertexBuffer& i_vertexBuffer, const IndexBuffer& i_indexBuffer,
   const std::vector<MaterialSpan>& i_materialSpans,
-  const Vector3& i_position /* = Vector3::zero() */, const Vector3& i_rotation /* = Vector3::zero() */)
+  const Vector3& i_position, const Vector3& i_rotation)
 {
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
   const auto& textureResource = resourceController.getTextureResource(i_textureResourceId);
@@ -37,7 +37,7 @@ void Renderer3d::renderObject(
 
 void Renderer3d::renderObject(ResourceId i_meshResourceCmoId,
   const IAnimationController& i_animationController,
-  const Vector3& i_position /* = Vector3::zero() */, const Vector3& i_rotation /* = Vector3::zero() */)
+  const Vector3& i_position, const Vector3& i_rotation)
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
