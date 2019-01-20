@@ -4,7 +4,7 @@
 #include "RenderApiFwd.h"
 
 
-class Renderer2d: public IRenderer2d
+class Renderer2d : public IRenderer2d
 {
 public:
 

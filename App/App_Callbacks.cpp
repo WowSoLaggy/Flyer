@@ -106,7 +106,7 @@ void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
   }
   if (i_keyboardState.currentState.OemCloseBrackets)
   {
-    const float minDistance = 1.0f;
+    const float minDistance = 3.0f;
     float newDistance = std::max(camera.getDistance() - linearSpeed, minDistance);
     camera.setDistance(newDistance);
   }
