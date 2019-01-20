@@ -42,6 +42,9 @@ public:
   void setModelName(const std::string& i_modelName) { d_modelName = i_modelName; }
   const std::string& getModelName() const { return d_modelName; }
 
+  void setCustomTextureName(const std::string& i_customTextureName) { d_customTextureName = i_customTextureName; }
+  const std::string& getCustomTextureName() const { return d_customTextureName; }
+
   void setRotation(const Vector3& i_rotation) { d_rotation = i_rotation; }
   const Vector3& getRotation() const { return d_rotation; }
 
@@ -58,6 +61,7 @@ private:
   static ObjectId s_nextId;
 
   std::string d_modelName;
+  std::string d_customTextureName;
 
   Vector3 d_movementDirection;
   Vector3 d_position;
