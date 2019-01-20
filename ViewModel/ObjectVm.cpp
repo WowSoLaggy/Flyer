@@ -51,6 +51,6 @@ void ObjectVm::render(IRenderer3d& i_renderer) const
   if (!d_object.getVisibility())
     return;
 
-  i_renderer.renderObject(d_meshResourceCmoId, *d_animationController,
-    d_object.getPosition(), d_object.getRotation(), d_customTextureId);
+  i_renderer.renderObject(d_meshResourceCmoId, d_customTextureId, *d_animationController,
+    d_object.getPosition(), d_object.getRotation(), true);
 }
