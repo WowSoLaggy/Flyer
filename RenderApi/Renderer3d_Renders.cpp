@@ -76,6 +76,7 @@ void Renderer3d::renderObject(
       {
         auto texture = resourceController.getTextureResource(i_textureResourceId).getTexturePtr();
         dgslEffect->SetTexture(texture);
+        dgslEffect->SetTextureEnabled(true);
       }
     }
   });
