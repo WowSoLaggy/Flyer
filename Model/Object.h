@@ -1,43 +1,31 @@
 #pragma once
 
 #include "Circle.h"
-#include "IRealObject.h"
+#include "Entity.h"
 #include "ModelFwd.h"
 
 #include <Sdk/Vector.h>
 
 
-class Object : public IRealObject
+class Object : public Entity
 {
 public:
 
   Object();
+  virtual ~Object() = default;
 
-  ObjectId getId() const { return d_id; }
+  virtual bool isMovable() const { return false; }
+  float getAcceleration() const { return 10.0f; }
+  float getMaxSpeed() const { return 2.0f; }
 
-  virtual bool isCreature() const { return false; }
+  Vector3 getSpeed() const { return d_speed; }
+  void setSpeed(Vector3 i_speed) { d_speed = std::move(i_speed); }
 
-  ///
-  /// IRealObject
-  ///
+  const IShape& getCollisionShape() const { return d_collisionShape; }
 
-  virtual bool isMovable() const override;
-  virtual float getAcceleration() const override;
-  virtual float getMaxSpeed() const override;
-  virtual Vector3 getMovementDirection() const override;
-
-  virtual Vector3 getPosition() const override;
-  virtual void setPosition(Vector3 i_position) override;
-
-  virtual Vector3 getSpeed() const override;
-  virtual void setSpeed(Vector3 i_speed) override;
-
-  virtual const IShape& getCollisionShape() const override;
-
-  ///
-
-  void setMovementDirection(Vector3 i_movementDirection);
-  void resetMovementDirection();
+  Vector3 getMovementDirection() const { return d_movementDirection; }
+  void setMovementDirection(Vector3 i_movementDirection) { d_movementDirection = std::move(i_movementDirection); }
+  void resetMovementDirection() { d_movementDirection = Vector3::zero(); }
 
   void setModelName(const std::string& i_modelName) { d_modelName = i_modelName; }
   const std::string& getModelName() const { return d_modelName; }
@@ -45,32 +33,19 @@ public:
   void setCustomTextureName(const std::string& i_customTextureName) { d_customTextureName = i_customTextureName; }
   const std::string& getCustomTextureName() const { return d_customTextureName; }
 
-  void setRotation(const Vector3& i_rotation) { d_rotation = i_rotation; }
-  const Vector3& getRotation() const { return d_rotation; }
-
   void setCurrentAction(std::shared_ptr<IAction> i_action);
-  IActionPtr getCurrentAction();
-  IActionPtr getCurrentAction() const;
-
-  void setVisibility(bool i_visible) { d_visible = i_visible; }
-  bool getVisibility() const { return d_visible; }
+  IActionPtr getCurrentAction() const { return d_currentAction; }
+  IActionPtr getCurrentAction() { return d_currentAction; }
 
 private:
-
-  ObjectId d_id;
-  static ObjectId s_nextId;
 
   std::string d_modelName;
   std::string d_customTextureName;
 
   Vector3 d_movementDirection;
-  Vector3 d_position;
   Vector3 d_speed;
-  Vector3 d_rotation;
 
   Circle d_collisionShape;
 
   IActionPtr d_currentAction;
-
-  bool d_visible;
 };

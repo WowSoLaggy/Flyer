@@ -9,7 +9,7 @@ class Collider
 public:
   Collider() = delete;
 
-  static bool collide(IRealObjectPtr i_object1, IRealObjectPtr i_object2,
+  static bool collide(ObjectPtr i_object1, ObjectPtr i_object2,
                       Vector2& o_normal, Vector2& o_tangent);
 
 private:

@@ -42,6 +42,9 @@
     <ClCompile Include="Creature.cpp">
       <Filter>src\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>src\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -80,14 +83,14 @@
     <ClInclude Include="ActionAttack.h">
       <Filter>src\Actions</Filter>
     </ClInclude>
-    <ClInclude Include="IRealObject.h">
-      <Filter>src\Physics</Filter>
-    </ClInclude>
     <ClInclude Include="IShape.h">
       <Filter>src\Physics\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Circle.h">
       <Filter>src\Physics\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>src\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
