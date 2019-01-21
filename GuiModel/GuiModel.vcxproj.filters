@@ -7,7 +7,7 @@
     <Filter Include="src\Guis">
       <UniqueIdentifier>{2e7019c3-34fe-4b28-97ff-e9b509523f76}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\GuiCollection">
+    <Filter Include="src\Collections">
       <UniqueIdentifier>{5c13a645-0b36-4a33-ae47-cb38c3b0a60f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -22,7 +22,7 @@
       <Filter>src\Guis</Filter>
     </ClInclude>
     <ClInclude Include="GuiCollection.h">
-      <Filter>src\GuiCollection</Filter>
+      <Filter>src\Collections</Filter>
     </ClInclude>
     <ClInclude Include="GuiModelFwd.h">
       <Filter>src</Filter>
@@ -43,9 +43,6 @@
     </ClCompile>
     <ClCompile Include="Label.cpp">
       <Filter>src\Guis</Filter>
-    </ClCompile>
-    <ClCompile Include="GuiCollection.cpp">
-      <Filter>src\GuiCollection</Filter>
     </ClCompile>
     <ClCompile Include="Panel.cpp">
       <Filter>src\Guis</Filter>
