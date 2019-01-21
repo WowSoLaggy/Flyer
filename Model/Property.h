@@ -2,11 +2,11 @@
 
 
 template <typename T>
-class ObjectProperty
+class Property
 {
 public:
 
-  ObjectProperty(T i_initialValue = T(0), T i_minValue = T(0), T i_maxValue = T(0))
+  Property(T i_initialValue = T(0), T i_minValue = T(0), T i_maxValue = T(0))
   {
     set(i_initialValue, i_minValue, i_maxValue);
   }

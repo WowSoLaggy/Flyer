@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Object.h"
-#include "ObjectProperty.h"
+#include "Property.h"
 
 
 class Creature : public Object
@@ -16,20 +16,20 @@ public:
   bool isAiControlled() const { return d_aiControlled; }
   void setAiControlled(bool i_aiControlled) { d_aiControlled = i_aiControlled; }
 
-  ObjectProperty<int>& getPropHealth() { return d_health; }
-  const ObjectProperty<int>& getPropHealth() const { return d_health; }
+  auto& getPropHealth() { return d_health; }
+  const auto& getPropHealth() const { return d_health; }
 
-  ObjectProperty<double>& getPropAttackCooldown() { return d_attackCooldown; }
-  const ObjectProperty<double>& getPropAttackCooldown() const { return d_attackCooldown; }
+  auto& getPropAttackCooldown() { return d_attackCooldown; }
+  const auto& getPropAttackCooldown() const { return d_attackCooldown; }
 
-  ObjectProperty<int>& getPropDamage() { return d_damage; }
-  const ObjectProperty<int>& getPropDamage() const { return d_damage; }
+  auto& getPropDamage() { return d_damage; }
+  const auto& getPropDamage() const { return d_damage; }
 
 private:
 
   bool d_aiControlled;
 
-  ObjectProperty<int> d_health;
-  ObjectProperty<double> d_attackCooldown;
-  ObjectProperty<int> d_damage;
+  Property<int> d_health;
+  Property<double> d_attackCooldown;
+  Property<int> d_damage;
 };

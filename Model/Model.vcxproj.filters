@@ -74,9 +74,6 @@
     <ClInclude Include="ActionIdle.h">
       <Filter>src\Actions</Filter>
     </ClInclude>
-    <ClInclude Include="ObjectProperty.h">
-      <Filter>src\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="Creature.h">
       <Filter>src\Objects</Filter>
     </ClInclude>
@@ -90,6 +87,9 @@
       <Filter>src\Physics\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
+      <Filter>src\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Property.h">
       <Filter>src\Objects</Filter>
     </ClInclude>
   </ItemGroup>
