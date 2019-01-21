@@ -132,6 +132,9 @@
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="FileSystemUtils.h" />
     <ClInclude Include="IEvent.h" />
+    <ClInclude Include="IPosition3.h" />
+    <ClInclude Include="IRotation3.h" />
+    <ClInclude Include="IVisibility.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Property.h" />
     <ClInclude Include="SdkFwd.h" />

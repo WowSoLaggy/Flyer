@@ -63,6 +63,15 @@
     <ClInclude Include="Property.h">
       <Filter>src\Helpers</Filter>
     </ClInclude>
+    <ClInclude Include="IPosition3.h">
+      <Filter>src\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="IRotation3.h">
+      <Filter>src\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="IVisibility.h">
+      <Filter>src\Helpers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
