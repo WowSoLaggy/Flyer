@@ -133,6 +133,7 @@
     <ClInclude Include="FileSystemUtils.h" />
     <ClInclude Include="IEvent.h" />
     <ClInclude Include="Math.h" />
+    <ClInclude Include="Property.h" />
     <ClInclude Include="SdkFwd.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StringUtils.h" />

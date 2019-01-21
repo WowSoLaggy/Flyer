@@ -89,8 +89,5 @@
     <ClInclude Include="Entity.h">
       <Filter>src\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Property.h">
-      <Filter>src\Objects</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

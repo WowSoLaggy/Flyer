@@ -1,7 +1,8 @@
 #pragma once
 
 #include "Object.h"
-#include "Property.h"
+
+#include <Sdk/Property.h>
 
 
 class Creature : public Object
