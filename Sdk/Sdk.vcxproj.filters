@@ -75,6 +75,9 @@
     <ClInclude Include="IUniqueId.h">
       <Filter>src\Helpers</Filter>
     </ClInclude>
+    <ClInclude Include="ISpeed3.h">
+      <Filter>src\Helpers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

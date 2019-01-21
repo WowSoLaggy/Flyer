@@ -4,10 +4,11 @@
 #include "Entity.h"
 #include "ModelFwd.h"
 
+#include <Sdk/ISpeed3.h>
 #include <Sdk/Vector.h>
 
 
-class Object : public Entity
+class Object : public Entity, public ISpeed3
 {
 public:
 
@@ -17,9 +18,6 @@ public:
   virtual bool isMovable() const { return false; }
   float getAcceleration() const { return 10.0f; }
   float getMaxSpeed() const { return 2.0f; }
-
-  Vector3 getSpeed() const { return d_speed; }
-  void setSpeed(Vector3 i_speed) { d_speed = std::move(i_speed); }
 
   const IShape& getCollisionShape() const { return d_collisionShape; }
 
@@ -34,7 +32,6 @@ public:
 private:
 
   Vector3 d_movementDirection;
-  Vector3 d_speed;
 
   Circle d_collisionShape;
 

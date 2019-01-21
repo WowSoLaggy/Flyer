@@ -6,7 +6,6 @@
 
 Object::Object()
   : d_movementDirection{ 0, 0, 0 }
-  , d_speed{ 0, 0, 0 }
 {
   setCurrentAction(std::make_shared<ActionIdle>());
   d_collisionShape.setRadius(0.5);
