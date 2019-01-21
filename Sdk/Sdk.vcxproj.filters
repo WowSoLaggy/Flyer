@@ -72,6 +72,9 @@
     <ClInclude Include="IVisibility.h">
       <Filter>src\Helpers</Filter>
     </ClInclude>
+    <ClInclude Include="IUniqueId.h">
+      <Filter>src\Helpers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -82,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="EventHandler.cpp">
       <Filter>src\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="IUniqueId.cpp">
+      <Filter>src\Helpers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

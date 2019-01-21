@@ -4,6 +4,7 @@
 #include <GuiModel/GuiModelFwd.h>
 #include <Model/ModelFwd.h>
 #include <RenderApi/RenderApiFwd.h>
+#include <Sdk/SdkFwd.h>
 
 
 class CurrentActionPanelController
@@ -17,7 +18,7 @@ public:
   IGuiPtr updateActionTexture(ObjectPtr i_objectPtr);
 
   void addCurrentActionPanel(ObjectPtr i_objectPtr);
-  void deleteCurrentActionPanel(ObjectId i_objectId);
+  void deleteCurrentActionPanel(UniqueId i_objectId);
   void positionCurrentActionPanel(CurrentActionPanel& io_currentActionPanel);
   void positionCurrentActionPanel(CurrentActionPanel& io_currentActionPanel, ObjectPtr i_objectPtr);
 
@@ -29,5 +30,5 @@ private:
 
   std::unordered_map<GuiId, ObjectPtr> d_currentActionPanelMap;
 
-  IGuiPtr getGuiForCreature(ObjectId i_objectId);
+  IGuiPtr getGuiForCreature(UniqueId i_objectId);
 };

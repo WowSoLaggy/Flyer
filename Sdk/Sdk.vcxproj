@@ -134,6 +134,7 @@
     <ClInclude Include="IEvent.h" />
     <ClInclude Include="IPosition3.h" />
     <ClInclude Include="IRotation3.h" />
+    <ClInclude Include="IUniqueId.h" />
     <ClInclude Include="IVisibility.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Property.h" />
@@ -145,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EventHandler.cpp" />
+    <ClCompile Include="IUniqueId.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

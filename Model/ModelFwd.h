@@ -3,7 +3,6 @@
 class World;
 class Terrain;
 
-using ObjectId = int;
 class Object;
 using ObjectPtr = std::shared_ptr<Object>;
 using ObjectPtrs = std::vector<ObjectPtr>;

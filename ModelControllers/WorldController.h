@@ -4,6 +4,7 @@
 
 #include <Model/ModelFwd.h>
 #include <Sdk/EventHandler.h>
+#include <Sdk/SdkFwd.h>
 
 
 class WorldController : public IWorldController, public EventHandler
@@ -18,14 +19,14 @@ public:
   const World& getWorld() const { return d_world; }
 
   void addObject(ObjectPtr i_object);
-  void deleteObject(ObjectId i_objectId);
+  void deleteObject(UniqueId i_objectId);
 
 private:
 
   World& d_world;
 
   ObjectPtrs d_objectsToAdd;
-  std::vector<ObjectId> d_objectIdsToDelete;
+  std::vector<UniqueId> d_objectIdsToDelete;
 
   void updateScripts(double i_dt);
   void updateObjects(double i_dt);

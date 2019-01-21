@@ -6,3 +6,5 @@ struct Vector4;
 
 class IEvent;
 class EventHandler;
+
+using UniqueId = int;

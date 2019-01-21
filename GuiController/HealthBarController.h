@@ -4,6 +4,7 @@
 #include <GuiModel/GuiModelFwd.h>
 #include <Model/ModelFwd.h>
 #include <RenderApi/RenderApiFwd.h>
+#include <Sdk/SdkFwd.h>
 
 
 class HealthBarController
@@ -16,7 +17,7 @@ public:
   void update(HealthBar& io_healthBar);
 
   void addHealthBar(CreaturePtr i_creaturePtr);
-  void deleteHealthBar(ObjectId i_objectId);
+  void deleteHealthBar(UniqueId i_objectId);
   void positionHealthBar(HealthBar& io_healthBar);
   void positionHealthBar(HealthBar& io_healthBar, CreaturePtr i_creaturePtr);
 
