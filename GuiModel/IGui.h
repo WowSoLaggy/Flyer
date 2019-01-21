@@ -1,7 +1,5 @@
 #pragma once
 
-#include "GuiModelFwd.h"
-
 #include <Sdk/IUniqueId.h>
 
 
