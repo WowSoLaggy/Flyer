@@ -140,7 +140,6 @@
     <ClCompile Include="CurrentActionPanel.cpp" />
     <ClCompile Include="GuiCollection.cpp" />
     <ClCompile Include="HealthBar.cpp" />
-    <ClCompile Include="IGui.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="Panel.cpp" />
     <ClCompile Include="stdafx.cpp">

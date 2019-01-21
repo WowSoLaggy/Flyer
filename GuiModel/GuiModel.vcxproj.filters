@@ -50,9 +50,6 @@
     <ClCompile Include="Panel.cpp">
       <Filter>src\Guis</Filter>
     </ClCompile>
-    <ClCompile Include="IGui.cpp">
-      <Filter>src\Guis</Filter>
-    </ClCompile>
     <ClCompile Include="HealthBar.cpp">
       <Filter>src\Guis</Filter>
     </ClCompile>

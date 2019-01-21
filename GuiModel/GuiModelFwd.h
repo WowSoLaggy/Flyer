@@ -1,5 +1,8 @@
 #pragma once
 
+#include <Sdk/SdkFwd.h>
+
+
 class IGui;
 using IGuiPtr = std::shared_ptr<IGui>;
 using IGuiPtrs = std::vector<IGuiPtr>;
@@ -10,4 +13,4 @@ class HealthBar;
 class CurrentActionPanel;
 
 class GuiCollection;
-using GuiId = int;
+using GuiId = UniqueId;
