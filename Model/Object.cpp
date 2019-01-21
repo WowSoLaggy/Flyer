@@ -5,7 +5,9 @@
 
 
 Object::Object()
-  : d_movementDirection{ 0, 0, 0 }
+  : d_modelName("")
+  , d_customTextureName("")
+  , d_movementDirection{ Vector3::zero() }
 {
   setCurrentAction(std::make_shared<ActionIdle>());
   d_collisionShape.setRadius(0.5);

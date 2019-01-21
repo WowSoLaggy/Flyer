@@ -128,7 +128,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Creature.cpp" />
-    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="HeightMap.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Terrain.cpp" />
@@ -146,7 +145,6 @@
     <ClInclude Include="ActionMoveTo.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Creature.h" />
-    <ClInclude Include="Entity.h" />
     <ClInclude Include="HeightMap.h" />
     <ClInclude Include="IAction.h" />
     <ClInclude Include="IShape.h" />

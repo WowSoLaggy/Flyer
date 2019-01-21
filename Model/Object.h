@@ -1,23 +1,34 @@
 #pragma once
 
 #include "Circle.h"
-#include "Entity.h"
 #include "ModelFwd.h"
 
+#include <Sdk/IPosition3.h>
+#include <Sdk/IRotation3.h>
 #include <Sdk/ISpeed3.h>
+#include <Sdk/IUniqueId.h>
+#include <Sdk/IVisibility.h>
 #include <Sdk/Vector.h>
 
 
-class Object : public Entity, public ISpeed3
+class Object :
+  public IPosition3, public IRotation3, public IVisibility, public IUniqueId, public ISpeed3
 {
 public:
 
   Object();
   virtual ~Object() = default;
 
+  virtual bool isCreature() const { return false; }
   virtual bool isMovable() const { return false; }
-  float getAcceleration() const { return 10.0f; }
-  float getMaxSpeed() const { return 2.0f; }
+  virtual float getAcceleration() const { return 0.0f; }
+  virtual float getMaxSpeed() const { return 0.0f; }
+
+  const std::string& getModelName() const { return d_modelName; }
+  void setModelName(const std::string& i_modelName) { d_modelName = i_modelName; }
+
+  const std::string& getCustomTextureName() const { return d_customTextureName; }
+  void setCustomTextureName(const std::string& i_customTextureName) { d_customTextureName = i_customTextureName; }
 
   const IShape& getCollisionShape() const { return d_collisionShape; }
 
@@ -31,9 +42,11 @@ public:
 
 private:
 
+  std::string d_modelName;
+  std::string d_customTextureName;
+
   Vector3 d_movementDirection;
 
   Circle d_collisionShape;
-
   IActionPtr d_currentAction;
 };
