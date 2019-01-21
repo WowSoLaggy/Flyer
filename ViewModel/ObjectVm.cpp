@@ -25,7 +25,7 @@ ObjectVm::ObjectVm(const IResourceController& i_resourceController, const Object
   : d_object(i_object)
   , d_meshResourceCmoId(i_resourceController.getResourceId(d_object.getModelName()))
 {
-  const auto& customTextureName = d_object.getCustomTextureName();
+  const auto& customTextureName = d_object.getTextureName();
   d_customTextureId = customTextureName.empty() ?
     ResourceIdEmpty : i_resourceController.getResourceId(customTextureName);
 

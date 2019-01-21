@@ -132,9 +132,11 @@
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="FileSystemUtils.h" />
     <ClInclude Include="IEvent.h" />
+    <ClInclude Include="IModelName.h" />
     <ClInclude Include="IPosition3.h" />
     <ClInclude Include="IRotation3.h" />
     <ClInclude Include="ISpeed3.h" />
+    <ClInclude Include="ITextureName.h" />
     <ClInclude Include="IUniqueId.h" />
     <ClInclude Include="IVisibility.h" />
     <ClInclude Include="Math.h" />

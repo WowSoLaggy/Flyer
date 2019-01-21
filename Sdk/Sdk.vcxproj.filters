@@ -78,6 +78,12 @@
     <ClInclude Include="ISpeed3.h">
       <Filter>src\Helpers</Filter>
     </ClInclude>
+    <ClInclude Include="IModelName.h">
+      <Filter>src\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ITextureName.h">
+      <Filter>src\Helpers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
