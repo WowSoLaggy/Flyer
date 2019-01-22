@@ -74,6 +74,7 @@ void App::createWorld()
 
   d_guiCollection = GuiCreator::createGameGui();
   d_hudCollection = HudCreator::createGameHud();
-  d_guiController = IGuiController::create(*d_guiCollection, *d_worldController, d_gameVm->getCamera());
+  d_guiController = IGuiController::create(*d_guiCollection, *d_hudCollection,
+                                           *d_worldController, d_gameVm->getCamera());
   d_gameVm->buildGuiVms(*d_guiController);
 }
