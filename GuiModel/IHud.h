@@ -1,14 +1,15 @@
 #pragma once
 
-#include <Sdk/IModelName.h>
+#include "IGui.h"
+
 #include <Sdk/IPosition3.h>
-#include <Sdk/ITextureName.h>
-#include <Sdk/IUniqueId.h>
+#include <Sdk/IRotation3.h>
 
 
-class IHud :
-  public IUniqueId, public IPosition3, public IModelName, public ITextureName
+class IHud : public IGui, public IPosition3, public IRotation3
 {
 public:
   virtual ~IHud() = default;
+
+  virtual bool isHud() const override { return true; }
 };
