@@ -54,6 +54,9 @@
     <ClInclude Include="CurrentActionPanelVm.h">
       <Filter>src\ViewModels\Gui</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionShapeHudVm.h">
+      <Filter>src\ViewModels\Gui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -84,6 +87,9 @@
       <Filter>src\ViewModels\Gui</Filter>
     </ClCompile>
     <ClCompile Include="CurrentActionPanelVm.cpp">
+      <Filter>src\ViewModels\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionShapeHudVm.cpp">
       <Filter>src\ViewModels\Gui</Filter>
     </ClCompile>
   </ItemGroup>
