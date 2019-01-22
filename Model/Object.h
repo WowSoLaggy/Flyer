@@ -7,7 +7,6 @@
 #include <Sdk/IPosition3.h>
 #include <Sdk/IRotation3.h>
 #include <Sdk/ISpeed3.h>
-#include <Sdk/ITextureName.h>
 #include <Sdk/IUniqueId.h>
 #include <Sdk/IVisibility.h>
 #include <Sdk/Vector.h>
@@ -16,7 +15,7 @@
 class Object :
   public IPosition3, public IRotation3, public ISpeed3,
   public IVisibility, public IUniqueId,
-  public IModelName, public ITextureName
+  public IModelName
 {
 public:
 

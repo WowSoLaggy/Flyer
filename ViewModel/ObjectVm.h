@@ -20,7 +20,6 @@ private:
 
   const Object& d_object;
   const ResourceId d_meshResourceCmoId;
-  ResourceId d_customTextureId;
 
   std::shared_ptr<IAnimationController> d_animationController;
 
