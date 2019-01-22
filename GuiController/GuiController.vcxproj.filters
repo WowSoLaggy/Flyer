@@ -13,6 +13,9 @@
     <Filter Include="src\Controllers">
       <UniqueIdentifier>{607ba65d-a401-4d2e-a0f7-ee6cc3c659e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\HudCreator">
+      <UniqueIdentifier>{5722f6c0-b743-48de-903e-ee3f43a2752b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -35,6 +38,9 @@
     </ClCompile>
     <ClCompile Include="CurrentActionPanelController.cpp">
       <Filter>src\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="HudCreator.cpp">
+      <Filter>src\HudCreator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="CurrentActionPanelController.h">
       <Filter>src\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="HudCreator.h">
+      <Filter>src\HudCreator</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
