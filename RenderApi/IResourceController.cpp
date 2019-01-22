@@ -6,6 +6,5 @@
 
 std::shared_ptr<IResourceController> IResourceController::create()
 {
-  auto* pResourceController = new ResourceController();
-  return std::shared_ptr<IResourceController>(pResourceController);
+  return std::make_shared<ResourceController>();
 }

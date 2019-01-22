@@ -4,7 +4,7 @@
 
 void InputDevice::initialize()
 {
-  d_keyboard.reset(new Keyboard());
+  d_keyboard = std::make_unique<Keyboard>();
   d_keyboardState.reset();
 }
 

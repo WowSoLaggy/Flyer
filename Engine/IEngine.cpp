@@ -6,6 +6,5 @@
 
 std::shared_ptr<IEngine> IEngine::create()
 {
-  auto* pEngine = new Engine();
-  return std::shared_ptr<IEngine>(pEngine);
+  return std::make_shared<Engine>();
 }

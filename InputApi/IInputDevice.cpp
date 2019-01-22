@@ -6,6 +6,5 @@
 
 std::shared_ptr<IInputDevice> IInputDevice::create()
 {
-  auto* pInputDevice = new InputDevice();
-  return std::shared_ptr<IInputDevice>(pInputDevice);
+  return std::make_shared<InputDevice>();
 }

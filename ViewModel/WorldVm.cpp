@@ -21,8 +21,8 @@ void WorldVm::buildFromWorld(IWorldController& i_worldController)
 {
   auto& worldController = dynamic_cast<WorldController&>(i_worldController);
 
-  d_terrainVm = std::shared_ptr<TerrainVm>(
-    new TerrainVm(d_renderDevice, d_resourceController, worldController.getWorld().getTerrain()));
+  d_terrainVm = std::make_shared<TerrainVm>(
+    d_renderDevice, d_resourceController, worldController.getWorld().getTerrain());
 
   for (const auto& object : worldController.getWorld().getObjects())
     onObjectAdded(*object);

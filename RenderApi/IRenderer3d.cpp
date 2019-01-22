@@ -9,5 +9,5 @@ std::shared_ptr<IRenderer3d> IRenderer3d::create(
   const IResourceController& i_resourceController,
   const ICamera& i_camera)
 {
-  return std::shared_ptr<IRenderer3d>(new Renderer3d(io_renderDevice, i_resourceController, i_camera));
+  return std::make_shared<Renderer3d>(io_renderDevice, i_resourceController, i_camera);
 }

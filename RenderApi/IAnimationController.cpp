@@ -7,6 +7,5 @@
 std::shared_ptr<IAnimationController> IAnimationController::getAnimationController(
   const IResourceController& i_resourceController, ResourceId i_resourceId)
 {
-  auto* pAnimationController = new AnimationController(i_resourceController, i_resourceId);
-  return std::shared_ptr<IAnimationController>(pAnimationController);
+  return std::make_shared<AnimationController>(i_resourceController, i_resourceId);
 }

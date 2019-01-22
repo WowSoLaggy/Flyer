@@ -6,6 +6,5 @@
 
 std::shared_ptr<IRenderDevice> IRenderDevice::create()
 {
-  auto* pRenderDevice = new RenderDevice();
-  return std::shared_ptr<IRenderDevice>(pRenderDevice);
+  return std::make_shared<RenderDevice>();
 }
