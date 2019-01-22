@@ -11,7 +11,7 @@ public:
   LabelVm(const IResourceController& i_resourceController, const Label& i_label);
 
   virtual void reloadResources(const IResourceController& i_resourceController) override;
-  virtual void render(IRenderer2d& i_renderer) const override;
+  virtual void render(IRenderer& i_renderer) const override;
 
   virtual const IGui& getGui() const override;
 

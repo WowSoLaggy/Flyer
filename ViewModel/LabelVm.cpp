@@ -18,9 +18,10 @@ void LabelVm::reloadResources(const IResourceController& i_resourceController)
   d_fontResourceId = i_resourceController.getResourceId(d_label.getFontName());
 }
 
-void LabelVm::render(IRenderer2d& i_renderer) const
+void LabelVm::render(IRenderer& i_renderer) const
 {
-  i_renderer.renderText(d_label.getText(), d_fontResourceId, d_label.getPosition());
+  auto& renderer2d = dynamic_cast<IRenderer2d&>(i_renderer);
+  renderer2d.renderText(d_label.getText(), d_fontResourceId, d_label.getPosition());
 }
 
 

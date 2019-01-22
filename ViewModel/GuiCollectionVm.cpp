@@ -13,6 +13,7 @@
 #include <GuiModel/HealthBar.h>
 #include <GuiModel/Label.h>
 #include <GuiModel/Panel.h>
+#include <RenderApi/IRenderer2d.h>
 
 
 GuiCollectionVm::GuiCollectionVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController)

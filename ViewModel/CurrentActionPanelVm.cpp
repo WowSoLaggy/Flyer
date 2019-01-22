@@ -19,9 +19,10 @@ void CurrentActionPanelVm::reloadResources(const IResourceController& i_resource
   d_textureResourceId = i_resourceController.getResourceId(d_currentActionPanel.getTextureName());
 }
 
-void CurrentActionPanelVm::render(IRenderer2d& i_renderer) const
+void CurrentActionPanelVm::render(IRenderer& i_renderer) const
 {
-  i_renderer.renderTexture(d_textureResourceId, d_currentActionPanel.getPosition(), d_currentActionPanel.getSize());
+  auto& renderer2d = dynamic_cast<IRenderer2d&>(i_renderer);
+  renderer2d.renderTexture(d_textureResourceId, d_currentActionPanel.getPosition(), d_currentActionPanel.getSize());
 }
 
 

@@ -18,9 +18,10 @@ void PanelVm::reloadResources(const IResourceController& i_resourceController)
   d_textureResourceId = i_resourceController.getResourceId(d_panel.getTextureName());
 }
 
-void PanelVm::render(IRenderer2d& i_renderer) const
+void PanelVm::render(IRenderer& i_renderer) const
 {
-  i_renderer.renderTexture(d_textureResourceId, d_panel.getPosition());
+  auto& renderer2d = dynamic_cast<IRenderer2d&>(i_renderer);
+  renderer2d.renderTexture(d_textureResourceId, d_panel.getPosition());
 }
 
 
