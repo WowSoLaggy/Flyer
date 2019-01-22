@@ -16,7 +16,7 @@ public:
 
   void buildFromCollection(IGuiController& i_guiController);
 
-  void render(IRenderer2d& i_renderer, double i_dt) const;
+  void render(IRenderer2d& i_renderer2d, IRenderer3d& i_renderer3d, double i_dt) const;
 
   virtual void processEvent(const IEvent& i_event) override;
 
@@ -25,7 +25,8 @@ private:
   IRenderDevice & d_renderDevice;
   const IResourceController& d_resourceController;
 
-  std::vector<std::shared_ptr<GuiVm>> d_guiVms;
+  std::vector<std::shared_ptr<GuiVm>> d_guis;
+  std::vector<std::shared_ptr<GuiVm>> d_huds;
 
   void onGuiAdded(const IGui& i_gui);
   void onGuiDeleted(const IGui& i_gui);
