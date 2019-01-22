@@ -37,7 +37,7 @@ void Renderer3d::renderObject(
 
 void Renderer3d::renderObject(
   ResourceId i_meshResourceCmoId, ResourceId i_textureResourceId,
-  const IAnimationController& i_animationController,
+  std::shared_ptr<IAnimationController> i_animationController,
   const Vector3& i_position, const Vector3& i_rotation,
   bool i_useLighting)
 {
@@ -47,8 +47,9 @@ void Renderer3d::renderObject(
 
   auto& camera = dynamic_cast<const Camera&>(d_camera);
 
-  const auto& animationController = dynamic_cast<const AnimationController&>(i_animationController);
-  const auto animationTransform = animationController.getTransform();
+  auto animationTransform = XMMatrixIdentity();
+  if (auto animationController = std::dynamic_pointer_cast<AnimationController>(i_animationController))
+    animationTransform = animationController->getTransform();
 
   auto worldMatrix =
     animationTransform *
