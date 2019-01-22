@@ -26,7 +26,7 @@ void GuiCollectionVm::buildFromCollection(IGuiController& i_guiController)
 {
   auto& guiController = dynamic_cast<GuiController&>(i_guiController);
 
-  for (const auto gui : guiController.getCollection().getGuis())
+  for (const auto gui : guiController.getCollection().guis)
     onGuiAdded(*gui);
 
   connectTo(guiController);

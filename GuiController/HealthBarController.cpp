@@ -34,7 +34,7 @@ void HealthBarController::addHealthBar(CreaturePtr i_creaturePtr)
   auto pHealthBar = GuiCreator::createHealthBar();
   positionHealthBar(*pHealthBar, i_creaturePtr);
 
-  d_guiCollection.getGuis().push_back(pHealthBar);
+  d_guiCollection.guis.push_back(pHealthBar);
   d_healthBarMap[pHealthBar->getId()] = i_creaturePtr;
 
   d_guiController.notify(GuiAddedEvent{ pHealthBar });
@@ -47,7 +47,7 @@ void HealthBarController::deleteHealthBar(UniqueId i_objectId)
   if (guiToObjectIt == d_healthBarMap.end())
     return;
 
-  auto& iGuiPtrs = d_guiCollection.getGuis();
+  auto& iGuiPtrs = d_guiCollection.guis;
   auto itGui = std::find_if(iGuiPtrs.begin(), iGuiPtrs.end(),
                             [&](const auto& i_gui) { return i_gui->getId() == guiToObjectIt->first; });
   if (itGui == iGuiPtrs.end())

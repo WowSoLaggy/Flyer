@@ -50,7 +50,7 @@ IGuiPtr CurrentActionPanelController::getGuiForCreature(UniqueId i_objectId)
   if (guiToObjectIt == d_currentActionPanelMap.end())
     return nullptr;
 
-  auto& iGuiPtrs = d_guiCollection.getGuis();
+  auto& iGuiPtrs = d_guiCollection.guis;
   auto itGui = std::find_if(iGuiPtrs.begin(), iGuiPtrs.end(),
                             [&](const auto& i_gui) { return i_gui->getId() == guiToObjectIt->first; });
   if (itGui == iGuiPtrs.end())
@@ -87,7 +87,7 @@ void CurrentActionPanelController::addCurrentActionPanel(ObjectPtr i_objectPtr)
   auto pCurrentActionPanel = GuiCreator::createCurrentActionPanel();
   positionCurrentActionPanel(*pCurrentActionPanel, i_objectPtr);
 
-  d_guiCollection.getGuis().push_back(pCurrentActionPanel);
+  d_guiCollection.guis.push_back(pCurrentActionPanel);
   d_currentActionPanelMap[pCurrentActionPanel->getId()] = i_objectPtr;
 
   updateActionTexture(i_objectPtr);
@@ -102,7 +102,7 @@ void CurrentActionPanelController::deleteCurrentActionPanel(UniqueId i_objectId)
   if (guiToObjectIt == d_currentActionPanelMap.end())
     return;
 
-  auto& iGuiPtrs = d_guiCollection.getGuis();
+  auto& iGuiPtrs = d_guiCollection.guis;
   auto itGui = std::find_if(iGuiPtrs.begin(), iGuiPtrs.end(),
                             [&](const auto& i_gui) { return i_gui->getId() == guiToObjectIt->first; });
   if (itGui == iGuiPtrs.end())

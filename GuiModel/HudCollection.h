@@ -3,15 +3,7 @@
 #include "GuiModelFwd.h"
 
 
-class HudCollection
+struct HudCollection
 {
-public:
-
-  IHudPtrs& getHuds() { return d_huds; }
-  const IHudPtrs& getHuds() const { return d_huds; }
-
-private:
-
-  IHudPtrs d_huds;
-
+  IHudPtrs huds;
 };

@@ -30,7 +30,7 @@ GuiController::GuiController(GuiCollection& io_guiCollection, IWorldController& 
 
 void GuiController::update(double i_dt)
 {
-  auto& guis = d_guiCollection.getGuis();
+  auto& guis = d_guiCollection.guis;
   for (auto gui : guis)
   {
     if (auto* pLabel = dynamic_cast<Label*>(gui.get()))
