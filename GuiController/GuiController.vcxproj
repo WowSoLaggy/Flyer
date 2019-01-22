@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CollisionShapeHudController.cpp" />
     <ClCompile Include="CurrentActionPanelController.cpp" />
     <ClCompile Include="GuiController.cpp" />
     <ClCompile Include="GuiCreator.cpp" />
@@ -142,6 +143,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CollisionShapeHudController.h" />
     <ClInclude Include="CurrentActionPanelController.h" />
     <ClInclude Include="GuiController.h" />
     <ClInclude Include="GuiControllerFwd.h" />

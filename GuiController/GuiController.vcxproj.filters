@@ -42,6 +42,9 @@
     <ClCompile Include="HudCreator.cpp">
       <Filter>src\HudCreator</Filter>
     </ClCompile>
+    <ClCompile Include="CollisionShapeHudController.cpp">
+      <Filter>src\Controllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -73,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="HudCreator.h">
       <Filter>src\HudCreator</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionShapeHudController.h">
+      <Filter>src\Controllers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
