@@ -45,6 +45,9 @@
     <ClInclude Include="HudCollection.h">
       <Filter>src\Collections</Filter>
     </ClInclude>
+    <ClInclude Include="CircleHud.h">
+      <Filter>src\Huds</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CircleHud.h" />
     <ClInclude Include="CurrentActionPanel.h" />
     <ClInclude Include="GuiCollection.h" />
     <ClInclude Include="GuiModelFwd.h" />
