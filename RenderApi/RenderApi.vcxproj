@@ -144,6 +144,7 @@
     <ClInclude Include="FontResource.h" />
     <ClInclude Include="IAnimationController.h" />
     <ClInclude Include="IndexBuffer.h" />
+    <ClInclude Include="IRenderer.h" />
     <ClInclude Include="IRenderer2d.h" />
     <ClInclude Include="IRenderer3d.h" />
     <ClInclude Include="Material.h" />

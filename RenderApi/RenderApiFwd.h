@@ -2,10 +2,9 @@
 
 class IRenderDevice;
 class ICamera;
-class IObject3d;
-class IObject2d;
-class IRenderer3d;
+class IRenderer;
 class IRenderer2d;
+class IRenderer3d;
 
 using ResourceId = int;
 const ResourceId ResourceIdEmpty = ResourceId(-1);

@@ -22,14 +22,17 @@
     <Filter Include="src\Buffers">
       <UniqueIdentifier>{99149c37-a63a-47ae-8b69-523f2363d42f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Renderer3d">
-      <UniqueIdentifier>{62a6fdf6-cc17-4e12-adf6-8e2582a88e7b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Renderer2d">
-      <UniqueIdentifier>{e0711f13-e2d2-49f8-bf4c-5431a7d323dd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Animation">
       <UniqueIdentifier>{a2329c46-c70a-46b5-b051-a056fb7da2af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Renderers">
+      <UniqueIdentifier>{802065ae-e34f-4c4d-9de4-b2422b076aa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Renderers\Renderer2d">
+      <UniqueIdentifier>{e0711f13-e2d2-49f8-bf4c-5431a7d323dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Renderers\Renderer3d">
+      <UniqueIdentifier>{62a6fdf6-cc17-4e12-adf6-8e2582a88e7b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -94,16 +97,16 @@
       <Filter>src\Resources\ResourceTypes</Filter>
     </ClInclude>
     <ClInclude Include="IRenderer3d.h">
-      <Filter>src\Renderer3d</Filter>
+      <Filter>src\Renderers\Renderer3d</Filter>
     </ClInclude>
     <ClInclude Include="Renderer3d.h">
-      <Filter>src\Renderer3d</Filter>
+      <Filter>src\Renderers\Renderer3d</Filter>
     </ClInclude>
     <ClInclude Include="IRenderer2d.h">
-      <Filter>src\Renderer2d</Filter>
+      <Filter>src\Renderers\Renderer2d</Filter>
     </ClInclude>
     <ClInclude Include="Renderer2d.h">
-      <Filter>src\Renderer2d</Filter>
+      <Filter>src\Renderers\Renderer2d</Filter>
     </ClInclude>
     <ClInclude Include="MeshResourceCmo.h">
       <Filter>src\Resources\ResourceTypes</Filter>
@@ -113,6 +116,9 @@
     </ClInclude>
     <ClInclude Include="IAnimationController.h">
       <Filter>src\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderer.h">
+      <Filter>src\Renderers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -162,19 +168,19 @@
       <Filter>src\Resources\ResourceTypes</Filter>
     </ClCompile>
     <ClCompile Include="IRenderer3d.cpp">
-      <Filter>src\Renderer3d</Filter>
+      <Filter>src\Renderers\Renderer3d</Filter>
     </ClCompile>
     <ClCompile Include="Renderer3d.cpp">
-      <Filter>src\Renderer3d</Filter>
+      <Filter>src\Renderers\Renderer3d</Filter>
     </ClCompile>
     <ClCompile Include="Renderer2d.cpp">
-      <Filter>src\Renderer2d</Filter>
+      <Filter>src\Renderers\Renderer2d</Filter>
     </ClCompile>
     <ClCompile Include="IRenderer2d.cpp">
-      <Filter>src\Renderer2d</Filter>
+      <Filter>src\Renderers\Renderer2d</Filter>
     </ClCompile>
     <ClCompile Include="Renderer3d_Renders.cpp">
-      <Filter>src\Renderer3d</Filter>
+      <Filter>src\Renderers\Renderer3d</Filter>
     </ClCompile>
     <ClCompile Include="MeshResourceCmo.cpp">
       <Filter>src\Resources\ResourceTypes</Filter>

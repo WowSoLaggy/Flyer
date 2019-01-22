@@ -1,11 +1,12 @@
 #pragma once
 
+#include "IRenderer.h"
 #include "RenderApiFwd.h"
 
 #include <Sdk/Vector.h>
 
 
-class IRenderer3d
+class IRenderer3d : public IRenderer
 {
 public:
 
@@ -30,7 +31,7 @@ public:
 
   virtual void renderObject(
     ResourceId i_meshResourceCmoId, ResourceId i_textureResourceId,
-    const IAnimationController& i_animationController,
+    std::shared_ptr<IAnimationController> i_animationController,
     const Vector3& i_position, const Vector3& i_rotation,
     bool i_useLighting) = 0;
 };

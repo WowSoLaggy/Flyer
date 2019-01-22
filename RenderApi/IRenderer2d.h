@@ -1,11 +1,12 @@
 #pragma once
 
+#include "IRenderer.h"
 #include "RenderApiFwd.h"
 
 #include <Sdk/SdkFwd.h>
 
 
-class IRenderer2d
+class IRenderer2d : public IRenderer
 {
 public:
 
