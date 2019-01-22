@@ -3,10 +3,12 @@
 #include <Sdk/SdkFwd.h>
 
 
+using GuiId = UniqueId;
+
+
 // GUI
 
 struct GuiCollection;
-using GuiId = UniqueId;
 
 class IGui;
 using IGuiPtr = std::shared_ptr<IGui>;
@@ -21,10 +23,9 @@ class CurrentActionPanel;
 // HUD
 
 struct HudCollection;
-using HudId = UniqueId;
 
 class IHud;
 using IHudPtr = std::shared_ptr<IHud>;
 using IHudPtrs = std::vector<IHudPtr>;
 
-class CircleHud;
+class CollisionShapeHud;
