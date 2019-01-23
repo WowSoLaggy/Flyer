@@ -54,7 +54,7 @@
     <ClInclude Include="CurrentActionPanelVm.h">
       <Filter>src\ViewModels\Gui</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionShapeHudVm.h">
+    <ClInclude Include="CollisionShapeGui3dVm.h">
       <Filter>src\ViewModels\Gui</Filter>
     </ClInclude>
   </ItemGroup>
@@ -89,7 +89,7 @@
     <ClCompile Include="CurrentActionPanelVm.cpp">
       <Filter>src\ViewModels\Gui</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionShapeHudVm.cpp">
+    <ClCompile Include="CollisionShapeGui3dVm.cpp">
       <Filter>src\ViewModels\Gui</Filter>
     </ClCompile>
   </ItemGroup>

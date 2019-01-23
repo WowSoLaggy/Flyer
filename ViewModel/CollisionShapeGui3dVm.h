@@ -5,11 +5,11 @@
 #include <GuiModel/GuiModelFwd.h>
 
 
-class CollisionShapeHudVm : public GuiVm
+class CollisionShapeGui3dVm : public GuiVm
 {
 public:
-  CollisionShapeHudVm(const IResourceController& i_resourceController,
-                      const CollisionShapeHud& i_collisionShapeHud);
+  CollisionShapeGui3dVm(const IResourceController& i_resourceController,
+                        const CollisionShapeGui3d& i_collisionShapeGui3d);
 
   virtual void reloadResources(const IResourceController& i_resourceController) override;
   virtual void render(IRenderer& i_renderer) const override;
@@ -17,7 +17,7 @@ public:
   virtual const IGui& getGui() const override;
 
 private:
-  const CollisionShapeHud& d_collisionShapeHud;
+  const CollisionShapeGui3d& d_collisionShapeGui3d;
   ResourceId d_meshResourceId;
   ResourceId d_textureResourceId;
 };

@@ -27,7 +27,7 @@ private:
   std::shared_ptr<World> d_world;
   std::shared_ptr<IWorldController> d_worldController;
   std::shared_ptr<GuiCollection> d_guiCollection;
-  std::shared_ptr<HudCollection> d_hudCollection;
+  std::shared_ptr<Gui3dCollection> d_gui3dCollection;
   std::shared_ptr<IGuiController> d_guiController;
 
   std::shared_ptr<GameVm> d_gameVm;

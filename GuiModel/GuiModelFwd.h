@@ -20,12 +20,12 @@ class HealthBar;
 class CurrentActionPanel;
 
 
-// HUD
+// GUI3d
 
-struct HudCollection;
+struct Gui3dCollection;
 
-class IHud;
-using IHudPtr = std::shared_ptr<IHud>;
-using IHudPtrs = std::vector<IHudPtr>;
+class IGui3d;
+using IGui3dPtr = std::shared_ptr<IGui3d>;
+using IGui3dPtrs = std::vector<IGui3dPtr>;
 
-class CollisionShapeHud;
+class CollisionShapeGui3d;

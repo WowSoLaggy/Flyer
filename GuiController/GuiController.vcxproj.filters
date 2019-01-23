@@ -7,14 +7,11 @@
     <Filter Include="src\GuiController">
       <UniqueIdentifier>{bb379983-a747-4df1-9513-3cfb34e72030}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\GuiCreator">
-      <UniqueIdentifier>{be63cb07-9b21-4e21-8bda-5ee39c122612}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Controllers">
       <UniqueIdentifier>{607ba65d-a401-4d2e-a0f7-ee6cc3c659e3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\HudCreator">
-      <UniqueIdentifier>{5722f6c0-b743-48de-903e-ee3f43a2752b}</UniqueIdentifier>
+    <Filter Include="src\GuiCreators">
+      <UniqueIdentifier>{be63cb07-9b21-4e21-8bda-5ee39c122612}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -28,7 +25,7 @@
       <Filter>src\GuiController</Filter>
     </ClCompile>
     <ClCompile Include="GuiCreator.cpp">
-      <Filter>src\GuiCreator</Filter>
+      <Filter>src\GuiCreators</Filter>
     </ClCompile>
     <ClCompile Include="GuiController.cpp">
       <Filter>src\GuiController</Filter>
@@ -39,10 +36,10 @@
     <ClCompile Include="CurrentActionPanelController.cpp">
       <Filter>src\Controllers</Filter>
     </ClCompile>
-    <ClCompile Include="HudCreator.cpp">
-      <Filter>src\HudCreator</Filter>
+    <ClCompile Include="Gui3dCreator.cpp">
+      <Filter>src\GuiCreators</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionShapeHudController.cpp">
+    <ClCompile Include="CollisionShapeGui3dController.cpp">
       <Filter>src\Controllers</Filter>
     </ClCompile>
   </ItemGroup>
@@ -60,7 +57,7 @@
       <Filter>src\GuiController</Filter>
     </ClInclude>
     <ClInclude Include="GuiCreator.h">
-      <Filter>src\GuiCreator</Filter>
+      <Filter>src\GuiCreators</Filter>
     </ClInclude>
     <ClInclude Include="GuiControllerFwd.h">
       <Filter>src</Filter>
@@ -74,10 +71,10 @@
     <ClInclude Include="CurrentActionPanelController.h">
       <Filter>src\Controllers</Filter>
     </ClInclude>
-    <ClInclude Include="HudCreator.h">
-      <Filter>src\HudCreator</Filter>
+    <ClInclude Include="Gui3dCreator.h">
+      <Filter>src\GuiCreators</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionShapeHudController.h">
+    <ClInclude Include="CollisionShapeGui3dController.h">
       <Filter>src\Controllers</Filter>
     </ClInclude>
   </ItemGroup>

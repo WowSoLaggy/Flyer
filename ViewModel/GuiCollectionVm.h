@@ -26,7 +26,7 @@ private:
   const IResourceController& d_resourceController;
 
   std::vector<std::shared_ptr<GuiVm>> d_guis;
-  std::vector<std::shared_ptr<GuiVm>> d_huds;
+  std::vector<std::shared_ptr<GuiVm>> d_guis3d;
 
   void onGuiAdded(const IGui& i_gui);
   void onGuiDeleted(const IGui& i_gui);

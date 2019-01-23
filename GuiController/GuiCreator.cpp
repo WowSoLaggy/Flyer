@@ -7,7 +7,7 @@
 #include <GuiModel/Label.h>
 
 
-std::shared_ptr<GuiCollection> GuiCreator::createGameGui()
+std::shared_ptr<GuiCollection> GuiCreator::create()
 {
   auto guiCollection = std::make_shared<GuiCollection>();
 

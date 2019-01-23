@@ -3,7 +3,7 @@
 #include "GuiModelFwd.h"
 
 
-struct HudCollection
+struct Gui3dCollection
 {
-  IHudPtrs huds;
+  IGui3dPtrs guis;
 };

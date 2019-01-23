@@ -10,7 +10,7 @@ class IGuiController
 public:
 
   static std::shared_ptr<IGuiController> create(
-    GuiCollection& io_guiCollection, HudCollection& io_hudCollection,
+    GuiCollection& io_guiCollection, Gui3dCollection& io_gui3dCollection,
     IWorldController& io_worldController, const ICamera& i_camera);
 
 public:

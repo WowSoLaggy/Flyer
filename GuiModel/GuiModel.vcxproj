@@ -127,14 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CollisionShapeHud.h" />
+    <ClInclude Include="CollisionShapeGui3d.h" />
     <ClInclude Include="CurrentActionPanel.h" />
     <ClInclude Include="GuiCollection.h" />
     <ClInclude Include="GuiModelFwd.h" />
     <ClInclude Include="HealthBar.h" />
-    <ClInclude Include="HudCollection.h" />
+    <ClInclude Include="Gui3dCollection.h" />
     <ClInclude Include="IGui.h" />
-    <ClInclude Include="IHud.h" />
+    <ClInclude Include="IGui3d.h" />
     <ClInclude Include="Label.h" />
     <ClInclude Include="Panel.h" />
     <ClInclude Include="stdafx.h" />

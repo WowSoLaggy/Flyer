@@ -127,12 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CollisionShapeHudController.cpp" />
+    <ClCompile Include="CollisionShapeGui3dController.cpp" />
     <ClCompile Include="CurrentActionPanelController.cpp" />
     <ClCompile Include="GuiController.cpp" />
     <ClCompile Include="GuiCreator.cpp" />
     <ClCompile Include="HealthBarController.cpp" />
-    <ClCompile Include="HudCreator.cpp" />
+    <ClCompile Include="Gui3dCreator.cpp" />
     <ClCompile Include="IGuiController.cpp" />
     <ClCompile Include="LabelController.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -143,14 +143,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CollisionShapeHudController.h" />
+    <ClInclude Include="CollisionShapeGui3dController.h" />
     <ClInclude Include="CurrentActionPanelController.h" />
     <ClInclude Include="GuiController.h" />
     <ClInclude Include="GuiControllerFwd.h" />
     <ClInclude Include="GuiCreator.h" />
     <ClInclude Include="GuiEvents.h" />
     <ClInclude Include="HealthBarController.h" />
-    <ClInclude Include="HudCreator.h" />
+    <ClInclude Include="Gui3dCreator.h" />
     <ClInclude Include="IGuiController.h" />
     <ClInclude Include="LabelController.h" />
     <ClInclude Include="stdafx.h" />

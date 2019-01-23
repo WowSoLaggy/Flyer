@@ -3,7 +3,7 @@
 
 #include <Engine/IEngine.h>
 #include <GuiController/GuiCreator.h>
-#include <GuiController/HudCreator.h>
+#include <GuiController/Gui3dCreator.h>
 #include <GuiController/IGuiController.h>
 #include <ModelControllers/IWorldController.h>
 #include <ModelControllers/WorldCreator.h>
@@ -72,9 +72,9 @@ void App::createWorld()
   d_worldController = IWorldController::create(*d_world);
   d_gameVm->buildWorldVms(*d_worldController);
 
-  d_guiCollection = GuiCreator::createGameGui();
-  d_hudCollection = HudCreator::createGameHud();
-  d_guiController = IGuiController::create(*d_guiCollection, *d_hudCollection,
+  d_guiCollection = GuiCreator::create();
+  d_gui3dCollection = Gui3dCreator::create();
+  d_guiController = IGuiController::create(*d_guiCollection, *d_gui3dCollection,
                                            *d_worldController, d_gameVm->getCamera());
   d_gameVm->buildGuiVms(*d_guiController);
 }

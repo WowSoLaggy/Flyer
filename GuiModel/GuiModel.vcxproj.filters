@@ -7,11 +7,11 @@
     <Filter Include="src\Guis">
       <UniqueIdentifier>{2e7019c3-34fe-4b28-97ff-e9b509523f76}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Huds">
-      <UniqueIdentifier>{450184a4-071a-4655-a9a0-4dc8b9bfb086}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Collections">
       <UniqueIdentifier>{5c13a645-0b36-4a33-ae47-cb38c3b0a60f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Guis3d">
+      <UniqueIdentifier>{450184a4-071a-4655-a9a0-4dc8b9bfb086}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -39,14 +39,14 @@
     <ClInclude Include="CurrentActionPanel.h">
       <Filter>src\Guis</Filter>
     </ClInclude>
-    <ClInclude Include="IHud.h">
-      <Filter>src\Huds</Filter>
+    <ClInclude Include="IGui3d.h">
+      <Filter>src\Guis3d</Filter>
     </ClInclude>
-    <ClInclude Include="HudCollection.h">
+    <ClInclude Include="Gui3dCollection.h">
       <Filter>src\Collections</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionShapeHud.h">
-      <Filter>src\Huds</Filter>
+    <ClInclude Include="CollisionShapeGui3d.h">
+      <Filter>src\Guis3d</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
