@@ -1,11 +1,11 @@
 #pragma once
 
-#include "IGui.h"
+#include "IGui2d.h"
 
 #include <Sdk/Vector.h>
 
 
-class Panel : public IGui
+class Panel : public IGui2d
 {
 public:
 

@@ -1,11 +1,11 @@
 #pragma once
 
-#include "IGui.h"
+#include "IGui2d.h"
 
 #include <Sdk/Vector.h>
 
 
-class CurrentActionPanel : public IGui
+class CurrentActionPanel : public IGui2d
 {
 public:
 

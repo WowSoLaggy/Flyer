@@ -3,16 +3,21 @@
 #include <Sdk/SdkFwd.h>
 
 
-using GuiId = UniqueId;
-
-
 // GUI
 
-struct GuiCollection;
-
+using GuiId = UniqueId;
 class IGui;
 using IGuiPtr = std::shared_ptr<IGui>;
 using IGuiPtrs = std::vector<IGuiPtr>;
+
+
+// GUI2d
+
+struct GuiCollection;
+
+class IGui2d;
+using IGui2dPtr = std::shared_ptr<IGui2d>;
+using IGui2dPtrs = std::vector<IGui2dPtr>;
 
 class Label;
 class Panel;

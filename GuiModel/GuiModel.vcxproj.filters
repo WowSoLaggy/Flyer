@@ -4,25 +4,22 @@
     <Filter Include="src">
       <UniqueIdentifier>{cd42b7a7-7216-4256-8812-948a55cacca2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Guis">
-      <UniqueIdentifier>{2e7019c3-34fe-4b28-97ff-e9b509523f76}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Collections">
       <UniqueIdentifier>{5c13a645-0b36-4a33-ae47-cb38c3b0a60f}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Guis3d">
       <UniqueIdentifier>{450184a4-071a-4655-a9a0-4dc8b9bfb086}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Guis2d">
+      <UniqueIdentifier>{2e7019c3-34fe-4b28-97ff-e9b509523f76}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="IGui.h">
-      <Filter>src\Guis</Filter>
-    </ClInclude>
     <ClInclude Include="Label.h">
-      <Filter>src\Guis</Filter>
+      <Filter>src\Guis2d</Filter>
     </ClInclude>
     <ClInclude Include="GuiCollection.h">
       <Filter>src\Collections</Filter>
@@ -31,13 +28,13 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="Panel.h">
-      <Filter>src\Guis</Filter>
+      <Filter>src\Guis2d</Filter>
     </ClInclude>
     <ClInclude Include="HealthBar.h">
-      <Filter>src\Guis</Filter>
+      <Filter>src\Guis2d</Filter>
     </ClInclude>
     <ClInclude Include="CurrentActionPanel.h">
-      <Filter>src\Guis</Filter>
+      <Filter>src\Guis2d</Filter>
     </ClInclude>
     <ClInclude Include="IGui3d.h">
       <Filter>src\Guis3d</Filter>
@@ -48,22 +45,28 @@
     <ClInclude Include="CollisionShapeGui3d.h">
       <Filter>src\Guis3d</Filter>
     </ClInclude>
+    <ClInclude Include="IGui2d.h">
+      <Filter>src\Guis2d</Filter>
+    </ClInclude>
+    <ClInclude Include="IGui.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="Label.cpp">
-      <Filter>src\Guis</Filter>
+      <Filter>src\Guis2d</Filter>
     </ClCompile>
     <ClCompile Include="Panel.cpp">
-      <Filter>src\Guis</Filter>
+      <Filter>src\Guis2d</Filter>
     </ClCompile>
     <ClCompile Include="HealthBar.cpp">
-      <Filter>src\Guis</Filter>
+      <Filter>src\Guis2d</Filter>
     </ClCompile>
     <ClCompile Include="CurrentActionPanel.cpp">
-      <Filter>src\Guis</Filter>
+      <Filter>src\Guis2d</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

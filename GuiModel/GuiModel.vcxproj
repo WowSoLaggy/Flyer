@@ -134,6 +134,7 @@
     <ClInclude Include="HealthBar.h" />
     <ClInclude Include="Gui3dCollection.h" />
     <ClInclude Include="IGui.h" />
+    <ClInclude Include="IGui2d.h" />
     <ClInclude Include="IGui3d.h" />
     <ClInclude Include="Label.h" />
     <ClInclude Include="Panel.h" />
