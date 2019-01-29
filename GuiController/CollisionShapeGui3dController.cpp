@@ -7,7 +7,7 @@
 
 #include <GuiModel/CollisionShapeGui3d.h>
 #include <GuiModel/Gui3dCollection.h>
-#include <Model/Creature.h>
+#include <Model/Object.h>
 
 
 CollisionShapeGui3dController::CollisionShapeGui3dController(
@@ -37,8 +37,8 @@ IGuiPtr CollisionShapeGui3dController::getGuiForCreature(UniqueId i_objectId)
 
 void CollisionShapeGui3dController::update(CollisionShapeGui3d& io_collisionShapeGui3d)
 {
-  auto creaturePtr = std::dynamic_pointer_cast<Creature>(d_collisionShapeGui3dMap.at(io_collisionShapeGui3d.getId()));
-  positionCollisionShapeGui3d(io_collisionShapeGui3d, creaturePtr);
+  auto objectPtr = d_collisionShapeGui3dMap.at(io_collisionShapeGui3d.getId());
+  positionCollisionShapeGui3d(io_collisionShapeGui3d, objectPtr);
 }
 
 
@@ -76,7 +76,7 @@ void CollisionShapeGui3dController::positionCollisionShapeGui3d(CollisionShapeGu
 {
   auto objectPtr = d_collisionShapeGui3dMap.at(io_collisionShapeGui3d.getId());
   if (objectPtr->isCreature())
-    positionCollisionShapeGui3d(io_collisionShapeGui3d, std::dynamic_pointer_cast<Creature>(objectPtr));
+    positionCollisionShapeGui3d(io_collisionShapeGui3d, objectPtr);
 }
 
 void CollisionShapeGui3dController::positionCollisionShapeGui3d(
