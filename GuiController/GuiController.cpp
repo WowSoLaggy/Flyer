@@ -59,12 +59,15 @@ void GuiController::processEvent(const IEvent& i_event)
   if (auto* pObjectAddedEvent = dynamic_cast<const ObjectAddedEvent*>(&i_event))
   {
     auto objectPtr = pObjectAddedEvent->getObject();
+
     if (objectPtr->isCreature())
     {
       d_healthBarController.addHealthBar(std::dynamic_pointer_cast<Creature>(objectPtr));
       d_currentActionPanelController.addCurrentActionPanel(std::dynamic_pointer_cast<Creature>(objectPtr));
     }
-    d_collisionShapeGui3dController.addCollisionShapeGui3d(objectPtr);
+
+    if (objectPtr->hasCollisionShape())
+      d_collisionShapeGui3dController.addCollisionShapeGui3d(objectPtr);
   }
   else if (auto* pObjectDeletedEvent = dynamic_cast<const ObjectDeletedEvent*>(&i_event))
   {
@@ -90,6 +93,7 @@ void GuiController::createGameGui(const World& i_world)
       d_currentActionPanelController.addCurrentActionPanel(std::dynamic_pointer_cast<Creature>(objectPtr));
     }
 
-    d_collisionShapeGui3dController.addCollisionShapeGui3d(objectPtr);
+    if (objectPtr->hasCollisionShape())
+      d_collisionShapeGui3dController.addCollisionShapeGui3d(objectPtr);
   }
 }

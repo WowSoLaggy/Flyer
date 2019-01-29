@@ -11,6 +11,7 @@ class Creature;
 using CreaturePtr = std::shared_ptr<Creature>;
 
 class IShape;
+using IShapePtr = std::shared_ptr<IShape>;
 class Circle;
 
 class IAction;

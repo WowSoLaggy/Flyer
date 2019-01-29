@@ -8,8 +8,11 @@
 bool Collider::collide(ObjectPtr i_object1, ObjectPtr i_object2,
                        Vector2& o_normal, Vector2& o_tangent)
 {
-  const auto& shape1 = i_object1->getCollisionShape();
-  const auto& shape2 = i_object2->getCollisionShape();
+  if (!i_object1->hasCollisionShape() || !i_object2->hasCollisionShape())
+    return false;
+
+  const auto& shape1 = *i_object1->getCollisionShape();
+  const auto& shape2 = *i_object2->getCollisionShape();
 
   if (shape1.getShapeType() == ShapeType::Circle && shape2.getShapeType() == ShapeType::Circle)
   {

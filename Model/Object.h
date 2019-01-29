@@ -27,19 +27,21 @@ public:
   virtual float getAcceleration() const { return 0.0f; }
   virtual float getMaxSpeed() const { return 0.0f; }
 
-  const IShape& getCollisionShape() const { return d_collisionShape; }
+  bool hasCollisionShape() const { return d_collisionShape != nullptr; }
+  const IShapePtr& getCollisionShape() const { return d_collisionShape; }
+  IShapePtr getCollisionShape() { return d_collisionShape; }
 
   Vector3 getMovementDirection() const { return d_movementDirection; }
   void setMovementDirection(Vector3 i_movementDirection) { d_movementDirection = std::move(i_movementDirection); }
   void resetMovementDirection() { d_movementDirection = Vector3::zero(); }
 
   void setCurrentAction(std::shared_ptr<IAction> i_action);
-  IActionPtr getCurrentAction() const { return d_currentAction; }
+  const IActionPtr& getCurrentAction() const { return d_currentAction; }
   IActionPtr getCurrentAction() { return d_currentAction; }
 
 private:
   Vector3 d_movementDirection;
 
-  Circle d_collisionShape;
+  IShapePtr d_collisionShape;
   IActionPtr d_currentAction;
 };
