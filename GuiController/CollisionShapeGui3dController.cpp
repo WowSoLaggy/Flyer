@@ -82,5 +82,7 @@ void CollisionShapeGui3dController::positionCollisionShapeGui3d(CollisionShapeGu
 void CollisionShapeGui3dController::positionCollisionShapeGui3d(
   CollisionShapeGui3d& io_collisionShapeGui3d, ObjectPtr i_objectPtr)
 {
-  io_collisionShapeGui3d.setPosition(i_objectPtr->getPosition());
+  auto position = i_objectPtr->getPosition();
+  position.y += 0.1f;
+  io_collisionShapeGui3d.setPosition(position);
 }
