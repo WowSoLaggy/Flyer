@@ -196,6 +196,22 @@ void WorldCreator::createCollisionTest(World& io_world)
     testCreature2->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ 4.5f, 14.5f }));
   }
 
+  // "Go to a fence" creatures
+
+  {
+    auto testCreatureFence1 = createCreature(objects);
+    testCreatureFence1->setPosition({ 3.0f, 1.0f, 8.0f });
+    testCreatureFence1->setAiControlled(false);
+    testCreatureFence1->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ -3.0f, 2.0f }));
+  }
+
+  {
+    auto testCreatureFence2 = createCreature(objects);
+    testCreatureFence2->setPosition({ 3.0f, 1.0f, 4.0f });
+    testCreatureFence2->setAiControlled(false);
+    testCreatureFence2->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ -3.0f, -2.0f }));
+  }
+
   // Rest of the world
 
   {
