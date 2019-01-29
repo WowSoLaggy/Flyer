@@ -65,6 +65,7 @@ CreaturePtr WorldCreator::createCreature()
   CreaturePtr creature = std::make_shared<Creature>();
 
   creature->setModelName(defaultModelName);
+  creature->setCollisionShape(std::make_shared<Circle>(0.5));
 
   creature->setAiControlled(DefaultAiControlled);
 

@@ -42,6 +42,9 @@
     <ClCompile Include="Creature.cpp">
       <Filter>src\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>src\Physics\Shapes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
