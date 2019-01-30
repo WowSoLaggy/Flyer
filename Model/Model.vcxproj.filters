@@ -86,5 +86,8 @@
     <ClInclude Include="Circle.h">
       <Filter>src\Physics\Shapes</Filter>
     </ClInclude>
+    <ClInclude Include="Aabb.h">
+      <Filter>src\Physics\Shapes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

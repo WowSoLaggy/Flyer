@@ -141,6 +141,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Aabb.h" />
     <ClInclude Include="ActionAttack.h" />
     <ClInclude Include="ActionIdle.h" />
     <ClInclude Include="ActionMoveTo.h" />

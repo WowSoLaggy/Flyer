@@ -3,6 +3,7 @@
 enum class ShapeType
 {
   Circle,
+  Aabb,
 };
 
 class IShape
