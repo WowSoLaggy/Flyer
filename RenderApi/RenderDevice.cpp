@@ -140,6 +140,9 @@ void RenderDevice::initialize(HWND i_hWnd, int i_resolutionX, int i_resolutionY)
   // Don't set the advanced flags.
   swapChainDesc.Flags = 0;
 
+  // MSAA settings
+  swapChainDesc.SampleDesc.Count = static_cast<int>(c_msaaMode);
+
   // Set the feature level to DirectX 11.
   D3D_FEATURE_LEVEL featureLevel = D3D_FEATURE_LEVEL_11_0;
 
@@ -174,7 +177,7 @@ void RenderDevice::initialize(HWND i_hWnd, int i_resolutionX, int i_resolutionY)
   depthBufferDesc.MipLevels = 1;
   depthBufferDesc.ArraySize = 1;
   depthBufferDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
-  depthBufferDesc.SampleDesc.Count = 1;
+  depthBufferDesc.SampleDesc.Count = static_cast<int>(c_msaaMode);
   depthBufferDesc.SampleDesc.Quality = 0;
   depthBufferDesc.Usage = D3D11_USAGE_DEFAULT;
   depthBufferDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
@@ -222,7 +225,8 @@ void RenderDevice::initialize(HWND i_hWnd, int i_resolutionX, int i_resolutionY)
 
   // Set up the depth stencil view description.
   depthStencilViewDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
-  depthStencilViewDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
+  depthStencilViewDesc.ViewDimension = 
+    isMsaaEnabled() ? D3D11_DSV_DIMENSION_TEXTURE2DMS : D3D11_DSV_DIMENSION_TEXTURE2D;
   depthStencilViewDesc.Texture2D.MipSlice = 0;
 
   // Create the depth stencil view.
@@ -339,7 +343,7 @@ void RenderDevice::resetState()
   rasterDesc.SlopeScaledDepthBias = 0.0f;
   rasterDesc.DepthClipEnable = true;
   rasterDesc.ScissorEnable = false;
-  rasterDesc.MultisampleEnable = false;
+  rasterDesc.MultisampleEnable = isMsaaEnabled();
   rasterDesc.AntialiasedLineEnable = false;
 
   // Create the rasterizer state from the description we just filled out.

@@ -39,6 +39,16 @@ private:
   const bool c_fullScreen = false;
   const float c_clearColor[4] = { 0.396f, 0.612f, 0.937f, 1.0f };
 
+  enum class MsaaMode
+  {
+    None = 1,
+    Two = 2,
+    Four = 4,
+    Eight = 8,
+  };
+  const MsaaMode c_msaaMode = MsaaMode::Two;
+  bool isMsaaEnabled() const { return c_msaaMode != MsaaMode::None; }
+
 private:
 
   bool d_isInitialized;
