@@ -7,6 +7,7 @@
 
 #include <GuiModel/CollisionShapeGui3d.h>
 #include <GuiModel/Gui3dCollection.h>
+#include <Model/IShape.h>
 #include <Model/Object.h>
 
 
@@ -44,7 +45,9 @@ void CollisionShapeGui3dController::update(CollisionShapeGui3d& io_collisionShap
 
 void CollisionShapeGui3dController::addCollisionShapeGui3d(ObjectPtr i_objectPtr)
 {
-  auto pCollisionShapeGui3d = Gui3dCreator::createCollisionShapeGui3d();
+  auto pCollisionShapeGui3d = Gui3dCreator::createCollisionShapeGui3d(
+    i_objectPtr->getCollisionShape()->getShapeType());
+
   positionCollisionShapeGui3d(*pCollisionShapeGui3d, i_objectPtr);
 
   d_gui3dCollection.guis.push_back(pCollisionShapeGui3d);
