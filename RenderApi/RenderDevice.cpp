@@ -331,16 +331,16 @@ void RenderDevice::resetState()
 {
   // Setup the raster description which will determine how and what polygons will be drawn.
   D3D11_RASTERIZER_DESC rasterDesc;
-  rasterDesc.AntialiasedLineEnable = false;
+  rasterDesc.FillMode = (d_fillMode == FillMode::Solid) ? D3D11_FILL_SOLID : D3D11_FILL_WIREFRAME;
   rasterDesc.CullMode = D3D11_CULL_BACK;
+  rasterDesc.FrontCounterClockwise = true;
   rasterDesc.DepthBias = 0;
   rasterDesc.DepthBiasClamp = 0.0f;
-  rasterDesc.DepthClipEnable = true;
-  rasterDesc.FillMode = (d_fillMode == FillMode::Solid) ? D3D11_FILL_SOLID : D3D11_FILL_WIREFRAME;
-  rasterDesc.FrontCounterClockwise = true;
-  rasterDesc.MultisampleEnable = false;
-  rasterDesc.ScissorEnable = false;
   rasterDesc.SlopeScaledDepthBias = 0.0f;
+  rasterDesc.DepthClipEnable = true;
+  rasterDesc.ScissorEnable = false;
+  rasterDesc.MultisampleEnable = false;
+  rasterDesc.AntialiasedLineEnable = false;
 
   // Create the rasterizer state from the description we just filled out.
   HRESULT result = d_device->CreateRasterizerState(&rasterDesc, &d_rasterState);
