@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Circle.h"
 #include "ModelFwd.h"
 
 #include <Sdk/IModelName.h>
@@ -36,7 +35,7 @@ public:
   void setMovementDirection(Vector3 i_movementDirection) { d_movementDirection = std::move(i_movementDirection); }
   void resetMovementDirection() { d_movementDirection = Vector3::zero(); }
 
-  void setCurrentAction(std::shared_ptr<IAction> i_action);
+  void setCurrentAction(IActionPtr i_action);
   const IActionPtr& getCurrentAction() const { return d_currentAction; }
   IActionPtr getCurrentAction() { return d_currentAction; }
 
