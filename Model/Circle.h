@@ -7,7 +7,6 @@ class Circle : public IShape
 {
 public:
 
-  Circle();
   Circle(double i_radius);
 
   virtual ShapeType getShapeType() const override { return ShapeType::Circle; }

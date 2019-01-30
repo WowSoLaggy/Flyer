@@ -2,11 +2,6 @@
 #include "Circle.h"
 
 
-Circle::Circle()
-  : Circle(0)
-{
-}
-
 Circle::Circle(double i_radius)
 {
   setRadius(i_radius);
