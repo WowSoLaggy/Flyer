@@ -1,7 +1,9 @@
 #include "stdafx.h"
 #include "WorldCreator.h"
 
+#include <Model/Aabb.h>
 #include <Model/ActionMoveTo.h>
+#include <Model/Circle.h>
 #include <Model/Creature.h>
 #include <Model/HeightMap.h>
 #include <Model/Object.h>
@@ -123,9 +125,11 @@ void WorldCreator::createArena(World& io_world)
 
   {
     auto fence = createObject(objects);
-    fence->setPosition({ 12.0f, 1.0f, 5.75f });
+    fence->setPosition({ 12.7f, 1.0f, 5.7f });
     fence->setRotation({ 0, Math::degToRad(105.0f), 0 });
+
     fence->setModelName("Fence.cmo");
+    fence->setCollisionShape(std::make_shared<Aabb>(1.0, 0.3));
   }
 
   {
@@ -230,9 +234,11 @@ void WorldCreator::createCollisionTest(World& io_world)
 
   {
     auto fence = createObject(objects);
-    fence->setPosition({ 12.0f, 1.0f, 5.75f });
+    fence->setPosition({ 12.7f, 1.0f, 5.7f });
     fence->setRotation({ 0, Math::degToRad(105.0f), 0 });
+
     fence->setModelName("Fence.cmo");
+    fence->setCollisionShape(std::make_shared<Aabb>(1.0, 0.3));
   }
 
   {
