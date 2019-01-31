@@ -3,9 +3,9 @@
 
 #include <GuiModel/CollisionShapeGui3d.h>
 #include <GuiModel/Gui3dCollection.h>
-#include <Model/Aabb.h>
-#include <Model/Circle.h>
-#include <Model/IShape.h>
+#include <Model/ColCircle.h>
+#include <Model/ColRect.h>
+#include <Model/IColShape.h>
 
 
 std::shared_ptr<Gui3dCollection> Gui3dCreator::create()
@@ -14,14 +14,14 @@ std::shared_ptr<Gui3dCollection> Gui3dCreator::create()
 }
 
 
-std::shared_ptr<CollisionShapeGui3d> Gui3dCreator::createCollisionShapeGui3d(const IShape& i_shape)
+std::shared_ptr<CollisionShapeGui3d> Gui3dCreator::createCollisionShapeGui3d(const IColShape& i_shape)
 {
-  static const std::map<ShapeType, std::string> shapeTextureMap =
+  static const std::map<ColShapeType, std::string> shapeTextureMap =
   {
-    { ShapeType::Circle, "Circle.dds" },
-    { ShapeType::Aabb, "Square.dds" },
+    { ColShapeType::Circle, "Circle.dds" },
+    { ColShapeType::Rect, "Square.dds" },
   };
-  const auto shapeType = i_shape.getShapeType();
+  const auto shapeType = i_shape.getColShapeType();
 
   auto collisionShapeGui3d = std::make_shared<CollisionShapeGui3d>();
 
@@ -30,17 +30,17 @@ std::shared_ptr<CollisionShapeGui3d> Gui3dCreator::createCollisionShapeGui3d(con
 
   switch (shapeType)
   {
-  case ShapeType::Circle:
+  case ColShapeType::Circle:
   {
-    const auto& shape = dynamic_cast<const Circle&>(i_shape);
+    const auto& shape = dynamic_cast<const ColCircle&>(i_shape).getCircle();
     float scale = (float)shape.getRadius() * 2;
     collisionShapeGui3d->setScale({ scale, 1.0f, scale });
     break;
   }
 
-  case ShapeType::Aabb:
+  case ColShapeType::Rect:
   {
-    const auto& shape = dynamic_cast<const Aabb&>(i_shape);
+    const auto& shape = dynamic_cast<const ColRect&>(i_shape).getRect();
     collisionShapeGui3d->setScale({ (float)shape.getWidth(), 1.0f, (float)shape.getHeight() });
     break;
   }

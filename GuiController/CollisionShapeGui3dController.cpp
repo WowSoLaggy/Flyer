@@ -7,7 +7,7 @@
 
 #include <GuiModel/CollisionShapeGui3d.h>
 #include <GuiModel/Gui3dCollection.h>
-#include <Model/IShape.h>
+#include <Model/IColShape.h>
 #include <Model/Object.h>
 
 

@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "WorldCreator.h"
 
-#include <Model/Aabb.h>
 #include <Model/ActionMoveTo.h>
-#include <Model/Circle.h>
 #include <Model/Creature.h>
+#include <Model/ColCircle.h>
+#include <Model/ColRect.h>
 #include <Model/HeightMap.h>
 #include <Model/Object.h>
 #include <Model/World.h>
@@ -67,7 +67,7 @@ CreaturePtr WorldCreator::createCreature()
   CreaturePtr creature = std::make_shared<Creature>();
 
   creature->setModelName(defaultModelName);
-  creature->setCollisionShape(std::make_shared<Circle>(0.5));
+  creature->setCollisionShape(std::make_shared<ColCircle>(0.5f));
 
   creature->setAiControlled(DefaultAiControlled);
 
@@ -129,7 +129,7 @@ void WorldCreator::createArena(World& io_world)
     fence->setRotation({ 0, Math::degToRad(105.0f), 0 });
 
     fence->setModelName("Fence.cmo");
-    fence->setCollisionShape(std::make_shared<Aabb>(1.0, 0.3));
+    fence->setCollisionShape(std::make_shared<ColRect>(1.0f, 0.3f));
   }
 
   {
@@ -138,7 +138,7 @@ void WorldCreator::createArena(World& io_world)
     fenceSouth->setRotation({ 0, Math::degToRad(0.0f), 0 });
 
     fenceSouth->setModelName("Fence10.cmo");
-    fenceSouth->setCollisionShape(std::make_shared<Aabb>(19.0, 0.5));
+    fenceSouth->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
   }
 
   {
@@ -147,7 +147,7 @@ void WorldCreator::createArena(World& io_world)
     fenceNorth->setRotation({ 0, Math::degToRad(180.0f), 0 });
 
     fenceNorth->setModelName("Fence10.cmo");
-    fenceNorth->setCollisionShape(std::make_shared<Aabb>(19.0, 0.5));
+    fenceNorth->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
   }
 
   {
@@ -156,7 +156,7 @@ void WorldCreator::createArena(World& io_world)
     fenceWest->setRotation({ 0, Math::degToRad(-90.0f), 0 });
 
     fenceWest->setModelName("Fence10.cmo");
-    fenceWest->setCollisionShape(std::make_shared<Aabb>(19.0, 0.5));
+    fenceWest->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
   }
 
   {
@@ -165,7 +165,7 @@ void WorldCreator::createArena(World& io_world)
     fenceEast->setRotation({ 0, Math::degToRad(90.0f), 0 });
 
     fenceEast->setModelName("Fence10.cmo");
-    fenceEast->setCollisionShape(std::make_shared<Aabb>(19.0, 0.5));
+    fenceEast->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
   }
 }
 
@@ -262,7 +262,7 @@ void WorldCreator::createCollisionTest(World& io_world)
     fence->setRotation({ 0, Math::degToRad(15.0f), 0 });
 
     fence->setModelName("Fence.cmo");
-    fence->setCollisionShape(std::make_shared<Aabb>(2.2, 0.5));
+    fence->setCollisionShape(std::make_shared<ColRect>(2.2f, 0.5f));
   }
 
   {
@@ -271,7 +271,7 @@ void WorldCreator::createCollisionTest(World& io_world)
     fenceSouth->setRotation({ 0, Math::degToRad(0.0f), 0 });
 
     fenceSouth->setModelName("Fence10.cmo");
-    fenceSouth->setCollisionShape(std::make_shared<Aabb>(19.0, 0.5));
+    fenceSouth->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
   }
 
   {
@@ -280,7 +280,7 @@ void WorldCreator::createCollisionTest(World& io_world)
     fenceNorth->setRotation({ 0, Math::degToRad(180.0f), 0 });
 
     fenceNorth->setModelName("Fence10.cmo");
-    fenceNorth->setCollisionShape(std::make_shared<Aabb>(19.0, 0.5));
+    fenceNorth->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
   }
 
   {
@@ -289,7 +289,7 @@ void WorldCreator::createCollisionTest(World& io_world)
     fenceWest->setRotation({ 0, Math::degToRad(-90.0f), 0 });
 
     fenceWest->setModelName("Fence10.cmo");
-    fenceWest->setCollisionShape(std::make_shared<Aabb>(19.0, 0.5));
+    fenceWest->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
   }
 
   {
@@ -298,6 +298,6 @@ void WorldCreator::createCollisionTest(World& io_world)
     fenceEast->setRotation({ 0, Math::degToRad(90.0f), 0 });
 
     fenceEast->setModelName("Fence10.cmo");
-    fenceEast->setCollisionShape(std::make_shared<Aabb>(19.0, 0.5));
+    fenceEast->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
   }
 }

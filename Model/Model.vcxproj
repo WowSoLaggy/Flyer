@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Creature.cpp" />
     <ClCompile Include="HeightMap.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -141,15 +140,15 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Aabb.h" />
+    <ClInclude Include="ColRect.h" />
     <ClInclude Include="ActionAttack.h" />
     <ClInclude Include="ActionIdle.h" />
     <ClInclude Include="ActionMoveTo.h" />
-    <ClInclude Include="Circle.h" />
+    <ClInclude Include="ColCircle.h" />
     <ClInclude Include="Creature.h" />
     <ClInclude Include="HeightMap.h" />
     <ClInclude Include="IAction.h" />
-    <ClInclude Include="IShape.h" />
+    <ClInclude Include="IColShape.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ModelFwd.h" />
     <ClInclude Include="Terrain.h" />

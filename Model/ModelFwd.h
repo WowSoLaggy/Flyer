@@ -14,11 +14,11 @@ using ObjectPtrs = std::vector<ObjectPtr>;
 class Creature;
 using CreaturePtr = std::shared_ptr<Creature>;
 
-enum class ShapeType;
-class IShape;
-using IShapePtr = std::shared_ptr<IShape>;
-class Circle;
-class Aabb;
+enum class ColShapeType;
+class IColShape;
+using IColShapePtr = std::shared_ptr<IColShape>;
+class ColCircle;
+class ColRect;
 
 class IAction;
 using IActionPtr = std::shared_ptr<IAction>;

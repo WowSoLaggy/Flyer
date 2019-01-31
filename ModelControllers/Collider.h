@@ -16,13 +16,16 @@ private:
   static bool collideCircle2Circle(const Circle& i_circle1, const Circle& i_circle2,
                                    const Vector2& i_offset1, const Vector2& i_offset2,
                                    Vector2& o_normal, Vector2& o_tangent);
-  static bool collideAabb2Circle(const Aabb& i_aabb, const Circle& i_circle,
+  static bool collideRect2Circle(const Rect& i_rect, const Circle& i_circle,
                                  const Vector2& i_offset1, const Vector2& i_offset2,
+                                 float i_rotation1,
                                  Vector2& o_normal, Vector2& o_tangent);
-  static bool collideCircle2Aabb(const Circle& i_circle, const Aabb& i_aabb,
+  static bool collideCircle2Rect(const Circle& i_circle, const Rect& i_rect,
                                  const Vector2& i_offset1, const Vector2& i_offset2,
+                                 float i_rotation2,
                                  Vector2& o_normal, Vector2& o_tangent);
-  static bool collideAabb2Aabb(const Aabb& i_aabb1, const Aabb& i_aabb2,
+  static bool collideRect2Rect(const Rect& i_rect1, const Rect& i_rect2,
                                const Vector2& i_offset1, const Vector2& i_offset2,
+                               float i_rotation1, float i_rotation2,
                                Vector2& o_normal, Vector2& o_tangent);
 };

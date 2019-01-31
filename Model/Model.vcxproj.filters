@@ -42,9 +42,6 @@
     <ClCompile Include="Creature.cpp">
       <Filter>src\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Circle.cpp">
-      <Filter>src\Physics\Shapes</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -80,13 +77,13 @@
     <ClInclude Include="ActionAttack.h">
       <Filter>src\Actions</Filter>
     </ClInclude>
-    <ClInclude Include="IShape.h">
+    <ClInclude Include="IColShape.h">
       <Filter>src\Physics\Shapes</Filter>
     </ClInclude>
-    <ClInclude Include="Circle.h">
+    <ClInclude Include="ColCircle.h">
       <Filter>src\Physics\Shapes</Filter>
     </ClInclude>
-    <ClInclude Include="Aabb.h">
+    <ClInclude Include="ColRect.h">
       <Filter>src\Physics\Shapes</Filter>
     </ClInclude>
   </ItemGroup>

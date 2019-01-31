@@ -28,9 +28,9 @@ public:
   virtual float getMaxSpeed() const { return 0.0f; }
 
   bool hasCollisionShape() const { return d_collisionShape != nullptr; }
-  const IShapePtr& getCollisionShape() const { return d_collisionShape; }
-  IShapePtr getCollisionShape() { return d_collisionShape; }
-  void setCollisionShape(IShapePtr i_collisionShape) { d_collisionShape = i_collisionShape; }
+  const IColShapePtr& getCollisionShape() const { return d_collisionShape; }
+  IColShapePtr getCollisionShape() { return d_collisionShape; }
+  void setCollisionShape(IColShapePtr i_collisionShape) { d_collisionShape = i_collisionShape; }
 
   Vector3 getMovementDirection() const { return d_movementDirection; }
   void setMovementDirection(Vector3 i_movementDirection) { d_movementDirection = std::move(i_movementDirection); }
@@ -43,6 +43,6 @@ public:
 private:
   Vector3 d_movementDirection;
 
-  IShapePtr d_collisionShape;
+  IColShapePtr d_collisionShape;
   IActionPtr d_currentAction;
 };
