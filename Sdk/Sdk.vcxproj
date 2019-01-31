@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Circle.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="dirent.h" />
     <ClInclude Include="EventHandler.h" />
@@ -142,6 +143,7 @@
     <ClInclude Include="IVisibility.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Property.h" />
+    <ClInclude Include="Rect.h" />
     <ClInclude Include="SdkFwd.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StringUtils.h" />
@@ -149,8 +151,10 @@
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Circle.cpp" />
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="IUniqueId.cpp" />
+    <ClCompile Include="Rect.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

@@ -87,6 +87,12 @@
     <ClInclude Include="IScale3.h">
       <Filter>src\Helpers</Filter>
     </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>src\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>src\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -100,6 +106,12 @@
     </ClCompile>
     <ClCompile Include="IUniqueId.cpp">
       <Filter>src\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>src\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>src\Math</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
