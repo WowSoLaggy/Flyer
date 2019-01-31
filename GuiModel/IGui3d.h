@@ -4,9 +4,10 @@
 
 #include <Sdk/IPosition3.h>
 #include <Sdk/IRotation3.h>
+#include <Sdk/IScale3.h>
 
 
-class IGui3d : public IGui, public IPosition3, public IRotation3
+class IGui3d : public IGui, public IPosition3, public IRotation3, public IScale3
 {
 public:
   virtual ~IGui3d() = default;
