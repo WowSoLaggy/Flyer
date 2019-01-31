@@ -6,6 +6,7 @@ struct Vector2
   float y;
 
   static Vector2 zero() { return { 0.0f, 0.0f }; }
+  static Vector2 identity() { return { 1.0f, 1.0f }; }
 };
 
 struct Vector3
@@ -15,6 +16,7 @@ struct Vector3
   float z;
 
   static Vector3 zero() { return { 0.0f, 0.0f, 0.0f }; }
+  static Vector3 identity() { return { 1.0f, 1.0f, 1.0f }; }
 };
 
 struct Vector4
@@ -25,6 +27,7 @@ struct Vector4
   float w;
 
   static Vector4 zero() { return { 0.0f, 0.0f, 0.0f, 0.0f }; }
+  static Vector4 identity() { return { 1.0f, 1.0f, 1.0f, 1.0f }; }
 };
 
 
