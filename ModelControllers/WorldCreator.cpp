@@ -134,30 +134,38 @@ void WorldCreator::createArena(World& io_world)
 
   {
     auto fenceSouth = createObject(objects);
-    fenceSouth->setPosition({ 0.5f, 1.0f, 19.5f });
-    fenceSouth->setRotation({ 0, Math::degToRad(90.0f), 0 });
-    fenceSouth->setModelName("Fence10.cmo");
-  }
+    fenceSouth->setPosition({ 10.0f, 1.0f, 19.5f });
+    fenceSouth->setRotation({ 0, Math::degToRad(0.0f), 0 });
 
-  {
-    auto fenceWest = createObject(objects);
-    fenceWest->setPosition({ 0.5f, 1.0f, 19.5f });
-    fenceWest->setRotation({ 0, Math::degToRad(180.0f), 0 });
-    fenceWest->setModelName("Fence10.cmo");
+    fenceSouth->setModelName("Fence10.cmo");
+    fenceSouth->setCollisionShape(std::make_shared<Aabb>(19.0, 0.5));
   }
 
   {
     auto fenceNorth = createObject(objects);
-    fenceNorth->setPosition({ 0.5f, 1.0f, 0.5f });
-    fenceNorth->setRotation({ 0, Math::degToRad(90.0f), 0 });
+    fenceNorth->setPosition({ 10.0f, 1.0f, 0.5f });
+    fenceNorth->setRotation({ 0, Math::degToRad(180.0f), 0 });
+
     fenceNorth->setModelName("Fence10.cmo");
+    fenceNorth->setCollisionShape(std::make_shared<Aabb>(19.0, 0.5));
+  }
+
+  {
+    auto fenceWest = createObject(objects);
+    fenceWest->setPosition({ 0.5f, 1.0f, 10.0f });
+    fenceWest->setRotation({ 0, Math::degToRad(-90.0f), 0 });
+
+    fenceWest->setModelName("Fence10.cmo");
+    fenceWest->setCollisionShape(std::make_shared<Aabb>(19.0, 0.5));
   }
 
   {
     auto fenceEast = createObject(objects);
-    fenceEast->setPosition({ 19.5f, 1.0f, 19.5f });
-    fenceEast->setRotation({ 0, Math::degToRad(180.0f), 0 });
+    fenceEast->setPosition({ 19.5f, 1.0f, 10.0f });
+    fenceEast->setRotation({ 0, Math::degToRad(90.0f), 0 });
+
     fenceEast->setModelName("Fence10.cmo");
+    fenceEast->setCollisionShape(std::make_shared<Aabb>(19.0, 0.5));
   }
 }
 
@@ -201,7 +209,7 @@ void WorldCreator::createCollisionTest(World& io_world)
     testCreature2->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ 4.5f, 14.5f }));
   }
 
-  // "Go to a fence" creatures
+  // "Go to the west fence" creatures
 
   {
     auto testCreatureFence1 = createCreature(objects);
@@ -215,6 +223,22 @@ void WorldCreator::createCollisionTest(World& io_world)
     testCreatureFence2->setPosition({ 3.0f, 1.0f, 4.0f });
     testCreatureFence2->setAiControlled(false);
     testCreatureFence2->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ -3.0f, -2.0f }));
+  }
+
+  // "Go to the south fence" creatures
+
+  {
+    auto testCreatureFence1 = createCreature(objects);
+    testCreatureFence1->setPosition({ 3.0f, 1.0f, 16.0f });
+    testCreatureFence1->setAiControlled(false);
+    testCreatureFence1->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ 3.0f, 25.0f }));
+  }
+
+  {
+    auto testCreatureFence2 = createCreature(objects);
+    testCreatureFence2->setPosition({ 10.0f, 1.0f, 16.0f });
+    testCreatureFence2->setAiControlled(false);
+    testCreatureFence2->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ 10.0f, 25.0f }));
   }
 
   // Rest of the world
