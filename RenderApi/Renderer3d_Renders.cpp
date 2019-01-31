@@ -38,7 +38,7 @@ void Renderer3d::renderObject(
 void Renderer3d::renderObject(
   ResourceId i_meshResourceCmoId, ResourceId i_textureResourceId,
   std::shared_ptr<IAnimationController> i_animationController,
-  const Vector3& i_position, const Vector3& i_rotation,
+  const Vector3& i_position, const Vector3& i_rotation, const Vector3& i_scale,
   bool i_useLighting)
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
@@ -52,6 +52,7 @@ void Renderer3d::renderObject(
     animationTransform = animationController->getTransform();
 
   auto worldMatrix =
+    XMMatrixScaling(i_scale.x, i_scale.y, i_scale.z) *
     animationTransform *
     XMMatrixRotationRollPitchYaw(i_rotation.x, i_rotation.y, i_rotation.z) *
     XMMatrixTranslation(i_position.x, i_position.y, i_position.z);

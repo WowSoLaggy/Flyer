@@ -32,6 +32,6 @@ public:
   virtual void renderObject(
     ResourceId i_meshResourceCmoId, ResourceId i_textureResourceId,
     std::shared_ptr<IAnimationController> i_animationController,
-    const Vector3& i_position, const Vector3& i_rotation,
+    const Vector3& i_position, const Vector3& i_rotation, const Vector3& i_scale,
     bool i_useLighting) = 0;
 };
