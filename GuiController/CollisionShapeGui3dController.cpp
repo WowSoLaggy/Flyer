@@ -75,13 +75,6 @@ void CollisionShapeGui3dController::deleteCollisionShapeGui3d(UniqueId i_objectI
   d_collisionShapeGui3dMap.erase(guiToObjectIt);
 }
 
-void CollisionShapeGui3dController::positionCollisionShapeGui3d(CollisionShapeGui3d& io_collisionShapeGui3d)
-{
-  auto objectPtr = d_collisionShapeGui3dMap.at(io_collisionShapeGui3d.getId());
-  if (objectPtr->isCreature())
-    positionCollisionShapeGui3d(io_collisionShapeGui3d, objectPtr);
-}
-
 void CollisionShapeGui3dController::positionCollisionShapeGui3d(
   CollisionShapeGui3d& io_collisionShapeGui3d, ObjectPtr i_objectPtr)
 {

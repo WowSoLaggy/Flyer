@@ -15,7 +15,6 @@ public:
 
   void addCollisionShapeGui3d(ObjectPtr i_objectPtr);
   void deleteCollisionShapeGui3d(UniqueId i_objectId);
-  void positionCollisionShapeGui3d(CollisionShapeGui3d& io_collisionShapeGui3d);
   void positionCollisionShapeGui3d(CollisionShapeGui3d& io_collisionShapeGui3d, ObjectPtr i_objectPtr);
 
 private:
