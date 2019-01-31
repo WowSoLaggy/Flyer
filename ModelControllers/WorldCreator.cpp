@@ -235,10 +235,10 @@ void WorldCreator::createCollisionTest(World& io_world)
   {
     auto fence = createObject(objects);
     fence->setPosition({ 12.7f, 1.0f, 5.7f });
-    fence->setRotation({ 0, Math::degToRad(105.0f), 0 });
+    fence->setRotation({ 0, Math::degToRad(15.0f), 0 });
 
     fence->setModelName("Fence.cmo");
-    fence->setCollisionShape(std::make_shared<Aabb>(1.0, 0.3));
+    fence->setCollisionShape(std::make_shared<Aabb>(2.2, 0.5));
   }
 
   {
