@@ -48,5 +48,5 @@ void ObjectVm::render(IRenderer3d& i_renderer) const
     return;
 
   i_renderer.renderObject(d_meshResourceCmoId, ResourceIdEmpty, d_animationController,
-    d_object.getPosition(), d_object.getRotation(), true);
+    d_object.getPosition(), d_object.getRotation(), d_object.getScale(), true);
 }

@@ -24,7 +24,8 @@ void CollisionShapeGui3dVm::render(IRenderer& i_renderer) const
 {
   auto& renderer3d = dynamic_cast<IRenderer3d&>(i_renderer);
   renderer3d.renderObject(d_meshResourceId, d_textureResourceId, nullptr,
-                          d_collisionShapeGui3d.getPosition(), d_collisionShapeGui3d.getRotation(), false);
+                          d_collisionShapeGui3d.getPosition(), d_collisionShapeGui3d.getRotation(),
+                          d_collisionShapeGui3d.getScale(), false);
 }
 
 
