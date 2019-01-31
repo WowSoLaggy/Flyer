@@ -45,8 +45,11 @@ void CollisionShapeGui3dController::update(CollisionShapeGui3d& io_collisionShap
 
 void CollisionShapeGui3dController::addCollisionShapeGui3d(ObjectPtr i_objectPtr)
 {
+  if (!i_objectPtr->hasCollisionShape())
+    return;
+
   auto pCollisionShapeGui3d = Gui3dCreator::createCollisionShapeGui3d(
-    i_objectPtr->getCollisionShape()->getShapeType());
+    *i_objectPtr->getCollisionShape());
 
   positionCollisionShapeGui3d(*pCollisionShapeGui3d, i_objectPtr);
 
