@@ -14,6 +14,6 @@ public:
 private:
   static Vector3 getVirtualSpeed(ObjectPtr io_object, double i_dt);
   static Vector3 getRealSpeed(ObjectPtr io_object, double i_dt,
-                              Vector3 i_virtualSpeed, const ObjectPtrs& io_objects);
+                              const Vector3& i_virtualSpeed, const ObjectPtrs& io_objects);
   static void applySpeed(ObjectPtr io_object, double i_dt, Vector3 i_speed);
 };

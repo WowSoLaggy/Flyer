@@ -63,29 +63,30 @@ Vector3 PhysicsController::getVirtualSpeed(ObjectPtr io_object, double i_dt)
 }
 
 Vector3 PhysicsController::getRealSpeed(ObjectPtr io_object, double i_dt,
-                                        Vector3 i_virtualSpeed, const ObjectPtrs& io_objects)
+                                        const Vector3& i_virtualSpeed, const ObjectPtrs& io_objects)
 {
+  auto realSpeed = i_virtualSpeed;
+
   for (auto objectPtr : io_objects)
   {
     if (objectPtr->getId() == io_object->getId())
       continue;
 
     Vector2 normal;
-    Vector2 tangent;
-    if (!Collider::collide(io_object, objectPtr, normal, tangent))
+    if (!Collider::collide(io_object, objectPtr, normal))
       continue;
 
-    float normalProjection = dot(xyz2xz(i_virtualSpeed), normal);
+    float normalProjection = dot(xyz2xz(realSpeed), normal);
     if (normalProjection > 0)
     {
       // It is allowed to go FROM the collision
       continue;
     }
 
-    return i_virtualSpeed - xy2x0z(normal * normalProjection, 0.0f);
+    realSpeed -= xy2x0z(normal * normalProjection);
   }
 
-  return i_virtualSpeed;
+  return realSpeed;
 }
 
 void PhysicsController::applySpeed(ObjectPtr io_object, double i_dt, Vector3 i_speed)
