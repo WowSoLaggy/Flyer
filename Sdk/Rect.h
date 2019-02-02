@@ -11,6 +11,9 @@ public:
   float getWidth() const { return d_width; }
   float getHeight() const { return d_height; }
 
+  float getWidthHalf() const { return d_widthHalf; }
+  float getHeightHalf() const { return d_heightHalf; }
+
   void setWidth(float i_width);
   void setHeight(float i_height);
 
