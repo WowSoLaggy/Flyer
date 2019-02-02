@@ -78,6 +78,26 @@ void CollisionShapeGui3dController::deleteCollisionShapeGui3d(UniqueId i_objectI
   d_collisionShapeGui3dMap.erase(guiToObjectIt);
 }
 
+void CollisionShapeGui3dController::deleteAllCollisionShapes()
+{
+  for (auto& [guiId, objectPtr] : d_collisionShapeGui3dMap)
+  {
+    UNREFERENCED_PARAMETER(objectPtr);
+
+    auto& iGuiPtrs = d_gui3dCollection.guis;
+    auto itGui = std::find_if(iGuiPtrs.begin(), iGuiPtrs.end(),
+                              [&](const auto& i_gui) { return i_gui->getId() == guiId; });
+    if (itGui == iGuiPtrs.end())
+      return;
+
+    d_guiController.notify(GuiDeletedEvent{ *itGui });
+
+    iGuiPtrs.erase(itGui);
+  }
+
+  d_collisionShapeGui3dMap.clear();
+}
+
 void CollisionShapeGui3dController::positionCollisionShapeGui3d(
   CollisionShapeGui3d& io_collisionShapeGui3d, ObjectPtr i_objectPtr)
 {

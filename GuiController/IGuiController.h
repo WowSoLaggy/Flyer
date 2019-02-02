@@ -4,6 +4,8 @@
 #include <ModelControllers/ModelControllersFwd.h>
 #include <RenderApi/RenderApiFwd.h>
 
+#include <memory>
+
 
 class IGuiController
 {
@@ -18,4 +20,6 @@ public:
   virtual ~IGuiController() = default;
 
   virtual void update(double i_dt) = 0;
+
+  virtual void switchShowCollisionShapes() = 0;
 };

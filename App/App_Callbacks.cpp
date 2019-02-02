@@ -115,5 +115,7 @@ void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
   {
     if (i_keyboardState.pressed.G)
       d_engine->getRenderDevice()->switchFillMode();
+    if (i_keyboardState.pressed.C)
+      d_guiController->switchShowCollisionShapes();
   }
 }

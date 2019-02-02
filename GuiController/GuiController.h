@@ -29,8 +29,11 @@ public:
   Gui3dCollection& getGui3dCollection() { return d_gui3dCollection; }
   const Gui3dCollection& getGui3dCollection() const { return d_gui3dCollection; }
 
+  virtual void switchShowCollisionShapes() override;
+
 private:
 
+  WorldController& d_worldController;
   GuiCollection& d_guiCollection;
   Gui3dCollection& d_gui3dCollection;
 
@@ -39,5 +42,9 @@ private:
   CurrentActionPanelController d_currentActionPanelController;
   CollisionShapeGui3dController d_collisionShapeGui3dController;
 
-  void createGameGui(const World& i_world);
+  bool d_showCollisionShapes;
+  void createCollisionShapes();
+  void deleteCollisionShapes();
+
+  void createGameGui();
 };
