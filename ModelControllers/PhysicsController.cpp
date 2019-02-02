@@ -81,7 +81,13 @@ Vector3 PhysicsController::getRealSpeed(ObjectPtr io_object, double i_dt,
       continue;
     }
 
-    realSpeed -= xy2x0z(normal * normalProjection);
+    auto normalSpeed = xy2x0z(normal * normalProjection);
+    auto tangentSpeed = realSpeed - normalSpeed;
+
+    if (length(tangentSpeed) >= MinThreshold)
+      realSpeed = normalize(tangentSpeed) * length(i_virtualSpeed);
+    else
+      realSpeed = Vector3::zero();
   }
 
   return realSpeed;
