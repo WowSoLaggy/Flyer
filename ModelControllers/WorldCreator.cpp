@@ -134,10 +134,10 @@ void WorldCreator::createArena(World& io_world)
   {
     auto fence = createObject(objects);
     fence->setPosition({ 12.7f, 1.0f, 5.7f });
-    fence->setRotation({ 0, Math::degToRad(105.0f), 0 });
+    fence->setRotation({ 0, Math::degToRad(15.0f), 0 });
 
     fence->setModelName("Fence.cmo");
-    fence->setCollisionShape(std::make_shared<ColRect>(1.0f, 0.3f));
+    fence->setCollisionShape(std::make_shared<ColRect>(2.2f, 0.5f));
   }
 
   {
