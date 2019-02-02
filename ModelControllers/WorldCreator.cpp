@@ -59,8 +59,8 @@ std::shared_ptr<World> WorldCreator::createNewWorld()
   
   pWorld->getObjects().clear();
 
-  //createArena(*pWorld);
-  createCollisionTest(*pWorld);
+  createArena(*pWorld);
+  //createCollisionTest(*pWorld);
 
   return pWorld;
 }
