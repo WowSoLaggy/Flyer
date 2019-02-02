@@ -34,20 +34,18 @@ Vector3 PhysicsController::getVirtualSpeed(ObjectPtr io_object, double i_dt)
   const auto direction = io_object->getMovementDirection();
   auto speedVector = io_object->getSpeed();
 
-  auto accelerationVector = Vector3::zero();
   if (length(direction) >= MinThreshold)
   {
     // Have movement direction - accelerate this direction
-    accelerationVector = normalize(direction) * acceleration;
+    // Align speed with the direction vector
+    speedVector = normalize(direction) * length(speedVector);
+    speedVector += normalize(direction) * acceleration * (float)i_dt;
   }
   else if (length(speedVector) >= MinThreshold)
   {
     // No movement direction, but have some speed - reduce the speed
-    accelerationVector = normalize(speedVector) * -acceleration;
+    speedVector -= normalize(speedVector) * acceleration * (float)i_dt;
   }
-
-  if (length(accelerationVector) >= MinThreshold)
-    speedVector += accelerationVector * (float)i_dt;
 
   const float speed = length(speedVector);
   if (speed < MinThreshold)
