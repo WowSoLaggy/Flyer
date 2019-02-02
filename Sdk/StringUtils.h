@@ -18,7 +18,7 @@ namespace Utils
   static inline void trimStringLeadRef(std::string &pString)
   {
     pString.erase(pString.begin(), std::find_if(pString.begin(), pString.end(),
-      std::not1(std::ptr_fun<int, int>(std::isspace))));
+                                                [](int c) { return !std::isspace(c); }));
   }
 
   /// Trims the given string from the end (removes all spaces)
@@ -27,7 +27,7 @@ namespace Utils
   static inline void trimStringTrailRef(std::string &pString)
   {
     pString.erase(std::find_if(pString.rbegin(), pString.rend(),
-      std::not1(std::ptr_fun<int, int>(std::isspace))).base(), pString.end());
+                               [](int c) { return !std::isspace(c); }).base(), pString.end());
   }
 
   /// Trims the given string (removes all spaces)
