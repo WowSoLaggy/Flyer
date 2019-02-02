@@ -1,5 +1,8 @@
 #pragma once
 
+#include <string>
+
+
 struct Vector2
 {
   float x;
@@ -47,6 +50,10 @@ Vector2 normalize(const Vector2& i_v);
 
 float dot(const Vector2& i_v1, const Vector2& i_v2);
 
+Vector2 rotate(const Vector2& i_v, float i_angle);
+
+std::string toString(const Vector2& i_v);
+
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // Vector3
@@ -69,6 +76,8 @@ float lengthSq(const Vector3& i_v);
 Vector3 normalize(const Vector3& i_v);
 
 Vector3 cross(const Vector3& i_left, const Vector3& i_right);
+
+std::string toString(const Vector3& i_v);
 
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

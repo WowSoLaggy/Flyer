@@ -47,6 +47,21 @@ float dot(const Vector2& i_v1, const Vector2& i_v2)
 }
 
 
+Vector2 rotate(const Vector2& i_v, float i_angle)
+{
+  auto cos = std::cos(i_angle);
+  auto sin = std::sin(i_angle);
+
+  return { i_v.x * cos - i_v.y * sin, i_v.x * sin + i_v.y * cos };
+}
+
+
+std::string toString(const Vector2& i_v)
+{
+  return "X: " + std::to_string(i_v.x) + "Y: " + std::to_string(i_v.y);
+}
+
+
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // Vector3
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -120,6 +135,12 @@ Vector3 cross(const Vector3& i_left, const Vector3& i_right)
     i_left.y * i_right.z - i_left.z * i_right.y,
     i_left.z * i_right.x - i_left.x * i_right.z,
     i_left.x * i_right.y - i_left.y * i_right.x };
+}
+
+
+std::string toString(const Vector3& i_v)
+{
+  return "X: " + std::to_string(i_v.x) + "Y: " + std::to_string(i_v.y) + "Z: " + std::to_string(i_v.z);
 }
 
 
