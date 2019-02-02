@@ -12,9 +12,6 @@ public:
   Creature();
 
   virtual bool isCreature() const { return true; }
-  virtual bool isMovable() const override { return true; }
-  virtual float getAcceleration() const override { return 10.0f; }
-  virtual float getMaxSpeed() const override { return 2.0f; }
 
   bool isAiControlled() const { return d_aiControlled; }
   void setAiControlled(bool i_aiControlled) { d_aiControlled = i_aiControlled; }

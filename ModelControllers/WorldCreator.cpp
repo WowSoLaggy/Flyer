@@ -23,6 +23,10 @@ namespace
 
   const bool DefaultAiControlled = true;
 
+  const bool DefaultCreatureMovable = true;
+  const float DefaultAcceleration = 10.0f;
+  const float DefaultMaxSpeed = 2.0f;
+
   const int DefaultMinHealth = 0;
   const int DefaultMaxHealth = 100;
   const int DefaultStartHealth = DefaultMaxHealth;
@@ -65,6 +69,10 @@ std::shared_ptr<World> WorldCreator::createNewWorld()
 CreaturePtr WorldCreator::createCreature()
 {
   CreaturePtr creature = std::make_shared<Creature>();
+
+  creature->setMovable(DefaultCreatureMovable);
+  creature->setAcceleration(DefaultAcceleration);
+  creature->setMaxSpeed(DefaultMaxSpeed);
 
   creature->setModelName(defaultModelName);
   creature->setCollisionShape(std::make_shared<ColCircle>(0.5f));
@@ -215,7 +223,7 @@ void WorldCreator::createCollisionTest(World& io_world)
     auto testCreatureFence1 = createCreature(objects);
     testCreatureFence1->setPosition({ 3.0f, 1.0f, 8.0f });
     testCreatureFence1->setAiControlled(false);
-    testCreatureFence1->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ -3.0f, 2.0f }));
+    testCreatureFence1->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ -3.0f, 3.0f }));
   }
 
   {

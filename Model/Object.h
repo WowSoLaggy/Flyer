@@ -23,9 +23,15 @@ public:
   virtual ~Object() = default;
 
   virtual bool isCreature() const { return false; }
-  virtual bool isMovable() const { return false; }
-  virtual float getAcceleration() const { return 0.0f; }
-  virtual float getMaxSpeed() const { return 0.0f; }
+
+  bool isMovable() const { return d_movable; }
+  void setMovable(bool i_movable) { d_movable = i_movable; }
+
+  float getAcceleration() const { return d_acceleration; }
+  void setAcceleration(float i_acceleration) { d_acceleration = i_acceleration; }
+
+  float getMaxSpeed() const { return d_maxSpeed; }
+  void setMaxSpeed(float i_maxSpeed) { d_maxSpeed = i_maxSpeed; }
 
   bool hasCollisionShape() const { return d_collisionShape != nullptr; }
   const IColShapePtr& getCollisionShape() const { return d_collisionShape; }
@@ -41,6 +47,9 @@ public:
   IActionPtr getCurrentAction() { return d_currentAction; }
 
 private:
+  bool d_movable;
+  float d_acceleration;
+  float d_maxSpeed;
   Vector3 d_movementDirection;
 
   IColShapePtr d_collisionShape;
