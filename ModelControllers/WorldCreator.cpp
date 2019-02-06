@@ -13,13 +13,16 @@
 
 namespace
 {
+  using namespace std::literals;
 
   const int SizeX = 1;
   const int SizeZ = 1;
   const float DefaultHeight = 1.0f;
   const float HeightGridStep = 20.0f;
 
-  const std::string defaultModelName = "Tom.cmo";
+  const auto DefaultTerrainTexture = "Sand.dds"s;
+
+  const auto DefaultModelName = "Tom.cmo"s;
 
   const bool DefaultAiControlled = true;
 
@@ -53,7 +56,7 @@ std::shared_ptr<World> WorldCreator::createNewWorld()
 {
   auto pWorld = std::make_shared<World>();
 
-  pWorld->getTerrain().setTextureName("Grass.dds");
+  pWorld->getTerrain().setTextureName(DefaultTerrainTexture);
   pWorld->getTerrain().setHeightMap(createHeightMap());
   pWorld->getTerrain().setHeightGridStep(HeightGridStep);
   
@@ -74,7 +77,7 @@ CreaturePtr WorldCreator::createCreature()
   creature->setAcceleration(DefaultAcceleration);
   creature->setMaxSpeed(DefaultMaxSpeed);
 
-  creature->setModelName(defaultModelName);
+  creature->setModelName(DefaultModelName);
   creature->setCollisionShape(std::make_shared<ColCircle>(0.5f));
 
   creature->setAiControlled(DefaultAiControlled);
