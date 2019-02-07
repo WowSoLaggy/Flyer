@@ -56,7 +56,7 @@ void CreatureController::updateCreature(CreaturePtr io_creature, double i_dt,
                                         WorldController& io_worldController)
 {
   updateCreatureState(io_creature, i_dt);
-  if (io_creature->isAiControlled())
+  if (io_creature->getControlledBy() == ControlledBy::Ai)
     selectCreatureAction(io_creature, io_worldController);
   performCreatureAction(io_creature, io_worldController);
 }

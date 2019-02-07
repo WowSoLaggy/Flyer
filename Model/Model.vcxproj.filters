@@ -86,5 +86,8 @@
     <ClInclude Include="ColRect.h">
       <Filter>src\Physics\Shapes</Filter>
     </ClInclude>
+    <ClInclude Include="ControlledBy.h">
+      <Filter>src\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -22,3 +22,5 @@ class ColRect;
 
 class IAction;
 using IActionPtr = std::shared_ptr<IAction>;
+
+enum class ControlledBy;

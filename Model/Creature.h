@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ControlledBy.h"
 #include "Object.h"
 
 #include <Sdk/Property.h>
@@ -13,8 +14,8 @@ public:
 
   virtual bool isCreature() const { return true; }
 
-  bool isAiControlled() const { return d_aiControlled; }
-  void setAiControlled(bool i_aiControlled) { d_aiControlled = i_aiControlled; }
+  ControlledBy getControlledBy() const { return d_controlledBy; }
+  void setControlledBy(ControlledBy i_controlledBy) { d_controlledBy = i_controlledBy; }
 
   auto& getPropHealth() { return d_health; }
   const auto& getPropHealth() const { return d_health; }
@@ -27,7 +28,7 @@ public:
 
 private:
 
-  bool d_aiControlled;
+  ControlledBy d_controlledBy;
 
   Property<int> d_health;
   Property<double> d_attackCooldown;

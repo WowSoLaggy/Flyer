@@ -24,7 +24,7 @@ namespace
 
   const auto DefaultModelName = "Tom.cmo"s;
 
-  const bool DefaultAiControlled = true;
+  const ControlledBy DefaultControlledBy = ControlledBy::None;
 
   const bool DefaultCreatureMovable = true;
   const float DefaultAcceleration = 10.0f;
@@ -80,7 +80,7 @@ CreaturePtr WorldCreator::createCreature()
   creature->setModelName(DefaultModelName);
   creature->setCollisionShape(std::make_shared<ColCircle>(0.5f));
 
-  creature->setAiControlled(DefaultAiControlled);
+  creature->setControlledBy(DefaultControlledBy);
 
   creature->getPropHealth().set(DefaultStartHealth, DefaultMinHealth, DefaultMaxHealth);
   creature->getPropAttackCooldown().set(
@@ -113,9 +113,14 @@ void WorldCreator::createArena(World& io_world)
   auto& objects = io_world.getObjects();
 
   {
-    auto player = createCreature(objects);
-    player->setPosition({ 10.0f, 1.0f, 10.0f });
-    player->setAiControlled(false);
+    auto maximus = createCreature(objects);
+    maximus->setPosition({ 10.0f, 1.0f, 10.0f });
+    maximus->setControlledBy(ControlledBy::Player);
+  }
+
+  {
+    auto marcus = createCreature(objects);
+    marcus->setPosition({ 15.0f, 1.0f, 15.0f });
   }
 
   {

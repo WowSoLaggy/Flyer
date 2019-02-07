@@ -3,6 +3,6 @@
 
 
 Creature::Creature()
-  : d_aiControlled(false)
+  : d_controlledBy(ControlledBy::None)
 {
 }

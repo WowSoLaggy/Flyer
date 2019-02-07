@@ -147,6 +147,7 @@
     <ClInclude Include="ActionIdle.h" />
     <ClInclude Include="ActionMoveTo.h" />
     <ClInclude Include="ColCircle.h" />
+    <ClInclude Include="ControlledBy.h" />
     <ClInclude Include="Creature.h" />
     <ClInclude Include="HeightMap.h" />
     <ClInclude Include="IAction.h" />
