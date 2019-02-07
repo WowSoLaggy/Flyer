@@ -9,6 +9,7 @@
 #include <Model/ActionIdle.h>
 #include <Model/Creature.h>
 #include <Model/Object.h>
+#include <Model/ObjectConverters.h>
 #include <Model/World.h>
 
 
@@ -41,7 +42,7 @@ namespace
       if (distSq < distSqToClosestTarget)
       {
         distSqToClosestTarget = distSq;
-        closestTarget = std::dynamic_pointer_cast<Creature>(objectPtr);
+        closestTarget = castObjectToCreature(objectPtr);
       }
     }
 

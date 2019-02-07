@@ -42,6 +42,9 @@
     <ClCompile Include="Creature.cpp">
       <Filter>src\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectConverters.cpp">
+      <Filter>src\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -87,6 +90,9 @@
       <Filter>src\Physics\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="ControlledBy.h">
+      <Filter>src\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectConverters.h">
       <Filter>src\Objects</Filter>
     </ClInclude>
   </ItemGroup>

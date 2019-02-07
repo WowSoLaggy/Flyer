@@ -12,6 +12,7 @@
 #include <GuiModel/Panel.h>
 #include <Model/Creature.h>
 #include <Model/Object.h>
+#include <Model/ObjectConverters.h>
 #include <Model/World.h>
 #include <ModelControllers/WorldController.h>
 #include <ModelControllers/WorldEvents.h>
@@ -71,8 +72,8 @@ void GuiController::processEvent(const IEvent& i_event)
 
     if (objectPtr->isCreature())
     {
-      d_healthBarController.addHealthBar(std::dynamic_pointer_cast<Creature>(objectPtr));
-      d_currentActionPanelController.addCurrentActionPanel(std::dynamic_pointer_cast<Creature>(objectPtr));
+      d_healthBarController.addHealthBar(castObjectToCreature(objectPtr));
+      d_currentActionPanelController.addCurrentActionPanel(castObjectToCreature(objectPtr));
     }
 
     if (d_showCollisionShapes && objectPtr->hasCollisionShape())
@@ -115,8 +116,8 @@ void GuiController::createGameGui()
   {
     if (objectPtr->isCreature())
     {
-      d_healthBarController.addHealthBar(std::dynamic_pointer_cast<Creature>(objectPtr));
-      d_currentActionPanelController.addCurrentActionPanel(std::dynamic_pointer_cast<Creature>(objectPtr));
+      d_healthBarController.addHealthBar(castObjectToCreature(objectPtr));
+      d_currentActionPanelController.addCurrentActionPanel(castObjectToCreature(objectPtr));
     }
   }
 

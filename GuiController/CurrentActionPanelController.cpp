@@ -9,6 +9,7 @@
 #include <GuiModel/GuiCollection.h>
 #include <Model/Creature.h>
 #include <Model/IAction.h>
+#include <Model/ObjectConverters.h>
 #include <RenderApi/ICamera.h>
 
 
@@ -62,7 +63,7 @@ IGuiPtr CurrentActionPanelController::getGuiForCreature(UniqueId i_objectId)
 
 void CurrentActionPanelController::update(CurrentActionPanel& io_currentActionPanel)
 {
-  auto creaturePtr = std::dynamic_pointer_cast<Creature>(d_currentActionPanelMap.at(io_currentActionPanel.getId()));
+  auto creaturePtr = castObjectToCreature(d_currentActionPanelMap.at(io_currentActionPanel.getId()));
   positionCurrentActionPanel(io_currentActionPanel, creaturePtr);
 }
 
@@ -118,7 +119,7 @@ void CurrentActionPanelController::positionCurrentActionPanel(CurrentActionPanel
 {
   auto objectPtr = d_currentActionPanelMap.at(io_currentActionPanel.getId());
   if (objectPtr->isCreature())
-    positionCurrentActionPanel(io_currentActionPanel, std::dynamic_pointer_cast<Creature>(objectPtr));
+    positionCurrentActionPanel(io_currentActionPanel, castObjectToCreature(objectPtr));
 }
 
 void CurrentActionPanelController::positionCurrentActionPanel(

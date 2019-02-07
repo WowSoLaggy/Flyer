@@ -8,6 +8,7 @@
 #include <GuiModel/GuiCollection.h>
 #include <GuiModel/HealthBar.h>
 #include <Model/Creature.h>
+#include <Model/ObjectConverters.h>
 #include <RenderApi/ICamera.h>
 
 
@@ -22,7 +23,7 @@ HealthBarController::HealthBarController(GuiController& io_guiController, GuiCol
 
 void HealthBarController::update(HealthBar& io_healthBar)
 {
-  auto creaturePtr = std::dynamic_pointer_cast<Creature>(d_healthBarMap.at(io_healthBar.getId()));
+  auto creaturePtr = castObjectToCreature(d_healthBarMap.at(io_healthBar.getId()));
   io_healthBar.setValue(creaturePtr->getPropHealth().getValueRelative());
   
   positionHealthBar(io_healthBar, creaturePtr);
@@ -63,7 +64,7 @@ void HealthBarController::positionHealthBar(HealthBar& io_healthBar)
 {
   auto objectPtr = d_healthBarMap.at(io_healthBar.getId());
   if (objectPtr->isCreature())
-    positionHealthBar(io_healthBar, std::dynamic_pointer_cast<Creature>(objectPtr));
+    positionHealthBar(io_healthBar, castObjectToCreature(objectPtr));
 }
 
 void HealthBarController::positionHealthBar(HealthBar& io_healthBar, CreaturePtr i_creaturePtr)

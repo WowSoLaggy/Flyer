@@ -7,6 +7,7 @@
 #include "WorldEvents.h"
 
 #include <Model/Creature.h>
+#include <Model/ObjectConverters.h>
 #include <Model/World.h>
 
 
@@ -71,7 +72,7 @@ void WorldController::updateObjects(double i_dt)
   for (auto objectPtr : d_world.getObjects())
   {
     if (objectPtr->isCreature())
-      CreatureController::updateCreature(std::dynamic_pointer_cast<Creature>(objectPtr), i_dt, *this);
+      CreatureController::updateCreature(castObjectToCreature(objectPtr), i_dt, *this);
   }
 }
 
