@@ -14,6 +14,7 @@ public:
   WorldController(World& io_world);
 
   virtual void update(double i_dt) override;
+  virtual void processInput(const KeyboardState& i_keyboardState) override;
 
   World& getWorld() { return d_world; }
   const World& getWorld() const { return d_world; }

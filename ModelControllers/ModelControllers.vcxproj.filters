@@ -39,6 +39,9 @@
     <ClCompile Include="Collider.cpp">
       <Filter>src\PhysicsController</Filter>
     </ClCompile>
+    <ClCompile Include="WorldController_input.cpp">
+      <Filter>src\WorldController</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
