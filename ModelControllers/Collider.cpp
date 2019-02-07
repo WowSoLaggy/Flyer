@@ -83,7 +83,7 @@ bool Collider::collideCircle2Rect(const Circle& i_circle, const Rect& i_rect,
                                   Vector2& o_normal)
 {
   auto offset = i_offset1 - i_offset2;
-  offset = rotate(offset, -i_rotation2);
+  offset = rotate(offset, i_rotation2);
 
   float distX = std::abs(offset.x);
   float distY = std::abs(offset.y);
@@ -96,13 +96,13 @@ bool Collider::collideCircle2Rect(const Circle& i_circle, const Rect& i_rect,
   if (distX <= i_rect.getWidthHalf())
   {
     float unitValue = offset.y < 0 ? -1.0f : 1.0f;
-    o_normal = rotate({ 0.0f, unitValue }, i_rotation2);
+    o_normal = rotate({ 0.0f, unitValue }, -i_rotation2);
     return true;
   }
   if (distY <= i_rect.getHeightHalf())
   {
     float unitValue = offset.x < 0 ? -1.0f : 1.0f;
-    o_normal = rotate({ unitValue, 0.0f }, i_rotation2);
+    o_normal = rotate({ unitValue, 0.0f }, -i_rotation2);
     return true;
   }
 
