@@ -13,12 +13,12 @@ class GameVm
 public:
 
   GameVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController,
-    int i_screenWidth, int i_screenHeight);
+         IWorldController& i_worldController,
+         int i_screenWidth, int i_screenHeight);
 
   ICamera& getCamera() { return *d_camera; }
   const ICamera& getCamera() const { return *d_camera; }
 
-  void buildWorldVms(IWorldController& i_worldController);
   void buildGuiVms(IGuiController& i_guiController);
 
   void render(double i_dt) const;
@@ -27,6 +27,7 @@ private:
 
   IRenderDevice& d_renderDevice;
   const IResourceController& d_resourceController;
+  WorldController& d_worldController;
 
   std::shared_ptr<ICamera> d_camera;
   std::shared_ptr<IRenderer2d> d_renderer2d;

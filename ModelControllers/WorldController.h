@@ -22,6 +22,9 @@ public:
   void addObject(ObjectPtr i_object);
   void deleteObject(UniqueId i_objectId);
 
+  CreaturePtr getPlayer() { return d_player; }
+  const CreaturePtr& getPlayer() const { return d_player; }
+
 private:
 
   World& d_world;

@@ -17,7 +17,7 @@ WorldVm::WorldVm(IRenderDevice& io_renderDevice, const IResourceController& i_re
 }
 
 
-void WorldVm::buildFromWorld(IWorldController& i_worldController)
+void WorldVm::buildFromWorld(WorldController& i_worldController)
 {
   auto& worldController = dynamic_cast<WorldController&>(i_worldController);
 
