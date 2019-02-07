@@ -15,6 +15,7 @@ WorldController::WorldController(World& io_world)
   : d_world(io_world)
 {
   timeLeftBeforeSpawn = TimeBeforeNextCreatureIsSpawn;
+  findPlayer();
 }
 
 
@@ -106,4 +107,18 @@ void WorldController::addDeleteObjects()
 
     d_objectsToAdd.clear();
   }
+}
+
+void WorldController::findPlayer()
+{
+  auto it = std::find_if(d_world.getObjects().begin(), d_world.getObjects().end(),
+                         [](const auto& i_objectPtr)
+  {
+    if (!i_objectPtr->isCreature())
+      return false;
+    return castObjectToCreature(i_objectPtr)->isControlledByPlayer();
+  });
+
+  if (it != d_world.getObjects().end())
+    d_player = castObjectToCreature(*it);
 }

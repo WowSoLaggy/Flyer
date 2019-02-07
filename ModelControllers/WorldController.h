@@ -32,6 +32,12 @@ private:
   void updateObjects(double i_dt);
   void addDeleteObjects();
 
+  // Player
+
+  CreaturePtr d_player;
+
+  void findPlayer();
+
   // Scripts
 
   const int MaxNumberOfCreatures = 20;
