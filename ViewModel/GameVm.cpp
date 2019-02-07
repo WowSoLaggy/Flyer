@@ -4,6 +4,7 @@
 #include "GuiCollectionVm.h"
 #include "WorldVm.h"
 
+#include <Model/Creature.h>
 #include <ModelControllers/WorldController.h>
 #include <RenderApi/ICamera.h>
 #include <RenderApi/IRenderer2d.h>
@@ -40,6 +41,15 @@ void GameVm::buildGuiVms(IGuiController& i_guiController)
   d_guiCollectionVm->buildFromCollection(i_guiController);
 }
 
+
+void GameVm::update(double i_dt) const
+{
+  if (auto playerPtr = d_worldController.getPlayer())
+  {
+    // Move camera to the player
+    d_camera->setLookAt(playerPtr->getPosition());
+  }
+}
 
 void GameVm::render(double i_dt) const
 {

@@ -37,6 +37,7 @@ void App::updateCallback(double i_dt)
 
 void App::renderCallback(double i_dt)
 {
+  d_gameVm->update(i_dt);
   d_gameVm->render(i_dt);
 }
 

@@ -21,6 +21,7 @@ public:
 
   void buildGuiVms(IGuiController& i_guiController);
 
+  void update(double i_dt) const;
   void render(double i_dt) const;
 
 private:
