@@ -14,7 +14,7 @@ Object::Object()
 }
 
 
-void Object::setCurrentAction(std::shared_ptr<IAction> i_action)
+void Object::setCurrentAction(IActionPtr i_action)
 {
   d_currentAction = i_action ? i_action : std::make_shared<ActionIdle>();
 }
