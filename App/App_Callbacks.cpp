@@ -55,31 +55,6 @@ void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
 
   auto& camera = d_gameVm->getCamera();
 
-  if (i_keyboardState.currentState.W)
-  {
-    auto dir = camera.getForward();
-    dir.y = 0;
-    camera.setLookAt(camera.getLookAt() + normalize(dir) * linearSpeed);
-  }
-  if (i_keyboardState.currentState.S)
-  {
-    auto dir = camera.getBackward();
-    dir.y = 0;
-    camera.setLookAt(camera.getLookAt() + normalize(dir) * linearSpeed);
-  }
-  if (i_keyboardState.currentState.A)
-  {
-    auto dir = camera.getLeft();
-    dir.y = 0;
-    camera.setLookAt(camera.getLookAt() + normalize(dir) * linearSpeed);
-  }
-  if (i_keyboardState.currentState.D)
-  {
-    auto dir = camera.getRight();
-    dir.y = 0;
-    camera.setLookAt(camera.getLookAt() + normalize(dir) * linearSpeed);
-  }
-
   if (i_keyboardState.currentState.OemQuotes)
     camera.setYaw(camera.getYaw() + angleSpeed);
   if (i_keyboardState.currentState.L)
