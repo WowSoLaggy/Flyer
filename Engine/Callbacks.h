@@ -2,7 +2,7 @@
 
 #include "EngineFwd.h"
 
-#include <InputApi/InputDeviceFwd.h>
+#include <InputApi/InputApiFwd.h>
 
 
 using ControlCallback = std::function<ControlSignal()>;

@@ -38,9 +38,6 @@
     <ClInclude Include="InputDevice.h">
       <Filter>src\InputDevice</Filter>
     </ClInclude>
-    <ClInclude Include="InputDeviceFwd.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="IInputDevice.h">
       <Filter>src\InputDevice</Filter>
     </ClInclude>
@@ -52,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="KeyboardKeys.h">
       <Filter>src\Keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="InputApiFwd.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

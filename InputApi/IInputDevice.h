@@ -1,6 +1,6 @@
 #pragma once
 
-#include "InputDeviceFwd.h"
+#include "InputApiFwd.h"
 
 
 class IInputDevice

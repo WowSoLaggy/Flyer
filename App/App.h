@@ -6,7 +6,7 @@
 #include <Engine/EngineFwd.h>
 #include <GuiModel/GuiModelFwd.h>
 #include <GuiController/GuiControllerFwd.h>
-#include <InputApi/InputDeviceFwd.h>
+#include <InputApi/InputApiFwd.h>
 #include <Model/ModelFwd.h>
 #include <ModelControllers/ModelControllersFwd.h>
 #include <ViewModel/ViewModelFwd.h>

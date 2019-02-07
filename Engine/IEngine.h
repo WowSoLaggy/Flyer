@@ -3,7 +3,7 @@
 #include "Callbacks.h"
 #include "EngineFwd.h"
 
-#include <InputApi/InputDeviceFwd.h>
+#include <InputApi/InputApiFwd.h>
 #include <RenderApi/RenderApiFwd.h>
 
 

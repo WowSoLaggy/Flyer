@@ -143,7 +143,7 @@
   <ItemGroup>
     <ClInclude Include="IInputDevice.h" />
     <ClInclude Include="InputDevice.h" />
-    <ClInclude Include="InputDeviceFwd.h" />
+    <ClInclude Include="InputApiFwd.h" />
     <ClInclude Include="InputMessage.h" />
     <ClInclude Include="KeyboardKeys.h" />
     <ClInclude Include="KeyboardState.h" />
