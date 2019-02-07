@@ -108,151 +108,15 @@ CreaturePtr WorldCreator::createCreature(ObjectPtrs& o_objects)
 
 void WorldCreator::createArena(World& io_world)
 {
-  auto& objects = io_world.getObjects();
-
-  {
-    auto tom = createCreature(objects);
-    tom->setPosition({ 2.5f, 1.0f, 2.5f });
-  }
-
-  {
-    auto jerry = createCreature(objects);
-    jerry->setPosition({ 8.5f, 1.0f, 12.5f });
-    jerry->setRotation({ 0, Math::degToRad(180.0f), 0 });
-  }
-
-  {
-    auto house = createObject(objects);
-    house->setPosition({ 16.5f, 1.0f, 6.5f });
-    house->setRotation({ 0, Math::degToRad(-135.0f), 0 });
-    house->setModelName("House.cmo");
-  }
-
-  {
-    auto tree = createObject(objects);
-    tree->setPosition({ 11.5f, 1.0f, 6.5f });
-    tree->setModelName("Tree.cmo");
-  }
-
-  {
-    auto fence = createObject(objects);
-    fence->setPosition({ 12.7f, 1.0f, 5.7f });
-    fence->setRotation({ 0, Math::degToRad(15.0f), 0 });
-
-    fence->setModelName("Fence.cmo");
-    fence->setCollisionShape(std::make_shared<ColRect>(2.2f, 0.5f));
-  }
-
-  {
-    auto fenceSouth = createObject(objects);
-    fenceSouth->setPosition({ 10.0f, 1.0f, 19.5f });
-    fenceSouth->setRotation({ 0, Math::degToRad(0.0f), 0 });
-
-    fenceSouth->setModelName("Fence10.cmo");
-    fenceSouth->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
-  }
-
-  {
-    auto fenceNorth = createObject(objects);
-    fenceNorth->setPosition({ 10.0f, 1.0f, 0.5f });
-    fenceNorth->setRotation({ 0, Math::degToRad(180.0f), 0 });
-
-    fenceNorth->setModelName("Fence10.cmo");
-    fenceNorth->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
-  }
-
-  {
-    auto fenceWest = createObject(objects);
-    fenceWest->setPosition({ 0.5f, 1.0f, 10.0f });
-    fenceWest->setRotation({ 0, Math::degToRad(-90.0f), 0 });
-
-    fenceWest->setModelName("Fence10.cmo");
-    fenceWest->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
-  }
-
-  {
-    auto fenceEast = createObject(objects);
-    fenceEast->setPosition({ 19.5f, 1.0f, 10.0f });
-    fenceEast->setRotation({ 0, Math::degToRad(90.0f), 0 });
-
-    fenceEast->setModelName("Fence10.cmo");
-    fenceEast->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
-  }
-}
-
-void WorldCreator::createCollisionTest(World& io_world)
-{
   io_world.setScriptsActive(false);
 
   auto& objects = io_world.getObjects();
 
-  // Opposite ones
-
   {
-    auto testCreature1 = createCreature(objects);
-    testCreature1->setPosition({ 6.5f, 1.0f, 12.5f });
-    testCreature1->setAiControlled(false);
-    testCreature1->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ 12.5f, 12.5f }));
+    auto player = createCreature(objects);
+    player->setPosition({ 10.0f, 1.0f, 10.0f });
+    player->setAiControlled(false);
   }
-
-  {
-    auto testCreature1 = createCreature(objects);
-    testCreature1->setPosition({ 10.5f, 1.0f, 12.5f });
-    testCreature1->setRotation({ 0, Math::degToRad(180.0f), 0 });
-    testCreature1->setAiControlled(false);
-    testCreature1->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ 4.5f, 12.5f }));
-  }
-
-  // Not opposite
-
-  {
-    auto testCreature2 = createCreature(objects);
-    testCreature2->setPosition({ 6.5f, 1.0f, 14.6f });
-    testCreature2->setAiControlled(false);
-    testCreature2->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ 12.5f, 14.6f }));
-  }
-
-  {
-    auto testCreature2 = createCreature(objects);
-    testCreature2->setPosition({ 10.5f, 1.0f, 14.5f });
-    testCreature2->setRotation({ 0, Math::degToRad(180.0f), 0 });
-    testCreature2->setAiControlled(false);
-    testCreature2->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ 4.5f, 14.5f }));
-  }
-
-  // "Go to the west fence" creatures
-
-  {
-    auto testCreatureFence1 = createCreature(objects);
-    testCreatureFence1->setPosition({ 3.0f, 1.0f, 8.0f });
-    testCreatureFence1->setAiControlled(false);
-    testCreatureFence1->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ -3.0f, 3.0f }));
-  }
-
-  {
-    auto testCreatureFence2 = createCreature(objects);
-    testCreatureFence2->setPosition({ 3.0f, 1.0f, 4.0f });
-    testCreatureFence2->setAiControlled(false);
-    testCreatureFence2->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ -3.0f, -2.0f }));
-  }
-
-  // "Go to the south fence" creatures
-
-  {
-    auto testCreatureFence1 = createCreature(objects);
-    testCreatureFence1->setPosition({ 3.0f, 1.0f, 16.0f });
-    testCreatureFence1->setAiControlled(false);
-    testCreatureFence1->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ 3.0f, 25.0f }));
-  }
-
-  {
-    auto testCreatureFence2 = createCreature(objects);
-    testCreatureFence2->setPosition({ 10.0f, 1.0f, 16.0f });
-    testCreatureFence2->setAiControlled(false);
-    testCreatureFence2->setCurrentAction(std::make_shared<ActionMoveTo>(Vector2{ 10.0f, 25.0f }));
-  }
-
-  // Rest of the world
 
   {
     auto house = createObject(objects);
