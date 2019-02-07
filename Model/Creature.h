@@ -14,6 +14,8 @@ public:
 
   virtual bool isCreature() const { return true; }
 
+  bool isControlledByPlayer() const { return d_controlledBy == ControlledBy::Player; }
+  bool isControlledByAi() const { return d_controlledBy == ControlledBy::Ai; }
   ControlledBy getControlledBy() const { return d_controlledBy; }
   void setControlledBy(ControlledBy i_controlledBy) { d_controlledBy = i_controlledBy; }
 
