@@ -18,7 +18,7 @@ namespace
   const int SizeX = 1;
   const int SizeZ = 1;
   const float DefaultHeight = 1.0f;
-  const float HeightGridStep = 20.0f;
+  const float HeightGridStep = 100.0f;
 
   const auto DefaultTerrainTexture = "Sand.dds"s;
 
@@ -27,8 +27,8 @@ namespace
   const ControlledBy DefaultControlledBy = ControlledBy::None;
 
   const bool DefaultCreatureMovable = true;
-  const float DefaultAcceleration = 10.0f;
-  const float DefaultMaxSpeed = 2.0f;
+  const float DefaultAcceleration = 20.0f;
+  const float DefaultMaxSpeed = 4.0f;
 
   const int DefaultMinHealth = 0;
   const int DefaultMaxHealth = 100;
@@ -114,31 +114,31 @@ void WorldCreator::createArena(World& io_world)
 
   {
     auto maximus = createCreature(objects);
-    maximus->setPosition({ 10.0f, 1.0f, 10.0f });
+    maximus->setPosition({ 50.0f, 1.0f, 50.0f });
     maximus->setControlledBy(ControlledBy::Player);
   }
 
   {
     auto marcus = createCreature(objects);
-    marcus->setPosition({ 15.0f, 1.0f, 15.0f });
+    marcus->setPosition({ 55.0f, 1.0f, 55.0f });
   }
 
   {
     auto house = createObject(objects);
-    house->setPosition({ 16.5f, 1.0f, 6.5f });
+    house->setPosition({ 56.5f, 1.0f, 46.5f });
     house->setRotation({ 0, Math::degToRad(-135.0f), 0 });
     house->setModelName("House.cmo");
   }
 
   {
     auto tree = createObject(objects);
-    tree->setPosition({ 11.5f, 1.0f, 6.5f });
+    tree->setPosition({ 51.5f, 1.0f, 46.5f });
     tree->setModelName("Tree.cmo");
   }
 
   {
     auto fence = createObject(objects);
-    fence->setPosition({ 12.7f, 1.0f, 5.7f });
+    fence->setPosition({ 52.7f, 1.0f, 45.7f });
     fence->setRotation({ 0, Math::degToRad(15.0f), 0 });
 
     fence->setModelName("Fence.cmo");
@@ -147,7 +147,7 @@ void WorldCreator::createArena(World& io_world)
 
   {
     auto fenceSouth = createObject(objects);
-    fenceSouth->setPosition({ 10.0f, 1.0f, 19.5f });
+    fenceSouth->setPosition({ 50.0f, 1.0f, 59.5f });
     fenceSouth->setRotation({ 0, Math::degToRad(0.0f), 0 });
 
     fenceSouth->setModelName("Fence10.cmo");
@@ -156,7 +156,7 @@ void WorldCreator::createArena(World& io_world)
 
   {
     auto fenceNorth = createObject(objects);
-    fenceNorth->setPosition({ 10.0f, 1.0f, 0.5f });
+    fenceNorth->setPosition({ 50.0f, 1.0f, 40.5f });
     fenceNorth->setRotation({ 0, Math::degToRad(180.0f), 0 });
 
     fenceNorth->setModelName("Fence10.cmo");
@@ -165,7 +165,7 @@ void WorldCreator::createArena(World& io_world)
 
   {
     auto fenceWest = createObject(objects);
-    fenceWest->setPosition({ 0.5f, 1.0f, 10.0f });
+    fenceWest->setPosition({ 40.5f, 1.0f, 50.0f });
     fenceWest->setRotation({ 0, Math::degToRad(-90.0f), 0 });
 
     fenceWest->setModelName("Fence10.cmo");
@@ -174,7 +174,7 @@ void WorldCreator::createArena(World& io_world)
 
   {
     auto fenceEast = createObject(objects);
-    fenceEast->setPosition({ 19.5f, 1.0f, 10.0f });
+    fenceEast->setPosition({ 59.5f, 1.0f, 50.0f });
     fenceEast->setRotation({ 0, Math::degToRad(90.0f), 0 });
 
     fenceEast->setModelName("Fence10.cmo");
