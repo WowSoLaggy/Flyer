@@ -14,7 +14,7 @@ namespace
 
   static const std::unordered_map<ActionType, std::wstring> actionTypeStringsMap = {
     { ActionType::Idle, L"Idle" },
-    { ActionType::MoveTo, L"Move" },
+    { ActionType::MoveTo, L"Walk" },
     { ActionType::Attack, L"Attack" },
   };
 
