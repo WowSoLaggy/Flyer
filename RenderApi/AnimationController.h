@@ -13,7 +13,8 @@ public:
   virtual void setAnimation(std::wstring i_animationName) override;
   virtual void update(double i_dt) override;
 
-  XMMATRIX getTransform() const;
+  int getBoneXfmsCount() const;
+  const XMMATRIX* getBoneXfms() const;
 
 private:
   std::wstring d_currentAnimationName;
@@ -22,7 +23,11 @@ private:
   const DirectX::Model& d_model;
 
   using BoneTransformCollection = std::vector<XMMATRIX>;
-  std::vector<BoneTransformCollection> d_meshesBoneTransforms;
+  std::vector<BoneTransformCollection> d_meshesBoneAnimationXfms;
+  std::vector<BoneTransformCollection> d_meshesBoneCombinedXfms;
 
-  void resetTransforms();
+  void resetAnimationXfms();
+
+  void updateAnimationXfms();
+  void updateCombinedXfms();
 };

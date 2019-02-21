@@ -48,12 +48,10 @@ void Renderer3d::renderObject(
   auto& camera = dynamic_cast<const Camera&>(d_camera);
 
   auto animationTransform = XMMatrixIdentity();
-  if (auto animationController = std::dynamic_pointer_cast<AnimationController>(i_animationController))
-    animationTransform = animationController->getTransform();
+  auto animationController = std::dynamic_pointer_cast<AnimationController>(i_animationController);
 
   auto worldMatrix =
     XMMatrixScaling(i_scale.x, i_scale.y, i_scale.z) *
-    animationTransform *
     XMMatrixRotationRollPitchYaw(i_rotation.x, i_rotation.y, i_rotation.z) *
     XMMatrixTranslation(i_position.x, i_position.y, i_position.z);
 
@@ -77,6 +75,12 @@ void Renderer3d::renderObject(
         pLights->SetLightEnabled(1, false);
         pLights->SetLightEnabled(2, false);
       }
+    }
+
+    if (auto* pSkinning = dynamic_cast<IEffectSkinning*>(io_pEffect);
+    pSkinning && animationController && animationController->getBoneXfmsCount() > 0)
+    {
+      pSkinning->SetBoneTransforms(animationController->getBoneXfms(), animationController->getBoneXfmsCount());
     }
 
     if (customTexture)
