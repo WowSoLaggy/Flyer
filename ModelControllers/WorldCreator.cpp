@@ -24,6 +24,12 @@ namespace
 
   const auto DefaultModelName = "Character.cmo"s;
 
+  const float DefaultCreatureCollisionShapeRadius = 0.5f;
+  const Vector3 DefaultCreatureRotation{ Math::degToRad(-90.0f), 0, 0 };
+  const float DefaultCreatureScaleCoef = 0.6f;
+  const Vector3 DefaultCreatureScaleVector{
+    DefaultCreatureScaleCoef, DefaultCreatureScaleCoef, DefaultCreatureScaleCoef };
+
   const ControlledBy DefaultControlledBy = ControlledBy::None;
 
   const bool DefaultCreatureMovable = true;
@@ -77,7 +83,10 @@ CreaturePtr WorldCreator::createCreature()
   creature->setMaxSpeed(DefaultMaxSpeed);
 
   creature->setModelName(DefaultModelName);
-  creature->setCollisionShape(std::make_shared<ColCircle>(0.5f));
+  creature->setCollisionShape(std::make_shared<ColCircle>(DefaultCreatureCollisionShapeRadius));
+
+  creature->setRotation(DefaultCreatureRotation);
+  creature->setScale(DefaultCreatureScaleVector);
 
   creature->setControlledBy(DefaultControlledBy);
 
@@ -124,59 +133,10 @@ void WorldCreator::createArena(World& io_world)
 
   {
     auto house = createObject(objects);
-    house->setPosition({ 56.5f, 1.0f, 46.5f });
-    house->setRotation({ 0, Math::degToRad(-135.0f), 0 });
-    house->setModelName("House.cmo");
-  }
+    house->setPosition({ 50.0f, 1.0f, 50.0f });
+    house->setModelName("Arena.cmo");
 
-  {
-    auto tree = createObject(objects);
-    tree->setPosition({ 51.5f, 1.0f, 46.5f });
-    tree->setModelName("Tree.cmo");
-  }
-
-  {
-    auto fence = createObject(objects);
-    fence->setPosition({ 52.7f, 1.0f, 45.7f });
-    fence->setRotation({ 0, Math::degToRad(15.0f), 0 });
-
-    fence->setModelName("Fence.cmo");
-    fence->setCollisionShape(std::make_shared<ColRect>(2.2f, 0.5f));
-  }
-
-  {
-    auto fenceSouth = createObject(objects);
-    fenceSouth->setPosition({ 50.0f, 1.0f, 59.5f });
-    fenceSouth->setRotation({ 0, Math::degToRad(0.0f), 0 });
-
-    fenceSouth->setModelName("Fence10.cmo");
-    fenceSouth->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
-  }
-
-  {
-    auto fenceNorth = createObject(objects);
-    fenceNorth->setPosition({ 50.0f, 1.0f, 40.5f });
-    fenceNorth->setRotation({ 0, Math::degToRad(180.0f), 0 });
-
-    fenceNorth->setModelName("Fence10.cmo");
-    fenceNorth->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
-  }
-
-  {
-    auto fenceWest = createObject(objects);
-    fenceWest->setPosition({ 40.5f, 1.0f, 50.0f });
-    fenceWest->setRotation({ 0, Math::degToRad(-90.0f), 0 });
-
-    fenceWest->setModelName("Fence10.cmo");
-    fenceWest->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
-  }
-
-  {
-    auto fenceEast = createObject(objects);
-    fenceEast->setPosition({ 59.5f, 1.0f, 50.0f });
-    fenceEast->setRotation({ 0, Math::degToRad(90.0f), 0 });
-
-    fenceEast->setModelName("Fence10.cmo");
-    fenceEast->setCollisionShape(std::make_shared<ColRect>(19.0f, 0.5f));
+    const float scale = 0.004f;
+    house->setScale({ scale, scale, scale });
   }
 }
