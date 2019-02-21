@@ -207,6 +207,7 @@ call "$(SolutionDir)Scripts\CopyRsrcToOutput.bat" "$(TargetDir)Data" "$(Solution
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <MeshContentTask Include="..\rsrc\Models\Arena.fbx" />
     <MeshContentTask Include="..\rsrc\Models\Arrow.fbx" />
     <MeshContentTask Include="..\rsrc\Models\Character.fbx" />
     <MeshContentTask Include="..\rsrc\Models\Fence.fbx" />
