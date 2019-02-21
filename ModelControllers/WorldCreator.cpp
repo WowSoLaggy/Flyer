@@ -22,7 +22,7 @@ namespace
 
   const auto DefaultTerrainTexture = "Sand.dds"s;
 
-  const auto DefaultModelName = "Tom.cmo"s;
+  const auto DefaultModelName = "Character.cmo"s;
 
   const ControlledBy DefaultControlledBy = ControlledBy::None;
 
