@@ -76,5 +76,8 @@
     <MeshContentTask Include="..\rsrc\Models\Tile.fbx">
       <Filter>rsrc</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="..\rsrc\Models\Character.fbx">
+      <Filter>rsrc</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>
