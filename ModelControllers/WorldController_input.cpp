@@ -1,7 +1,10 @@
 #include "stdafx.h"
 #include "WorldController.h"
 
+#include "CreatureController.h"
+
 #include <InputApi/KeyboardState.h>
+#include <Model/ActionMoveTo.h>
 #include <Model/Creature.h>
 
 
@@ -11,21 +14,25 @@ void WorldController::processInput(const KeyboardState& i_keyboardState)
     return;
 
   Vector3 direction = Vector3::zero();
+  const float DirectionValue = 0.1f;
 
   if (i_keyboardState.currentState.W)
-    direction.z -= 1.0f;
+    direction.z -= DirectionValue;
   if (i_keyboardState.currentState.S)
-    direction.z += 1.0f;
+    direction.z += DirectionValue;
 
   if (i_keyboardState.currentState.A)
-    direction.x -= 1.0f;
+    direction.x -= DirectionValue;
   if (i_keyboardState.currentState.D)
-    direction.x += 1.0f;
+    direction.x += DirectionValue;
 
   if (length(direction) > 0.01f)
   {
-    d_player->setMovementDirection(direction);
-    d_player->setRotation({ 0, -std::atan2(direction.z, direction.x), 0 });
+    auto goal = d_player->getPosition() + direction;
+
+    CreatureController::setCreatureAction(d_player,
+                      std::make_shared<ActionMoveTo>(xyz2xz(goal), 0.09f),
+                      *this);
   }
   else
     d_player->resetMovementDirection();
