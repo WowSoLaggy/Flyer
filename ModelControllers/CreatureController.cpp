@@ -141,7 +141,7 @@ void CreatureController::performCreatureAction(CreaturePtr io_creature, WorldCon
     }
 
     io_creature->setMovementDirection({ direction.x, 0.0f, direction.y });
-    io_creature->setRotation({ 0, -std::atan2(direction.y, direction.x), 0 });
+    io_creature->setRotationY(-std::atan2(direction.y, direction.x));
 
     break;
   }
@@ -156,12 +156,14 @@ void CreatureController::performCreatureAction(CreaturePtr io_creature, WorldCon
 
     if (distanceLength > AttackDistance)
     {
-      setCreatureAction(io_creature, std::make_shared<ActionMoveTo>(targetObjectPtr, ApproachDistance), io_worldController);
+      setCreatureAction(io_creature,
+                        std::make_shared<ActionMoveTo>(targetObjectPtr, ApproachDistance),
+                        io_worldController);
       break;
     }
 
     // Turn to the target
-    io_creature->setRotation({ 0, -std::atan2(distance.y, distance.x), 0 });
+    io_creature->setRotationY(-std::atan2(distance.y, distance.x));
 
     // TODO: Make this check not so stupid
     if (io_creature->getPropAttackCooldown().getValueRelative() < 0.01)
