@@ -7,6 +7,9 @@
     <Filter Include="src\Window">
       <UniqueIdentifier>{61a04838-ac7f-4544-abca-b03542770f7c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Messages">
+      <UniqueIdentifier>{5fddc90b-9dd9-427b-8b15-0b2562e38077}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -15,6 +18,9 @@
     <ClCompile Include="Window.cpp">
       <Filter>src\Window</Filter>
     </ClCompile>
+    <ClCompile Include="HandleMessages.cpp">
+      <Filter>src\Messages</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -22,6 +28,15 @@
     </ClInclude>
     <ClInclude Include="Window.h">
       <Filter>src\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="HandleMessages.h">
+      <Filter>src\Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>src\Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsApiFwd.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
