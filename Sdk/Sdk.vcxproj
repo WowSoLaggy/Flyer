@@ -145,6 +145,7 @@
     <ClInclude Include="IVisibility.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Property.h" />
+    <ClInclude Include="Random.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="SdkFwd.h" />
     <ClInclude Include="stdafx.h" />
@@ -156,6 +157,7 @@
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="IUniqueId.cpp" />
+    <ClCompile Include="Random.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

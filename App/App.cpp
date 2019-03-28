@@ -7,6 +7,7 @@
 #include <GuiController/IGuiController.h>
 #include <ModelControllers/IWorldController.h>
 #include <ModelControllers/WorldCreator.h>
+#include <Sdk/Random.h>
 #include <ViewModel/GameVm.h>
 
 
@@ -20,7 +21,7 @@ void App::run()
 
 void App::initialize()
 {
-  srand((unsigned int)time(nullptr));
+  Random_NS::randomize();
 
   d_windowCreator.createWindow(
     d_settingsController.getWindowWidth(),
