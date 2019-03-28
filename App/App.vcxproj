@@ -175,7 +175,6 @@ call "$(SolutionDir)Scripts\CopyRsrcToOutput.bat" "$(TargetDir)Data" "$(Solution
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="App_Callbacks.cpp" />
-    <ClCompile Include="App_Wm.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SettingsController.cpp" />
     <ClCompile Include="stdafx.cpp">

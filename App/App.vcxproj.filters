@@ -27,9 +27,6 @@
     <ClCompile Include="SettingsController.cpp">
       <Filter>src\SettingsController</Filter>
     </ClCompile>
-    <ClCompile Include="App_Wm.cpp">
-      <Filter>src\App</Filter>
-    </ClCompile>
     <ClCompile Include="App_Callbacks.cpp">
       <Filter>src\App</Filter>
     </ClCompile>

@@ -5,6 +5,7 @@
 
 #include <InputApi/InputApiFwd.h>
 #include <RenderApi/RenderApiFwd.h>
+#include <WindowsApi/WindowsApiFwd.h>
 
 
 class IEngine
@@ -33,6 +34,6 @@ public:
   virtual void createRenderer(HWND i_hWnd, int i_resolutionX, int i_resolutionY) = 0;
   virtual void disposeRenderer() = 0;
 
-  virtual void processMessage(const InputMessage& i_inputMessage) = 0;
+  virtual void processMessage(const Message& i_inputMessage) = 0;
 
 };

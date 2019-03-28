@@ -10,6 +10,7 @@
 #include <Sdk/Math.h>
 #include <Sdk/Vector.h>
 #include <ViewModel/GameVm.h>
+#include <WindowsApi/HandleMessages.h>
 
 
 ControlSignal App::controlCallback()
@@ -17,7 +18,7 @@ ControlSignal App::controlCallback()
   if (d_stopFlag)
     return ControlSignal::Stop;
 
-  if (!handleMessages())
+  if (!handleMessages(std::bind(&IEngine::processMessage, std::ref(*d_engine), std::placeholders::_1)))
     return ControlSignal::Stop;
 
   if (!d_engine->isRendererCreated())

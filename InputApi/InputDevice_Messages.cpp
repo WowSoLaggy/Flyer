@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "InputDevice.h"
 
-#include "InputMessage.h"
+#include <WindowsApi/Message.h>
 
 
-void InputDevice::processMessage(const InputMessage& i_inputMessage)
+void InputDevice::processMessage(const Message& i_inputMessage)
 {
-  Keyboard::ProcessMessage(i_inputMessage.message, i_inputMessage.wParam, i_inputMessage.lParam);
+  Keyboard::ProcessMessage(static_cast<UINT>(i_inputMessage.message), i_inputMessage.wParam, i_inputMessage.lParam);
 }

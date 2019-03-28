@@ -144,10 +144,14 @@
     <ClInclude Include="IInputDevice.h" />
     <ClInclude Include="InputDevice.h" />
     <ClInclude Include="InputApiFwd.h" />
-    <ClInclude Include="InputMessage.h" />
     <ClInclude Include="KeyboardKeys.h" />
     <ClInclude Include="KeyboardState.h" />
     <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DirectXTK\DirectXTK_Desktop_2017_Win10.vcxproj">
+      <Project>{e0b52ae7-e160-4d32-bf3f-910b785e5a8e}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -41,9 +41,6 @@
     <ClInclude Include="IInputDevice.h">
       <Filter>src\InputDevice</Filter>
     </ClInclude>
-    <ClInclude Include="InputMessage.h">
-      <Filter>src\Messages</Filter>
-    </ClInclude>
     <ClInclude Include="KeyboardState.h">
       <Filter>src\Keyboard</Filter>
     </ClInclude>
