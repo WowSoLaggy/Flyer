@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ModelViewerApp.cpp" />
+    <ClCompile Include="SettingsController.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -134,7 +135,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ModelViewerApp.h" />
+    <ClInclude Include="SettingsController.h" />
     <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InputApi\InputApi.vcxproj">
+      <Project>{cb7d9bcb-b2b7-4da6-b867-0896b3781c26}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Sdk\Sdk.vcxproj">
+      <Project>{c3769846-23d5-4c3d-a181-bf10ad03f9a8}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsApi\WindowsApi.vcxproj">
+      <Project>{3cba0ce6-ba0a-44d0-89a4-471a756dc1d1}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
