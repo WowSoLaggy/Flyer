@@ -7,9 +7,6 @@
     <Filter Include="src\App">
       <UniqueIdentifier>{f749be68-a8fc-4ecd-a9a0-3d0c493dc178}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\WindowsApi">
-      <UniqueIdentifier>{1c15ad04-a0c0-48e7-a59d-83da380e2d71}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\SettingsController">
       <UniqueIdentifier>{f7250c33-2cd6-4b25-b02c-f90c661a0e7f}</UniqueIdentifier>
     </Filter>
@@ -27,9 +24,6 @@
     <ClCompile Include="App.cpp">
       <Filter>src\App</Filter>
     </ClCompile>
-    <ClCompile Include="WindowCreator.cpp">
-      <Filter>src\WindowsApi</Filter>
-    </ClCompile>
     <ClCompile Include="SettingsController.cpp">
       <Filter>src\SettingsController</Filter>
     </ClCompile>
@@ -46,9 +40,6 @@
     </ClInclude>
     <ClInclude Include="App.h">
       <Filter>src\App</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowCreator.h">
-      <Filter>src\WindowsApi</Filter>
     </ClInclude>
     <ClInclude Include="SettingsController.h">
       <Filter>src\SettingsController</Filter>

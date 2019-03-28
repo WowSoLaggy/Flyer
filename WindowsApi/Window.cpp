@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "WindowCreator.h"
+#include "Window.h"
 
 
 namespace
@@ -17,17 +17,17 @@ namespace
 }
 
 
-WindowCreator::WindowCreator()
+Window::Window()
   : d_hWnd(nullptr)
   , d_hInstance(nullptr)
 {
 }
 
 
-void WindowCreator::createWindow(int i_width, int i_height, const std::string& i_appName)
+void Window::create(int i_width, int i_height, const std::string& i_appName)
 {
   if (d_hWnd || d_hInstance)
-    disposeWindow();
+    dispose();
 
   d_appName = i_appName;
 
@@ -57,10 +57,10 @@ void WindowCreator::createWindow(int i_width, int i_height, const std::string& i
   int posY = (GetSystemMetrics(SM_CYSCREEN) - i_height) / 2;
 
   d_hWnd = CreateWindowEx(0, d_appName.c_str(), d_appName.c_str(), WS_POPUP,
-    posX, posY, i_width, i_height, nullptr, nullptr, d_hInstance, nullptr);
+                          posX, posY, i_width, i_height, nullptr, nullptr, d_hInstance, nullptr);
 }
 
-void WindowCreator::disposeWindow()
+void Window::dispose()
 {
   DestroyWindow(d_hWnd);
   d_hWnd = nullptr;
@@ -69,7 +69,7 @@ void WindowCreator::disposeWindow()
   d_hInstance = nullptr;
 }
 
-void WindowCreator::showWindow() const
+void Window::show() const
 {
   // Bring the window up on the screen and set it as main focus.
   ShowWindow(d_hWnd, SW_SHOW);

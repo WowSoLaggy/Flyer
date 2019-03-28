@@ -1,7 +1,6 @@
 #pragma once
 
 #include "SettingsController.h"
-#include "WindowCreator.h"
 
 #include <Engine/EngineFwd.h>
 #include <GuiModel/GuiModelFwd.h>
@@ -10,6 +9,7 @@
 #include <Model/ModelFwd.h>
 #include <ModelControllers/ModelControllersFwd.h>
 #include <ViewModel/ViewModelFwd.h>
+#include <WindowsApi/Window.h>
 
 
 class App
@@ -21,7 +21,7 @@ public:
 private:
 
   SettingsController d_settingsController;
-  WindowCreator d_windowCreator;
+  Window d_window;
   std::shared_ptr<IEngine> d_engine;
 
   std::shared_ptr<World> d_world;

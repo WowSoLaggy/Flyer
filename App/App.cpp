@@ -23,11 +23,11 @@ void App::initialize()
 {
   Random_NS::randomize();
 
-  d_windowCreator.createWindow(
+  d_window.create(
     d_settingsController.getWindowWidth(),
     d_settingsController.getWindowHeight(),
     d_settingsController.getAppName());
-  d_windowCreator.showWindow();
+  d_window.show();
 
   d_engine = IEngine::create();
   d_engine->initialize(d_settingsController.getResourceFolder());
@@ -49,7 +49,7 @@ void App::dispose()
   d_engine->dispose();
   d_engine.reset();
 
-  d_windowCreator.disposeWindow();
+  d_window.dispose();
 }
 
 void App::stop()
@@ -59,7 +59,7 @@ void App::stop()
 
 void App::createRenderer()
 {
-  d_engine->createRenderer(d_windowCreator.getHWnd(),
+  d_engine->createRenderer(d_window.getHWnd(),
     d_settingsController.getWindowWidth(), d_settingsController.getWindowHeight());
 }
 
