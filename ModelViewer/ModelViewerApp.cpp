@@ -4,8 +4,8 @@
 #include "SettingsController.h"
 
 #include <InputApi/IInputDevice.h>
-#include <Sdk/Random.h>
-#include <Sdk/Timer.h>
+#include <LaggySdk/Random.h>
+#include <LaggySdk/Timer.h>
 #include <WindowsApi/HandleMessages.h>
 
 
@@ -19,7 +19,7 @@ void ModelViewerApp::run()
 
 void ModelViewerApp::initialize()
 {
-  Random_NS::randomize();
+  Sdk::randomize();
 
   d_window.create(
     SettingsController::getWindowWidth(),
@@ -35,7 +35,7 @@ void ModelViewerApp::initialize()
 
 void ModelViewerApp::mainLoop()
 {
-  Timer timer;
+  Sdk::Timer timer;
   timer.start();
   double dt = 0;
 

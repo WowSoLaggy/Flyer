@@ -3,7 +3,7 @@
 
 #include "RenderDevice.h"
 
-#include <Sdk/StringUtils.h>
+#include <LaggySdk/StringUtils.h>
 
 
 MeshResourceCmo::MeshResourceCmo(std::string i_meshFilePath)
@@ -19,7 +19,7 @@ void MeshResourceCmo::load(IRenderDevice& i_renderDevice)
   DGSLEffectFactory dgslEffectFactory(renderDevice.getDevicePtr());
   dgslEffectFactory.SetDirectory(L".\\Data");
   d_model = Model::CreateFromCMO(renderDevice.getDevicePtr(),
-    Utils::getWString(d_meshFilePath).c_str(), dgslEffectFactory);
+                                 Sdk::getWString(d_meshFilePath).c_str(), dgslEffectFactory);
 }
 
 void MeshResourceCmo::unload()

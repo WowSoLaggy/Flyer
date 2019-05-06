@@ -8,7 +8,7 @@ Object::Object()
   : d_movable(false)
   , d_acceleration(0.0f)
   , d_maxSpeed(0.0f)
-  , d_movementDirection{ Vector3::zero() }
+  , d_movementDirection{ Sdk::Vector3::zero() }
 {
   setCurrentAction(std::make_shared<ActionIdle>());
 }

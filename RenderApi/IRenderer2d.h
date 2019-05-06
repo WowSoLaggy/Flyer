@@ -3,7 +3,7 @@
 #include "IRenderer.h"
 #include "RenderApiFwd.h"
 
-#include <Sdk/SdkFwd.h>
+#include <LaggySdk/SdkFwd.h>
 
 
 class IRenderer2d : public IRenderer
@@ -21,8 +21,8 @@ public:
   virtual void beginScene() = 0;
   virtual void endScene() = 0;
 
-  virtual void renderText(const std::string& i_text, ResourceId i_fontResourceId, const Vector2& i_position) = 0;
-  virtual void renderTexture(ResourceId i_textureResourceId, const Vector2& i_position) = 0;
+  virtual void renderText(const std::string& i_text, ResourceId i_fontResourceId, const Sdk::Vector2& i_position) = 0;
+  virtual void renderTexture(ResourceId i_textureResourceId, const Sdk::Vector2& i_position) = 0;
   virtual void renderTexture(ResourceId i_textureResourceId,
-                             const Vector2& i_position, const Vector2& i_size) = 0;
+                             const Sdk::Vector2& i_position, const Sdk::Vector2& i_size) = 0;
 };

@@ -49,7 +49,7 @@ void GuiCollectionVm::render(IRenderer2d& i_renderer2d, IRenderer3d& i_renderer3
 }
 
 
-void GuiCollectionVm::processEvent(const IEvent& i_event)
+void GuiCollectionVm::processEvent(const Sdk::IEvent& i_event)
 {
   if (const auto* pObjectAddedEvent = dynamic_cast<const GuiAddedEvent*>(&i_event))
     onGuiAdded(*pObjectAddedEvent->getGui());

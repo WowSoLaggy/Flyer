@@ -14,7 +14,7 @@ public:
   void update(CollisionShapeGui3d& io_collisionShapeGui3d);
 
   void addCollisionShapeGui3d(ObjectPtr i_objectPtr);
-  void deleteCollisionShapeGui3d(UniqueId i_objectId);
+  void deleteCollisionShapeGui3d(Sdk::UniqueId i_objectId);
   void deleteAllCollisionShapes();
   void positionCollisionShapeGui3d(CollisionShapeGui3d& io_collisionShapeGui3d, ObjectPtr i_objectPtr);
 
@@ -24,5 +24,5 @@ private:
 
   std::unordered_map<GuiId, ObjectPtr> d_collisionShapeGui3dMap;
 
-  IGuiPtr getGuiForCreature(UniqueId i_objectId);
+  IGuiPtr getGuiForCreature(Sdk::UniqueId i_objectId);
 };

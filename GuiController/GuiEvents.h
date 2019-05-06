@@ -1,10 +1,10 @@
 #pragma once
 
 #include <GuiModel/GuiModelFwd.h>
-#include <Sdk/IEvent.h>
+#include <LaggySdk/IEvent.h>
 
 
-class GuiAddedEvent : public IEvent
+class GuiAddedEvent : public Sdk::IEvent
 {
 public:
 
@@ -21,7 +21,7 @@ private:
 };
 
 
-class GuiDeletedEvent : public IEvent
+class GuiDeletedEvent : public Sdk::IEvent
 {
 public:
 
@@ -38,7 +38,7 @@ private:
 };
 
 
-class GuiResourcesChanged : public IEvent
+class GuiResourcesChanged : public Sdk::IEvent
 {
 public:
   GuiResourcesChanged(IGuiPtr i_gui)

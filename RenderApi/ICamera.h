@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Sdk/SdkFwd.h>
+#include <LaggySdk/SdkFwd.h>
 
 
 class ICamera
@@ -22,16 +22,16 @@ public:
   virtual float getDistance() const = 0;
   virtual void setDistance(float i_distance) = 0;
 
-  virtual Vector3 getLookAt() const = 0;
-  virtual void setLookAt(Vector3 i_direction) = 0;
+  virtual Sdk::Vector3 getLookAt() const = 0;
+  virtual void setLookAt(Sdk::Vector3 i_direction) = 0;
 
-  virtual Vector3 getUp() const = 0;
-  virtual void setUp(Vector3 i_up) = 0;
+  virtual Sdk::Vector3 getUp() const = 0;
+  virtual void setUp(Sdk::Vector3 i_up) = 0;
 
-  virtual Vector3 getLeft() const = 0;
-  virtual Vector3 getRight() const = 0;
-  virtual Vector3 getForward() const = 0;
-  virtual Vector3 getBackward() const = 0;
+  virtual Sdk::Vector3 getLeft() const = 0;
+  virtual Sdk::Vector3 getRight() const = 0;
+  virtual Sdk::Vector3 getForward() const = 0;
+  virtual Sdk::Vector3 getBackward() const = 0;
 
-  virtual Vector2 worldToScreen(const Vector3& i_point) const = 0;
+  virtual Sdk::Vector2 worldToScreen(const Sdk::Vector3& i_point) const = 0;
 };

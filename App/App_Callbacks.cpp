@@ -7,8 +7,8 @@
 #include <ModelControllers/WorldController.h>
 #include <RenderApi/ICamera.h>
 #include <RenderApi/IRenderDevice.h>
-#include <Sdk/Math.h>
-#include <Sdk/Vector.h>
+#include <LaggySdk/Math.h>
+#include <LaggySdk/Vector.h>
 #include <ViewModel/GameVm.h>
 #include <WindowsApi/HandleMessages.h>
 
@@ -62,16 +62,16 @@ void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
   if (i_keyboardState.currentState.L)
     camera.setYaw(camera.getYaw() - angleSpeed);
   if (i_keyboardState.currentState.N)
-    camera.setYaw(Math::degToRad(-90.0f));
+    camera.setYaw(Sdk::degToRad(-90.0f));
   if (i_keyboardState.currentState.P)
   {
-    const float maxPitch = Math::degToRad(80.0f);
+    const float maxPitch = Sdk::degToRad(80.0f);
     float newPitch = std::min(camera.getPitch() + angleSpeed, maxPitch);
     camera.setPitch(newPitch);
   }
   if (i_keyboardState.currentState.OemSemicolon)
   {
-    const float minPitch = Math::degToRad(5.0f);
+    const float minPitch = Sdk::degToRad(5.0f);
     float newPitch = std::max(camera.getPitch() - angleSpeed, minPitch);
     camera.setPitch(newPitch);
   }

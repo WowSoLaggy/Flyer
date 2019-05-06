@@ -6,8 +6,8 @@
 #include "ResourceController.h"
 #include "TextureResource.h"
 
-#include <Sdk/StringUtils.h>
-#include <Sdk/Vector.h>
+#include <LaggySdk/StringUtils.h>
+#include <LaggySdk/Vector.h>
 
 
 Renderer2d::Renderer2d(
@@ -33,16 +33,16 @@ void Renderer2d::endScene()
 }
 
 
-void Renderer2d::renderText(const std::string& i_text, ResourceId i_fontResourceId, const Vector2& i_position)
+void Renderer2d::renderText(const std::string& i_text, ResourceId i_fontResourceId, const Sdk::Vector2& i_position)
 {
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
   const auto& fontResource = resourceController.getFontResource(i_fontResourceId);
 
-  fontResource.getSpriteFont()->DrawString(d_spriteBatch.get(),Utils::getWString(i_text).c_str(),
+  fontResource.getSpriteFont()->DrawString(d_spriteBatch.get(), Sdk::getWString(i_text).c_str(),
                                            XMFLOAT2(i_position.x, i_position.y));
 }
 
-void Renderer2d::renderTexture(ResourceId i_textureResourceId, const Vector2& i_position)
+void Renderer2d::renderTexture(ResourceId i_textureResourceId, const Sdk::Vector2& i_position)
 {
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
   const auto& textureResource = resourceController.getTextureResource(i_textureResourceId);
@@ -52,7 +52,7 @@ void Renderer2d::renderTexture(ResourceId i_textureResourceId, const Vector2& i_
 }
 
 void Renderer2d::renderTexture(ResourceId i_textureResourceId,
-                               const Vector2& i_position, const Vector2& i_size)
+                               const Sdk::Vector2& i_position, const Sdk::Vector2& i_size)
 {
   const auto& resourceController = dynamic_cast<const ResourceController&>(d_resourceController);
   const auto& textureResource = resourceController.getTextureResource(i_textureResourceId);

@@ -2,10 +2,10 @@
 
 #include "IGui3d.h"
 
-#include <Sdk/IModelName.h>
-#include <Sdk/ITextureName.h>
+#include <LaggySdk/IModelName.h>
+#include <LaggySdk/ITextureName.h>
 
 
-class CollisionShapeGui3d : public IGui3d, public IModelName, public ITextureName
+class CollisionShapeGui3d : public IGui3d, public Sdk::IModelName, public Sdk::ITextureName
 {
 };

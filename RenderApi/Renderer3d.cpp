@@ -9,13 +9,13 @@
 #include "ShaderBuffers.h"
 #include "VertexShaderResource.h"
 
-#include <Sdk/Vector.h>
+#include <LaggySdk/Vector.h>
 
 
 namespace
 {
 
-  XMFLOAT4 getColorFromV4(const Vector4& i_vector)
+  XMFLOAT4 getColorFromV4(const Sdk::Vector4& i_vector)
   {
     return { i_vector.x, i_vector.y, i_vector.z, i_vector.w };
   }
@@ -72,7 +72,7 @@ void Renderer3d::setShaders()
   renderDevice.getDeviceContextPtr()->PSSetSamplers(0, 1, &samplerState);
 }
 
-void Renderer3d::setShaderMatrices(const Vector3& i_position, const Vector3& i_rotation)
+void Renderer3d::setShaderMatrices(const Sdk::Vector3& i_position, const Sdk::Vector3& i_rotation)
 {
   auto& renderDevice = dynamic_cast<RenderDevice&>(d_renderDevice);
   auto& camera = dynamic_cast<const Camera&>(d_camera);

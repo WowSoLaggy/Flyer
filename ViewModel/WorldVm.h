@@ -5,10 +5,10 @@
 #include <Model/ModelFwd.h>
 #include <ModelControllers/ModelControllersFwd.h>
 #include <RenderApi/RenderApiFwd.h>
-#include <Sdk/EventHandler.h>
+#include <LaggySdk/EventHandler.h>
 
 
-class WorldVm : public EventHandler
+class WorldVm : public Sdk::EventHandler
 {
 public:
 
@@ -18,7 +18,7 @@ public:
 
   void render(IRenderer3d& i_renderer, double i_dt) const;
 
-  virtual void processEvent(const IEvent& i_event) override;
+  virtual void processEvent(const Sdk::IEvent& i_event) override;
 
 private:
 

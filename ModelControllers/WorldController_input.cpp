@@ -13,7 +13,7 @@ void WorldController::processInput(const KeyboardState& i_keyboardState)
   if (!d_player)
     return;
 
-  Vector3 direction = Vector3::zero();
+  Sdk::Vector3 direction = Sdk::Vector3::zero();
   const float DirectionValue = 0.1f;
 
   if (i_keyboardState.currentState.W)

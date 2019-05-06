@@ -4,7 +4,7 @@
 #include <InputApi/IInputDevice.h>
 #include <RenderApi/IRenderDevice.h>
 #include <RenderApi/IResourceController.h>
-#include <Sdk/Timer.h>
+#include <LaggySdk/Timer.h>
 
 
 void Engine::run(
@@ -13,7 +13,7 @@ void Engine::run(
   RenderCallback i_renderCallback,
   InputCallback i_inputCallback)
 {
-  Timer timer;
+  Sdk::Timer timer;
   timer.start();
   double dt = 0;
 

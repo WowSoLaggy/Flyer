@@ -1,11 +1,11 @@
 #pragma once
 
-#include <Sdk/Vector.h>
+#include <LaggySdk/Vector.h>
 
 
 struct VertexTypePosTexNorm
 {
-  Vector3 position;
-  Vector2 texture;
-  Vector3 normal;
+  Sdk::Vector3 position;
+  Sdk::Vector2 texture;
+  Sdk::Vector3 normal;
 };

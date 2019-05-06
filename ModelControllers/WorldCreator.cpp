@@ -8,7 +8,7 @@
 #include <Model/HeightMap.h>
 #include <Model/Object.h>
 #include <Model/World.h>
-#include <Sdk/Math.h>
+#include <LaggySdk/Math.h>
 
 
 namespace
@@ -25,9 +25,9 @@ namespace
   const auto DefaultModelName = "Character.cmo"s;
 
   const float DefaultCreatureCollisionShapeRadius = 0.5f;
-  const Vector3 DefaultCreatureRotation{ Math::degToRad(-90.0f), 0, 0 };
+  const Sdk::Vector3 DefaultCreatureRotation{ Sdk::degToRad(-90.0f), 0, 0 };
   const float DefaultCreatureScaleCoef = 0.6f;
-  const Vector3 DefaultCreatureScaleVector{
+  const Sdk::Vector3 DefaultCreatureScaleVector{
     DefaultCreatureScaleCoef, DefaultCreatureScaleCoef, DefaultCreatureScaleCoef };
 
   const ControlledBy DefaultControlledBy = ControlledBy::None;

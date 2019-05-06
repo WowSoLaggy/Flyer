@@ -2,20 +2,20 @@
 
 #include "ModelFwd.h"
 
-#include <Sdk/IModelName.h>
-#include <Sdk/IPosition3.h>
-#include <Sdk/IRotation3.h>
-#include <Sdk/IScale3.h>
-#include <Sdk/ISpeed3.h>
-#include <Sdk/IUniqueId.h>
-#include <Sdk/IVisibility.h>
-#include <Sdk/Vector.h>
+#include <LaggySdk/IModelName.h>
+#include <LaggySdk/IPosition3.h>
+#include <LaggySdk/IRotation3.h>
+#include <LaggySdk/IScale3.h>
+#include <LaggySdk/ISpeed3.h>
+#include <LaggySdk/IUniqueId.h>
+#include <LaggySdk/IVisibility.h>
+#include <LaggySdk/Vector.h>
 
 
 class Object :
-  public IPosition3, public IRotation3, public ISpeed3, public IScale3,
-  public IVisibility, public IUniqueId,
-  public IModelName
+  public Sdk::IPosition3, public Sdk::IRotation3, public Sdk::ISpeed3, public Sdk::IScale3,
+  public Sdk::IVisibility, public Sdk::IUniqueId,
+  public Sdk::IModelName
 {
 public:
 
@@ -38,9 +38,9 @@ public:
   IColShapePtr getCollisionShape() { return d_collisionShape; }
   void setCollisionShape(IColShapePtr i_collisionShape) { d_collisionShape = i_collisionShape; }
 
-  Vector3 getMovementDirection() const { return d_movementDirection; }
-  void setMovementDirection(Vector3 i_movementDirection) { d_movementDirection = std::move(i_movementDirection); }
-  void resetMovementDirection() { d_movementDirection = Vector3::zero(); }
+  Sdk::Vector3 getMovementDirection() const { return d_movementDirection; }
+  void setMovementDirection(Sdk::Vector3 i_movementDirection) { d_movementDirection = std::move(i_movementDirection); }
+  void resetMovementDirection() { d_movementDirection = Sdk::Vector3::zero(); }
 
   void setCurrentAction(IActionPtr i_action);
   const IActionPtr& getCurrentAction() const { return d_currentAction; }
@@ -50,7 +50,7 @@ private:
   bool d_movable;
   float d_acceleration;
   float d_maxSpeed;
-  Vector3 d_movementDirection;
+  Sdk::Vector3 d_movementDirection;
 
   IColShapePtr d_collisionShape;
   IActionPtr d_currentAction;

@@ -9,7 +9,7 @@
 #include <RenderApi/ICamera.h>
 #include <RenderApi/IRenderer2d.h>
 #include <RenderApi/IRenderer3d.h>
-#include <Sdk/Math.h>
+#include <LaggySdk/Math.h>
 
 
 GameVm::GameVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController,
@@ -28,8 +28,8 @@ GameVm::GameVm(IRenderDevice& io_renderDevice, const IResourceController& i_reso
 
   d_guiCollectionVm = std::make_shared<GuiCollectionVm>(io_renderDevice, i_resourceController);
 
-  d_camera->setYaw(Math::degToRad(-90.0f));
-  d_camera->setPitch(Math::degToRad(45.0f));
+  d_camera->setYaw(Sdk::degToRad(-90.0f));
+  d_camera->setPitch(Sdk::degToRad(45.0f));
   d_camera->setDistance(20);
   d_camera->setLookAt({ 10, 1, 13 });
   d_camera->setUp({ 0, 1, 0 });

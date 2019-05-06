@@ -2,7 +2,7 @@
 
 #include "IGui2d.h"
 
-#include <Sdk/Vector.h>
+#include <LaggySdk/Vector.h>
 
 
 class Label : public IGui2d
@@ -11,8 +11,8 @@ public:
 
   Label();
 
-  void setPosition(Vector2 i_position) { d_position = std::move(i_position); }
-  const Vector2& getPosition() const { return d_position; }
+  void setPosition(Sdk::Vector2 i_position) { d_position = std::move(i_position); }
+  const Sdk::Vector2& getPosition() const { return d_position; }
 
   const std::string& getFontName() const { return d_fontName; }
 
@@ -21,7 +21,7 @@ public:
 
 private:
 
-  Vector2 d_position;
+  Sdk::Vector2 d_position;
 
   const std::string d_fontName;
   std::string d_text;

@@ -64,7 +64,7 @@ void GuiController::switchShowCollisionShapes()
 }
 
 
-void GuiController::processEvent(const IEvent& i_event)
+void GuiController::processEvent(const Sdk::IEvent& i_event)
 {
   if (auto* pObjectAddedEvent = dynamic_cast<const ObjectAddedEvent*>(&i_event))
   {

@@ -3,7 +3,7 @@
 
 #include "RenderDevice.h"
 
-#include <Sdk/StringUtils.h>
+#include <LaggySdk/StringUtils.h>
 
 
 PixelShaderResource::PixelShaderResource(std::string i_shaderFilePath)
@@ -19,7 +19,7 @@ void PixelShaderResource::load(IRenderDevice& i_renderDevice)
   // Pixel Shader
 
   ID3D10Blob* pixelShaderBuffer = nullptr;
-  D3DReadFileToBlob(Utils::getWString(d_shaderFilePath).c_str(), &pixelShaderBuffer);
+  D3DReadFileToBlob(Sdk::getWString(d_shaderFilePath).c_str(), &pixelShaderBuffer);
 
   renderDevice.getDevicePtr()->CreatePixelShader(pixelShaderBuffer->GetBufferPointer(),
     pixelShaderBuffer->GetBufferSize(), NULL, &d_pixelShader);

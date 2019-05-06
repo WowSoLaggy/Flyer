@@ -9,10 +9,10 @@
 #include <GuiModel/GuiModelFwd.h>
 #include <Model/ModelFwd.h>
 #include <ModelControllers/ModelControllersFwd.h>
-#include <Sdk/EventHandler.h>
+#include <LaggySdk/EventHandler.h>
 
 
-class GuiController : public IGuiController, public EventHandler
+class GuiController : public IGuiController, public Sdk::EventHandler
 {
 public:
 
@@ -21,7 +21,7 @@ public:
 
   virtual void update(double i_dt) override;
 
-  virtual void processEvent(const IEvent& i_event) override;
+  virtual void processEvent(const Sdk::IEvent& i_event) override;
 
   GuiCollection& getGuiCollection() { return d_guiCollection; }
   const GuiCollection& getGuiCollection() const { return d_guiCollection; }

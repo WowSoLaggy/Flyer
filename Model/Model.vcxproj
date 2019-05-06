@@ -161,8 +161,8 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sdk\Sdk.vcxproj">
-      <Project>{c3769846-23d5-4c3d-a181-bf10ad03f9a8}</Project>
+    <ProjectReference Include="..\..\LaggySdk\LaggySdk\LaggySdk.vcxproj">
+      <Project>{26f606c5-4239-49f0-b3d4-c358526c2325}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

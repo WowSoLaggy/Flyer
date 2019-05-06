@@ -5,10 +5,10 @@
 #include <GuiController/GuiControllerFwd.h>
 #include <GuiModel/GuiModelFwd.h>
 #include <RenderApi/RenderApiFwd.h>
-#include <Sdk/EventHandler.h>
+#include <LaggySdk/EventHandler.h>
 
 
-class GuiCollectionVm : public EventHandler
+class GuiCollectionVm : public Sdk::EventHandler
 {
 public:
 
@@ -18,7 +18,7 @@ public:
 
   void render(IRenderer2d& i_renderer2d, IRenderer3d& i_renderer3d, double i_dt) const;
 
-  virtual void processEvent(const IEvent& i_event) override;
+  virtual void processEvent(const Sdk::IEvent& i_event) override;
 
 private:
 

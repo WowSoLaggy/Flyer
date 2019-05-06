@@ -7,7 +7,7 @@
 
 
 bool Collider::collide(ObjectPtr i_object1, ObjectPtr i_object2,
-                       Vector2& o_normal)
+                       Sdk::Vector2& o_normal)
 {
   if (!i_object1->hasCollisionShape() || !i_object2->hasCollisionShape())
     return false;
@@ -51,39 +51,39 @@ bool Collider::collide(ObjectPtr i_object1, ObjectPtr i_object2,
 }
 
 
-bool Collider::collideCircle2Circle(const Circle& i_circle1, const Circle& i_circle2,
-                                    const Vector2& i_offset1, const Vector2& i_offset2,
-                                    Vector2& o_normal)
+bool Collider::collideCircle2Circle(const Sdk::Circle& i_circle1, const Sdk::Circle& i_circle2,
+                                    const Sdk::Vector2& i_offset1, const Sdk::Vector2& i_offset2,
+                                    Sdk::Vector2& o_normal)
 {
   auto distanceVectorReverse = i_offset1 - i_offset2;
 
-  double distanceCentersSq = lengthSq(distanceVectorReverse);
+  double distanceCentersSq = Sdk::lengthSq(distanceVectorReverse);
   double radiiSumSq = i_circle1.getRadius() + i_circle2.getRadius();
   radiiSumSq *= radiiSumSq;
 
   if (distanceCentersSq >= radiiSumSq)
     return false;
 
-  o_normal = normalize(distanceVectorReverse);
+  o_normal = Sdk::normalize(distanceVectorReverse);
 
   return true;
 }
 
-bool Collider::collideRect2Circle(const Rect& i_rect, const Circle& i_circle,
-                                  const Vector2& i_offset1, const Vector2& i_offset2,
+bool Collider::collideRect2Circle(const Sdk::Rect& i_rect, const Sdk::Circle& i_circle,
+                                  const Sdk::Vector2& i_offset1, const Sdk::Vector2& i_offset2,
                                   float i_rotation1,
-                                  Vector2& o_normal)
+                                  Sdk::Vector2& o_normal)
 {
   return collideCircle2Rect(i_circle, i_rect, i_offset2, i_offset1, i_rotation1, o_normal);
 }
 
-bool Collider::collideCircle2Rect(const Circle& i_circle, const Rect& i_rect,
-                                  const Vector2& i_offset1, const Vector2& i_offset2,
+bool Collider::collideCircle2Rect(const Sdk::Circle& i_circle, const Sdk::Rect& i_rect,
+                                  const Sdk::Vector2& i_offset1, const Sdk::Vector2& i_offset2,
                                   float i_rotation2,
-                                  Vector2& o_normal)
+                                  Sdk::Vector2& o_normal)
 {
   auto offset = i_offset1 - i_offset2;
-  offset = rotate(offset, i_rotation2);
+  offset = Sdk::rotate(offset, i_rotation2);
 
   float distX = std::abs(offset.x);
   float distY = std::abs(offset.y);
@@ -96,13 +96,13 @@ bool Collider::collideCircle2Rect(const Circle& i_circle, const Rect& i_rect,
   if (distX <= i_rect.getWidthHalf())
   {
     float unitValue = offset.y < 0 ? -1.0f : 1.0f;
-    o_normal = rotate({ 0.0f, unitValue }, -i_rotation2);
+    o_normal = Sdk::rotate({ 0.0f, unitValue }, -i_rotation2);
     return true;
   }
   if (distY <= i_rect.getHeightHalf())
   {
     float unitValue = offset.x < 0 ? -1.0f : 1.0f;
-    o_normal = rotate({ unitValue, 0.0f }, -i_rotation2);
+    o_normal = Sdk::rotate({ unitValue, 0.0f }, -i_rotation2);
     return true;
   }
 
@@ -113,10 +113,10 @@ bool Collider::collideCircle2Rect(const Circle& i_circle, const Rect& i_rect,
   return cornerDistanceSq <= i_circle.getRadiusSq();
 }
 
-bool Collider::collideRect2Rect(const Rect& i_rect1, const Rect& i_rect2,
-                                const Vector2& i_offset1, const Vector2& i_offset2,
+bool Collider::collideRect2Rect(const Sdk::Rect& i_rect1, const Sdk::Rect& i_rect2,
+                                const Sdk::Vector2& i_offset1, const Sdk::Vector2& i_offset2,
                                 float i_rotation1, float i_rotation2,
-                                Vector2& o_normal)
+                                Sdk::Vector2& o_normal)
 {
   return false;
 }

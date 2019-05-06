@@ -1,9 +1,9 @@
 #pragma once
 
-#include <Sdk/IUniqueId.h>
+#include <LaggySdk/IUniqueId.h>
 
 
-class IGui : public IUniqueId
+class IGui : public Sdk::IUniqueId
 {
 public:
   virtual ~IGui() = default;

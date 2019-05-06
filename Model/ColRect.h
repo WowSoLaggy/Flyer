@@ -2,7 +2,7 @@
 
 #include "IColShape.h"
 
-#include <Sdk/Rect.h>
+#include <LaggySdk/Rect.h>
 
 
 class ColRect : public IColShape
@@ -12,9 +12,9 @@ public:
 
   virtual ColShapeType getColShapeType() const override { return ColShapeType::Rect; }
 
-  Rect& getRect() { return d_rect; }
-  const Rect& getRect() const { return d_rect; }
+  Sdk::Rect& getRect() { return d_rect; }
+  const Sdk::Rect& getRect() const { return d_rect; }
 
 private:
-  Rect d_rect;
+  Sdk::Rect d_rect;
 };

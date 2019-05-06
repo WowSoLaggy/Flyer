@@ -34,7 +34,7 @@ void WorldController::addObject(ObjectPtr i_object)
   d_objectsToAdd.push_back(i_object);
 }
 
-void WorldController::deleteObject(UniqueId i_objectId)
+void WorldController::deleteObject(Sdk::UniqueId i_objectId)
 {
   d_objectIdsToDelete.push_back(i_objectId);
 }

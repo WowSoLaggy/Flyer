@@ -12,7 +12,7 @@ std::shared_ptr<GuiCollection> GuiCreator::create()
   auto guiCollection = std::make_shared<GuiCollection>();
 
   auto pLabel = std::make_shared<Label>();
-  pLabel->setPosition(Vector2::zero());
+  pLabel->setPosition(Sdk::Vector2::zero());
   pLabel->setText("Meow");
   guiCollection->guis.push_back(pLabel);
 

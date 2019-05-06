@@ -2,12 +2,12 @@
 
 #include "IGui.h"
 
-#include <Sdk/IPosition3.h>
-#include <Sdk/IRotation3.h>
-#include <Sdk/IScale3.h>
+#include <LaggySdk/IPosition3.h>
+#include <LaggySdk/IRotation3.h>
+#include <LaggySdk/IScale3.h>
 
 
-class IGui3d : public IGui, public IPosition3, public IRotation3, public IScale3
+class IGui3d : public IGui, public Sdk::IPosition3, public Sdk::IRotation3, public Sdk::IScale3
 {
 public:
   virtual ~IGui3d() = default;

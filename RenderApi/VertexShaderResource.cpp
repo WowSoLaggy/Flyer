@@ -3,7 +3,7 @@
 
 #include "RenderDevice.h"
 
-#include <Sdk/StringUtils.h>
+#include <LaggySdk/StringUtils.h>
 
 
 VertexShaderResource::VertexShaderResource(std::string i_shaderFilePath)
@@ -19,7 +19,7 @@ void VertexShaderResource::load(IRenderDevice& i_renderDevice)
   // Vertex Shader
 
   ID3D10Blob* vertexShaderBuffer = nullptr;
-  D3DReadFileToBlob(Utils::getWString(d_shaderFilePath).c_str(), &vertexShaderBuffer);
+  D3DReadFileToBlob(Sdk::getWString(d_shaderFilePath).c_str(), &vertexShaderBuffer);
 
   renderDevice.getDevicePtr()->CreateVertexShader(vertexShaderBuffer->GetBufferPointer(),
     vertexShaderBuffer->GetBufferSize(), NULL, &d_vertexShader);

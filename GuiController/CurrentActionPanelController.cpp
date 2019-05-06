@@ -44,7 +44,7 @@ CurrentActionPanelController::CurrentActionPanelController(GuiController& io_gui
 }
 
 
-IGuiPtr CurrentActionPanelController::getGuiForCreature(UniqueId i_objectId)
+IGuiPtr CurrentActionPanelController::getGuiForCreature(Sdk::UniqueId i_objectId)
 {
   auto guiToObjectIt = std::find_if(d_currentActionPanelMap.begin(), d_currentActionPanelMap.end(),
                                     [&](const auto& pair) { return pair.second->getId() == i_objectId; });
@@ -96,7 +96,7 @@ void CurrentActionPanelController::addCurrentActionPanel(ObjectPtr i_objectPtr)
   d_guiController.notify(GuiAddedEvent{ pCurrentActionPanel });
 }
 
-void CurrentActionPanelController::deleteCurrentActionPanel(UniqueId i_objectId)
+void CurrentActionPanelController::deleteCurrentActionPanel(Sdk::UniqueId i_objectId)
 {
   auto guiToObjectIt = std::find_if(d_currentActionPanelMap.begin(), d_currentActionPanelMap.end(),
                                     [&](const auto& pair) { return pair.second->getId() == i_objectId; });

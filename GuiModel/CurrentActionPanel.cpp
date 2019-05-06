@@ -3,15 +3,15 @@
 
 
 CurrentActionPanel::CurrentActionPanel()
-  : d_position(Vector2::zero())
-  , d_offset(Vector2::zero())
-  , d_size(Vector2::zero())
+  : d_position(Sdk::Vector2::zero())
+  , d_offset(Sdk::Vector2::zero())
+  , d_size(Sdk::Vector2::zero())
   , d_textureName("")
 {
 }
 
 
-Vector2 CurrentActionPanel::getPosition() const
+Sdk::Vector2 CurrentActionPanel::getPosition() const
 {
   return d_position + d_offset;
 }

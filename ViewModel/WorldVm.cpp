@@ -43,7 +43,7 @@ void WorldVm::render(IRenderer3d& i_renderer, double i_dt) const
 }
 
 
-void WorldVm::processEvent(const IEvent& i_event)
+void WorldVm::processEvent(const Sdk::IEvent& i_event)
 {
   if (const auto* pObjectAddedEvent = dynamic_cast<const ObjectAddedEvent*>(&i_event))
     onObjectAdded(*pObjectAddedEvent->getObject());

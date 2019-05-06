@@ -1,13 +1,13 @@
 #include "stdafx.h"
 #include "Camera.h"
 
-#include <Sdk/Math.h>
+#include <LaggySdk/Math.h>
 
 
 namespace
 {
 
-  XMVECTOR toXmVector(const Vector3& i_vector)
+  XMVECTOR toXmVector(const Sdk::Vector3& i_vector)
   {
     return XMVectorSet(i_vector.x, i_vector.y, i_vector.z, 1);
   }
@@ -17,7 +17,7 @@ namespace
 
 Camera::Camera(int i_screenWidth, int i_screenHeight)
   : d_yaw(0)
-  , d_pitch(Math::degToRad(45.0f))
+  , d_pitch(Sdk::degToRad(45.0f))
   , d_distance(10)
   , d_lookAt{ 0, 0, 0 }
   , d_up{ 0, 1, 0 }
@@ -46,48 +46,48 @@ void Camera::setDistance(float i_distance)
   updateViewMatrix();
 }
 
-void Camera::setLookAt(Vector3 i_lookAt)
+void Camera::setLookAt(Sdk::Vector3 i_lookAt)
 {
   d_lookAt = std::move(i_lookAt);
   updateViewMatrix();
 }
 
-void Camera::setUp(Vector3 i_up)
+void Camera::setUp(Sdk::Vector3 i_up)
 {
-  i_up = normalize(i_up);
+  i_up = Sdk::normalize(i_up);
   d_up = std::move(i_up);
   updateViewMatrix();
 }
 
 
-Vector3 Camera::getPosition() const
+Sdk::Vector3 Camera::getPosition() const
 {
   XMFLOAT3 unitVector{ 1, 0, 0 };
 
   auto qRotation = XMQuaternionRotationRollPitchYaw(0, d_yaw, d_pitch);
   XMStoreFloat3(&unitVector, XMVector3Rotate(XMLoadFloat3(&unitVector), qRotation));
 
-  Vector3 relativePosition{ unitVector.x * d_distance, unitVector.y * d_distance, unitVector.z * d_distance };
+  Sdk::Vector3 relativePosition{ unitVector.x * d_distance, unitVector.y * d_distance, unitVector.z * d_distance };
   return d_lookAt + relativePosition;
 }
 
 
-Vector3 Camera::getLeft() const
+Sdk::Vector3 Camera::getLeft() const
 {
   return normalize(cross(getUp(), getForward()));
 }
 
-Vector3 Camera::getRight() const
+Sdk::Vector3 Camera::getRight() const
 {
   return -getLeft();
 }
 
-Vector3 Camera::getForward() const
+Sdk::Vector3 Camera::getForward() const
 {
   return getLookAt() - getPosition();
 }
 
-Vector3 Camera::getBackward() const
+Sdk::Vector3 Camera::getBackward() const
 {
   return -getForward();
 }
@@ -106,7 +106,7 @@ void Camera::updateViewMatrix()
 }
 
 
-Vector2 Camera::worldToScreen(const Vector3& i_point) const
+Sdk::Vector2 Camera::worldToScreen(const Sdk::Vector3& i_point) const
 {
   auto worldMatrix = XMMatrixIdentity();
 

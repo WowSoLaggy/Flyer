@@ -19,7 +19,7 @@ CollisionShapeGui3dController::CollisionShapeGui3dController(
 }
 
 
-IGuiPtr CollisionShapeGui3dController::getGuiForCreature(UniqueId i_objectId)
+IGuiPtr CollisionShapeGui3dController::getGuiForCreature(Sdk::UniqueId i_objectId)
 {
   auto guiToObjectIt = std::find_if(d_collisionShapeGui3dMap.begin(), d_collisionShapeGui3dMap.end(),
                                     [&](const auto& pair) { return pair.second->getId() == i_objectId; });
@@ -59,7 +59,7 @@ void CollisionShapeGui3dController::addCollisionShapeGui3d(ObjectPtr i_objectPtr
   d_guiController.notify(GuiAddedEvent{ pCollisionShapeGui3d });
 }
 
-void CollisionShapeGui3dController::deleteCollisionShapeGui3d(UniqueId i_objectId)
+void CollisionShapeGui3dController::deleteCollisionShapeGui3d(Sdk::UniqueId i_objectId)
 {
   auto guiToObjectIt = std::find_if(d_collisionShapeGui3dMap.begin(), d_collisionShapeGui3dMap.end(),
                                     [&](const auto& pair) { return pair.second->getId() == i_objectId; });

@@ -3,7 +3,7 @@
 #include "ControlledBy.h"
 #include "Object.h"
 
-#include <Sdk/Property.h>
+#include <LaggySdk/Property.h>
 
 
 class Creature : public Object
@@ -32,7 +32,7 @@ private:
 
   ControlledBy d_controlledBy;
 
-  Property<int> d_health;
-  Property<double> d_attackCooldown;
-  Property<int> d_damage;
+  Sdk::Property<int> d_health;
+  Sdk::Property<double> d_attackCooldown;
+  Sdk::Property<int> d_damage;
 };

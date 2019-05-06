@@ -28,7 +28,7 @@ void TerrainVm::render(IRenderer3d& i_renderer) const
     d_textureResourceId,
     d_vertexBuffer, d_indexBuffer,
     d_materialSequence.getMaterialSpans(),
-    Vector3::zero(), Vector3::zero());
+    Sdk::Vector3::zero(), Sdk::Vector3::zero());
 }
 
 
@@ -50,42 +50,42 @@ void TerrainVm::createBuffers(IRenderDevice& io_renderDevice)
   auto getNorm1 = [&](int x, int z)
   {
     float height = heightMap.getHeight(x, z);
-    Vector3 v1{ 0, height - heightMap.getHeight(x, z - 1), -1 };
-    Vector3 v2{ -1, height - heightMap.getHeight(x - 1, z), 0 };
-    return normalize(cross(v1, v2));
+    Sdk::Vector3 v1{ 0, height - heightMap.getHeight(x, z - 1), -1 };
+    Sdk::Vector3 v2{ -1, height - heightMap.getHeight(x - 1, z), 0 };
+    return Sdk::normalize(cross(v1, v2));
   };
 
   auto getNorm2 = [&](int x, int z)
   {
     float height = heightMap.getHeight(x, z);
-    Vector3 v1{ 1, height - heightMap.getHeight(x + 1, z), 0 };
-    Vector3 v2{ 0, height - heightMap.getHeight(x, z - 1), -1 };
-    return normalize(cross(v1, v2));
+    Sdk::Vector3 v1{ 1, height - heightMap.getHeight(x + 1, z), 0 };
+    Sdk::Vector3 v2{ 0, height - heightMap.getHeight(x, z - 1), -1 };
+    return Sdk::normalize(cross(v1, v2));
   };
 
   auto getNorm3 = [&](int x, int z)
   {
     float height = heightMap.getHeight(x, z);
-    Vector3 v1{ 0, height - heightMap.getHeight(x, z + 1), +1 };
-    Vector3 v2{ 1, height - heightMap.getHeight(x + 1, z), 0 };
-    return normalize(cross(v1, v2));
+    Sdk::Vector3 v1{ 0, height - heightMap.getHeight(x, z + 1), +1 };
+    Sdk::Vector3 v2{ 1, height - heightMap.getHeight(x + 1, z), 0 };
+    return Sdk::normalize(cross(v1, v2));
   };
 
   auto getNorm4 = [&](int x, int z)
   {
     float height = heightMap.getHeight(x, z);
-    Vector3 v1{ -1, height - heightMap.getHeight(x - 1, z), 0 };
-    Vector3 v2{ 0, height - heightMap.getHeight(x, z + 1), +1 };
-    return normalize(cross(v1, v2));
+    Sdk::Vector3 v1{ -1, height - heightMap.getHeight(x - 1, z), 0 };
+    Sdk::Vector3 v2{ 0, height - heightMap.getHeight(x, z + 1), +1 };
+    return Sdk::normalize(cross(v1, v2));
   };
 
 
   auto addVertice = [&](int x, int z)
   {
-    Vector3 pos = { x * heightGridStep, heightMap.getHeight(x, z), z * heightGridStep };
-    Vector2 uv = { x * heightGridStep, z * heightGridStep };
+    Sdk::Vector3 pos = { x * heightGridStep, heightMap.getHeight(x, z), z * heightGridStep };
+    Sdk::Vector2 uv = { x * heightGridStep, z * heightGridStep };
 
-    Vector3 norm = { 0, 0, 0 };
+    Sdk::Vector3 norm = { 0, 0, 0 };
     if (x > 0 && z > 0)
       norm += getNorm1(x, z);
     if (x < sizeX - 1 && z > 0)

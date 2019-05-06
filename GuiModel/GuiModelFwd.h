@@ -1,11 +1,14 @@
 #pragma once
 
-#include <Sdk/SdkFwd.h>
+#include <LaggySdk/SdkFwd.h>
+
+#include <memory>
+#include <vector>
 
 
 // GUI
 
-using GuiId = UniqueId;
+using GuiId = Sdk::UniqueId;
 class IGui;
 using IGuiPtr = std::shared_ptr<IGui>;
 using IGuiPtrs = std::vector<IGuiPtr>;

@@ -1,10 +1,10 @@
 #pragma once
 
 #include <Model/ModelFwd.h>
-#include <Sdk/IEvent.h>
+#include <LaggySdk/IEvent.h>
 
 
-class ObjectAddedEvent : public IEvent
+class ObjectAddedEvent : public Sdk::IEvent
 {
 public:
 
@@ -21,7 +21,7 @@ private:
 };
 
 
-class ObjectDeletedEvent : public IEvent
+class ObjectDeletedEvent : public Sdk::IEvent
 {
 public:
 
@@ -38,7 +38,7 @@ private:
 };
 
 
-class ObjectChangedActionEvent : public IEvent
+class ObjectChangedActionEvent : public Sdk::IEvent
 {
 public:
 

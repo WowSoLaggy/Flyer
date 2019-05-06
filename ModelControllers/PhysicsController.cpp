@@ -26,7 +26,7 @@ void PhysicsController::updateObjects(ObjectPtrs& io_objects, double i_dt)
 }
 
 
-Vector3 PhysicsController::getVirtualSpeed(ObjectPtr io_object, double i_dt)
+Sdk::Vector3 PhysicsController::getVirtualSpeed(ObjectPtr io_object, double i_dt)
 {
   const float acceleration = io_object->getAcceleration();
   const float maxSpeed = io_object->getMaxSpeed();
@@ -49,7 +49,7 @@ Vector3 PhysicsController::getVirtualSpeed(ObjectPtr io_object, double i_dt)
 
   const float speed = length(speedVector);
   if (speed < MinThreshold)
-    return Vector3::zero();
+    return Sdk::Vector3::zero();
 
   if (speed > maxSpeed)
   {
@@ -60,8 +60,8 @@ Vector3 PhysicsController::getVirtualSpeed(ObjectPtr io_object, double i_dt)
   return speedVector;
 }
 
-Vector3 PhysicsController::getRealSpeed(ObjectPtr io_object, double i_dt,
-                                        const Vector3& i_virtualSpeed, const ObjectPtrs& io_objects)
+Sdk::Vector3 PhysicsController::getRealSpeed(ObjectPtr io_object, double i_dt,
+                                        const Sdk::Vector3& i_virtualSpeed, const ObjectPtrs& io_objects)
 {
   auto realSpeed = i_virtualSpeed;
 
@@ -70,7 +70,7 @@ Vector3 PhysicsController::getRealSpeed(ObjectPtr io_object, double i_dt,
     if (objectPtr->getId() == io_object->getId())
       continue;
 
-    Vector2 normal;
+    Sdk::Vector2 normal;
     if (!Collider::collide(io_object, objectPtr, normal))
       continue;
 
@@ -87,13 +87,13 @@ Vector3 PhysicsController::getRealSpeed(ObjectPtr io_object, double i_dt,
     if (length(tangentSpeed) >= MinThreshold)
       realSpeed = normalize(tangentSpeed) * length(i_virtualSpeed);
     else
-      realSpeed = Vector3::zero();
+      realSpeed = Sdk::Vector3::zero();
   }
 
   return realSpeed;
 }
 
-void PhysicsController::applySpeed(ObjectPtr io_object, double i_dt, Vector3 i_speed)
+void PhysicsController::applySpeed(ObjectPtr io_object, double i_dt, Sdk::Vector3 i_speed)
 {
   io_object->setSpeed(i_speed);
 

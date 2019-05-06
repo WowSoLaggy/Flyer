@@ -1,9 +1,9 @@
 #include "stdafx.h"
 #include "MeshLoader.h"
 
-#include <Sdk/FileSystemUtils.h>
-#include <Sdk/StringUtils.h>
-#include <Sdk/Vector.h>
+#include <LaggySdk/FileSystemUtils.h>
+#include <LaggySdk/StringUtils.h>
+#include <LaggySdk/Vector.h>
 
 
 namespace
@@ -20,14 +20,14 @@ namespace
     Material material;
     while (std::getline(file, line))
     {
-      auto tokens = Utils::splitString(line, '#', true);
+      auto tokens = Sdk::splitString(line, '#', true);
       if (tokens.empty())
         continue;
       line = tokens.front();
       if (line.empty())
         continue;
 
-      tokens = Utils::splitString(line, ' ', true);
+      tokens = Sdk::splitString(line, ' ', true);
       if (tokens[0] == "newmtl")
       {
         if (material.name != tokens[1])
@@ -77,9 +77,9 @@ void MeshLoader::loadInfoFromObjFile(
   if (!file)
     return;
 
-  std::vector<Vector3> positions;
-  std::vector<Vector2> texCoords;
-  std::vector<Vector3> normals;
+  std::vector<Sdk::Vector3> positions;
+  std::vector<Sdk::Vector2> texCoords;
+  std::vector<Sdk::Vector3> normals;
 
   std::map<std::tuple<int, int, int>, int> trioMap;
   int nextIndex = 0;
@@ -90,14 +90,14 @@ void MeshLoader::loadInfoFromObjFile(
   std::string line;
   while (std::getline(file, line))
   {
-    auto tokens = Utils::splitString(line, '#', true);
+    auto tokens = Sdk::splitString(line, '#', true);
     if (tokens.empty())
       continue;
     line = tokens.front();
     if (line.empty())
       continue;
 
-    tokens = Utils::splitString(line, ' ', true);
+    tokens = Sdk::splitString(line, ' ', true);
     if (tokens[0] == "v")
     {
       positions.push_back({
@@ -122,7 +122,7 @@ void MeshLoader::loadInfoFromObjFile(
     {
       for (int trioNum : { 1, 2, 3 })
       {
-        auto indicesTrio = Utils::splitString(tokens[trioNum], '/', true);
+        auto indicesTrio = Sdk::splitString(tokens[trioNum], '/', true);
         int posIndex = std::atoi(indicesTrio[0].c_str()) - 1;
         int texCoordIndex = !indicesTrio[1].empty() ? std::atoi(indicesTrio[1].c_str()) - 1 : -1;
         int normIndex = std::atoi(indicesTrio[2].c_str()) - 1;
@@ -131,7 +131,7 @@ void MeshLoader::loadInfoFromObjFile(
         auto it = trioMap.find(trio);
         if (it == trioMap.end())
         {
-          Vector2 uv = (texCoordIndex == -1) ? Vector2{ 0.0f, 0.0f } : texCoords[texCoordIndex];
+          Sdk::Vector2 uv = (texCoordIndex == -1) ? Sdk::Vector2{ 0.0f, 0.0f } : texCoords[texCoordIndex];
           o_vertices.push_back({ positions[posIndex], uv, normals[normIndex] });
           trioMap[trio] = nextIndex;
           o_indices.push_back(nextIndex);
@@ -148,7 +148,7 @@ void MeshLoader::loadInfoFromObjFile(
 
   } // while (std::getline(file, line))
 
-  mtllibFileName = Utils::getParentFolder(i_modelPath) + "\\" + mtllibFileName;
+  mtllibFileName = Sdk::getParentFolder(i_modelPath) + "\\" + mtllibFileName;
   auto materials = loadMaterials(mtllibFileName);
 
   for (auto it = materialNamesMap.begin(); it != materialNamesMap.end(); ++it)

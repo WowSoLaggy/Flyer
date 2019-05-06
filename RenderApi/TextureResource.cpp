@@ -3,7 +3,7 @@
 
 #include "RenderDevice.h"
 
-#include <Sdk/StringUtils.h>
+#include <LaggySdk/StringUtils.h>
 
 
 TextureResource::TextureResource(std::string i_textureFilePath)
@@ -17,7 +17,7 @@ void TextureResource::load(IRenderDevice& i_renderDevice)
   auto& renderDevice = dynamic_cast<RenderDevice&>(i_renderDevice);
 
   CreateDDSTextureFromFile(renderDevice.getDevicePtr(),
-    Utils::getWString(d_textureFilePath).c_str(), nullptr, &d_texture);
+                           Sdk::getWString(d_textureFilePath).c_str(), nullptr, &d_texture);
 }
 
 void TextureResource::unload()
