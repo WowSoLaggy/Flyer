@@ -6,7 +6,7 @@
 #include <LaggyDx/IResourceController.h>
 
 
-CollisionShapeGui3dVm::CollisionShapeGui3dVm(const IResourceController& i_resourceController,
+CollisionShapeGui3dVm::CollisionShapeGui3dVm(const Dx::IResourceController& i_resourceController,
                                              const CollisionShapeGui3d& i_collisionShapeGui3d)
   : d_collisionShapeGui3d(i_collisionShapeGui3d)
 {
@@ -14,15 +14,15 @@ CollisionShapeGui3dVm::CollisionShapeGui3dVm(const IResourceController& i_resour
 }
 
 
-void CollisionShapeGui3dVm::reloadResources(const IResourceController& i_resourceController)
+void CollisionShapeGui3dVm::reloadResources(const Dx::IResourceController& i_resourceController)
 {
   d_meshResourceId = i_resourceController.getResourceId(d_collisionShapeGui3d.getModelName());
   d_textureResourceId = i_resourceController.getResourceId(d_collisionShapeGui3d.getTextureName());
 }
 
-void CollisionShapeGui3dVm::render(IRenderer& i_renderer) const
+void CollisionShapeGui3dVm::render(Dx::IRenderer& i_renderer) const
 {
-  auto& renderer3d = dynamic_cast<IRenderer3d&>(i_renderer);
+  auto& renderer3d = dynamic_cast<Dx::IRenderer3d&>(i_renderer);
   renderer3d.renderObject(d_meshResourceId, d_textureResourceId, nullptr,
                           d_collisionShapeGui3d.getPosition(), d_collisionShapeGui3d.getRotation(),
                           d_collisionShapeGui3d.getScale(), false);

@@ -6,21 +6,21 @@
 #include <LaggyDx/IResourceController.h>
 
 
-LabelVm::LabelVm(const IResourceController& i_resourceController, const Label& i_label)
+LabelVm::LabelVm(const Dx::IResourceController& i_resourceController, const Label& i_label)
   : d_label(i_label)
 {
   reloadResources(i_resourceController);
 }
 
 
-void LabelVm::reloadResources(const IResourceController& i_resourceController)
+void LabelVm::reloadResources(const Dx::IResourceController& i_resourceController)
 {
   d_fontResourceId = i_resourceController.getResourceId(d_label.getFontName());
 }
 
-void LabelVm::render(IRenderer& i_renderer) const
+void LabelVm::render(Dx::IRenderer& i_renderer) const
 {
-  auto& renderer2d = dynamic_cast<IRenderer2d&>(i_renderer);
+  auto& renderer2d = dynamic_cast<Dx::IRenderer2d&>(i_renderer);
   renderer2d.renderText(d_label.getText(), d_fontResourceId, d_label.getPosition());
 }
 

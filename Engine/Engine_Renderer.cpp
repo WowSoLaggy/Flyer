@@ -5,12 +5,12 @@
 #include <LaggyDx/IResourceController.h>
 
 
-std::shared_ptr<IRenderDevice> Engine::getRenderDevice()
+std::shared_ptr<Dx::IRenderDevice> Engine::getRenderDevice()
 {
   return d_renderDevice;
 }
 
-std::shared_ptr<IResourceController> Engine::getResourceController()
+std::shared_ptr<Dx::IResourceController> Engine::getResourceController()
 {
   return d_resourceController;
 }

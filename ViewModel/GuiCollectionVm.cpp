@@ -20,7 +20,7 @@
 #include <LaggyDx/IRenderer3d.h>
 
 
-GuiCollectionVm::GuiCollectionVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController)
+GuiCollectionVm::GuiCollectionVm(Dx::IRenderDevice& io_renderDevice, const Dx::IResourceController& i_resourceController)
   : d_renderDevice(io_renderDevice)
   , d_resourceController(i_resourceController)
 {
@@ -40,7 +40,7 @@ void GuiCollectionVm::buildFromCollection(IGuiController& i_guiController)
 }
 
 
-void GuiCollectionVm::render(IRenderer2d& i_renderer2d, IRenderer3d& i_renderer3d, double i_dt) const
+void GuiCollectionVm::render(Dx::IRenderer2d& i_renderer2d, Dx::IRenderer3d& i_renderer3d, double i_dt) const
 {
   for (const auto& gui3dVm : d_guis3d)
     gui3dVm->render(i_renderer3d);

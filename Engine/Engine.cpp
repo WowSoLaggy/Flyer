@@ -38,9 +38,9 @@ void Engine::run(
 
 void Engine::initialize(const std::string& i_resourceFolder)
 {
-  d_renderDevice = IRenderDevice::create();
+  d_renderDevice = Dx::IRenderDevice::create();
 
-  d_resourceController = IResourceController::create();
+  d_resourceController = Dx::IResourceController::create();
   d_resourceController->initialize(i_resourceFolder);
 
   d_inputDevice = IInputDevice::create();

@@ -19,7 +19,7 @@
 
 
 GuiController::GuiController(GuiCollection& io_guiCollection, Gui3dCollection& io_gui3dCollection,
-                             IWorldController& io_worldController, const ICamera& i_camera)
+                             IWorldController& io_worldController, const Dx::ICamera& i_camera)
   : d_worldController(dynamic_cast<WorldController&>(io_worldController))
   , d_guiCollection(io_guiCollection)
   , d_gui3dCollection(io_gui3dCollection)

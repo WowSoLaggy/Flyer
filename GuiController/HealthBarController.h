@@ -12,7 +12,7 @@ class HealthBarController
 public:
 
   HealthBarController(GuiController& io_guiController, GuiCollection& io_guiCollection,
-                      const ICamera& i_camera);
+                      const Dx::ICamera& i_camera);
 
   void update(HealthBar& io_healthBar);
 
@@ -25,7 +25,7 @@ private:
   
   GuiController& d_guiController;
   GuiCollection& d_guiCollection;
-  const ICamera& d_camera;
+  const Dx::ICamera& d_camera;
 
   std::unordered_map<GuiId, ObjectPtr> d_healthBarMap;
 };

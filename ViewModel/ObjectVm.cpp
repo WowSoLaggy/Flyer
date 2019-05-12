@@ -21,11 +21,11 @@ namespace
 } // anonymous NS
 
 
-ObjectVm::ObjectVm(const IResourceController& i_resourceController, const Object& i_object)
+ObjectVm::ObjectVm(const Dx::IResourceController& i_resourceController, const Object& i_object)
   : d_object(i_object)
   , d_meshResourceCmoId(i_resourceController.getResourceId(d_object.getModelName()))
 {
-  d_animationController = IAnimationController::getAnimationController(i_resourceController, d_meshResourceCmoId);
+  d_animationController = Dx::IAnimationController::getAnimationController(i_resourceController, d_meshResourceCmoId);
 }
 
 
@@ -42,11 +42,11 @@ void ObjectVm::update(double i_dt)
     d_animationController->setAnimation(objectActionName);
 }
 
-void ObjectVm::render(IRenderer3d& i_renderer) const
+void ObjectVm::render(Dx::IRenderer3d& i_renderer) const
 {
   if (!d_object.getVisibility())
     return;
 
-  i_renderer.renderObject(d_meshResourceCmoId, ResourceIdEmpty, d_animationController,
+  i_renderer.renderObject(d_meshResourceCmoId, Dx::ResourceIdEmpty, d_animationController,
     d_object.getPosition(), d_object.getRotation(), d_object.getScale(), true);
 }

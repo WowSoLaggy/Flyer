@@ -9,16 +9,16 @@ class CurrentActionPanelVm : public GuiVm
 {
 public:
 
-  CurrentActionPanelVm(const IResourceController& i_resourceController,
+  CurrentActionPanelVm(const Dx::IResourceController& i_resourceController,
                        const CurrentActionPanel& i_currentActionPanelVm);
 
-  virtual void reloadResources(const IResourceController& i_resourceController) override;
-  virtual void render(IRenderer& i_renderer) const override;
+  virtual void reloadResources(const Dx::IResourceController& i_resourceController) override;
+  virtual void render(Dx::IRenderer& i_renderer) const override;
 
   virtual const IGui& getGui() const override;
 
 private:
 
   const CurrentActionPanel& d_currentActionPanel;
-  ResourceId d_textureResourceId;
+  Dx::ResourceId d_textureResourceId;
 };

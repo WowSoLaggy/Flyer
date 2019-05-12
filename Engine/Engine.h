@@ -19,8 +19,8 @@ public:
 
   // Renderer
 
-  virtual std::shared_ptr<IRenderDevice> getRenderDevice() override;
-  virtual std::shared_ptr<IResourceController> getResourceController() override;
+  virtual std::shared_ptr<Dx::IRenderDevice> getRenderDevice() override;
+  virtual std::shared_ptr<Dx::IResourceController> getResourceController() override;
 
   virtual bool isRendererCreated() const override;
   virtual void createRenderer(HWND i_hWnd, int i_resolutionX, int i_resolutionY) override;
@@ -34,8 +34,8 @@ private:
 
   // Renderer
 
-  std::shared_ptr<IRenderDevice> d_renderDevice;
-  std::shared_ptr<IResourceController> d_resourceController;
+  std::shared_ptr<Dx::IRenderDevice> d_renderDevice;
+  std::shared_ptr<Dx::IResourceController> d_resourceController;
 
   // Input
 

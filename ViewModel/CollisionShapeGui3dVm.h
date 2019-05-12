@@ -8,16 +8,16 @@
 class CollisionShapeGui3dVm : public GuiVm
 {
 public:
-  CollisionShapeGui3dVm(const IResourceController& i_resourceController,
+  CollisionShapeGui3dVm(const Dx::IResourceController& i_resourceController,
                         const CollisionShapeGui3d& i_collisionShapeGui3d);
 
-  virtual void reloadResources(const IResourceController& i_resourceController) override;
-  virtual void render(IRenderer& i_renderer) const override;
+  virtual void reloadResources(const Dx::IResourceController& i_resourceController) override;
+  virtual void render(Dx::IRenderer& i_renderer) const override;
 
   virtual const IGui& getGui() const override;
 
 private:
   const CollisionShapeGui3d& d_collisionShapeGui3d;
-  ResourceId d_meshResourceId;
-  ResourceId d_textureResourceId;
+  Dx::ResourceId d_meshResourceId;
+  Dx::ResourceId d_textureResourceId;
 };

@@ -10,7 +10,7 @@
 #include <LaggyDx/IRenderer3d.h>
 
 
-WorldVm::WorldVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController)
+WorldVm::WorldVm(Dx::IRenderDevice& io_renderDevice, const Dx::IResourceController& i_resourceController)
   : d_renderDevice(io_renderDevice)
   , d_resourceController(i_resourceController)
 {
@@ -31,7 +31,7 @@ void WorldVm::buildFromWorld(WorldController& i_worldController)
 }
 
 
-void WorldVm::render(IRenderer3d& i_renderer, double i_dt) const
+void WorldVm::render(Dx::IRenderer3d& i_renderer, double i_dt) const
 {
   d_terrainVm->render(i_renderer);
 

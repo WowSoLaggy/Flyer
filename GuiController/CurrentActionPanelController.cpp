@@ -36,7 +36,7 @@ namespace
 
 
 CurrentActionPanelController::CurrentActionPanelController(GuiController& io_guiController, GuiCollection& io_guiCollection,
-                                                           const ICamera& i_camera)
+                                                           const Dx::ICamera& i_camera)
   : d_guiController(io_guiController)
   , d_guiCollection(io_guiCollection)
   , d_camera(i_camera)

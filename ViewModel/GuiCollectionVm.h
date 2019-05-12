@@ -12,18 +12,18 @@ class GuiCollectionVm : public Sdk::EventHandler
 {
 public:
 
-  GuiCollectionVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController);
+  GuiCollectionVm(Dx::IRenderDevice& io_renderDevice, const Dx::IResourceController& i_resourceController);
 
   void buildFromCollection(IGuiController& i_guiController);
 
-  void render(IRenderer2d& i_renderer2d, IRenderer3d& i_renderer3d, double i_dt) const;
+  void render(Dx::IRenderer2d& i_renderer2d, Dx::IRenderer3d& i_renderer3d, double i_dt) const;
 
   virtual void processEvent(const Sdk::IEvent& i_event) override;
 
 private:
 
-  IRenderDevice & d_renderDevice;
-  const IResourceController& d_resourceController;
+  Dx::IRenderDevice & d_renderDevice;
+  const Dx::IResourceController& d_resourceController;
 
   std::vector<std::shared_ptr<GuiVm>> d_guis;
   std::vector<std::shared_ptr<GuiVm>> d_guis3d;

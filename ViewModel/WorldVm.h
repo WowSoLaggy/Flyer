@@ -12,18 +12,18 @@ class WorldVm : public Sdk::EventHandler
 {
 public:
 
-  WorldVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController);
+  WorldVm(Dx::IRenderDevice& io_renderDevice, const Dx::IResourceController& i_resourceController);
 
   void buildFromWorld(WorldController& i_worldController);
 
-  void render(IRenderer3d& i_renderer, double i_dt) const;
+  void render(Dx::IRenderer3d& i_renderer, double i_dt) const;
 
   virtual void processEvent(const Sdk::IEvent& i_event) override;
 
 private:
 
-  IRenderDevice& d_renderDevice;
-  const IResourceController& d_resourceController;
+  Dx::IRenderDevice& d_renderDevice;
+  const Dx::IResourceController& d_resourceController;
 
   std::shared_ptr<TerrainVm> d_terrainVm;
   std::vector<std::shared_ptr<ObjectVm>> d_objectVms;

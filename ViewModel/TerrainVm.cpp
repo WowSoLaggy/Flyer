@@ -7,7 +7,7 @@
 
 
 TerrainVm::TerrainVm(
-  IRenderDevice& io_renderDevice, const IResourceController& i_resourceController,
+  Dx::IRenderDevice& io_renderDevice, const Dx::IResourceController& i_resourceController,
   const Terrain& i_terrain)
   : d_terrain(i_terrain)
   , d_textureResourceId(i_resourceController.getResourceId(d_terrain.getTextureName()))
@@ -22,7 +22,7 @@ TerrainVm::~TerrainVm()
 }
 
 
-void TerrainVm::render(IRenderer3d& i_renderer) const
+void TerrainVm::render(Dx::IRenderer3d& i_renderer) const
 {
   i_renderer.renderObject(
     d_textureResourceId,
@@ -32,7 +32,7 @@ void TerrainVm::render(IRenderer3d& i_renderer) const
 }
 
 
-void TerrainVm::createBuffers(IRenderDevice& io_renderDevice)
+void TerrainVm::createBuffers(Dx::IRenderDevice& io_renderDevice)
 {
   auto& heightMap = d_terrain.getHeightMap();
   float heightGridStep = d_terrain.getHeightGridStep();
@@ -40,7 +40,7 @@ void TerrainVm::createBuffers(IRenderDevice& io_renderDevice)
   int sizeX = heightMap.getSizeXInc();
   int sizeZ = heightMap.getSizeZInc();
 
-  std::vector<VertexTypePosTexNorm> vertices;
+  std::vector<Dx::VertexTypePosTexNorm> vertices;
   std::vector<int> indices;
 
   vertices.reserve(sizeX * sizeZ);
@@ -146,5 +146,5 @@ void TerrainVm::createBuffers(IRenderDevice& io_renderDevice)
   d_vertexBuffer.create(io_renderDevice, vertices);
   d_indexBuffer.create(io_renderDevice, indices);
 
-  d_materialSequence.add({ Material::getDefault(), 0, d_indexBuffer.getIndexCount() });
+  d_materialSequence.add({ Dx::Material::getDefault(), 0, d_indexBuffer.getIndexCount() });
 }

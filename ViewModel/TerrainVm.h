@@ -12,21 +12,21 @@ class TerrainVm
 public:
 
   TerrainVm(
-    IRenderDevice& io_renderDevice, const IResourceController& i_resourceController,
+    Dx::IRenderDevice& io_renderDevice, const Dx::IResourceController& i_resourceController,
     const Terrain& i_terrain);
   ~TerrainVm();
 
-  void render(IRenderer3d& i_renderer) const;
+  void render(Dx::IRenderer3d& i_renderer) const;
 
 private:
 
   const Terrain& d_terrain;
 
-  const ResourceId d_textureResourceId;
+  const Dx::ResourceId d_textureResourceId;
 
-  VertexBuffer d_vertexBuffer;
-  IndexBuffer d_indexBuffer;
-  MaterialSequence d_materialSequence;
+  Dx::VertexBuffer d_vertexBuffer;
+  Dx::IndexBuffer d_indexBuffer;
+  Dx::MaterialSequence d_materialSequence;
 
-  void createBuffers(IRenderDevice& io_renderDevice);
+  void createBuffers(Dx::IRenderDevice& io_renderDevice);
 };

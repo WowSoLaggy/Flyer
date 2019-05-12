@@ -12,16 +12,16 @@
 #include <LaggySdk/Math.h>
 
 
-GameVm::GameVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController,
+GameVm::GameVm(Dx::IRenderDevice& io_renderDevice, const Dx::IResourceController& i_resourceController,
                IWorldController& i_worldController,
                int i_screenWidth, int i_screenHeight)
   : d_renderDevice(io_renderDevice)
   , d_resourceController(i_resourceController)
   , d_worldController(dynamic_cast<WorldController&>(i_worldController))
 {
-  d_camera = ICamera::createCamera(i_screenWidth, i_screenHeight);
-  d_renderer2d = IRenderer2d::create(io_renderDevice, i_resourceController);
-  d_renderer3d = IRenderer3d::create(io_renderDevice, i_resourceController, *d_camera);
+  d_camera = Dx::ICamera::createCamera(i_screenWidth, i_screenHeight);
+  d_renderer2d = Dx::IRenderer2d::create(io_renderDevice, i_resourceController);
+  d_renderer3d = Dx::IRenderer3d::create(io_renderDevice, i_resourceController, *d_camera);
 
   d_worldVm = std::make_shared<WorldVm>(io_renderDevice, i_resourceController);
   d_worldVm->buildFromWorld(d_worldController);
