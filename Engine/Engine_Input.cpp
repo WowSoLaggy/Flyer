@@ -4,7 +4,7 @@
 #include <InputApi/IInputDevice.h>
 
 
-void Engine::processMessage(const Message& i_inputMessage)
+void Engine::processMessage(const Sdk::Message& i_inputMessage)
 {
   d_inputDevice->processMessage(i_inputMessage);
 }

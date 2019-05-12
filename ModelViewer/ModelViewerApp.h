@@ -1,7 +1,7 @@
 #pragma once
 
 #include <InputApi/InputApiFwd.h>
-#include <WindowsApi/Window.h>
+#include <LaggySdk/Window.h>
 
 
 class ModelViewerApp
@@ -12,7 +12,7 @@ public:
 private:
   bool d_stopFlag;
 
-  Window d_window;
+  Sdk::Window d_window;
 
   std::shared_ptr<IInputDevice> d_inputDevice;
 

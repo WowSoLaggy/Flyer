@@ -11,7 +11,7 @@ public:
   virtual void initialize() override;
   virtual void dispose() override;
 
-  virtual void processMessage(const Message& i_inputMessage) override;
+  virtual void processMessage(const Sdk::Message& i_inputMessage) override;
 
   virtual const KeyboardState& check() override;
 

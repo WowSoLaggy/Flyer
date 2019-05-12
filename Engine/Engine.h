@@ -28,7 +28,7 @@ public:
 
   // Input
 
-  virtual void processMessage(const Message& i_inputMessage) override;
+  virtual void processMessage(const Sdk::Message& i_inputMessage) override;
 
 private:
 

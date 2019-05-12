@@ -2,7 +2,7 @@
 
 #include "InputApiFwd.h"
 
-#include <WindowsApi/WindowsApiFwd.h>
+#include <LaggySdk/SdkFwd.h>
 
 
 class IInputDevice
@@ -18,7 +18,7 @@ public:
   virtual void initialize() = 0;
   virtual void dispose() = 0;
 
-  virtual void processMessage(const Message& i_inputMessage) = 0;
+  virtual void processMessage(const Sdk::Message& i_inputMessage) = 0;
 
   virtual const KeyboardState& check() = 0;
 

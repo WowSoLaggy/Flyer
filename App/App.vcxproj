@@ -202,9 +202,6 @@ call "$(SolutionDir)Scripts\CopyRsrcToOutput.bat" "$(TargetDir)Data" "$(Solution
     <ProjectReference Include="..\ViewModel\ViewModel.vcxproj">
       <Project>{2282d273-7eaa-4e3b-bc6b-a340c66e3e98}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\WindowsApi\WindowsApi.vcxproj">
-      <Project>{3cba0ce6-ba0a-44d0-89a4-471a756dc1d1}</Project>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="..\rsrc\Models\Arena.fbx" />

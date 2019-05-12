@@ -6,10 +6,10 @@
 #include <GuiModel/GuiModelFwd.h>
 #include <GuiController/GuiControllerFwd.h>
 #include <InputApi/InputApiFwd.h>
+#include <LaggySdk/Window.h>
 #include <Model/ModelFwd.h>
 #include <ModelControllers/ModelControllersFwd.h>
 #include <ViewModel/ViewModelFwd.h>
-#include <WindowsApi/Window.h>
 
 
 class App
@@ -21,7 +21,7 @@ public:
 private:
 
   SettingsController d_settingsController;
-  Window d_window;
+  Sdk::Window d_window;
   std::shared_ptr<IEngine> d_engine;
 
   std::shared_ptr<World> d_world;

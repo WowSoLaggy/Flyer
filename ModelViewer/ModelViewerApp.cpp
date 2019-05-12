@@ -4,9 +4,9 @@
 #include "SettingsController.h"
 
 #include <InputApi/IInputDevice.h>
+#include <LaggySdk/HandleMessages.h>
 #include <LaggySdk/Random.h>
 #include <LaggySdk/Timer.h>
-#include <WindowsApi/HandleMessages.h>
 
 
 void ModelViewerApp::run()
