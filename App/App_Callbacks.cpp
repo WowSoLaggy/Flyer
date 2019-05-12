@@ -5,8 +5,8 @@
 #include <GuiController/GuiController.h>
 #include <InputApi/KeyboardState.h>
 #include <ModelControllers/WorldController.h>
-#include <RenderApi/ICamera.h>
-#include <RenderApi/IRenderDevice.h>
+#include <LaggyDx/ICamera.h>
+#include <LaggyDx/IRenderDevice.h>
 #include <LaggySdk/HandleMessages.h>
 #include <LaggySdk/Math.h>
 #include <LaggySdk/Vector.h>

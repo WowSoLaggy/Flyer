@@ -2,8 +2,8 @@
 #include "CollisionShapeGui3dVm.h"
 
 #include <GuiModel/CollisionShapeGui3d.h>
-#include <RenderApi/IRenderer3d.h>
-#include <RenderApi/IResourceController.h>
+#include <LaggyDx/IRenderer3d.h>
+#include <LaggyDx/IResourceController.h>
 
 
 CollisionShapeGui3dVm::CollisionShapeGui3dVm(const IResourceController& i_resourceController,

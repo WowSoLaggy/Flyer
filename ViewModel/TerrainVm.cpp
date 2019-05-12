@@ -2,8 +2,8 @@
 #include "TerrainVm.h"
 
 #include <Model/Terrain.h>
-#include <RenderApi/IRenderer3d.h>
-#include <RenderApi/IResourceController.h>
+#include <LaggyDx/IRenderer3d.h>
+#include <LaggyDx/IResourceController.h>
 
 
 TerrainVm::TerrainVm(

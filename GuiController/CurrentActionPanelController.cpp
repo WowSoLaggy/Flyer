@@ -10,7 +10,7 @@
 #include <Model/Creature.h>
 #include <Model/IAction.h>
 #include <Model/ObjectConverters.h>
-#include <RenderApi/ICamera.h>
+#include <LaggyDx/ICamera.h>
 
 
 namespace

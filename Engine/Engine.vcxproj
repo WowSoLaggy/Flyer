@@ -148,11 +148,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\LaggyDx\LaggyDx\LaggyDx.vcxproj">
+      <Project>{27fcdf2c-d499-4f8e-a388-494ab948f151}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\InputApi\InputApi.vcxproj">
       <Project>{cb7d9bcb-b2b7-4da6-b867-0896b3781c26}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\RenderApi\RenderApi.vcxproj">
-      <Project>{27fcdf2c-d499-4f8e-a388-494ab948f151}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

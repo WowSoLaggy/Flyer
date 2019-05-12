@@ -1,10 +1,10 @@
 #pragma once
 
 #include <Model/ModelFwd.h>
-#include <RenderApi/RenderApiFwd.h>
-#include <RenderApi/IndexBuffer.h>
-#include <RenderApi/MaterialSequence.h>
-#include <RenderApi/VertexBuffer.h>
+#include <LaggyDx/LaggyDxFwd.h>
+#include <LaggyDx/IndexBuffer.h>
+#include <LaggyDx/MaterialSequence.h>
+#include <LaggyDx/VertexBuffer.h>
 
 
 class TerrainVm

@@ -2,8 +2,8 @@
 #include "Engine.h"
 
 #include <InputApi/IInputDevice.h>
-#include <RenderApi/IRenderDevice.h>
-#include <RenderApi/IResourceController.h>
+#include <LaggyDx/IRenderDevice.h>
+#include <LaggyDx/IResourceController.h>
 #include <LaggySdk/Timer.h>
 
 

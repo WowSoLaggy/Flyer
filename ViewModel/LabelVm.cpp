@@ -2,8 +2,8 @@
 #include "LabelVm.h"
 
 #include <GuiModel/Label.h>
-#include <RenderApi/IRenderer2d.h>
-#include <RenderApi/IResourceController.h>
+#include <LaggyDx/IRenderer2d.h>
+#include <LaggyDx/IResourceController.h>
 
 
 LabelVm::LabelVm(const IResourceController& i_resourceController, const Label& i_label)

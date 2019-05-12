@@ -2,8 +2,8 @@
 #include "CurrentActionPanelVm.h"
 
 #include <GuiModel/CurrentActionPanel.h>
-#include <RenderApi/IRenderer2d.h>
-#include <RenderApi/IResourceController.h>
+#include <LaggyDx/IRenderer2d.h>
+#include <LaggyDx/IResourceController.h>
 
 
 CurrentActionPanelVm::CurrentActionPanelVm(const IResourceController& i_resourceController,

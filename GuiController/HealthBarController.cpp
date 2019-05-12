@@ -9,7 +9,7 @@
 #include <GuiModel/HealthBar.h>
 #include <Model/Creature.h>
 #include <Model/ObjectConverters.h>
-#include <RenderApi/ICamera.h>
+#include <LaggyDx/ICamera.h>
 
 
 HealthBarController::HealthBarController(GuiController& io_guiController, GuiCollection& io_guiCollection,

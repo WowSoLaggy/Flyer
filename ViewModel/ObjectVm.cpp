@@ -3,9 +3,9 @@
 
 #include <Model/IAction.h>
 #include <Model/Object.h>
-#include <RenderApi/IAnimationController.h>
-#include <RenderApi/IRenderer3d.h>
-#include <RenderApi/IResourceController.h>
+#include <LaggyDx/IAnimationController.h>
+#include <LaggyDx/IRenderer3d.h>
+#include <LaggyDx/IResourceController.h>
 #include <LaggySdk/Vector.h>
 
 

@@ -7,7 +7,7 @@
 #include <Model/World.h>
 #include <ModelControllers/WorldController.h>
 #include <ModelControllers/WorldEvents.h>
-#include <RenderApi/IRenderer3d.h>
+#include <LaggyDx/IRenderer3d.h>
 
 
 WorldVm::WorldVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController)

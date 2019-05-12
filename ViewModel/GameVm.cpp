@@ -6,9 +6,9 @@
 
 #include <Model/Creature.h>
 #include <ModelControllers/WorldController.h>
-#include <RenderApi/ICamera.h>
-#include <RenderApi/IRenderer2d.h>
-#include <RenderApi/IRenderer3d.h>
+#include <LaggyDx/ICamera.h>
+#include <LaggyDx/IRenderer2d.h>
+#include <LaggyDx/IRenderer3d.h>
 #include <LaggySdk/Math.h>
 
 

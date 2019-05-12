@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "Engine.h"
 
-#include <RenderApi/IRenderDevice.h>
-#include <RenderApi/IResourceController.h>
+#include <LaggyDx/IRenderDevice.h>
+#include <LaggyDx/IResourceController.h>
 
 
 std::shared_ptr<IRenderDevice> Engine::getRenderDevice()

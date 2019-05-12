@@ -2,8 +2,8 @@
 #include "HealthBarVm.h"
 
 #include <GuiModel/HealthBar.h>
-#include <RenderApi/IRenderer2d.h>
-#include <RenderApi/IResourceController.h>
+#include <LaggyDx/IRenderer2d.h>
+#include <LaggyDx/IResourceController.h>
 
 
 HealthBarVm::HealthBarVm(const IResourceController& i_resourceController, const HealthBar& i_healthBar)

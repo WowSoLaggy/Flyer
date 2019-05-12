@@ -16,8 +16,8 @@
 #include <GuiModel/Gui3dCollection.h>
 #include <GuiModel/Label.h>
 #include <GuiModel/Panel.h>
-#include <RenderApi/IRenderer2d.h>
-#include <RenderApi/IRenderer3d.h>
+#include <LaggyDx/IRenderer2d.h>
+#include <LaggyDx/IRenderer3d.h>
 
 
 GuiCollectionVm::GuiCollectionVm(IRenderDevice& io_renderDevice, const IResourceController& i_resourceController)

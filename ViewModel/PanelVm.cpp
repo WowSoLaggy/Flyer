@@ -2,8 +2,8 @@
 #include "PanelVm.h"
 
 #include <GuiModel/Panel.h>
-#include <RenderApi/IRenderer2d.h>
-#include <RenderApi/IResourceController.h>
+#include <LaggyDx/IRenderer2d.h>
+#include <LaggyDx/IResourceController.h>
 
 
 PanelVm::PanelVm(const IResourceController& i_resourceController, const Panel& i_panel)
