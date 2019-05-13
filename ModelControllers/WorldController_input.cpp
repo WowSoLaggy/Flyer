@@ -3,12 +3,12 @@
 
 #include "CreatureController.h"
 
-#include <InputApi/KeyboardState.h>
+#include <LaggyDx/KeyboardState.h>
 #include <Model/ActionMoveTo.h>
 #include <Model/Creature.h>
 
 
-void WorldController::processInput(const KeyboardState& i_keyboardState)
+void WorldController::processInput(const Dx::KeyboardState& i_keyboardState)
 {
   if (!d_player)
     return;

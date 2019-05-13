@@ -5,7 +5,7 @@
 #include <Engine/EngineFwd.h>
 #include <GuiModel/GuiModelFwd.h>
 #include <GuiController/GuiControllerFwd.h>
-#include <InputApi/InputApiFwd.h>
+#include <LaggyDx/LaggyDxFwd.h>
 #include <LaggySdk/Window.h>
 #include <Model/ModelFwd.h>
 #include <ModelControllers/ModelControllersFwd.h>
@@ -46,6 +46,6 @@ private:
   ControlSignal controlCallback();
   void updateCallback(double i_dt);
   void renderCallback(double i_dt);
-  void inputCallback(double i_dt, const KeyboardState& i_keyboardState);
+  void inputCallback(double i_dt, const Dx::KeyboardState& i_keyboardState);
 
 };

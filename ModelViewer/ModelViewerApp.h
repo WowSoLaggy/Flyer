@@ -1,6 +1,6 @@
 #pragma once
 
-#include <InputApi/InputApiFwd.h>
+#include <LaggyDx/LaggyDxFwd.h>
 #include <LaggySdk/Window.h>
 
 
@@ -14,7 +14,7 @@ private:
 
   Sdk::Window d_window;
 
-  std::shared_ptr<IInputDevice> d_inputDevice;
+  std::shared_ptr<Dx::IInputDevice> d_inputDevice;
 
   void initialize();
   void mainLoop();

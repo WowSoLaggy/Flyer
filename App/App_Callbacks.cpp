@@ -3,13 +3,13 @@
 
 #include <Engine/IEngine.h>
 #include <GuiController/GuiController.h>
-#include <InputApi/KeyboardState.h>
-#include <ModelControllers/WorldController.h>
+#include <LaggyDx/KeyboardState.h>
 #include <LaggyDx/ICamera.h>
 #include <LaggyDx/IRenderDevice.h>
 #include <LaggySdk/HandleMessages.h>
 #include <LaggySdk/Math.h>
 #include <LaggySdk/Vector.h>
+#include <ModelControllers/WorldController.h>
 #include <ViewModel/GameVm.h>
 
 
@@ -42,7 +42,7 @@ void App::renderCallback(double i_dt)
   d_gameVm->render(i_dt);
 }
 
-void App::inputCallback(double i_dt, const KeyboardState& i_keyboardState)
+void App::inputCallback(double i_dt, const Dx::KeyboardState& i_keyboardState)
 {
   if (i_keyboardState.pressed.Escape)
   {

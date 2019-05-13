@@ -3,7 +3,7 @@
 
 #include "SettingsController.h"
 
-#include <InputApi/IInputDevice.h>
+#include <LaggyDx/IInputDevice.h>
 #include <LaggySdk/HandleMessages.h>
 #include <LaggySdk/Random.h>
 #include <LaggySdk/Timer.h>
@@ -27,7 +27,7 @@ void ModelViewerApp::initialize()
     SettingsController::getAppName());
   d_window.show();
 
-  d_inputDevice = IInputDevice::create();
+  d_inputDevice = Dx::IInputDevice::create();
   d_inputDevice->initialize();
 
   d_stopFlag = false;
@@ -68,7 +68,7 @@ void ModelViewerApp::dispose()
 
 bool ModelViewerApp::stopMainLoop()
 {
-  if (!handleMessages(std::bind(&IInputDevice::processMessage, std::ref(*d_inputDevice), std::placeholders::_1)))
+  if (!Sdk::handleMessages(std::bind(&Dx::IInputDevice::processMessage, std::ref(*d_inputDevice), std::placeholders::_1)))
     return false;
 
   return d_stopFlag;

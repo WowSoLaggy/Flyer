@@ -190,6 +190,9 @@ call "$(SolutionDir)Scripts\CopyRsrcToOutput.bat" "$(TargetDir)Data" "$(Solution
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\LaggyDx\LaggyDx\LaggyDx.vcxproj">
+      <Project>{27fcdf2c-d499-4f8e-a388-494ab948f151}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Engine\Engine.vcxproj">
       <Project>{17a3d436-30fa-43c5-bb09-61fd18e00dd2}</Project>
     </ProjectReference>

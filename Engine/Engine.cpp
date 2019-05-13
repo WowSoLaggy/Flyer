@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Engine.h"
 
-#include <InputApi/IInputDevice.h>
+#include <LaggyDx/IInputDevice.h>
 #include <LaggyDx/IRenderDevice.h>
 #include <LaggyDx/IResourceController.h>
 #include <LaggySdk/Timer.h>
@@ -43,7 +43,7 @@ void Engine::initialize(const std::string& i_resourceFolder)
   d_resourceController = Dx::IResourceController::create();
   d_resourceController->initialize(i_resourceFolder);
 
-  d_inputDevice = IInputDevice::create();
+  d_inputDevice = Dx::IInputDevice::create();
   d_inputDevice->initialize();
 }
 

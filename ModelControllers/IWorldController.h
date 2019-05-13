@@ -1,6 +1,6 @@
 #pragma once
 
-#include <InputApi/InputApiFwd.h>
+#include <LaggyDx/LaggyDxFwd.h>
 #include <Model/ModelFwd.h>
 
 
@@ -15,5 +15,5 @@ public:
   virtual ~IWorldController() = default;
 
   virtual void update(double i_dt) = 0;
-  virtual void processInput(const KeyboardState& i_keyboardState) = 0;
+  virtual void processInput(const Dx::KeyboardState& i_keyboardState) = 0;
 };

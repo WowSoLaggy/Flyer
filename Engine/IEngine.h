@@ -3,7 +3,7 @@
 #include "Callbacks.h"
 #include "EngineFwd.h"
 
-#include <InputApi/InputApiFwd.h>
+#include <LaggyDx/LaggyDxFwd.h>
 #include <LaggySdk/SdkFwd.h>
 #include <LaggyDx/LaggyDxFwd.h>
 

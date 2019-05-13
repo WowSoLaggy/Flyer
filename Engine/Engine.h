@@ -39,6 +39,6 @@ private:
 
   // Input
 
-  std::shared_ptr<IInputDevice> d_inputDevice;
+  std::shared_ptr<Dx::IInputDevice> d_inputDevice;
 
 };
